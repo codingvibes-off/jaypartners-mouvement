@@ -13,6 +13,9 @@
       @if (auth.estConnecte()) {
         <a routerLink="/calendrier" routerLinkActive="actif" class="menu-link">Calendrier</a>
       }
+      <a routerLink="/about" routerLinkActive="actif" class="menu-link">About</a>
+      <a routerLink="/faq" routerLinkActive="actif" class="menu-link">FAQ</a>
+      <a routerLink="/contact" routerLinkActive="actif" class="menu-link">Contact</a>
     </nav>
 
     <div class="actions">
@@ -52,5 +55,8 @@
         Calendrier
       </a>
     }
+    <a routerLink="/about" routerLinkActive="actif" class="menu-mobile-link" (click)="fermerMenu()">About</a>
+    <a routerLink="/faq" routerLinkActive="actif" class="menu-mobile-link" (click)="fermerMenu()">FAQ</a>
+    <a routerLink="/contact" routerLinkActive="actif" class="menu-mobile-link" (click)="fermerMenu()">Contact</a>
   </nav>
 </header>

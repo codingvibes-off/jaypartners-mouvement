@@ -1,0 +1,28 @@
+<section class="entete-faq">
+  <span class="badge">FAQ</span>
+  <h1>Comment utiliser<br /><span class="accent-gold">le site ?</span></h1>
+  <p class="sous-titre">
+    Toutes les réponses pour t'y retrouver : catalogue, entraînements, compte et contact.
+  </p>
+</section>
+
+<section class="liste-faq">
+  @for (item of questions; track item.question; let i = $index) {
+    <div class="item-faq" [class.ouvert]="ouvertIndex() === i">
+      <button class="question-faq" (click)="basculer(i)" [attr.aria-expanded]="ouvertIndex() === i">
+        <span>{{ item.question }}</span>
+        <span class="chevron-faq">
+          <app-icon nom="chevron-down" [taille]="18"></app-icon>
+        </span>
+      </button>
+      @if (ouvertIndex() === i) {
+        <p class="reponse-faq">{{ item.reponse }}</p>
+      }
+    </div>
+  }
+</section>
+
+<section class="cta-faq">
+  <p>Une autre question ?</p>
+  <a routerLink="/contact" class="btn-primaire">Contacter Jay</a>
+</section>

@@ -36,6 +36,21 @@ export const routes: Routes = [
       import('./features/programmes/programmes.component').then((m) => m.ProgrammesComponent),
   },
   {
+    path: 'about',
+    loadComponent: () =>
+      import('./features/about/about.component').then((m) => m.AboutComponent),
+  },
+  {
+    path: 'contact',
+    loadComponent: () =>
+      import('./features/contact/contact.component').then((m) => m.ContactComponent),
+  },
+  {
+    path: 'faq',
+    loadComponent: () =>
+      import('./features/faq/faq.component').then((m) => m.FaqComponent),
+  },
+  {
     path: 'connexion',
     loadComponent: () =>
       import('./features/auth/connexion.component').then((m) => m.ConnexionComponent),

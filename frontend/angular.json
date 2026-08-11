@@ -40,8 +40,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
-            "production": { "buildTarget": "jaypartners:build:production" },
-            "development": { "buildTarget": "jaypartners:build:development" }
+            "production": { "buildTarget": "jaypartners-mouvement:build:production" },
+            "development": { "buildTarget": "jaypartners-mouvement:build:development" }
           },
           "defaultConfiguration": "development"
         }

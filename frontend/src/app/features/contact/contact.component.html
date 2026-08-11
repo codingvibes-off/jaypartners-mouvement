@@ -1,0 +1,22 @@
+<section class="entete-contact">
+  <span class="badge">Contact</span>
+  <h1>Restons <span class="accent-gold">connectés.</span></h1>
+  <p class="sous-titre">
+    Une question, envie de réserver une séance ou juste envie de suivre l'aventure ?
+    Retrouve-moi sur les réseaux ci-dessous.
+  </p>
+</section>
+
+<section class="grille-reseaux">
+  @for (reseau of reseaux; track reseau.nom) {
+    <a class="carte-reseau" [href]="reseau.href" target="_blank" rel="noopener">
+      <span class="icone-reseau">{{ reseau.icone }}</span>
+      <div class="infos-reseau">
+        <span class="nom-reseau">{{ reseau.nom }}</span>
+        <span class="handle-reseau">{{ reseau.handle }}</span>
+        <p class="description-reseau">{{ reseau.description }}</p>
+      </div>
+      <span class="fleche-reseau">→</span>
+    </a>
+  }
+</section>

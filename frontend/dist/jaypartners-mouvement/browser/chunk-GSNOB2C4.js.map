@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["src/app/core/services/seance.service.ts"],
-  "sourcesContent": ["import { Injectable } from '@angular/core';\nimport { HttpClient } from '@angular/common/http';\nimport { Observable } from 'rxjs';\nimport { map } from 'rxjs/operators';\nimport { environment } from '../../../environments/environment';\nimport { Genre, RangeeSeances, Seance } from '../models/models';\n\n@Injectable({ providedIn: 'root' })\nexport class SeanceService {\n  private baseUrl = `${environment.apiUrl}/seances`;\n\n  constructor(private http: HttpClient) {}\n\n  obtenirCatalogue(genre?: Genre): Observable<RangeeSeances[]> {\n    const params: { genre?: Genre } = genre ? { genre } : {};\n    return this.http.get<RangeeSeances[]>(this.baseUrl, { params });\n  }\n\n  obtenirDetail(id: string): Observable<Seance> {\n    return this.http\n      .get<Seance>(`${this.baseUrl}/${id}`)\n      .pipe(map((seance) => ({ ...seance, mouvements: seance.mouvements ?? [] })));\n  }\n}\n"],
-  "mappings": ";;;;;;;;;;;;;AAQM,IAAO,gBAAP,MAAO,eAAa;EAGJ;EAFZ,UAAU,GAAG,YAAY,MAAM;EAEvC,YAAoB,MAAgB;AAAhB,SAAA,OAAA;EAAmB;EAEvC,iBAAiB,OAAa;AAC5B,UAAM,SAA4B,QAAQ,EAAE,MAAK,IAAK,CAAA;AACtD,WAAO,KAAK,KAAK,IAAqB,KAAK,SAAS,EAAE,OAAM,CAAE;EAChE;EAEA,cAAc,IAAU;AACtB,WAAO,KAAK,KACT,IAAY,GAAG,KAAK,OAAO,IAAI,EAAE,EAAE,EACnC,KAAK,IAAI,CAAC,WAAY,iCAAK,SAAL,EAAa,YAAY,OAAO,cAAc,CAAA,EAAE,EAAG,CAAC;EAC/E;;qCAdW,gBAAa,mBAAA,UAAA,CAAA;EAAA;4EAAb,gBAAa,SAAb,eAAa,WAAA,YADA,OAAM,CAAA;;",
-  "names": []
-}

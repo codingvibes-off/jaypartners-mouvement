@@ -3,7 +3,7 @@ import {
 } from "./chunk-CEUFYD57.js";
 import {
   AuthService
-} from "./chunk-FDY6N2GF.js";
+} from "./chunk-NRKUZA5J.js";
 import {
   gsapWithCSS
 } from "./chunk-VNIDSO3Z.js";
@@ -13,13 +13,19 @@ import {
   NavigationEnd,
   Router,
   RouterLink,
+  RouterLinkActive,
   RouterOutlet,
   bootstrapApplication,
   provideRouter
-} from "./chunk-I253Q7U2.js";
+} from "./chunk-LPH4TNPV.js";
+import "./chunk-Z2S5QJHA.js";
+import {
+  DOCUMENT,
+  provideHttpClient,
+  withInterceptors
+} from "./chunk-I4QZ5BRR.js";
 import {
   ANIMATION_MODULE_TYPE,
-  DOCUMENT,
   Inject,
   Injectable,
   NgModule,
@@ -30,10 +36,8 @@ import {
   filter,
   inject,
   performanceMarkFeature,
-  provideHttpClient,
   setClassMetadata,
   signal,
-  withInterceptors,
   ɵsetClassDebugInfo,
   ɵɵStandaloneFeature,
   ɵɵadvance,
@@ -54,6 +58,8 @@ import {
   ɵɵnamespaceHTML,
   ɵɵnamespaceSVG,
   ɵɵnextContext,
+  ɵɵproperty,
+  ɵɵpureFunction0,
   ɵɵresetView,
   ɵɵresolveDocument,
   ɵɵresolveWindow,
@@ -62,7 +68,7 @@ import {
   ɵɵtext,
   ɵɵtextInterpolate,
   ɵɵtextInterpolate1
-} from "./chunk-Z3NPIKQV.js";
+} from "./chunk-N2MMUZ74.js";
 import {
   __objRest,
   __spreadValues
@@ -4560,31 +4566,47 @@ var NoopAnimationsModule = class _NoopAnimationsModule {
 var routes = [
   {
     path: "",
-    loadComponent: () => import("./chunk-5ZDMJMZM.js").then((m) => m.HomeComponent)
+    loadComponent: () => import("./chunk-AL36ETZP.js").then((m) => m.HomeComponent)
   },
   {
     path: "seance/:id",
-    loadComponent: () => import("./chunk-ZY2VZ3CS.js").then((m) => m.SeanceDetailComponent)
+    loadComponent: () => import("./chunk-XDRN6X67.js").then((m) => m.SeanceDetailComponent)
   },
   {
     path: "seance/:id/entrainement",
-    loadComponent: () => import("./chunk-BQXKURYS.js").then((m) => m.EntrainementComponent)
+    loadComponent: () => import("./chunk-VZ7OS6AU.js").then((m) => m.EntrainementComponent)
   },
   {
     path: "calendrier",
-    loadComponent: () => import("./chunk-RFQNWY3M.js").then((m) => m.CalendrierComponent)
+    loadComponent: () => import("./chunk-2EPPVBXD.js").then((m) => m.CalendrierComponent)
   },
   {
     path: "decouvrir",
-    loadComponent: () => import("./chunk-SFYT5E2J.js").then((m) => m.DecouvrirComponent)
+    loadComponent: () => import("./chunk-LZACFKYW.js").then((m) => m.DecouvrirComponent)
+  },
+  {
+    path: "programmes",
+    loadComponent: () => import("./chunk-TMSBPBTD.js").then((m) => m.ProgrammesComponent)
+  },
+  {
+    path: "about",
+    loadComponent: () => import("./chunk-3AVDBBIO.js").then((m) => m.AboutComponent)
+  },
+  {
+    path: "contact",
+    loadComponent: () => import("./chunk-NVBWANZU.js").then((m) => m.ContactComponent)
+  },
+  {
+    path: "faq",
+    loadComponent: () => import("./chunk-JMKUEXCO.js").then((m) => m.FaqComponent)
   },
   {
     path: "connexion",
-    loadComponent: () => import("./chunk-XMHHU7XM.js").then((m) => m.ConnexionComponent)
+    loadComponent: () => import("./chunk-M3SNNSBB.js").then((m) => m.ConnexionComponent)
   },
   {
     path: "inscription",
-    loadComponent: () => import("./chunk-E6GJLHLV.js").then((m) => m.InscriptionComponent)
+    loadComponent: () => import("./chunk-T5VENKND.js").then((m) => m.InscriptionComponent)
   },
   { path: "**", redirectTo: "" }
 ];
@@ -4610,24 +4632,25 @@ var appConfig = {
 };
 
 // src/app/shared/components/navbar/navbar.component.ts
-function NavbarComponent_Conditional_18_Template(rf, ctx) {
+var _c0 = () => ({ exact: true });
+function NavbarComponent_Conditional_14_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "a", 10);
+    \u0275\u0275elementStart(0, "a", 9);
     \u0275\u0275text(1, "Calendrier");
     \u0275\u0275elementEnd();
   }
 }
-function NavbarComponent_Conditional_20_Template(rf, ctx) {
+function NavbarComponent_Conditional_22_Template(rf, ctx) {
   if (rf & 1) {
     const _r1 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "div", 17)(1, "span", 18);
+    \u0275\u0275elementStart(0, "div", 23)(1, "span", 24);
     \u0275\u0275text(2, "\u{1F464}");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(3, "span", 19);
+    \u0275\u0275elementStart(3, "span", 25);
     \u0275\u0275text(4);
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(5, "button", 20);
-    \u0275\u0275listener("click", function NavbarComponent_Conditional_20_Template_button_click_5_listener() {
+    \u0275\u0275elementStart(5, "button", 26);
+    \u0275\u0275listener("click", function NavbarComponent_Conditional_22_Template_button_click_5_listener() {
       \u0275\u0275restoreView(_r1);
       const ctx_r1 = \u0275\u0275nextContext();
       return \u0275\u0275resetView(ctx_r1.deconnexion());
@@ -4642,26 +4665,26 @@ function NavbarComponent_Conditional_20_Template(rf, ctx) {
     \u0275\u0275textInterpolate((tmp_1_0 = ctx_r1.auth.utilisateurCourant()) == null ? null : tmp_1_0.prenom);
   }
 }
-function NavbarComponent_Conditional_21_Template(rf, ctx) {
+function NavbarComponent_Conditional_23_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "a", 21);
+    \u0275\u0275elementStart(0, "a", 27);
     \u0275\u0275text(1, "Connexion");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(2, "a", 22);
+    \u0275\u0275elementStart(2, "a", 28);
     \u0275\u0275text(3, "S'inscrire");
     \u0275\u0275elementEnd();
   }
 }
-function NavbarComponent_Conditional_29_Template(rf, ctx) {
+function NavbarComponent_Conditional_35_Template(rf, ctx) {
   if (rf & 1) {
     const _r3 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "a", 23);
-    \u0275\u0275listener("click", function NavbarComponent_Conditional_29_Template_a_click_0_listener() {
+    \u0275\u0275elementStart(0, "a", 29);
+    \u0275\u0275listener("click", function NavbarComponent_Conditional_35_Template_a_click_0_listener() {
       \u0275\u0275restoreView(_r3);
       const ctx_r1 = \u0275\u0275nextContext();
       return \u0275\u0275resetView(ctx_r1.fermerMenu());
     });
-    \u0275\u0275text(1, "Calendrier");
+    \u0275\u0275text(1, " Calendrier ");
     \u0275\u0275elementEnd();
   }
 }
@@ -4679,8 +4702,8 @@ var NavbarComponent = class _NavbarComponent {
       start: 60,
       onUpdate: (self) => {
         gsapWithCSS.to(".navbar-inner", {
-          paddingTop: self.progress > 0 ? 10 : 16,
-          paddingBottom: self.progress > 0 ? 10 : 16,
+          paddingTop: self.progress > 0 ? 14 : 24,
+          paddingBottom: self.progress > 0 ? 14 : 24,
           duration: 0.25,
           ease: "power2.out",
           overwrite: true
@@ -4739,66 +4762,94 @@ var NavbarComponent = class _NavbarComponent {
         return ctx.onEchap();
       }, false, \u0275\u0275resolveDocument);
     }
-  }, standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 30, vars: 6, consts: [[1, "navbar"], [1, "navbar-inner"], ["aria-label", "Menu", 1, "burger", 3, "click"], ["routerLink", "/", 1, "logo"], [1, "logo-text"], [1, "accent"], [1, "menu-principal"], ["routerLink", "/", 1, "menu-link"], ["routerLink", "/decouvrir", 1, "menu-link"], ["href", "#", 1, "menu-link"], ["routerLink", "/calendrier", 1, "menu-link"], [1, "actions"], [1, "menu-mobile"], ["routerLink", "/", 1, "menu-mobile-link", 3, "click"], ["routerLink", "/decouvrir", 1, "menu-mobile-link", 3, "click"], ["href", "#", 1, "menu-mobile-link", 3, "click"], ["routerLink", "/calendrier", 1, "menu-mobile-link"], [1, "user-info"], [1, "avatar"], [1, "prenom"], [1, "btn-secondaire", 3, "click"], ["routerLink", "/connexion", 1, "btn-secondaire"], ["routerLink", "/inscription", 1, "btn-primaire"], ["routerLink", "/calendrier", 1, "menu-mobile-link", 3, "click"]], template: function NavbarComponent_Template(rf, ctx) {
+  }, standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 42, vars: 10, consts: [[1, "navbar"], [1, "navbar-inner"], ["routerLink", "/", 1, "logo"], [1, "logo-text"], [1, "accent"], [1, "menu-pilule"], ["routerLink", "/", "routerLinkActive", "actif", 1, "menu-link", 3, "routerLinkActiveOptions"], ["routerLink", "/decouvrir", "routerLinkActive", "actif", 1, "menu-link"], ["routerLink", "/programmes", "routerLinkActive", "actif", 1, "menu-link"], ["routerLink", "/calendrier", "routerLinkActive", "actif", 1, "menu-link"], ["routerLink", "/about", "routerLinkActive", "actif", 1, "menu-link"], ["routerLink", "/faq", "routerLinkActive", "actif", 1, "menu-link"], ["routerLink", "/contact", "routerLinkActive", "actif", 1, "menu-link"], [1, "actions"], ["aria-label", "Menu", 1, "burger", 3, "click"], [1, "menu-mobile"], ["routerLink", "/", "routerLinkActive", "actif", 1, "menu-mobile-link", 3, "click", "routerLinkActiveOptions"], ["routerLink", "/decouvrir", "routerLinkActive", "actif", 1, "menu-mobile-link", 3, "click"], ["routerLink", "/programmes", "routerLinkActive", "actif", 1, "menu-mobile-link", 3, "click"], ["routerLink", "/calendrier", "routerLinkActive", "actif", 1, "menu-mobile-link"], ["routerLink", "/about", "routerLinkActive", "actif", 1, "menu-mobile-link", 3, "click"], ["routerLink", "/faq", "routerLinkActive", "actif", 1, "menu-mobile-link", 3, "click"], ["routerLink", "/contact", "routerLinkActive", "actif", 1, "menu-mobile-link", 3, "click"], [1, "user-info"], [1, "avatar"], [1, "prenom"], [1, "btn-secondaire", 3, "click"], ["routerLink", "/connexion", 1, "lien-connexion"], ["routerLink", "/inscription", 1, "btn-primaire", "btn-inscription"], ["routerLink", "/calendrier", "routerLinkActive", "actif", 1, "menu-mobile-link", 3, "click"]], template: function NavbarComponent_Template(rf, ctx) {
     if (rf & 1) {
-      \u0275\u0275elementStart(0, "header", 0)(1, "div", 1)(2, "button", 2);
-      \u0275\u0275listener("click", function NavbarComponent_Template_button_click_2_listener() {
+      \u0275\u0275elementStart(0, "header", 0)(1, "div", 1)(2, "a", 2)(3, "span", 3);
+      \u0275\u0275text(4, "JAY ");
+      \u0275\u0275elementStart(5, "span", 4);
+      \u0275\u0275text(6, "PARTNER'S");
+      \u0275\u0275elementEnd()()();
+      \u0275\u0275elementStart(7, "nav", 5)(8, "a", 6);
+      \u0275\u0275text(9, " Accueil ");
+      \u0275\u0275elementEnd();
+      \u0275\u0275elementStart(10, "a", 7);
+      \u0275\u0275text(11, "D\xE9couvrir");
+      \u0275\u0275elementEnd();
+      \u0275\u0275elementStart(12, "a", 8);
+      \u0275\u0275text(13, "Programmes");
+      \u0275\u0275elementEnd();
+      \u0275\u0275template(14, NavbarComponent_Conditional_14_Template, 2, 0, "a", 9);
+      \u0275\u0275elementStart(15, "a", 10);
+      \u0275\u0275text(16, "About");
+      \u0275\u0275elementEnd();
+      \u0275\u0275elementStart(17, "a", 11);
+      \u0275\u0275text(18, "FAQ");
+      \u0275\u0275elementEnd();
+      \u0275\u0275elementStart(19, "a", 12);
+      \u0275\u0275text(20, "Contact");
+      \u0275\u0275elementEnd()();
+      \u0275\u0275elementStart(21, "div", 13);
+      \u0275\u0275template(22, NavbarComponent_Conditional_22_Template, 7, 1)(23, NavbarComponent_Conditional_23_Template, 4, 0);
+      \u0275\u0275elementStart(24, "button", 14);
+      \u0275\u0275listener("click", function NavbarComponent_Template_button_click_24_listener() {
         return ctx.basculerMenu();
       });
-      \u0275\u0275element(3, "span")(4, "span")(5, "span");
-      \u0275\u0275elementEnd();
-      \u0275\u0275elementStart(6, "a", 3)(7, "span", 4);
-      \u0275\u0275text(8, "JAY ");
-      \u0275\u0275elementStart(9, "span", 5);
-      \u0275\u0275text(10, "PARTNER'S");
+      \u0275\u0275element(25, "span")(26, "span")(27, "span");
       \u0275\u0275elementEnd()()();
-      \u0275\u0275elementStart(11, "nav", 6)(12, "a", 7);
-      \u0275\u0275text(13, "Accueil");
-      \u0275\u0275elementEnd();
-      \u0275\u0275elementStart(14, "a", 8);
-      \u0275\u0275text(15, "D\xE9couvrir");
-      \u0275\u0275elementEnd();
-      \u0275\u0275elementStart(16, "a", 9);
-      \u0275\u0275text(17, "Ma liste");
-      \u0275\u0275elementEnd();
-      \u0275\u0275template(18, NavbarComponent_Conditional_18_Template, 2, 0, "a", 10);
-      \u0275\u0275elementEnd();
-      \u0275\u0275elementStart(19, "div", 11);
-      \u0275\u0275template(20, NavbarComponent_Conditional_20_Template, 7, 1)(21, NavbarComponent_Conditional_21_Template, 4, 0);
-      \u0275\u0275elementEnd()();
-      \u0275\u0275elementStart(22, "nav", 12)(23, "a", 13);
-      \u0275\u0275listener("click", function NavbarComponent_Template_a_click_23_listener() {
+      \u0275\u0275elementStart(28, "nav", 15)(29, "a", 16);
+      \u0275\u0275listener("click", function NavbarComponent_Template_a_click_29_listener() {
         return ctx.fermerMenu();
       });
-      \u0275\u0275text(24, "Accueil");
+      \u0275\u0275text(30, " Accueil ");
       \u0275\u0275elementEnd();
-      \u0275\u0275elementStart(25, "a", 14);
-      \u0275\u0275listener("click", function NavbarComponent_Template_a_click_25_listener() {
+      \u0275\u0275elementStart(31, "a", 17);
+      \u0275\u0275listener("click", function NavbarComponent_Template_a_click_31_listener() {
         return ctx.fermerMenu();
       });
-      \u0275\u0275text(26, "D\xE9couvrir");
+      \u0275\u0275text(32, "D\xE9couvrir");
       \u0275\u0275elementEnd();
-      \u0275\u0275elementStart(27, "a", 15);
-      \u0275\u0275listener("click", function NavbarComponent_Template_a_click_27_listener() {
+      \u0275\u0275elementStart(33, "a", 18);
+      \u0275\u0275listener("click", function NavbarComponent_Template_a_click_33_listener() {
         return ctx.fermerMenu();
       });
-      \u0275\u0275text(28, "Ma liste");
+      \u0275\u0275text(34, "Programmes");
       \u0275\u0275elementEnd();
-      \u0275\u0275template(29, NavbarComponent_Conditional_29_Template, 2, 0, "a", 16);
-      \u0275\u0275elementEnd()();
+      \u0275\u0275template(35, NavbarComponent_Conditional_35_Template, 2, 0, "a", 19);
+      \u0275\u0275elementStart(36, "a", 20);
+      \u0275\u0275listener("click", function NavbarComponent_Template_a_click_36_listener() {
+        return ctx.fermerMenu();
+      });
+      \u0275\u0275text(37, "About");
+      \u0275\u0275elementEnd();
+      \u0275\u0275elementStart(38, "a", 21);
+      \u0275\u0275listener("click", function NavbarComponent_Template_a_click_38_listener() {
+        return ctx.fermerMenu();
+      });
+      \u0275\u0275text(39, "FAQ");
+      \u0275\u0275elementEnd();
+      \u0275\u0275elementStart(40, "a", 22);
+      \u0275\u0275listener("click", function NavbarComponent_Template_a_click_40_listener() {
+        return ctx.fermerMenu();
+      });
+      \u0275\u0275text(41, "Contact");
+      \u0275\u0275elementEnd()()();
     }
     if (rf & 2) {
+      \u0275\u0275advance(8);
+      \u0275\u0275property("routerLinkActiveOptions", \u0275\u0275pureFunction0(8, _c0));
+      \u0275\u0275advance(6);
+      \u0275\u0275conditional(ctx.auth.estConnecte() ? 14 : -1);
+      \u0275\u0275advance(8);
+      \u0275\u0275conditional(ctx.auth.estConnecte() ? 22 : 23);
       \u0275\u0275advance(2);
       \u0275\u0275classProp("ouvert", ctx.menuOuvert());
       \u0275\u0275attribute("aria-expanded", ctx.menuOuvert());
-      \u0275\u0275advance(16);
-      \u0275\u0275conditional(ctx.auth.estConnecte() ? 18 : -1);
-      \u0275\u0275advance(2);
-      \u0275\u0275conditional(ctx.auth.estConnecte() ? 20 : 21);
-      \u0275\u0275advance(9);
-      \u0275\u0275conditional(ctx.auth.estConnecte() ? 29 : -1);
+      \u0275\u0275advance(5);
+      \u0275\u0275property("routerLinkActiveOptions", \u0275\u0275pureFunction0(9, _c0));
+      \u0275\u0275advance(6);
+      \u0275\u0275conditional(ctx.auth.estConnecte() ? 35 : -1);
     }
-  }, dependencies: [RouterLink], styles: ['\n\n.navbar[_ngcontent-%COMP%] {\n  position: sticky;\n  top: 0;\n  z-index: 100;\n  background:\n    linear-gradient(\n      180deg,\n      rgba(10, 10, 10, 0.96) 0%,\n      rgba(10, 10, 10, 0.88));\n  backdrop-filter: blur(12px);\n  border-bottom: 1px solid rgba(255, 255, 255, 0.06);\n  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);\n}\n.navbar[_ngcontent-%COMP%]:hover {\n  border-color: rgba(var(--accent-rgb), 0.25);\n}\n@media (max-width: 720px) {\n  .navbar[_ngcontent-%COMP%] {\n    padding: 12px 16px;\n  }\n}\n.navbar-inner[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: 16px 48px;\n  gap: 32px;\n  max-width: 1400px;\n  margin: 0 auto;\n}\n@media (max-width: 1024px) {\n  .navbar-inner[_ngcontent-%COMP%] {\n    padding: 14px 32px;\n    gap: 24px;\n  }\n}\n@media (max-width: 720px) {\n  .navbar-inner[_ngcontent-%COMP%] {\n    padding: 12px 16px;\n    gap: 16px;\n  }\n}\n.logo[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n  font-family: var(--font-display);\n  font-size: 18px;\n  font-weight: 800;\n  letter-spacing: 0.5px;\n  color: var(--text-primary);\n  transition: all 0.3s;\n  white-space: nowrap;\n  flex-shrink: 0;\n}\n.logo[_ngcontent-%COMP%]:hover   .logo-text[_ngcontent-%COMP%]   .accent[_ngcontent-%COMP%] {\n  color: var(--accent-secondary);\n}\n.logo-icon[_ngcontent-%COMP%] {\n  font-size: 24px;\n  display: inline-block;\n}\n.logo-text[_ngcontent-%COMP%] {\n}\n@media (max-width: 720px) {\n  .logo-text[_ngcontent-%COMP%] {\n    font-size: 16px;\n  }\n}\n.logo-text[_ngcontent-%COMP%]   .accent[_ngcontent-%COMP%] {\n  color: var(--accent-primary);\n  transition: color 0.3s;\n}\n.menu-principal[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 32px;\n  flex: 1;\n}\n@media (max-width: 1024px) {\n  .menu-principal[_ngcontent-%COMP%] {\n    gap: 20px;\n  }\n}\n@media (max-width: 720px) {\n  .menu-principal[_ngcontent-%COMP%] {\n    display: none;\n  }\n}\n.menu-link[_ngcontent-%COMP%] {\n  color: var(--text-secondary);\n  font-size: 14px;\n  font-weight: 600;\n  transition: all 0.3s;\n  position: relative;\n}\n.menu-link[_ngcontent-%COMP%]::after {\n  content: "";\n  position: absolute;\n  bottom: -6px;\n  left: 0;\n  width: 0;\n  height: 2px;\n  background:\n    linear-gradient(\n      90deg,\n      var(--accent-primary),\n      var(--accent-secondary));\n  transition: width 0.3s;\n}\n.menu-link[_ngcontent-%COMP%]:hover {\n  color: var(--text-primary);\n}\n.menu-link[_ngcontent-%COMP%]:hover::after {\n  width: 100%;\n}\n.actions[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 16px;\n  flex-shrink: 0;\n}\n@media (max-width: 720px) {\n  .actions[_ngcontent-%COMP%] {\n    gap: 8px;\n  }\n  .actions[_ngcontent-%COMP%]   .btn-primaire[_ngcontent-%COMP%], \n   .actions[_ngcontent-%COMP%]   .btn-secondaire[_ngcontent-%COMP%] {\n    padding: 9px 14px;\n    font-size: 13px;\n  }\n}\n@media (max-width: 400px) {\n  .actions[_ngcontent-%COMP%]   .btn-primaire[_ngcontent-%COMP%], \n   .actions[_ngcontent-%COMP%]   .btn-secondaire[_ngcontent-%COMP%] {\n    padding: 8px 10px;\n    font-size: 12px;\n  }\n}\n.user-info[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  padding: 8px 14px;\n  background: rgba(var(--accent-rgb), 0.1);\n  border-radius: 999px;\n  border: 1px solid rgba(var(--accent-rgb), 0.25);\n}\n.user-info[_ngcontent-%COMP%]   .avatar[_ngcontent-%COMP%] {\n  font-size: 16px;\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n}\n.user-info[_ngcontent-%COMP%]   .prenom[_ngcontent-%COMP%] {\n  color: var(--text-primary);\n  font-size: 13px;\n  font-weight: 700;\n}\n@media (max-width: 1024px) {\n  .user-info[_ngcontent-%COMP%]   .prenom[_ngcontent-%COMP%] {\n    display: none;\n  }\n}\n.prenom[_ngcontent-%COMP%] {\n  color: var(--text-secondary);\n  font-size: 14px;\n  font-weight: 600;\n}\n.burger[_ngcontent-%COMP%] {\n  display: none;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  gap: 5px;\n  width: 36px;\n  height: 36px;\n  flex-shrink: 0;\n  padding: 0;\n  background: transparent;\n  border: none;\n  cursor: pointer;\n  order: -1;\n}\n@media (max-width: 720px) {\n  .burger[_ngcontent-%COMP%] {\n    display: flex;\n  }\n}\n.burger[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  width: 22px;\n  height: 2px;\n  border-radius: 2px;\n  background: var(--text-primary);\n  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;\n}\n.burger.ouvert[_ngcontent-%COMP%]   span[_ngcontent-%COMP%]:nth-child(1) {\n  transform: translateY(7px) rotate(45deg);\n}\n.burger.ouvert[_ngcontent-%COMP%]   span[_ngcontent-%COMP%]:nth-child(2) {\n  opacity: 0;\n  transform: scaleX(0);\n}\n.burger.ouvert[_ngcontent-%COMP%]   span[_ngcontent-%COMP%]:nth-child(3) {\n  transform: translateY(-7px) rotate(-45deg);\n}\n.menu-mobile[_ngcontent-%COMP%] {\n  display: none;\n  flex-direction: column;\n  height: 0;\n  overflow: hidden;\n  background: var(--accent-primary);\n}\n@media (max-width: 720px) {\n  .menu-mobile[_ngcontent-%COMP%] {\n    display: flex;\n  }\n}\n.menu-mobile-link[_ngcontent-%COMP%] {\n  padding: 18px 24px;\n  color: #000;\n  font-size: 16px;\n  font-weight: 800;\n  transition: background 0.15s ease;\n}\n.menu-mobile-link[_ngcontent-%COMP%]:last-child {\n  border-bottom: none;\n}\n.menu-mobile-link[_ngcontent-%COMP%]:active {\n  background: rgba(0, 0, 0, 0.1);\n}\n/*# sourceMappingURL=navbar.component.css.map */'] });
+  }, dependencies: [RouterLink, RouterLinkActive], styles: ["\n\n.navbar[_ngcontent-%COMP%] {\n  position: sticky;\n  top: 0;\n  z-index: 100;\n  background: transparent;\n}\n.navbar-inner[_ngcontent-%COMP%] {\n  position: relative;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: 24px 48px;\n  gap: 24px;\n  max-width: 1400px;\n  margin: 0 auto;\n  transition: padding 0.3s cubic-bezier(0.16, 1, 0.3, 1);\n}\n@media (max-width: 1024px) {\n  .navbar-inner[_ngcontent-%COMP%] {\n    padding: 18px 32px;\n  }\n}\n@media (max-width: 720px) {\n  .navbar-inner[_ngcontent-%COMP%] {\n    padding: 16px 20px;\n    gap: 12px;\n  }\n}\n.logo[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n  font-family: var(--font-display);\n  font-size: 18px;\n  font-weight: 800;\n  letter-spacing: 0.5px;\n  color: var(--text-primary);\n  transition: all 0.3s;\n  white-space: nowrap;\n  flex-shrink: 0;\n}\n.logo[_ngcontent-%COMP%]:hover   .logo-text[_ngcontent-%COMP%]   .accent[_ngcontent-%COMP%] {\n  color: var(--accent-secondary);\n}\n@media (max-width: 720px) {\n  .logo-text[_ngcontent-%COMP%] {\n    font-size: 16px;\n  }\n}\n.logo-text[_ngcontent-%COMP%]   .accent[_ngcontent-%COMP%] {\n  color: var(--accent-primary);\n  transition: color 0.3s;\n}\n.menu-pilule[_ngcontent-%COMP%] {\n  position: absolute;\n  left: 50%;\n  top: 50%;\n  transform: translate(-50%, -50%);\n  display: flex;\n  align-items: center;\n  gap: 2px;\n  padding: 6px;\n  background: rgba(255, 255, 255, 0.05);\n  border: 1px solid rgba(255, 255, 255, 0.09);\n  border-radius: 999px;\n  backdrop-filter: blur(20px) saturate(140%);\n  -webkit-backdrop-filter: blur(20px) saturate(140%);\n  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.28);\n}\n@media (max-width: 1024px) {\n  .menu-pilule[_ngcontent-%COMP%] {\n    display: none;\n  }\n}\n.menu-link[_ngcontent-%COMP%] {\n  position: relative;\n  padding: 10px 20px;\n  border-radius: 999px;\n  color: var(--text-secondary);\n  font-size: 14px;\n  font-weight: 600;\n  white-space: nowrap;\n  transition: all 0.25s ease;\n}\n.menu-link[_ngcontent-%COMP%]:hover {\n  color: var(--text-primary);\n  background: rgba(255, 255, 255, 0.07);\n}\n.menu-link.actif[_ngcontent-%COMP%] {\n  color: #0a0a0a;\n  background: var(--accent-primary);\n  font-weight: 700;\n  box-shadow: 0 4px 18px rgba(var(--accent-rgb), 0.35);\n}\n.actions[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 14px;\n  flex-shrink: 0;\n}\n.lien-connexion[_ngcontent-%COMP%] {\n  color: var(--text-secondary);\n  font-size: 14px;\n  font-weight: 600;\n  transition: color 0.25s ease;\n  white-space: nowrap;\n}\n.lien-connexion[_ngcontent-%COMP%]:hover {\n  color: var(--text-primary);\n}\n@media (max-width: 720px) {\n  .lien-connexion[_ngcontent-%COMP%] {\n    display: none;\n  }\n}\n.btn-inscription[_ngcontent-%COMP%] {\n  padding: 11px 22px;\n  border-radius: 999px;\n}\n@media (max-width: 720px) {\n  .btn-inscription[_ngcontent-%COMP%] {\n    padding: 9px 16px;\n    font-size: 13px;\n  }\n}\n.user-info[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  padding: 8px 14px;\n  background: rgba(255, 255, 255, 0.05);\n  border-radius: 999px;\n  border: 1px solid rgba(255, 255, 255, 0.09);\n  backdrop-filter: blur(16px);\n}\n.user-info[_ngcontent-%COMP%]   .avatar[_ngcontent-%COMP%] {\n  font-size: 16px;\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n}\n.user-info[_ngcontent-%COMP%]   .prenom[_ngcontent-%COMP%] {\n  color: var(--text-primary);\n  font-size: 13px;\n  font-weight: 700;\n}\n@media (max-width: 1024px) {\n  .user-info[_ngcontent-%COMP%]   .prenom[_ngcontent-%COMP%] {\n    display: none;\n  }\n}\n.burger[_ngcontent-%COMP%] {\n  display: none;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  gap: 5px;\n  width: 40px;\n  height: 40px;\n  flex-shrink: 0;\n  padding: 0;\n  background: rgba(255, 255, 255, 0.05);\n  border: 1px solid rgba(255, 255, 255, 0.09);\n  border-radius: 12px;\n  backdrop-filter: blur(16px);\n  cursor: pointer;\n}\n@media (max-width: 1024px) {\n  .burger[_ngcontent-%COMP%] {\n    display: flex;\n  }\n}\n.burger[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  width: 18px;\n  height: 2px;\n  border-radius: 2px;\n  background: var(--text-primary);\n  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;\n}\n.burger.ouvert[_ngcontent-%COMP%]   span[_ngcontent-%COMP%]:nth-child(1) {\n  transform: translateY(7px) rotate(45deg);\n}\n.burger.ouvert[_ngcontent-%COMP%]   span[_ngcontent-%COMP%]:nth-child(2) {\n  opacity: 0;\n  transform: scaleX(0);\n}\n.burger.ouvert[_ngcontent-%COMP%]   span[_ngcontent-%COMP%]:nth-child(3) {\n  transform: translateY(-7px) rotate(-45deg);\n}\n.menu-mobile[_ngcontent-%COMP%] {\n  position: absolute;\n  top: calc(100% + 4px);\n  left: 16px;\n  right: 16px;\n  z-index: 99;\n  display: flex;\n  flex-direction: column;\n  height: 0;\n  overflow: hidden;\n  background: rgba(12, 12, 12, 0.88);\n  border: 1px solid rgba(255, 255, 255, 0.09);\n  border-radius: 20px;\n  backdrop-filter: blur(24px) saturate(140%);\n  -webkit-backdrop-filter: blur(24px) saturate(140%);\n  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.45);\n}\n@media (min-width: 1025px) {\n  .menu-mobile[_ngcontent-%COMP%] {\n    display: none;\n  }\n}\n.menu-mobile-link[_ngcontent-%COMP%] {\n  padding: 16px 22px;\n  color: var(--text-primary);\n  font-size: 15px;\n  font-weight: 700;\n  border-bottom: 1px solid rgba(255, 255, 255, 0.07);\n  transition: all 0.2s ease;\n}\n.menu-mobile-link[_ngcontent-%COMP%]:last-child {\n  border-bottom: none;\n}\n.menu-mobile-link[_ngcontent-%COMP%]:hover, \n.menu-mobile-link[_ngcontent-%COMP%]:active {\n  color: var(--accent-primary);\n  background: rgba(255, 255, 255, 0.04);\n}\n.menu-mobile-link.actif[_ngcontent-%COMP%] {\n  color: var(--accent-primary);\n}\n/*# sourceMappingURL=navbar.component.css.map */"] });
 };
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(NavbarComponent, { className: "NavbarComponent" });

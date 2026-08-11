@@ -1,0 +1,121 @@
+/* CONTACT COMPONENT STYLES */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: rgba(var(--accent-rgb), 0.15);
+  color: var(--accent-primary);
+  border: 1px solid rgba(var(--accent-rgb), 0.3);
+  margin-bottom: 16px;
+}
+
+.accent-gold {
+  color: var(--accent-primary);
+}
+
+.entete-contact {
+  padding: 96px 48px 48px;
+  background: var(--bg);
+  max-width: 640px;
+}
+
+.entete-contact h1 {
+  font-size: clamp(36px, 5vw, 64px);
+  line-height: 1.05;
+  margin-bottom: 20px;
+}
+
+.sous-titre {
+  color: var(--text-secondary);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+@media (max-width: 720px) {
+  .entete-contact {
+    padding: 48px 20px 32px;
+  }
+}
+
+.grille-reseaux {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding: 0 48px 100px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (max-width: 900px) {
+  .grille-reseaux {
+    grid-template-columns: 1fr;
+    padding: 0 20px 72px;
+  }
+}
+
+.carte-reseau {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 28px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  transition: all var(--transition);
+}
+
+.carte-reseau:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent-primary);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+.icone-reseau {
+  font-size: 34px;
+  flex-shrink: 0;
+}
+
+.infos-reseau {
+  flex: 1;
+}
+
+.nom-reseau {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 20px;
+  letter-spacing: 0.5px;
+  color: var(--text-primary);
+}
+
+.handle-reseau {
+  display: block;
+  font-size: 13px;
+  color: var(--accent-primary);
+  font-weight: 700;
+  margin-top: 2px;
+}
+
+.description-reseau {
+  color: var(--text-secondary);
+  font-size: 14px;
+  margin-top: 10px;
+  line-height: 1.5;
+}
+
+.fleche-reseau {
+  font-size: 20px;
+  color: var(--text-tertiary);
+  transition: transform var(--transition), color var(--transition);
+  flex-shrink: 0;
+}
+
+.carte-reseau:hover .fleche-reseau {
+  transform: translateX(4px);
+  color: var(--accent-primary);
+}
