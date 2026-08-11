@@ -1,0 +1,298 @@
+/* MODE ENTRAÎNEMENT — habillage immersif plein écran, même palette (un seul accent) */
+
+.etat-entrainement {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  color: var(--text-secondary);
+  background: #000;
+}
+
+.entrainement {
+  min-height: 100vh;
+  background: #000;
+  padding: 32px 24px 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+
+@media (max-width: 720px) {
+  .entrainement {
+    padding: 20px 16px 48px;
+    gap: 20px;
+  }
+}
+
+/* BANDEAU D'ENCOURAGEMENT — dernière série, glisse depuis le haut avec rebond (GSAP) */
+.bandeau-encouragement {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  background: var(--accent-primary);
+  color: #000;
+  box-shadow: 0 8px 30px rgba(var(--accent-rgb), 0.35);
+  transform: translateY(-120%);
+}
+
+.bandeau-encouragement p {
+  flex: 1;
+  margin: 0;
+  font-weight: 800;
+  font-size: 15px;
+}
+
+.bandeau-encouragement button {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.1);
+  border: none;
+  color: #000;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.bandeau-encouragement button:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 720px) {
+  .bandeau-encouragement p {
+    font-size: 13px;
+  }
+}
+
+/* SÉRIES COCHABLES */
+.series-liste {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.serie-case {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1.5px solid rgba(255, 255, 255, 0.18);
+  color: var(--text-primary);
+  font-weight: 700;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.serie-case:hover {
+  border-color: var(--accent-primary);
+}
+
+.serie-case.cochee {
+  background: var(--accent-primary);
+  border-color: var(--accent-primary);
+  color: #000;
+  transform: scale(1.08);
+}
+
+.entrainement-header {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.quitter {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: color 0.2s;
+}
+
+.quitter:hover {
+  color: var(--text-primary);
+}
+
+.barre-progression {
+  flex: 1;
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+.barre-remplie {
+  height: 100%;
+  background: var(--accent-primary);
+  box-shadow: 0 0 12px rgba(var(--accent-rgb), 0.6);
+  transition: width 0.3s ease;
+}
+
+.compteur {
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.video-conteneur {
+  width: auto;
+  height: min(62vh, 620px);
+  max-width: 100%;
+  aspect-ratio: 9 / 16;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 0 80px rgba(var(--accent-rgb), 0.14);
+  background: var(--bg-card);
+}
+
+@media (max-width: 720px) {
+  .video-conteneur {
+    height: min(58vh, 460px);
+  }
+}
+
+.video-exercice {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.exercice-infos {
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+}
+
+.exercice-infos h1 {
+  font-size: clamp(28px, 4vw, 44px);
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.exercice-meta {
+  color: var(--text-secondary);
+  font-size: 15px;
+}
+
+.minuteur {
+  font-family: var(--font-display);
+  font-size: 48px;
+  font-weight: 800;
+  color: var(--accent-primary);
+  margin-top: 16px;
+}
+
+.controles {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 28px;
+  flex-wrap: wrap;
+}
+
+.btn-rond-controle {
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--text-primary);
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-rond-controle:hover {
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+}
+
+/* ÉCRAN DE FIN DE SÉANCE */
+.ecran-fin {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 24px;
+  background: radial-gradient(circle at 50% 30%, rgba(var(--accent-rgb), 0.14), transparent 60%), #000;
+}
+
+.fin-contenu {
+  max-width: 480px;
+}
+
+.fin-badge {
+  display: inline-flex;
+  background: rgba(var(--accent-rgb), 0.15);
+  border: 1px solid var(--accent-primary);
+  color: var(--accent-primary);
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 24px;
+}
+
+.fin-contenu h1 {
+  font-size: clamp(32px, 5vw, 56px);
+  color: var(--text-primary);
+  margin-bottom: 16px;
+}
+
+.fin-contenu p {
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+.erreur {
+  color: var(--danger);
+}
+
+.connexion-requise a {
+  color: var(--accent-primary);
+  font-weight: 700;
+}
+
+.fin-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}

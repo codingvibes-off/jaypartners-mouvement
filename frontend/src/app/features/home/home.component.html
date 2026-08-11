@@ -1,0 +1,164 @@
+<!-- SECTION HÉROS -->
+<section class="hero">
+  <div class="hero-glow hero-glow-1"></div>
+  <div class="hero-glow hero-glow-2"></div>
+
+  <div class="halteres" aria-hidden="true">
+    @for (h of halteres; track h.classe) {
+      <svg
+        class="haltere {{ h.classe }}"
+        [style.animation-delay.s]="h.delai"
+        viewBox="0 0 100 40"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <rect x="2" y="4" width="10" height="32" rx="3" fill="currentColor" />
+        <rect x="14" y="10" width="8" height="20" rx="2" fill="currentColor" />
+        <rect x="22" y="17" width="56" height="6" rx="3" fill="currentColor" />
+        <rect x="78" y="10" width="8" height="20" rx="2" fill="currentColor" />
+        <rect x="88" y="4" width="10" height="32" rx="3" fill="currentColor" />
+      </svg>
+    }
+  </div>
+
+  <div class="hero-contenu">
+    <div class="hero-badge">🏋 Jay Partner's Streaming Fitness</div>
+    <h1>JAY <span class="accent-gold">PARTNER'S</span></h1>
+    <p class="hero-subtitle">Apprends ton corps • Débloque chaque mouvement • Progresse à ton rythme</p>
+
+    <div class="hero-tags">
+      <span class="hero-tag hero-tag-1">La discipline construit la liberté</span>
+      <span class="hero-tag hero-tag-2">Pas d'excuses, juste des résultats</span>
+    </div>
+
+    <div class="hero-actions">
+      <button class="btn-primaire" (click)="ouvrirSelectionProfil()">
+        <app-icon nom="play" [taille]="16"></app-icon> Commencer maintenant
+      </button>
+      <button class="btn-info"><app-icon nom="info" [taille]="16"></app-icon> Plus d'infos</button>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-value">500+</div>
+        <div class="stat-label">Mouvements</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">100+</div>
+        <div class="stat-label">Séances</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">24/7</div>
+        <div class="stat-label">Accès</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SÉLECTION DE PROFIL -->
+@if (afficherSelectionProfil()) {
+  <div class="voile-profil" (click)="fermerSelectionProfil()">
+    <div class="panneau-profil" (click)="$event.stopPropagation()">
+      <button class="fermer-profil" (click)="fermerSelectionProfil()" aria-label="Fermer">✕</button>
+      <h2>Qui s'entraîne aujourd'hui ?</h2>
+      <p class="sous-titre-profil">Choisis ton profil pour des séances adaptées</p>
+      <div class="profils">
+        <button class="profil" (click)="choisirProfil('HOMME')">
+          <span class="profil-avatar profil-avatar-homme">👨</span>
+          <span class="profil-label">Homme</span>
+        </button>
+        <button class="profil" (click)="choisirProfil('FEMME')">
+          <span class="profil-avatar profil-avatar-femme">👩</span>
+          <span class="profil-label">Femme</span>
+        </button>
+      </div>
+    </div>
+  </div>
+}
+
+<!-- FILTRES & ONGLETS -->
+<section class="filtres-section">
+  <h2>Explorer par catégorie</h2>
+  
+  <div class="onglets">
+    <button
+      class="onglet"
+      [class.actif]="ongletActif() === 'HOMME'"
+      (click)="changerOnglet('HOMME')"
+    >
+      Homme
+    </button>
+    <button
+      class="onglet"
+      [class.actif]="ongletActif() === 'FEMME'"
+      (click)="changerOnglet('FEMME')"
+    >
+      Femme
+    </button>
+    <button
+      class="onglet"
+      [class.actif]="ongletActif() === 'MIXTE'"
+      (click)="changerOnglet('MIXTE')"
+    >
+      Mixte
+    </button>
+  </div>
+</section>
+
+<!-- CATALOGUE PRINCIPAL -->
+<main class="catalogue">
+  @if (chargement()) {
+    <div class="etat-conteneur">
+      <p class="etat">⏳ Chargement du catalogue...</p>
+    </div>
+  } @else if (rangees().length === 0) {
+    <div class="etat-conteneur">
+      <p class="etat">📭 Aucune séance disponible pour le moment.</p>
+    </div>
+  } @else {
+    @if (top10().length > 0) {
+      <section class="rangee rangee-top10">
+        <div class="rangee-header">
+          <h2>Top {{ top10().length }} des séances cette semaine</h2>
+        </div>
+        <div class="defilement-conteneur">
+          <button class="fleche fleche-gauche fleche-masquee" (click)="faireDefiler(defilementTop10, -1)" aria-label="Précédent">‹</button>
+          <div class="defilement" #defilementTop10 (scroll)="majFleches(defilementTop10)">
+            @for (seance of top10(); track seance.id; let i = $index) {
+              <app-seance-card [seance]="seance" [rang]="i + 1"></app-seance-card>
+            }
+          </div>
+          <button class="fleche fleche-droite" (click)="faireDefiler(defilementTop10, 1)" aria-label="Suivant">›</button>
+        </div>
+      </section>
+    }
+
+    @for (rangee of rangees(); track rangee.categorie) {
+      <section class="rangee" [attr.data-categorie]="rangee.categorie">
+        <div class="rangee-header">
+          <h2>{{ rangee.categorie }}</h2>
+          <a href="#" class="voir-tout">Voir tout →</a>
+        </div>
+        <div class="defilement-conteneur">
+          <button class="fleche fleche-gauche fleche-masquee" (click)="faireDefiler(defilementRef, -1)" aria-label="Précédent">‹</button>
+          <div class="defilement" #defilementRef (scroll)="majFleches(defilementRef)">
+            @for (seance of rangee.seances; track seance.id) {
+              <app-seance-card [seance]="seance" [estTop10]="top10Ids().has(seance.id)"></app-seance-card>
+            }
+          </div>
+          <button class="fleche fleche-droite" (click)="faireDefiler(defilementRef, 1)" aria-label="Suivant">›</button>
+        </div>
+      </section>
+    }
+  }
+</main>
+
+<!-- SECTION APPELS À L'ACTION -->
+<section class="cta-section">
+  <div class="cta-contenu">
+    <h2>Prêt à transformer ton corps?</h2>
+    <p>Rejoins des milliers d'athlètes et progresse avec les meilleurs mouvements</p>
+    <button class="btn-primaire btn-large">Commencer gratuitement</button>
+  </div>
+</section>

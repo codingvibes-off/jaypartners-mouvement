@@ -1,0 +1,66 @@
+<section class="entete-calendrier">
+  <h1>Mon calendrier</h1>
+  <p class="sous-titre">Retrouve toutes les séances que tu as validées.</p>
+</section>
+
+@if (chargement()) {
+  <p class="etat">Chargement de ton historique...</p>
+} @else {
+  @if (historique().length === 0) {
+    <p class="etat">
+      Tu n'as pas encore validé de séance. Lance un entraînement pour commencer !
+    </p>
+  }
+
+  <section class="calendrier-conteneur">
+    <div class="calendrier">
+      <div class="calendrier-nav">
+        <button class="btn-nav" (click)="moisPrecedent()" aria-label="Mois précédent">
+          <app-icon nom="chevron-left" [taille]="16"></app-icon>
+        </button>
+        <h2>{{ libelleMois() }}</h2>
+        <button class="btn-nav" (click)="moisSuivant()" aria-label="Mois suivant">
+          <app-icon nom="chevron-right" [taille]="16"></app-icon>
+        </button>
+      </div>
+
+      <div class="jours-semaine">
+        <span>Lun</span><span>Mar</span><span>Mer</span><span>Jeu</span><span>Ven</span><span>Sam</span><span>Dim</span>
+      </div>
+
+      <div class="grille-jours">
+        @for (jour of joursGrille(); track jour.cleJour) {
+          <button
+            class="jour"
+            [class.hors-mois]="!jour.dansLeMois"
+            [class.aujourdhui]="estAujourdhui(jour.date)"
+            [class.selectionne]="jour.cleJour === jourSelectionne()?.cleJour"
+            [disabled]="jour.entrees.length === 0"
+            (click)="selectionnerJour(jour)"
+          >
+            <span class="jour-numero">{{ jour.date.getDate() }}</span>
+            @if (jour.entrees.length > 0) {
+              <span class="point-valide"></span>
+            }
+          </button>
+        }
+      </div>
+    </div>
+
+    <div class="recap">
+      @if (entreesJourSelectionne().length > 0) {
+        <h3>Séances du {{ libelleJourSelectionne() }}</h3>
+        <ul class="recap-liste">
+          @for (entree of entreesJourSelectionne(); track entree.id) {
+            <li>
+              <span class="recap-titre">{{ entree.seance?.titre || 'Séance' }}</span>
+              <span class="recap-xp">+{{ entree.xpGagne }} XP</span>
+            </li>
+          }
+        </ul>
+      } @else {
+        <p class="recap-vide">Clique sur un jour marqué d'un point pour voir le récap des séances faites.</p>
+      }
+    </div>
+  </section>
+}

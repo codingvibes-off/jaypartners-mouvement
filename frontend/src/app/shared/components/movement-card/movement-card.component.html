@@ -1,0 +1,64 @@
+<div class="carte-mouvement">
+  <button class="entete" (click)="basculerDetails()">
+    <span class="numero">{{ ordre }}</span>
+    <div class="infos">
+      <h4>{{ mouvement.nom }}</h4>
+      <p class="meta">
+        {{ mouvement.muscleprincipal }}
+        @if (series) { · {{ series }} séries }
+        @if (repetitions) { · {{ repetitions }} }
+      </p>
+    </div>
+    <span class="chevron" [class.ouvert]="detailsOuverts">
+      <app-icon nom="chevron-down" [taille]="16"></app-icon>
+    </span>
+  </button>
+
+  @if (detailsOuverts) {
+    <div class="details">
+      <video [src]="mouvement.videoUrl" controls preload="none" class="lecteur-video"></video>
+
+      @if (mouvement.description) {
+        <p class="description">{{ mouvement.description }}</p>
+      }
+
+      <div class="grille-infos">
+        @if (mouvement.musclesSecondaires?.length) {
+          <div>
+            <span class="label">Muscles secondaires</span>
+            <p>{{ mouvement.musclesSecondaires.join(', ') }}</p>
+          </div>
+        }
+        @if (mouvement.materiel?.length) {
+          <div>
+            <span class="label">Matériel</span>
+            <p>{{ mouvement.materiel.join(', ') }}</p>
+          </div>
+        }
+        @if (mouvement.regression) {
+          <div>
+            <span class="label">Régression</span>
+            <p>{{ mouvement.regression }}</p>
+          </div>
+        }
+        @if (mouvement.progression) {
+          <div>
+            <span class="label">Progression</span>
+            <p>{{ mouvement.progression }}</p>
+          </div>
+        }
+      </div>
+
+      @if (mouvement.erreursFrequentes?.length) {
+        <div class="erreurs">
+          <span class="label">Erreurs fréquentes</span>
+          <ul>
+            @for (erreur of mouvement.erreursFrequentes; track erreur) {
+              <li>{{ erreur }}</li>
+            }
+          </ul>
+        </div>
+      }
+    </div>
+  }
+</div>

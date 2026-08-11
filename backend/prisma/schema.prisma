@@ -1,0 +1,170 @@
+// Schéma Prisma - Netflix du Mouvement
+// PostgreSQL + Prisma Client
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Genre {
+  HOMME
+  FEMME
+  MIXTE
+}
+
+enum Niveau {
+  DEBUTANT
+  INTERMEDIAIRE
+  AVANCE
+}
+
+enum RoleUtilisateur {
+  USER
+  ADMIN
+}
+
+// -----------------------------
+// UTILISATEURS
+// -----------------------------
+model User {
+  id           String           @id @default(cuid())
+  email        String           @unique
+  password     String
+  prenom       String
+  role         RoleUtilisateur  @default(USER)
+  xp           Int              @default(0)
+  streak       Int              @default(0)
+  dernierPassage DateTime?
+  createdAt    DateTime         @default(now())
+  updatedAt    DateTime         @updatedAt
+
+  progressions UserProgress[]
+  evaluations  Evaluation[]
+  favoris      Favori[]
+  badges       UserBadge[]
+  seancesFaites SeanceHistorique[]
+}
+
+// -----------------------------
+// CATALOGUE : SÉANCES (façon "titres Netflix")
+// -----------------------------
+model Seance {
+  id          String   @id @default(cuid())
+  titre       String
+  description String?
+  genre       Genre    @default(MIXTE)
+  niveau      Niveau   @default(DEBUTANT)
+  dureeMin    Int      @default(20)
+  imageUrl    String?
+  categorie   String?  // ex: "Mobilité", "Pilates", "Renforcement"
+  ordre       Int      @default(0)
+  createdAt   DateTime @default(now())
+
+  mouvements  SeanceMouvement[]
+  historique  SeanceHistorique[]
+}
+
+// -----------------------------
+// BIBLIOTHÈQUE DE MOUVEMENTS
+// -----------------------------
+model Mouvement {
+  id             String   @id @default(cuid())
+  nom            String
+  description    String?
+  videoUrl       String   @default("https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4")
+  muscleprincipal String?
+  musclesSecondaires String[] @default([])
+  niveau         Niveau   @default(DEBUTANT)
+  materiel       String[] @default([])
+  erreursFrequentes String[] @default([])
+  regression     String?
+  progression    String?
+  dureeConseillee Int?    // en secondes
+  createdAt      DateTime @default(now())
+
+  seances        SeanceMouvement[]
+  favoris        Favori[]
+}
+
+// Table de jointure Séance <-> Mouvement avec ordre d'exécution
+model SeanceMouvement {
+  id          String    @id @default(cuid())
+  seance      Seance    @relation(fields: [seanceId], references: [id], onDelete: Cascade)
+  seanceId    String
+  mouvement   Mouvement @relation(fields: [mouvementId], references: [id], onDelete: Cascade)
+  mouvementId String
+  ordre       Int       @default(0)
+  series      Int?
+  repetitions String?   // ex: "12" ou "30 sec"
+
+  @@unique([seanceId, mouvementId])
+}
+
+// -----------------------------
+// PROGRESSION / HISTORIQUE
+// -----------------------------
+model SeanceHistorique {
+  id        String   @id @default(cuid())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+  seance    Seance   @relation(fields: [seanceId], references: [id], onDelete: Cascade)
+  seanceId  String
+  terminee  Boolean  @default(false)
+  xpGagne   Int      @default(0)
+  createdAt DateTime @default(now())
+}
+
+model UserProgress {
+  id           String   @id @default(cuid())
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId       String
+  scoreMobilite Int     @default(0)
+  scoreForce    Int     @default(0)
+  scorePosture  Int     @default(0)
+  poids         Float?
+  tourDeTaille  Float?
+  createdAt    DateTime @default(now())
+}
+
+model Evaluation {
+  id          String   @id @default(cuid())
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId      String
+  test        String   // ex: "mobilite_hanches"
+  resultat    String
+  recommandation String?
+  createdAt   DateTime @default(now())
+}
+
+model Favori {
+  id          String    @id @default(cuid())
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId      String
+  mouvement   Mouvement @relation(fields: [mouvementId], references: [id], onDelete: Cascade)
+  mouvementId String
+
+  @@unique([userId, mouvementId])
+}
+
+model Badge {
+  id          String      @id @default(cuid())
+  nom         String
+  description String?
+  icone       String?
+  utilisateurs UserBadge[]
+}
+
+model UserBadge {
+  id        String   @id @default(cuid())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+  badge     Badge    @relation(fields: [badgeId], references: [id], onDelete: Cascade)
+  badgeId   String
+  obtenuLe  DateTime @default(now())
+
+  @@unique([userId, badgeId])
+}

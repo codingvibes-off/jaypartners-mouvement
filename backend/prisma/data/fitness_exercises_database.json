@@ -1,0 +1,6350 @@
+{
+  "schema_version": "1.0.0",
+  "language": "fr",
+  "name": "fitness_complete_exercise_database",
+  "description": "Catalogue extensible de mouvements pour musculation, CrossFit, fitness gÃ©nÃ©ral, cardio, mobilitÃ©, plyomÃ©trie, kettlebell et bandes Ã©lastiques.",
+  "note": "Catalogue large de mouvements courants, pas une liste littÃ©ralement exhaustive de toutes les variantes existantes.",
+  "counts": {
+    "total_exercises": 184,
+    "categories": 8
+  },
+  "enums": {
+    "difficulty": [
+      "debutant",
+      "intermediaire",
+      "avance"
+    ],
+    "laterality": [
+      "bilateral",
+      "unilateral"
+    ],
+    "equipment_examples": [
+      "bodyweight",
+      "barbell",
+      "dumbbell",
+      "kettlebell",
+      "cable",
+      "machine",
+      "band",
+      "medicine_ball",
+      "box",
+      "jump_rope",
+      "ab_wheel",
+      "treadmill",
+      "bike",
+      "air_bike",
+      "rower",
+      "ski_erg",
+      "stair_machine",
+      "elliptical",
+      "rope",
+      "sandbag",
+      "pool"
+    ]
+  },
+  "exercises": [
+    {
+      "id": "EX-0001",
+      "slug": "back_squat",
+      "name": "Back Squat",
+      "category": "musculation",
+      "equipment": [
+        "barbell"
+      ],
+      "body_area": "jambes",
+      "primary_muscles": [
+        "quadriceps",
+        "fessiers"
+      ],
+      "secondary_muscles": [
+        "ischio-jambiers"
+      ],
+      "difficulty": "intermediaire",
+      "laterality": "bilateral",
+      "movement_pattern": "squat",
+      "is_compound": true,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "musculation",
+        "jambes",
+        "squat",
+        "intermediaire"
+      ]
+    },
+    {
+      "id": "EX-0002",
+      "slug": "front_squat",
+      "name": "Front Squat",
+      "category": "musculation",
+      "equipment": [
+        "barbell"
+      ],
+      "body_area": "jambes",
+      "primary_muscles": [
+        "quadriceps",
+        "fessiers"
+      ],
+      "secondary_muscles": [
+        "abdominaux"
+      ],
+      "difficulty": "intermediaire",
+      "laterality": "bilateral",
+      "movement_pattern": "squat",
+      "is_compound": true,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "musculation",
+        "jambes",
+        "squat",
+        "intermediaire"
+      ]
+    },
+    {
+      "id": "EX-0003",
+      "slug": "goblet_squat",
+      "name": "Goblet Squat",
+      "category": "musculation",
+      "equipment": [
+        "dumbbell"
+      ],
+      "body_area": "jambes",
+      "primary_muscles": [
+        "quadriceps",
+        "fessiers"
+      ],
+      "secondary_muscles": [
+        "abdominaux"
+      ],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "squat",
+      "is_compound": true,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "musculation",
+        "jambes",
+        "squat",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0004",
+      "slug": "bulgarian_split_squat",
+      "name": "Bulgarian Split Squat",
+      "category": "musculation",
+      "equipment": [
+        "dumbbell"
+      ],
+      "body_area": "jambes",
+      "primary_muscles": [
+        "quadriceps",
+        "fessiers"
+      ],
+      "secondary_muscles": [
+        "ischio-jambiers"
+      ],
+      "difficulty": "intermediaire",
+      "laterality": "unilateral",
+      "movement_pattern": "squat",
+      "is_compound": true,
+      "is_bodyweight": false,
+      "is_unilateral": true,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "musculation",
+        "jambes",
+        "squat",
+        "intermediaire"
+      ]
+    },
+    {
+      "id": "EX-0005",
+      "slug": "front_rack_split_squat",
+      "name": "Front Rack Split Squat",
+      "category": "musculation",
+      "equipment": [
+        "barbell"
+      ],
+      "body_area": "jambes",
+      "primary_muscles": [
+        "quadriceps",
+        "fessiers"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "intermediaire",
+      "laterality": "unilateral",
+      "movement_pattern": "squat",
+      "is_compound": true,
+      "is_bodyweight": false,
+      "is_unilateral": true,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "musculation",
+        "jambes",
+        "squat",
+        "intermediaire"
+      ]
+    },
+    {
+      "id": "EX-0006",
+      "slug": "walking_lunge",
+      "name": "Walking Lunge",
+      "category": "musculation",
+      "equipment": [
+        "bodyweight"
+      ],
+      "body_area": "jambes",
+      "primary_muscles": [
+        "quadriceps",
+        "fessiers"
+      ],
+      "secondary_muscles": [
+        "ischio-jambiers"
+      ],
+      "difficulty": "debutant",
+      "laterality": "unilateral",
+      "movement_pattern": "lunge",
+      "is_compound": true,
+      "is_bodyweight": true,
+      "is_unilateral": true,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "musculation",
+        "jambes",
+        "lunge",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0007",
+      "slug": "reverse_lunge",
+      "name": "Reverse Lunge",
+      "category": "musculation",
+      "equipment": [
+        "dumbbell"
+      ],
+      "body_area": "jambes",
+      "primary_muscles": [
+        "quadriceps",
+        "fessiers"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "debutant",
+      "laterality": "unilateral",
+      "movement_pattern": "lunge",
+      "is_compound": true,
+      "is_bodyweight": false,
+      "is_unilateral": true,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "musculation",
+        "jambes",
+        "lunge",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0008",
+      "slug": "lateral_lunge",
+      "name": "Lateral Lunge",
+      "category": "musculation",
+      "equipment": [
+        "dumbbell"
+      ],
+      "body_area": "jambes",
+      "primary_muscles": [
+        "adducteurs",
+        "fessiers"
+      ],
+      "secondary_muscles": [
+        "quadriceps"
+      ],
+      "difficulty": "intermediaire",
+      "laterality": "unilateral",
+      "movement_pattern": "lunge",
+      "is_compound": true,
+      "is_bodyweight": false,
+      "is_unilateral": true,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "musculation",
+        "jambes",
+        "lunge",
+        "intermediaire"
+      ]
+    },
+    {
+      "id": "EX-0009",
+      "slug": "step_up",
+      "name": "Step Up",
+      "category": "musculation",
+      "equipment": [
+        "dumbbell"
+      ],
+      "body_area": "jambes",
+      "primary_muscles": [
+        "quadriceps",
+        "fessiers"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "debutant",
+      "laterality": "unilateral",
+      "movement_pattern": "step",
+      "is_compound": false,
+      "is_bodyweight": false,
+      "is_unilateral": true,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "musculation",
+        "jambes",
+        "step",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0010",
+      "slug": "leg_press",
+      "name": "Leg Press",
+      "category": "musculation",
+      "equipment": [
+        "machine"
+      ],
+      "body_area": "jambes",
+      "primary_muscles": [
+        "quadriceps",
+        "fessiers"
+      ],
+      "secondary_muscles": [
+        "ischio-jambiers"
+      ],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "press",
+      "is_compound": true,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "musculation",
+        "jambes",
+        "press",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0011",
+      "slug": "hack_squat",
+      "name": "Hack Squat",
+      "category": "musculation",
+      "equipment": [
+        "machine"
+      ],
+      "body_area": "jambes",
+      "primary_muscles": [
+        "quadriceps",
+        "fessiers"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "intermediaire",
+      "laterality": "bilateral",
+      "movement_pattern": "squat",
+      "is_compound": true,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "musculation",
+        "jambes",
+        "squat",
+        "intermediaire"
+      ]
+    },
+    {
+      "id": "EX-0012",
+      "slug": "leg_extension",
+      "name": "Leg Extension",
+      "category": "musculation",
+      "equipment": [
+        "machine"
+      ],
+      "body_area": "jambes",
+      "primary_muscles": [
+        "quadriceps"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "extension",
+      "is_compound": false,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "musculation",
+        "jambes",
+        "extension",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0013",
+      "slug": "seated_leg_curl",
+      "name": "Seated Leg Curl",
+      "category": "musculation",
+      "equipment": [
+        "machine"
+      ],
+      "body_area": "jambes",
+      "primary_muscles": [
+        "ischio-jambiers",
+        "mollets"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "curl",
+      "is_compound": false,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "musculation",
+        "jambes",
+        "curl",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0014",
+      "slug": "lying_leg_curl",
+      "name": "Lying Leg Curl",
+      "category": "musculation",
+      "equipment": [
+        "machine"
+      ],
+      "body_area": "jambes",
+      "primary_muscles": [
+        "ischio-jambiers"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "curl",
+      "is_compound": false,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "musculation",
+        "jambes",
+        "curl",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0015",
+      "slug": "romanian_deadlift",
+      "name": "Romanian Deadlift",
+      "category": "musculation",
+      "equipment": [
+        "barbell"
+      ],
+      "body_area": "chaine_posterieure",
+      "primary_muscles": [
+        "ischio-jambiers",
+        "fessiers"
+      ],
+      "secondary_muscles": [
+        "erecteurs_du_rachis"
+      ],
+      "difficulty": "intermediaire",
+      "laterality": "bilateral",
+      "movement_pattern": "hinge",
+      "is_compound": true,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "musculation",
+        "chaine_posterieure",
+        "hinge",
+        "intermediaire"
+      ]
+    },
+    {
+      "id": "EX-0016",
+      "slug": "stiff_leg_deadlift",
+      "name": "Stiff Leg Deadlift",
+      "category": "musculation",
+      "equipment": [
+        "barbell"
+      ],
+      "body_area": "chaine_posterieure",
+      "primary_muscles": [
+        "ischio-jambiers",
+        "fessiers"
+      ],
+      "secondary_muscles": [
+        "erecteurs_du_rachis"
+      ],
+      "difficulty": "intermediaire",
+      "laterality": "bilateral",
+      "movement_pattern": "hinge",
+      "is_compound": true,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "musculation",
+        "chaine_posterieure",
+        "hinge",
+        "intermediaire"
+      ]
+    },
+    {
+      "id": "EX-0017",
+      "slug": "conventional_deadlift",
+      "name": "Conventional Deadlift",
+      "category": "musculation",
+      "equipment": [
+        "barbell"
+      ],
+      "body_area": "full_body",
+      "primary_muscles": [
+        "fessiers",
+        "ischio-jambiers"
+      ],
+      "secondary_muscles": [
+        "erecteurs_du_rachis",
+        "trapÃ¨zes"
+      ],
+      "difficulty": "avance",
+      "laterality": "bilateral",
+      "movement_pattern": "deadlift",
+      "is_compound": true,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "musculation",
+        "full_body",
+        "deadlift",
+        "avance"
+      ]
+    },
+    {
+      "id": "EX-0018",
+      "slug": "sumo_deadlift",
+      "name": "Sumo Deadlift",
+      "category": "musculation",
+      "equipment": [
+        "barbell"
+      ],
+      "body_area": "chaine_posterieure",
+      "primary_muscles": [
+        "fessiers",
+        "adducteurs"
+      ],
+      "secondary_muscles": [
+        "ischio-jambiers"
+      ],
+      "difficulty": "intermediaire",
+      "laterality": "bilateral",
+      "movement_pattern": "deadlift",
+      "is_compound": true,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "musculation",
+        "chaine_posterieure",
+        "deadlift",
+        "intermediaire"
+      ]
+    },
+    {
+      "id": "EX-0019",
+      "slug": "barbell_hip_thrust",
+      "name": "Barbell Hip Thrust",
+      "category": "musculation",
+      "equipment": [
+        "barbell"
+      ],
+      "body_area": "fessiers",
+      "primary_muscles": [
+        "fessiers",
+        "ischio-jambiers"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "intermediaire",
+      "laterality": "bilateral",
+      "movement_pattern": "hip_thrust",
+      "is_compound": false,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "musculation",
+        "fessiers",
+        "hip_thrust",
+        "intermediaire"
+      ]
+    },
+    {
+      "id": "EX-0020",
+      "slug": "glute_bridge",
+      "name": "Glute Bridge",
+      "category": "musculation",
+      "equipment": [
+        "bodyweight"
+      ],
+      "body_area": "fessiers",
+      "primary_muscles": [
+        "fessiers",
+        "ischio-jambiers"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "bridge",
+      "is_compound": false,
+      "is_bodyweight": true,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "musculation",
+        "fessiers",
+        "bridge",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0021",
+      "slug": "standing_calf_raise",
+      "name": "Standing Calf Raise",
+      "category": "musculation",
+      "equipment": [
+        "machine"
+      ],
+      "body_area": "mollets",
+      "primary_muscles": [
+        "gastrocnemius",
+        "soleus"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "calf_raise",
+      "is_compound": false,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "musculation",
+        "mollets",
+        "calf_raise",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0022",
+      "slug": "seated_calf_raise",
+      "name": "Seated Calf Raise",
+      "category": "musculation",
+      "equipment": [
+        "machine"
+      ],
+      "body_area": "mollets",
+      "primary_muscles": [
+        "soleus",
+        "gastrocnemius"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "calf_raise",
+      "is_compound": false,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "musculation",
+        "mollets",
+        "calf_raise",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0023",
+      "slug": "bench_press",
+      "name": "Bench Press",
+      "category": "musculation",
+      "equipment": [
+        "barbell"
+      ],
+      "body_area": "pectoraux",
+      "primary_muscles": [
+        "pectoraux",
+        "triceps"
+      ],
+      "secondary_muscles": [
+        "deltoides_anterieurs"
+      ],
+      "difficulty": "intermediaire",
+      "laterality": "bilateral",
+      "movement_pattern": "horizontal_push",
+      "is_compound": true,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "musculation",
+        "pectoraux",
+        "horizontal_push",
+        "intermediaire"
+      ]
+    },
+    {
+      "id": "EX-0024",
+      "slug": "incline_bench_press",
+      "name": "Incline Bench Press",
+      "category": "musculation",
+      "equipment": [
+        "barbell"
+      ],
+      "body_area": "pectoraux",
+      "primary_muscles": [
+        "pectoraux_superieurs",
+        "triceps"
+      ],
+      "secondary_muscles": [
+        "deltoides_anterieurs"
+      ],
+      "difficulty": "intermediaire",
+      "laterality": "bilateral",
+      "movement_pattern": "horizontal_push",
+      "is_compound": true,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "musculation",
+        "pectoraux",
+        "horizontal_push",
+        "intermediaire"
+      ]
+    },
+    {
+      "id": "EX-0025",
+      "slug": "decline_bench_press",
+      "name": "Decline Bench Press",
+      "category": "musculation",
+      "equipment": [
+        "barbell"
+      ],
+      "body_area": "pectoraux",
+      "primary_muscles": [
+        "pectoraux",
+        "triceps"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "intermediaire",
+      "laterality": "bilateral",
+      "movement_pattern": "horizontal_push",
+      "is_compound": true,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "musculation",
+        "pectoraux",
+        "horizontal_push",
+        "intermediaire"
+      ]
+    },
+    {
+      "id": "EX-0026",
+      "slug": "dumbbell_bench_press",
+      "name": "Dumbbell Bench Press",
+      "category": "musculation",
+      "equipment": [
+        "dumbbell"
+      ],
+      "body_area": "pectoraux",
+      "primary_muscles": [
+        "pectoraux",
+        "triceps"
+      ],
+      "secondary_muscles": [
+        "deltoides_anterieurs"
+      ],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "horizontal_push",
+      "is_compound": true,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "musculation",
+        "pectoraux",
+        "horizontal_push",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0027",
+      "slug": "dumbbell_fly",
+      "name": "Dumbbell Fly",
+      "category": "musculation",
+      "equipment": [
+        "dumbbell"
+      ],
+      "body_area": "pectoraux",
+      "primary_muscles": [
+        "pectoraux"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "intermediaire",
+      "laterality": "bilateral",
+      "movement_pattern": "fly",
+      "is_compound": false,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "musculation",
+        "pectoraux",
+        "fly",
+        "intermediaire"
+      ]
+    },
+    {
+      "id": "EX-0028",
+      "slug": "cable_fly",
+      "name": "Cable Fly",
+      "category": "musculation",
+      "equipment": [
+        "cable"
+      ],
+      "body_area": "pectoraux",
+      "primary_muscles": [
+        "pectoraux"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "fly",
+      "is_compound": false,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "musculation",
+        "pectoraux",
+        "fly",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0029",
+      "slug": "push_up",
+      "name": "Push Up",
+      "category": "musculation",
+      "equipment": [
+        "bodyweight"
+      ],
+      "body_area": "pectoraux",
+      "primary_muscles": [
+        "pectoraux",
+        "triceps"
+      ],
+      "secondary_muscles": [
+        "deltoides_anterieurs",
+        "abdominaux"
+      ],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "horizontal_push",
+      "is_compound": true,
+      "is_bodyweight": true,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "musculation",
+        "pectoraux",
+        "horizontal_push",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0030",
+      "slug": "chest_dip",
+      "name": "Chest Dip",
+      "category": "musculation",
+      "equipment": [
+        "bodyweight"
+      ],
+      "body_area": "pectoraux",
+      "primary_muscles": [
+        "pectoraux",
+        "triceps"
+      ],
+      "secondary_muscles": [
+        "deltoides_anterieurs"
+      ],
+      "difficulty": "intermediaire",
+      "laterality": "bilateral",
+      "movement_pattern": "dip",
+      "is_compound": false,
+      "is_bodyweight": true,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "musculation",
+        "pectoraux",
+        "dip",
+        "intermediaire"
+      ]
+    },
+    {
+      "id": "EX-0031",
+      "slug": "pull_up",
+      "name": "Pull Up",
+      "category": "musculation",
+      "equipment": [
+        "bodyweight"
+      ],
+      "body_area": "dos",
+      "primary_muscles": [
+        "grand_dorsal",
+        "biceps"
+      ],
+      "secondary_muscles": [
+        "grand_rond"
+      ],
+      "difficulty": "intermediaire",
+      "laterality": "bilateral",
+      "movement_pattern": "vertical_pull",
+      "is_compound": true,
+      "is_bodyweight": true,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "musculation",
+        "dos",
+        "vertical_pull",
+        "intermediaire"
+      ]
+    },
+    {
+      "id": "EX-0032",
+      "slug": "chin_up",
+      "name": "Chin Up",
+      "category": "musculation",
+      "equipment": [
+        "bodyweight"
+      ],
+      "body_area": "dos",
+      "primary_muscles": [
+        "grand_dorsal",
+        "biceps"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "intermediaire",
+      "laterality": "bilateral",
+      "movement_pattern": "vertical_pull",
+      "is_compound": true,
+      "is_bodyweight": true,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "musculation",
+        "dos",
+        "vertical_pull",
+        "intermediaire"
+      ]
+    },
+    {
+      "id": "EX-0033",
+      "slug": "lat_pulldown",
+      "name": "Lat Pulldown",
+      "category": "musculation",
+      "equipment": [
+        "cable"
+      ],
+      "body_area": "dos",
+      "primary_muscles": [
+        "grand_dorsal",
+        "biceps"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "vertical_pull",
+      "is_compound": true,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "musculation",
+        "dos",
+        "vertical_pull",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0034",
+      "slug": "seated_cable_row",
+      "name": "Seated Cable Row",
+      "category": "musculation",
+      "equipment": [
+        "cable"
+      ],
+      "body_area": "dos",
+      "primary_muscles": [
+        "grand_dorsal",
+        "trapÃ¨zes"
+      ],
+      "secondary_muscles": [
+        "rhomboides",
+        "biceps"
+      ],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "horizontal_pull",
+      "is_compound": true,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "musculation",
+        "dos",
+        "horizontal_pull",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0035",
+      "slug": "barbell_row",
+      "name": "Barbell Row",
+      "category": "musculation",
+      "equipment": [
+        "barbell"
+      ],
+      "body_area": "dos",
+      "primary_muscles": [
+        "grand_dorsal",
+        "rhomboides"
+      ],
+      "secondary_muscles": [
+        "trapÃ¨zes",
+        "biceps"
+      ],
+      "difficulty": "intermediaire",
+      "laterality": "bilateral",
+      "movement_pattern": "horizontal_pull",
+      "is_compound": true,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "musculation",
+        "dos",
+        "horizontal_pull",
+        "intermediaire"
+      ]
+    },
+    {
+      "id": "EX-0036",
+      "slug": "pendlay_row",
+      "name": "Pendlay Row",
+      "category": "musculation",
+      "equipment": [
+        "barbell"
+      ],
+      "body_area": "dos",
+      "primary_muscles": [
+        "grand_dorsal",
+        "rhomboides"
+      ],
+      "secondary_muscles": [
+        "trapÃ¨zes",
+        "biceps"
+      ],
+      "difficulty": "avance",
+      "laterality": "bilateral",
+      "movement_pattern": "horizontal_pull",
+      "is_compound": true,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "musculation",
+        "dos",
+        "horizontal_pull",
+        "avance"
+      ]
+    },
+    {
+      "id": "EX-0037",
+      "slug": "one_arm_dumbbell_row",
+      "name": "One Arm Dumbbell Row",
+      "category": "musculation",
+      "equipment": [
+        "dumbbell"
+      ],
+      "body_area": "dos",
+      "primary_muscles": [
+        "grand_dorsal",
+        "rhomboides"
+      ],
+      "secondary_muscles": [
+        "biceps"
+      ],
+      "difficulty": "debutant",
+      "laterality": "unilateral",
+      "movement_pattern": "horizontal_pull",
+      "is_compound": true,
+      "is_bodyweight": false,
+      "is_unilateral": true,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "musculation",
+        "dos",
+        "horizontal_pull",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0038",
+      "slug": "chest_supported_row",
+      "name": "Chest Supported Row",
+      "category": "musculation",
+      "equipment": [
+        "machine"
+      ],
+      "body_area": "dos",
+      "primary_muscles": [
+        "grand_dorsal",
+        "rhomboides"
+      ],
+      "secondary_muscles": [
+        "trapÃ¨zes",
+        "biceps"
+      ],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "horizontal_pull",
+      "is_compound": true,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "musculation",
+        "dos",
+        "horizontal_pull",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0039",
+      "slug": "face_pull",
+      "name": "Face Pull",
+      "category": "musculation",
+      "equipment": [
+        "cable"
+      ],
+      "body_area": "epaules",
+      "primary_muscles": [
+        "deltoides_posterieurs",
+        "trapÃ¨zes"
+      ],
+      "secondary_muscles": [
+        "rhomboides"
+      ],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "pull",
+      "is_compound": false,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "musculation",
+        "epaules",
+        "pull",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0040",
+      "slug": "barbell_overhead_press",
+      "name": "Barbell Overhead Press",
+      "category": "musculation",
+      "equipment": [
+        "barbell"
+      ],
+      "body_area": "epaules",
+      "primary_muscles": [
+        "deltoides",
+        "triceps"
+      ],
+      "secondary_muscles": [
+        "trapÃ¨zes"
+      ],
+      "difficulty": "intermediaire",
+      "laterality": "bilateral",
+      "movement_pattern": "vertical_push",
+      "is_compound": true,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "musculation",
+        "epaules",
+        "vertical_push",
+        "intermediaire"
+      ]
+    },
+    {
+      "id": "EX-0041",
+      "slug": "dumbbell_shoulder_press",
+      "name": "Dumbbell Shoulder Press",
+      "category": "musculation",
+      "equipment": [
+        "dumbbell"
+      ],
+      "body_area": "epaules",
+      "primary_muscles": [
+        "deltoides",
+        "triceps"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "vertical_push",
+      "is_compound": true,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "musculation",
+        "epaules",
+        "vertical_push",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0042",
+      "slug": "arnold_press",
+      "name": "Arnold Press",
+      "category": "musculation",
+      "equipment": [
+        "dumbbell"
+      ],
+      "body_area": "epaules",
+      "primary_muscles": [
+        "deltoides",
+        "triceps"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "intermediaire",
+      "laterality": "bilateral",
+      "movement_pattern": "vertical_push",
+      "is_compound": true,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "musculation",
+        "epaules",
+        "vertical_push",
+        "intermediaire"
+      ]
+    },
+    {
+      "id": "EX-0043",
+      "slug": "dumbbell_lateral_raise",
+      "name": "Dumbbell Lateral Raise",
+      "category": "musculation",
+      "equipment": [
+        "dumbbell"
+      ],
+      "body_area": "epaules",
+      "primary_muscles": [
+        "deltoides_lateraux"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "abduction",
+      "is_compound": false,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "musculation",
+        "epaules",
+        "abduction",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0044",
+      "slug": "cable_lateral_raise",
+      "name": "Cable Lateral Raise",
+      "category": "musculation",
+      "equipment": [
+        "cable"
+      ],
+      "body_area": "epaules",
+      "primary_muscles": [
+        "deltoides_lateraux"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "debutant",
+      "laterality": "unilateral",
+      "movement_pattern": "abduction",
+      "is_compound": false,
+      "is_bodyweight": false,
+      "is_unilateral": true,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "musculation",
+        "epaules",
+        "abduction",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0045",
+      "slug": "rear_delt_fly",
+      "name": "Rear Delt Fly",
+      "category": "musculation",
+      "equipment": [
+        "dumbbell"
+      ],
+      "body_area": "epaules",
+      "primary_muscles": [
+        "deltoides_posterieurs",
+        "rhomboides"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "horizontal_abduction",
+      "is_compound": false,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "musculation",
+        "epaules",
+        "horizontal_abduction",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0046",
+      "slug": "barbell_curl",
+      "name": "Barbell Curl",
+      "category": "musculation",
+      "equipment": [
+        "barbell"
+      ],
+      "body_area": "bras",
+      "primary_muscles": [
+        "biceps",
+        "brachial"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "elbow_flexion",
+      "is_compound": false,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "musculation",
+        "bras",
+        "elbow_flexion",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0047",
+      "slug": "dumbbell_curl",
+      "name": "Dumbbell Curl",
+      "category": "musculation",
+      "equipment": [
+        "dumbbell"
+      ],
+      "body_area": "bras",
+      "primary_muscles": [
+        "biceps",
+        "brachial"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "elbow_flexion",
+      "is_compound": false,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "musculation",
+        "bras",
+        "elbow_flexion",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0048",
+      "slug": "hammer_curl",
+      "name": "Hammer Curl",
+      "category": "musculation",
+      "equipment": [
+        "dumbbell"
+      ],
+      "body_area": "bras",
+      "primary_muscles": [
+        "brachial",
+        "biceps"
+      ],
+      "secondary_muscles": [
+        "brachio_radial"
+      ],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "elbow_flexion",
+      "is_compound": false,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "musculation",
+        "bras",
+        "elbow_flexion",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0049",
+      "slug": "incline_dumbbell_curl",
+      "name": "Incline Dumbbell Curl",
+      "category": "musculation",
+      "equipment": [
+        "dumbbell"
+      ],
+      "body_area": "bras",
+      "primary_muscles": [
+        "biceps"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "intermediaire",
+      "laterality": "bilateral",
+      "movement_pattern": "elbow_flexion",
+      "is_compound": false,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "musculation",
+        "bras",
+        "elbow_flexion",
+        "intermediaire"
+      ]
+    },
+    {
+      "id": "EX-0050",
+      "slug": "cable_curl",
+      "name": "Cable Curl",
+      "category": "musculation",
+      "equipment": [
+        "cable"
+      ],
+      "body_area": "bras",
+      "primary_muscles": [
+        "biceps"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "elbow_flexion",
+      "is_compound": false,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "musculation",
+        "bras",
+        "elbow_flexion",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0051",
+      "slug": "triceps_pushdown",
+      "name": "Triceps Pushdown",
+      "category": "musculation",
+      "equipment": [
+        "cable"
+      ],
+      "body_area": "bras",
+      "primary_muscles": [
+        "triceps"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "elbow_extension",
+      "is_compound": false,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "musculation",
+        "bras",
+        "elbow_extension",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0052",
+      "slug": "overhead_triceps_extension",
+      "name": "Overhead Triceps Extension",
+      "category": "musculation",
+      "equipment": [
+        "cable"
+      ],
+      "body_area": "bras",
+      "primary_muscles": [
+        "triceps"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "elbow_extension",
+      "is_compound": false,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "musculation",
+        "bras",
+        "elbow_extension",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0053",
+      "slug": "skull_crusher",
+      "name": "Skull Crusher",
+      "category": "musculation",
+      "equipment": [
+        "barbell"
+      ],
+      "body_area": "bras",
+      "primary_muscles": [
+        "triceps"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "intermediaire",
+      "laterality": "bilateral",
+      "movement_pattern": "elbow_extension",
+      "is_compound": false,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "musculation",
+        "bras",
+        "elbow_extension",
+        "intermediaire"
+      ]
+    },
+    {
+      "id": "EX-0054",
+      "slug": "close_grip_bench_press",
+      "name": "Close Grip Bench Press",
+      "category": "musculation",
+      "equipment": [
+        "barbell"
+      ],
+      "body_area": "bras",
+      "primary_muscles": [
+        "triceps",
+        "pectoraux"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "intermediaire",
+      "laterality": "bilateral",
+      "movement_pattern": "horizontal_push",
+      "is_compound": true,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "musculation",
+        "bras",
+        "horizontal_push",
+        "intermediaire"
+      ]
+    },
+    {
+      "id": "EX-0055",
+      "slug": "wrist_curl",
+      "name": "Wrist Curl",
+      "category": "musculation",
+      "equipment": [
+        "barbell"
+      ],
+      "body_area": "avant_bras",
+      "primary_muscles": [
+        "flexeurs_des_poignets"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "wrist_flexion",
+      "is_compound": false,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "musculation",
+        "avant_bras",
+        "wrist_flexion",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0056",
+      "slug": "reverse_wrist_curl",
+      "name": "Reverse Wrist Curl",
+      "category": "musculation",
+      "equipment": [
+        "barbell"
+      ],
+      "body_area": "avant_bras",
+      "primary_muscles": [
+        "extenseurs_des_poignets"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "wrist_extension",
+      "is_compound": false,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "musculation",
+        "avant_bras",
+        "wrist_extension",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0057",
+      "slug": "cable_crunch",
+      "name": "Cable Crunch",
+      "category": "musculation",
+      "equipment": [
+        "cable"
+      ],
+      "body_area": "abdominaux",
+      "primary_muscles": [
+        "grand_droit"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "spinal_flexion",
+      "is_compound": false,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "musculation",
+        "abdominaux",
+        "spinal_flexion",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0058",
+      "slug": "hanging_knee_raise",
+      "name": "Hanging Knee Raise",
+      "category": "musculation",
+      "equipment": [
+        "bodyweight"
+      ],
+      "body_area": "abdominaux",
+      "primary_muscles": [
+        "grand_droit",
+        "flecheurs_de_hanche"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "intermediaire",
+      "laterality": "bilateral",
+      "movement_pattern": "hip_flexion",
+      "is_compound": false,
+      "is_bodyweight": true,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "musculation",
+        "abdominaux",
+        "hip_flexion",
+        "intermediaire"
+      ]
+    },
+    {
+      "id": "EX-0059",
+      "slug": "hanging_leg_raise",
+      "name": "Hanging Leg Raise",
+      "category": "musculation",
+      "equipment": [
+        "bodyweight"
+      ],
+      "body_area": "abdominaux",
+      "primary_muscles": [
+        "grand_droit",
+        "flecheurs_de_hanche"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "avance",
+      "laterality": "bilateral",
+      "movement_pattern": "hip_flexion",
+      "is_compound": false,
+      "is_bodyweight": true,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "musculation",
+        "abdominaux",
+        "hip_flexion",
+        "avance"
+      ]
+    },
+    {
+      "id": "EX-0060",
+      "slug": "ab_wheel_rollout",
+      "name": "Ab Wheel Rollout",
+      "category": "musculation",
+      "equipment": [
+        "ab_wheel"
+      ],
+      "body_area": "abdominaux",
+      "primary_muscles": [
+        "grand_droit",
+        "transverse"
+      ],
+      "secondary_muscles": [
+        "obliques"
+      ],
+      "difficulty": "intermediaire",
+      "laterality": "bilateral",
+      "movement_pattern": "anti_extension",
+      "is_compound": false,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "musculation",
+        "abdominaux",
+        "anti_extension",
+        "intermediaire"
+      ]
+    },
+    {
+      "id": "EX-0061",
+      "slug": "plank",
+      "name": "Plank",
+      "category": "musculation",
+      "equipment": [
+        "bodyweight"
+      ],
+      "body_area": "abdominaux",
+      "primary_muscles": [
+        "transverse",
+        "grand_droit"
+      ],
+      "secondary_muscles": [
+        "obliques"
+      ],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "isometric",
+      "is_compound": false,
+      "is_bodyweight": true,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "musculation",
+        "abdominaux",
+        "isometric",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0062",
+      "slug": "side_plank",
+      "name": "Side Plank",
+      "category": "musculation",
+      "equipment": [
+        "bodyweight"
+      ],
+      "body_area": "abdominaux",
+      "primary_muscles": [
+        "obliques",
+        "transverse"
+      ],
+      "secondary_muscles": [
+        "fessiers"
+      ],
+      "difficulty": "debutant",
+      "laterality": "unilateral",
+      "movement_pattern": "isometric",
+      "is_compound": false,
+      "is_bodyweight": true,
+      "is_unilateral": true,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "musculation",
+        "abdominaux",
+        "isometric",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0063",
+      "slug": "clean",
+      "name": "Clean",
+      "category": "crossfit",
+      "equipment": [
+        "barbell"
+      ],
+      "body_area": "full_body",
+      "primary_muscles": [
+        "quadriceps",
+        "fessiers"
+      ],
+      "secondary_muscles": [
+        "ischio-jambiers",
+        "trapÃ¨zes",
+        "epaules"
+      ],
+      "difficulty": "avance",
+      "laterality": "bilateral",
+      "movement_pattern": "olympic_lift",
+      "is_compound": true,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "crossfit",
+        "full_body",
+        "olympic_lift",
+        "avance"
+      ]
+    },
+    {
+      "id": "EX-0064",
+      "slug": "power_clean",
+      "name": "Power Clean",
+      "category": "crossfit",
+      "equipment": [
+        "barbell"
+      ],
+      "body_area": "full_body",
+      "primary_muscles": [
+        "quadriceps",
+        "fessiers"
+      ],
+      "secondary_muscles": [
+        "trapÃ¨zes",
+        "epaules"
+      ],
+      "difficulty": "intermediaire",
+      "laterality": "bilateral",
+      "movement_pattern": "olympic_lift",
+      "is_compound": true,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "crossfit",
+        "full_body",
+        "olympic_lift",
+        "intermediaire"
+      ]
+    },
+    {
+      "id": "EX-0065",
+      "slug": "hang_clean",
+      "name": "Hang Clean",
+      "category": "crossfit",
+      "equipment": [
+        "barbell"
+      ],
+      "body_area": "full_body",
+      "primary_muscles": [
+        "fessiers",
+        "ischio-jambiers"
+      ],
+      "secondary_muscles": [
+        "quadriceps",
+        "trapÃ¨zes"
+      ],
+      "difficulty": "intermediaire",
+      "laterality": "bilateral",
+      "movement_pattern": "olympic_lift",
+      "is_compound": true,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "crossfit",
+        "full_body",
+        "olympic_lift",
+        "intermediaire"
+      ]
+    },
+    {
+      "id": "EX-0066",
+      "slug": "clean_and_jerk",
+      "name": "Clean and Jerk",
+      "category": "crossfit",
+      "equipment": [
+        "barbell"
+      ],
+      "body_area": "full_body",
+      "primary_muscles": [
+        "jambes",
+        "dos"
+      ],
+      "secondary_muscles": [
+        "epaules",
+        "triceps"
+      ],
+      "difficulty": "avance",
+      "laterality": "bilateral",
+      "movement_pattern": "olympic_lift",
+      "is_compound": true,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "crossfit",
+        "full_body",
+        "olympic_lift",
+        "avance"
+      ]
+    },
+    {
+      "id": "EX-0067",
+      "slug": "snatch",
+      "name": "Snatch",
+      "category": "crossfit",
+      "equipment": [
+        "barbell"
+      ],
+      "body_area": "full_body",
+      "primary_muscles": [
+        "jambes",
+        "dos"
+      ],
+      "secondary_muscles": [
+        "epaules",
+        "trapÃ¨zes"
+      ],
+      "difficulty": "avance",
+      "laterality": "bilateral",
+      "movement_pattern": "olympic_lift",
+      "is_compound": true,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "crossfit",
+        "full_body",
+        "olympic_lift",
+        "avance"
+      ]
+    },
+    {
+      "id": "EX-0068",
+      "slug": "power_snatch",
+      "name": "Power Snatch",
+      "category": "crossfit",
+      "equipment": [
+        "barbell"
+      ],
+      "body_area": "full_body",
+      "primary_muscles": [
+        "fessiers",
+        "quadriceps"
+      ],
+      "secondary_muscles": [
+        "trapÃ¨zes",
+        "epaules"
+      ],
+      "difficulty": "avance",
+      "laterality": "bilateral",
+      "movement_pattern": "olympic_lift",
+      "is_compound": true,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "crossfit",
+        "full_body",
+        "olympic_lift",
+        "avance"
+      ]
+    },
+    {
+      "id": "EX-0069",
+      "slug": "hang_snatch",
+      "name": "Hang Snatch",
+      "category": "crossfit",
+      "equipment": [
+        "barbell"
+      ],
+      "body_area": "full_body",
+      "primary_muscles": [
+        "chaine_posterieure",
+        "epaules"
+      ],
+      "secondary_muscles": [
+        "trapÃ¨zes"
+      ],
+      "difficulty": "avance",
+      "laterality": "bilateral",
+      "movement_pattern": "olympic_lift",
+      "is_compound": true,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "crossfit",
+        "full_body",
+        "olympic_lift",
+        "avance"
+      ]
+    },
+    {
+      "id": "EX-0070",
+      "slug": "overhead_squat",
+      "name": "Overhead Squat",
+      "category": "crossfit",
+      "equipment": [
+        "barbell"
+      ],
+      "body_area": "full_body",
+      "primary_muscles": [
+        "quadriceps",
+        "fessiers"
+      ],
+      "secondary_muscles": [
+        "epaules",
+        "abdominaux"
+      ],
+      "difficulty": "avance",
+      "laterality": "bilateral",
+      "movement_pattern": "squat",
+      "is_compound": true,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "crossfit",
+        "full_body",
+        "squat",
+        "avance"
+      ]
+    },
+    {
+      "id": "EX-0071",
+      "slug": "thruster",
+      "name": "Thruster",
+      "category": "crossfit",
+      "equipment": [
+        "barbell"
+      ],
+      "body_area": "full_body",
+      "primary_muscles": [
+        "quadriceps",
+        "fessiers"
+      ],
+      "secondary_muscles": [
+        "epaules",
+        "triceps"
+      ],
+      "difficulty": "intermediaire",
+      "laterality": "bilateral",
+      "movement_pattern": "squat_to_press",
+      "is_compound": false,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "crossfit",
+        "full_body",
+        "squat_to_press",
+        "intermediaire"
+      ]
+    },
+    {
+      "id": "EX-0072",
+      "slug": "push_press",
+      "name": "Push Press",
+      "category": "crossfit",
+      "equipment": [
+        "barbell"
+      ],
+      "body_area": "epaules",
+      "primary_muscles": [
+        "deltoides",
+        "triceps"
+      ],
+      "secondary_muscles": [
+        "quadriceps"
+      ],
+      "difficulty": "intermediaire",
+      "laterality": "bilateral",
+      "movement_pattern": "vertical_push",
+      "is_compound": true,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "crossfit",
+        "epaules",
+        "vertical_push",
+        "intermediaire"
+      ]
+    },
+    {
+      "id": "EX-0073",
+      "slug": "push_jerk",
+      "name": "Push Jerk",
+      "category": "crossfit",
+      "equipment": [
+        "barbell"
+      ],
+      "body_area": "full_body",
+      "primary_muscles": [
+        "epaules",
+        "triceps"
+      ],
+      "secondary_muscles": [
+        "quadriceps"
+      ],
+      "difficulty": "intermediaire",
+      "laterality": "bilateral",
+      "movement_pattern": "jerk",
+      "is_compound": true,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "crossfit",
+        "full_body",
+        "jerk",
+        "intermediaire"
+      ]
+    },
+    {
+      "id": "EX-0074",
+      "slug": "split_jerk",
+      "name": "Split Jerk",
+      "category": "crossfit",
+      "equipment": [
+        "barbell"
+      ],
+      "body_area": "full_body",
+      "primary_muscles": [
+        "epaules",
+        "triceps"
+      ],
+      "secondary_muscles": [
+        "jambes"
+      ],
+      "difficulty": "avance",
+      "laterality": "unilateral",
+      "movement_pattern": "jerk",
+      "is_compound": true,
+      "is_bodyweight": false,
+      "is_unilateral": true,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "crossfit",
+        "full_body",
+        "jerk",
+        "avance"
+      ]
+    },
+    {
+      "id": "EX-0075",
+      "slug": "dumbbell_snatch",
+      "name": "Dumbbell Snatch",
+      "category": "crossfit",
+      "equipment": [
+        "dumbbell"
+      ],
+      "body_area": "full_body",
+      "primary_muscles": [
+        "fessiers",
+        "quadriceps"
+      ],
+      "secondary_muscles": [
+        "epaules",
+        "trapÃ¨zes"
+      ],
+      "difficulty": "intermediaire",
+      "laterality": "unilateral",
+      "movement_pattern": "olympic_lift",
+      "is_compound": true,
+      "is_bodyweight": false,
+      "is_unilateral": true,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "crossfit",
+        "full_body",
+        "olympic_lift",
+        "intermediaire"
+      ]
+    },
+    {
+      "id": "EX-0076",
+      "slug": "kettlebell_swing",
+      "name": "Kettlebell Swing",
+      "category": "crossfit",
+      "equipment": [
+        "kettlebell"
+      ],
+      "body_area": "chaine_posterieure",
+      "primary_muscles": [
+        "fessiers",
+        "ischio-jambiers"
+      ],
+      "secondary_muscles": [
+        "erecteurs_du_rachis"
+      ],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "hinge",
+      "is_compound": true,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "crossfit",
+        "chaine_posterieure",
+        "hinge",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0077",
+      "slug": "turkish_get_up",
+      "name": "Turkish Get Up",
+      "category": "crossfit",
+      "equipment": [
+        "kettlebell"
+      ],
+      "body_area": "full_body",
+      "primary_muscles": [
+        "epaules",
+        "abdominaux"
+      ],
+      "secondary_muscles": [
+        "fessiers",
+        "jambes"
+      ],
+      "difficulty": "avance",
+      "laterality": "unilateral",
+      "movement_pattern": "get_up",
+      "is_compound": false,
+      "is_bodyweight": false,
+      "is_unilateral": true,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "crossfit",
+        "full_body",
+        "get_up",
+        "avance"
+      ]
+    },
+    {
+      "id": "EX-0078",
+      "slug": "wall_ball",
+      "name": "Wall Ball",
+      "category": "crossfit",
+      "equipment": [
+        "medicine_ball"
+      ],
+      "body_area": "full_body",
+      "primary_muscles": [
+        "quadriceps",
+        "fessiers"
+      ],
+      "secondary_muscles": [
+        "epaules"
+      ],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "squat_to_throw",
+      "is_compound": false,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "crossfit",
+        "full_body",
+        "squat_to_throw",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0079",
+      "slug": "box_jump",
+      "name": "Box Jump",
+      "category": "crossfit",
+      "equipment": [
+        "box"
+      ],
+      "body_area": "jambes",
+      "primary_muscles": [
+        "quadriceps",
+        "fessiers"
+      ],
+      "secondary_muscles": [
+        "mollets"
+      ],
+      "difficulty": "intermediaire",
+      "laterality": "bilateral",
+      "movement_pattern": "plyometric",
+      "is_compound": true,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "crossfit",
+        "jambes",
+        "plyometric",
+        "intermediaire"
+      ]
+    },
+    {
+      "id": "EX-0080",
+      "slug": "burpee",
+      "name": "Burpee",
+      "category": "crossfit",
+      "equipment": [
+        "bodyweight"
+      ],
+      "body_area": "full_body",
+      "primary_muscles": [
+        "pectoraux",
+        "quadriceps"
+      ],
+      "secondary_muscles": [
+        "fessiers",
+        "triceps"
+      ],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "burpee",
+      "is_compound": false,
+      "is_bodyweight": true,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "crossfit",
+        "full_body",
+        "burpee",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0081",
+      "slug": "burpee_box_jump_over",
+      "name": "Burpee Box Jump Over",
+      "category": "crossfit",
+      "equipment": [
+        "box"
+      ],
+      "body_area": "full_body",
+      "primary_muscles": [
+        "jambes",
+        "pectoraux"
+      ],
+      "secondary_muscles": [
+        "epaules"
+      ],
+      "difficulty": "intermediaire",
+      "laterality": "bilateral",
+      "movement_pattern": "burpee",
+      "is_compound": false,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "crossfit",
+        "full_body",
+        "burpee",
+        "intermediaire"
+      ]
+    },
+    {
+      "id": "EX-0082",
+      "slug": "toes_to_bar",
+      "name": "Toes to Bar",
+      "category": "crossfit",
+      "equipment": [
+        "bodyweight"
+      ],
+      "body_area": "abdominaux",
+      "primary_muscles": [
+        "grand_droit",
+        "flecheurs_de_hanche"
+      ],
+      "secondary_muscles": [
+        "grand_dorsal"
+      ],
+      "difficulty": "avance",
+      "laterality": "bilateral",
+      "movement_pattern": "hip_flexion",
+      "is_compound": false,
+      "is_bodyweight": true,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "crossfit",
+        "abdominaux",
+        "hip_flexion",
+        "avance"
+      ]
+    },
+    {
+      "id": "EX-0083",
+      "slug": "knees_to_elbows",
+      "name": "Knees to Elbows",
+      "category": "crossfit",
+      "equipment": [
+        "bodyweight"
+      ],
+      "body_area": "abdominaux",
+      "primary_muscles": [
+        "abdominaux",
+        "flecheurs_de_hanche"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "intermediaire",
+      "laterality": "bilateral",
+      "movement_pattern": "hip_flexion",
+      "is_compound": false,
+      "is_bodyweight": true,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "crossfit",
+        "abdominaux",
+        "hip_flexion",
+        "intermediaire"
+      ]
+    },
+    {
+      "id": "EX-0084",
+      "slug": "handstand_push_up",
+      "name": "Handstand Push Up",
+      "category": "crossfit",
+      "equipment": [
+        "bodyweight"
+      ],
+      "body_area": "epaules",
+      "primary_muscles": [
+        "deltoides",
+        "triceps"
+      ],
+      "secondary_muscles": [
+        "trapezes",
+        "abdominaux"
+      ],
+      "difficulty": "avance",
+      "laterality": "bilateral",
+      "movement_pattern": "vertical_push",
+      "is_compound": true,
+      "is_bodyweight": true,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "crossfit",
+        "epaules",
+        "vertical_push",
+        "avance"
+      ]
+    },
+    {
+      "id": "EX-0085",
+      "slug": "handstand_hold",
+      "name": "Handstand Hold",
+      "category": "crossfit",
+      "equipment": [
+        "bodyweight"
+      ],
+      "body_area": "epaules",
+      "primary_muscles": [
+        "deltoides",
+        "triceps"
+      ],
+      "secondary_muscles": [
+        "abdominaux"
+      ],
+      "difficulty": "avance",
+      "laterality": "bilateral",
+      "movement_pattern": "isometric",
+      "is_compound": false,
+      "is_bodyweight": true,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "crossfit",
+        "epaules",
+        "isometric",
+        "avance"
+      ]
+    },
+    {
+      "id": "EX-0086",
+      "slug": "handstand_walk",
+      "name": "Handstand Walk",
+      "category": "crossfit",
+      "equipment": [
+        "bodyweight"
+      ],
+      "body_area": "full_body",
+      "primary_muscles": [
+        "epaules",
+        "triceps"
+      ],
+      "secondary_muscles": [
+        "abdominaux"
+      ],
+      "difficulty": "avance",
+      "laterality": "bilateral",
+      "movement_pattern": "locomotion",
+      "is_compound": true,
+      "is_bodyweight": true,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "crossfit",
+        "full_body",
+        "locomotion",
+        "avance"
+      ]
+    },
+    {
+      "id": "EX-0087",
+      "slug": "muscle_up",
+      "name": "Muscle Up",
+      "category": "crossfit",
+      "equipment": [
+        "bodyweight"
+      ],
+      "body_area": "full_body",
+      "primary_muscles": [
+        "grand_dorsal",
+        "pectoraux"
+      ],
+      "secondary_muscles": [
+        "triceps",
+        "abdominaux"
+      ],
+      "difficulty": "avance",
+      "laterality": "bilateral",
+      "movement_pattern": "gymnastics",
+      "is_compound": false,
+      "is_bodyweight": true,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "crossfit",
+        "full_body",
+        "gymnastics",
+        "avance"
+      ]
+    },
+    {
+      "id": "EX-0088",
+      "slug": "chest_to_bar_pull_up",
+      "name": "Chest to Bar Pull Up",
+      "category": "crossfit",
+      "equipment": [
+        "bodyweight"
+      ],
+      "body_area": "dos",
+      "primary_muscles": [
+        "grand_dorsal",
+        "biceps"
+      ],
+      "secondary_muscles": [
+        "abdominaux"
+      ],
+      "difficulty": "avance",
+      "laterality": "bilateral",
+      "movement_pattern": "vertical_pull",
+      "is_compound": true,
+      "is_bodyweight": true,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "crossfit",
+        "dos",
+        "vertical_pull",
+        "avance"
+      ]
+    },
+    {
+      "id": "EX-0089",
+      "slug": "rope_climb",
+      "name": "Rope Climb",
+      "category": "crossfit",
+      "equipment": [
+        "rope"
+      ],
+      "body_area": "full_body",
+      "primary_muscles": [
+        "grand_dorsal",
+        "biceps"
+      ],
+      "secondary_muscles": [
+        "avant_bras",
+        "abdominaux"
+      ],
+      "difficulty": "avance",
+      "laterality": "bilateral",
+      "movement_pattern": "climb",
+      "is_compound": false,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "crossfit",
+        "full_body",
+        "climb",
+        "avance"
+      ]
+    },
+    {
+      "id": "EX-0090",
+      "slug": "pistol_squat",
+      "name": "Pistol Squat",
+      "category": "crossfit",
+      "equipment": [
+        "bodyweight"
+      ],
+      "body_area": "jambes",
+      "primary_muscles": [
+        "quadriceps",
+        "fessiers"
+      ],
+      "secondary_muscles": [
+        "ischio-jambiers"
+      ],
+      "difficulty": "avance",
+      "laterality": "unilateral",
+      "movement_pattern": "squat",
+      "is_compound": true,
+      "is_bodyweight": true,
+      "is_unilateral": true,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "crossfit",
+        "jambes",
+        "squat",
+        "avance"
+      ]
+    },
+    {
+      "id": "EX-0091",
+      "slug": "double_under",
+      "name": "Double Under",
+      "category": "crossfit",
+      "equipment": [
+        "jump_rope"
+      ],
+      "body_area": "cardio",
+      "primary_muscles": [
+        "mollets",
+        "quadriceps"
+      ],
+      "secondary_muscles": [
+        "avant_bras"
+      ],
+      "difficulty": "intermediaire",
+      "laterality": "bilateral",
+      "movement_pattern": "jump_rope",
+      "is_compound": false,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "crossfit",
+        "cardio",
+        "jump_rope",
+        "intermediaire"
+      ]
+    },
+    {
+      "id": "EX-0092",
+      "slug": "single_under",
+      "name": "Single Under",
+      "category": "crossfit",
+      "equipment": [
+        "jump_rope"
+      ],
+      "body_area": "cardio",
+      "primary_muscles": [
+        "mollets",
+        "quadriceps"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "jump_rope",
+      "is_compound": false,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "crossfit",
+        "cardio",
+        "jump_rope",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0093",
+      "slug": "farmer_carry",
+      "name": "Farmer Carry",
+      "category": "crossfit",
+      "equipment": [
+        "dumbbell"
+      ],
+      "body_area": "full_body",
+      "primary_muscles": [
+        "avant_bras",
+        "trapÃ¨zes"
+      ],
+      "secondary_muscles": [
+        "abdominaux",
+        "fessiers"
+      ],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "carry",
+      "is_compound": true,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "crossfit",
+        "full_body",
+        "carry",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0094",
+      "slug": "sandbag_carry",
+      "name": "Sandbag Carry",
+      "category": "crossfit",
+      "equipment": [
+        "sandbag"
+      ],
+      "body_area": "full_body",
+      "primary_muscles": [
+        "jambes",
+        "dos"
+      ],
+      "secondary_muscles": [
+        "abdominaux",
+        "avant_bras"
+      ],
+      "difficulty": "intermediaire",
+      "laterality": "bilateral",
+      "movement_pattern": "carry",
+      "is_compound": true,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "crossfit",
+        "full_body",
+        "carry",
+        "intermediaire"
+      ]
+    },
+    {
+      "id": "EX-0095",
+      "slug": "bodyweight_squat",
+      "name": "Bodyweight Squat",
+      "category": "fitness_general",
+      "equipment": [
+        "bodyweight"
+      ],
+      "body_area": "jambes",
+      "primary_muscles": [
+        "quadriceps",
+        "fessiers"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "squat",
+      "is_compound": true,
+      "is_bodyweight": true,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "fitness_general",
+        "jambes",
+        "squat",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0096",
+      "slug": "sumo_bodyweight_squat",
+      "name": "Sumo Bodyweight Squat",
+      "category": "fitness_general",
+      "equipment": [
+        "bodyweight"
+      ],
+      "body_area": "jambes",
+      "primary_muscles": [
+        "adducteurs",
+        "fessiers"
+      ],
+      "secondary_muscles": [
+        "quadriceps"
+      ],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "squat",
+      "is_compound": true,
+      "is_bodyweight": true,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "fitness_general",
+        "jambes",
+        "squat",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0097",
+      "slug": "squat_jump",
+      "name": "Squat Jump",
+      "category": "fitness_general",
+      "equipment": [
+        "bodyweight"
+      ],
+      "body_area": "jambes",
+      "primary_muscles": [
+        "quadriceps",
+        "fessiers"
+      ],
+      "secondary_muscles": [
+        "mollets"
+      ],
+      "difficulty": "intermediaire",
+      "laterality": "bilateral",
+      "movement_pattern": "plyometric",
+      "is_compound": true,
+      "is_bodyweight": true,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "fitness_general",
+        "jambes",
+        "plyometric",
+        "intermediaire"
+      ]
+    },
+    {
+      "id": "EX-0098",
+      "slug": "jumping_lunge",
+      "name": "Jumping Lunge",
+      "category": "fitness_general",
+      "equipment": [
+        "bodyweight"
+      ],
+      "body_area": "jambes",
+      "primary_muscles": [
+        "quadriceps",
+        "fessiers"
+      ],
+      "secondary_muscles": [
+        "mollets"
+      ],
+      "difficulty": "intermediaire",
+      "laterality": "unilateral",
+      "movement_pattern": "plyometric",
+      "is_compound": true,
+      "is_bodyweight": true,
+      "is_unilateral": true,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "fitness_general",
+        "jambes",
+        "plyometric",
+        "intermediaire"
+      ]
+    },
+    {
+      "id": "EX-0099",
+      "slug": "glute_kickback",
+      "name": "Glute Kickback",
+      "category": "fitness_general",
+      "equipment": [
+        "bodyweight"
+      ],
+      "body_area": "fessiers",
+      "primary_muscles": [
+        "grand_fessier"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "debutant",
+      "laterality": "unilateral",
+      "movement_pattern": "hip_extension",
+      "is_compound": false,
+      "is_bodyweight": true,
+      "is_unilateral": true,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "fitness_general",
+        "fessiers",
+        "hip_extension",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0100",
+      "slug": "fire_hydrant",
+      "name": "Fire Hydrant",
+      "category": "fitness_general",
+      "equipment": [
+        "bodyweight"
+      ],
+      "body_area": "fessiers",
+      "primary_muscles": [
+        "moyen_fessier",
+        "grand_fessier"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "debutant",
+      "laterality": "unilateral",
+      "movement_pattern": "hip_abduction",
+      "is_compound": false,
+      "is_bodyweight": true,
+      "is_unilateral": true,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "fitness_general",
+        "fessiers",
+        "hip_abduction",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0101",
+      "slug": "donkey_kick",
+      "name": "Donkey Kick",
+      "category": "fitness_general",
+      "equipment": [
+        "bodyweight"
+      ],
+      "body_area": "fessiers",
+      "primary_muscles": [
+        "grand_fessier"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "debutant",
+      "laterality": "unilateral",
+      "movement_pattern": "hip_extension",
+      "is_compound": false,
+      "is_bodyweight": true,
+      "is_unilateral": true,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "fitness_general",
+        "fessiers",
+        "hip_extension",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0102",
+      "slug": "clamshell",
+      "name": "Clamshell",
+      "category": "fitness_general",
+      "equipment": [
+        "bodyweight"
+      ],
+      "body_area": "fessiers",
+      "primary_muscles": [
+        "moyen_fessier",
+        "petit_fessier"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "debutant",
+      "laterality": "unilateral",
+      "movement_pattern": "hip_abduction",
+      "is_compound": false,
+      "is_bodyweight": true,
+      "is_unilateral": true,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "fitness_general",
+        "fessiers",
+        "hip_abduction",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0103",
+      "slug": "calf_raise",
+      "name": "Calf Raise",
+      "category": "fitness_general",
+      "equipment": [
+        "bodyweight"
+      ],
+      "body_area": "mollets",
+      "primary_muscles": [
+        "gastrocnemius",
+        "soleus"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "calf_raise",
+      "is_compound": false,
+      "is_bodyweight": true,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "fitness_general",
+        "mollets",
+        "calf_raise",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0104",
+      "slug": "incline_push_up",
+      "name": "Incline Push Up",
+      "category": "fitness_general",
+      "equipment": [
+        "bodyweight"
+      ],
+      "body_area": "pectoraux",
+      "primary_muscles": [
+        "pectoraux",
+        "triceps"
+      ],
+      "secondary_muscles": [
+        "deltoides"
+      ],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "horizontal_push",
+      "is_compound": true,
+      "is_bodyweight": true,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "fitness_general",
+        "pectoraux",
+        "horizontal_push",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0105",
+      "slug": "decline_push_up",
+      "name": "Decline Push Up",
+      "category": "fitness_general",
+      "equipment": [
+        "bodyweight"
+      ],
+      "body_area": "pectoraux",
+      "primary_muscles": [
+        "pectoraux",
+        "deltoides"
+      ],
+      "secondary_muscles": [
+        "triceps"
+      ],
+      "difficulty": "intermediaire",
+      "laterality": "bilateral",
+      "movement_pattern": "horizontal_push",
+      "is_compound": true,
+      "is_bodyweight": true,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "fitness_general",
+        "pectoraux",
+        "horizontal_push",
+        "intermediaire"
+      ]
+    },
+    {
+      "id": "EX-0106",
+      "slug": "diamond_push_up",
+      "name": "Diamond Push Up",
+      "category": "fitness_general",
+      "equipment": [
+        "bodyweight"
+      ],
+      "body_area": "bras",
+      "primary_muscles": [
+        "triceps",
+        "pectoraux"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "intermediaire",
+      "laterality": "bilateral",
+      "movement_pattern": "horizontal_push",
+      "is_compound": true,
+      "is_bodyweight": true,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "fitness_general",
+        "bras",
+        "horizontal_push",
+        "intermediaire"
+      ]
+    },
+    {
+      "id": "EX-0107",
+      "slug": "pike_push_up",
+      "name": "Pike Push Up",
+      "category": "fitness_general",
+      "equipment": [
+        "bodyweight"
+      ],
+      "body_area": "epaules",
+      "primary_muscles": [
+        "deltoides",
+        "triceps"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "intermediaire",
+      "laterality": "bilateral",
+      "movement_pattern": "vertical_push",
+      "is_compound": true,
+      "is_bodyweight": true,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "fitness_general",
+        "epaules",
+        "vertical_push",
+        "intermediaire"
+      ]
+    },
+    {
+      "id": "EX-0108",
+      "slug": "mountain_climber",
+      "name": "Mountain Climber",
+      "category": "fitness_general",
+      "equipment": [
+        "bodyweight"
+      ],
+      "body_area": "full_body",
+      "primary_muscles": [
+        "abdominaux",
+        "quadriceps"
+      ],
+      "secondary_muscles": [
+        "epaules"
+      ],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "locomotion",
+      "is_compound": true,
+      "is_bodyweight": true,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "fitness_general",
+        "full_body",
+        "locomotion",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0109",
+      "slug": "high_knees",
+      "name": "High Knees",
+      "category": "fitness_general",
+      "equipment": [
+        "bodyweight"
+      ],
+      "body_area": "cardio",
+      "primary_muscles": [
+        "quadriceps",
+        "flecheurs_de_hanche"
+      ],
+      "secondary_muscles": [
+        "mollets"
+      ],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "cardio",
+      "is_compound": false,
+      "is_bodyweight": true,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "fitness_general",
+        "cardio",
+        "cardio",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0110",
+      "slug": "butt_kicks",
+      "name": "Butt Kicks",
+      "category": "fitness_general",
+      "equipment": [
+        "bodyweight"
+      ],
+      "body_area": "cardio",
+      "primary_muscles": [
+        "ischio-jambiers",
+        "mollets"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "cardio",
+      "is_compound": false,
+      "is_bodyweight": true,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "fitness_general",
+        "cardio",
+        "cardio",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0111",
+      "slug": "jumping_jack",
+      "name": "Jumping Jack",
+      "category": "fitness_general",
+      "equipment": [
+        "bodyweight"
+      ],
+      "body_area": "cardio",
+      "primary_muscles": [
+        "jambes",
+        "epaules"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "cardio",
+      "is_compound": false,
+      "is_bodyweight": true,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "fitness_general",
+        "cardio",
+        "cardio",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0112",
+      "slug": "bear_crawl",
+      "name": "Bear Crawl",
+      "category": "fitness_general",
+      "equipment": [
+        "bodyweight"
+      ],
+      "body_area": "full_body",
+      "primary_muscles": [
+        "epaules",
+        "abdominaux"
+      ],
+      "secondary_muscles": [
+        "quadriceps"
+      ],
+      "difficulty": "intermediaire",
+      "laterality": "bilateral",
+      "movement_pattern": "locomotion",
+      "is_compound": true,
+      "is_bodyweight": true,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "fitness_general",
+        "full_body",
+        "locomotion",
+        "intermediaire"
+      ]
+    },
+    {
+      "id": "EX-0113",
+      "slug": "crab_walk",
+      "name": "Crab Walk",
+      "category": "fitness_general",
+      "equipment": [
+        "bodyweight"
+      ],
+      "body_area": "full_body",
+      "primary_muscles": [
+        "triceps",
+        "epaules"
+      ],
+      "secondary_muscles": [
+        "fessiers",
+        "abdominaux"
+      ],
+      "difficulty": "intermediaire",
+      "laterality": "bilateral",
+      "movement_pattern": "locomotion",
+      "is_compound": true,
+      "is_bodyweight": true,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "fitness_general",
+        "full_body",
+        "locomotion",
+        "intermediaire"
+      ]
+    },
+    {
+      "id": "EX-0114",
+      "slug": "inchworm",
+      "name": "Inchworm",
+      "category": "fitness_general",
+      "equipment": [
+        "bodyweight"
+      ],
+      "body_area": "full_body",
+      "primary_muscles": [
+        "ischio-jambiers",
+        "epaules"
+      ],
+      "secondary_muscles": [
+        "abdominaux"
+      ],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "locomotion",
+      "is_compound": true,
+      "is_bodyweight": true,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "fitness_general",
+        "full_body",
+        "locomotion",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0115",
+      "slug": "bird_dog",
+      "name": "Bird Dog",
+      "category": "fitness_general",
+      "equipment": [
+        "bodyweight"
+      ],
+      "body_area": "abdominaux",
+      "primary_muscles": [
+        "transverse",
+        "erecteurs_du_rachis"
+      ],
+      "secondary_muscles": [
+        "fessiers"
+      ],
+      "difficulty": "debutant",
+      "laterality": "unilateral",
+      "movement_pattern": "anti_rotation",
+      "is_compound": false,
+      "is_bodyweight": true,
+      "is_unilateral": true,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "fitness_general",
+        "abdominaux",
+        "anti_rotation",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0116",
+      "slug": "dead_bug",
+      "name": "Dead Bug",
+      "category": "fitness_general",
+      "equipment": [
+        "bodyweight"
+      ],
+      "body_area": "abdominaux",
+      "primary_muscles": [
+        "transverse",
+        "grand_droit"
+      ],
+      "secondary_muscles": [
+        "flecheurs_de_hanche"
+      ],
+      "difficulty": "debutant",
+      "laterality": "unilateral",
+      "movement_pattern": "anti_extension",
+      "is_compound": false,
+      "is_bodyweight": true,
+      "is_unilateral": true,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "fitness_general",
+        "abdominaux",
+        "anti_extension",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0117",
+      "slug": "hollow_body_hold",
+      "name": "Hollow Body Hold",
+      "category": "fitness_general",
+      "equipment": [
+        "bodyweight"
+      ],
+      "body_area": "abdominaux",
+      "primary_muscles": [
+        "grand_droit",
+        "transverse"
+      ],
+      "secondary_muscles": [
+        "flecheurs_de_hanche"
+      ],
+      "difficulty": "intermediaire",
+      "laterality": "bilateral",
+      "movement_pattern": "isometric",
+      "is_compound": false,
+      "is_bodyweight": true,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "fitness_general",
+        "abdominaux",
+        "isometric",
+        "intermediaire"
+      ]
+    },
+    {
+      "id": "EX-0118",
+      "slug": "superman",
+      "name": "Superman",
+      "category": "fitness_general",
+      "equipment": [
+        "bodyweight"
+      ],
+      "body_area": "dos",
+      "primary_muscles": [
+        "erecteurs_du_rachis",
+        "fessiers"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "back_extension",
+      "is_compound": false,
+      "is_bodyweight": true,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "fitness_general",
+        "dos",
+        "back_extension",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0119",
+      "slug": "russian_twist",
+      "name": "Russian Twist",
+      "category": "fitness_general",
+      "equipment": [
+        "bodyweight"
+      ],
+      "body_area": "abdominaux",
+      "primary_muscles": [
+        "obliques",
+        "grand_droit"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "intermediaire",
+      "laterality": "bilateral",
+      "movement_pattern": "rotation",
+      "is_compound": false,
+      "is_bodyweight": true,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "fitness_general",
+        "abdominaux",
+        "rotation",
+        "intermediaire"
+      ]
+    },
+    {
+      "id": "EX-0120",
+      "slug": "bicycle_crunch",
+      "name": "Bicycle Crunch",
+      "category": "fitness_general",
+      "equipment": [
+        "bodyweight"
+      ],
+      "body_area": "abdominaux",
+      "primary_muscles": [
+        "grand_droit",
+        "obliques"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "intermediaire",
+      "laterality": "bilateral",
+      "movement_pattern": "rotation",
+      "is_compound": false,
+      "is_bodyweight": true,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "fitness_general",
+        "abdominaux",
+        "rotation",
+        "intermediaire"
+      ]
+    },
+    {
+      "id": "EX-0121",
+      "slug": "sit_up",
+      "name": "Sit Up",
+      "category": "fitness_general",
+      "equipment": [
+        "bodyweight"
+      ],
+      "body_area": "abdominaux",
+      "primary_muscles": [
+        "grand_droit",
+        "flecheurs_de_hanche"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "spinal_flexion",
+      "is_compound": false,
+      "is_bodyweight": true,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "fitness_general",
+        "abdominaux",
+        "spinal_flexion",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0122",
+      "slug": "reverse_crunch",
+      "name": "Reverse Crunch",
+      "category": "fitness_general",
+      "equipment": [
+        "bodyweight"
+      ],
+      "body_area": "abdominaux",
+      "primary_muscles": [
+        "grand_droit"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "spinal_flexion",
+      "is_compound": false,
+      "is_bodyweight": true,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "fitness_general",
+        "abdominaux",
+        "spinal_flexion",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0123",
+      "slug": "leg_raise",
+      "name": "Leg Raise",
+      "category": "fitness_general",
+      "equipment": [
+        "bodyweight"
+      ],
+      "body_area": "abdominaux",
+      "primary_muscles": [
+        "grand_droit",
+        "flecheurs_de_hanche"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "intermediaire",
+      "laterality": "bilateral",
+      "movement_pattern": "hip_flexion",
+      "is_compound": false,
+      "is_bodyweight": true,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "fitness_general",
+        "abdominaux",
+        "hip_flexion",
+        "intermediaire"
+      ]
+    },
+    {
+      "id": "EX-0124",
+      "slug": "side_crunch",
+      "name": "Side Crunch",
+      "category": "fitness_general",
+      "equipment": [
+        "bodyweight"
+      ],
+      "body_area": "abdominaux",
+      "primary_muscles": [
+        "obliques"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "debutant",
+      "laterality": "unilateral",
+      "movement_pattern": "lateral_flexion",
+      "is_compound": false,
+      "is_bodyweight": true,
+      "is_unilateral": true,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "fitness_general",
+        "abdominaux",
+        "lateral_flexion",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0125",
+      "slug": "running",
+      "name": "Running",
+      "category": "cardio",
+      "equipment": [
+        "bodyweight"
+      ],
+      "body_area": "cardio",
+      "primary_muscles": [
+        "quadriceps",
+        "ischio-jambiers"
+      ],
+      "secondary_muscles": [
+        "fessiers",
+        "mollets"
+      ],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "running",
+      "is_compound": false,
+      "is_bodyweight": true,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "cardio",
+        "cardio",
+        "running",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0126",
+      "slug": "jogging",
+      "name": "Jogging",
+      "category": "cardio",
+      "equipment": [
+        "bodyweight"
+      ],
+      "body_area": "cardio",
+      "primary_muscles": [
+        "jambes",
+        "mollets"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "running",
+      "is_compound": false,
+      "is_bodyweight": true,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "cardio",
+        "cardio",
+        "running",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0127",
+      "slug": "sprint",
+      "name": "Sprint",
+      "category": "cardio",
+      "equipment": [
+        "bodyweight"
+      ],
+      "body_area": "cardio",
+      "primary_muscles": [
+        "quadriceps",
+        "ischio-jambiers"
+      ],
+      "secondary_muscles": [
+        "fessiers",
+        "mollets"
+      ],
+      "difficulty": "intermediaire",
+      "laterality": "bilateral",
+      "movement_pattern": "running",
+      "is_compound": false,
+      "is_bodyweight": true,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "cardio",
+        "cardio",
+        "running",
+        "intermediaire"
+      ]
+    },
+    {
+      "id": "EX-0128",
+      "slug": "treadmill_run",
+      "name": "Treadmill Run",
+      "category": "cardio",
+      "equipment": [
+        "treadmill"
+      ],
+      "body_area": "cardio",
+      "primary_muscles": [
+        "jambes",
+        "fessiers"
+      ],
+      "secondary_muscles": [
+        "mollets"
+      ],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "running",
+      "is_compound": false,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "cardio",
+        "cardio",
+        "running",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0129",
+      "slug": "incline_treadmill_walk",
+      "name": "Incline Treadmill Walk",
+      "category": "cardio",
+      "equipment": [
+        "treadmill"
+      ],
+      "body_area": "cardio",
+      "primary_muscles": [
+        "fessiers",
+        "quadriceps"
+      ],
+      "secondary_muscles": [
+        "mollets"
+      ],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "walking",
+      "is_compound": false,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "cardio",
+        "cardio",
+        "walking",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0130",
+      "slug": "cycling",
+      "name": "Cycling",
+      "category": "cardio",
+      "equipment": [
+        "bike"
+      ],
+      "body_area": "cardio",
+      "primary_muscles": [
+        "quadriceps",
+        "ischio-jambiers"
+      ],
+      "secondary_muscles": [
+        "mollets"
+      ],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "cycling",
+      "is_compound": false,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "cardio",
+        "cardio",
+        "cycling",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0131",
+      "slug": "stationary_bike",
+      "name": "Stationary Bike",
+      "category": "cardio",
+      "equipment": [
+        "bike"
+      ],
+      "body_area": "cardio",
+      "primary_muscles": [
+        "quadriceps",
+        "ischio-jambiers"
+      ],
+      "secondary_muscles": [
+        "mollets"
+      ],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "cycling",
+      "is_compound": false,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "cardio",
+        "cardio",
+        "cycling",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0132",
+      "slug": "air_bike",
+      "name": "Air Bike",
+      "category": "cardio",
+      "equipment": [
+        "air_bike"
+      ],
+      "body_area": "cardio",
+      "primary_muscles": [
+        "jambes",
+        "epaules"
+      ],
+      "secondary_muscles": [
+        "abdominaux"
+      ],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "cycling",
+      "is_compound": false,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "cardio",
+        "cardio",
+        "cycling",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0133",
+      "slug": "rowing_machine",
+      "name": "Rowing Machine",
+      "category": "cardio",
+      "equipment": [
+        "rower"
+      ],
+      "body_area": "cardio",
+      "primary_muscles": [
+        "jambes",
+        "dos"
+      ],
+      "secondary_muscles": [
+        "bras"
+      ],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "rowing",
+      "is_compound": false,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "cardio",
+        "cardio",
+        "rowing",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0134",
+      "slug": "ski_erg",
+      "name": "Ski Erg",
+      "category": "cardio",
+      "equipment": [
+        "ski_erg"
+      ],
+      "body_area": "cardio",
+      "primary_muscles": [
+        "dos",
+        "epaules"
+      ],
+      "secondary_muscles": [
+        "triceps",
+        "abdominaux"
+      ],
+      "difficulty": "intermediaire",
+      "laterality": "bilateral",
+      "movement_pattern": "ski",
+      "is_compound": false,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "cardio",
+        "cardio",
+        "ski",
+        "intermediaire"
+      ]
+    },
+    {
+      "id": "EX-0135",
+      "slug": "stair_climber",
+      "name": "Stair Climber",
+      "category": "cardio",
+      "equipment": [
+        "stair_machine"
+      ],
+      "body_area": "cardio",
+      "primary_muscles": [
+        "quadriceps",
+        "fessiers"
+      ],
+      "secondary_muscles": [
+        "mollets"
+      ],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "stairs",
+      "is_compound": false,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "cardio",
+        "cardio",
+        "stairs",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0136",
+      "slug": "elliptical",
+      "name": "Elliptical",
+      "category": "cardio",
+      "equipment": [
+        "elliptical"
+      ],
+      "body_area": "cardio",
+      "primary_muscles": [
+        "quadriceps",
+        "fessiers"
+      ],
+      "secondary_muscles": [
+        "mollets",
+        "epaules"
+      ],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "elliptical",
+      "is_compound": false,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "cardio",
+        "cardio",
+        "elliptical",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0137",
+      "slug": "swimming_freestyle",
+      "name": "Swimming Freestyle",
+      "category": "cardio",
+      "equipment": [
+        "pool"
+      ],
+      "body_area": "cardio",
+      "primary_muscles": [
+        "epaules",
+        "dos"
+      ],
+      "secondary_muscles": [
+        "bras",
+        "abdominaux"
+      ],
+      "difficulty": "intermediaire",
+      "laterality": "bilateral",
+      "movement_pattern": "swimming",
+      "is_compound": false,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "cardio",
+        "cardio",
+        "swimming",
+        "intermediaire"
+      ]
+    },
+    {
+      "id": "EX-0138",
+      "slug": "swimming_breaststroke",
+      "name": "Swimming Breaststroke",
+      "category": "cardio",
+      "equipment": [
+        "pool"
+      ],
+      "body_area": "cardio",
+      "primary_muscles": [
+        "pectoraux",
+        "epaules"
+      ],
+      "secondary_muscles": [
+        "adducteurs"
+      ],
+      "difficulty": "intermediaire",
+      "laterality": "bilateral",
+      "movement_pattern": "swimming",
+      "is_compound": false,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "cardio",
+        "cardio",
+        "swimming",
+        "intermediaire"
+      ]
+    },
+    {
+      "id": "EX-0139",
+      "slug": "kettlebell_goblet_squat",
+      "name": "Kettlebell Goblet Squat",
+      "category": "kettlebell",
+      "equipment": [
+        "kettlebell"
+      ],
+      "body_area": "jambes",
+      "primary_muscles": [
+        "quadriceps",
+        "fessiers"
+      ],
+      "secondary_muscles": [
+        "abdominaux"
+      ],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "squat",
+      "is_compound": true,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "kettlebell",
+        "jambes",
+        "squat",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0140",
+      "slug": "kettlebell_front_squat",
+      "name": "Kettlebell Front Squat",
+      "category": "kettlebell",
+      "equipment": [
+        "kettlebell"
+      ],
+      "body_area": "jambes",
+      "primary_muscles": [
+        "quadriceps",
+        "fessiers"
+      ],
+      "secondary_muscles": [
+        "abdominaux"
+      ],
+      "difficulty": "intermediaire",
+      "laterality": "bilateral",
+      "movement_pattern": "squat",
+      "is_compound": true,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "kettlebell",
+        "jambes",
+        "squat",
+        "intermediaire"
+      ]
+    },
+    {
+      "id": "EX-0141",
+      "slug": "kettlebell_clean",
+      "name": "Kettlebell Clean",
+      "category": "kettlebell",
+      "equipment": [
+        "kettlebell"
+      ],
+      "body_area": "full_body",
+      "primary_muscles": [
+        "fessiers",
+        "ischio-jambiers"
+      ],
+      "secondary_muscles": [
+        "epaules",
+        "trapÃ¨zes"
+      ],
+      "difficulty": "intermediaire",
+      "laterality": "unilateral",
+      "movement_pattern": "olympic_lift",
+      "is_compound": true,
+      "is_bodyweight": false,
+      "is_unilateral": true,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "kettlebell",
+        "full_body",
+        "olympic_lift",
+        "intermediaire"
+      ]
+    },
+    {
+      "id": "EX-0142",
+      "slug": "kettlebell_clean_and_press",
+      "name": "Kettlebell Clean and Press",
+      "category": "kettlebell",
+      "equipment": [
+        "kettlebell"
+      ],
+      "body_area": "full_body",
+      "primary_muscles": [
+        "fessiers",
+        "epaules"
+      ],
+      "secondary_muscles": [
+        "triceps",
+        "abdominaux"
+      ],
+      "difficulty": "intermediaire",
+      "laterality": "unilateral",
+      "movement_pattern": "complex",
+      "is_compound": true,
+      "is_bodyweight": false,
+      "is_unilateral": true,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "kettlebell",
+        "full_body",
+        "complex",
+        "intermediaire"
+      ]
+    },
+    {
+      "id": "EX-0143",
+      "slug": "kettlebell_snatch",
+      "name": "Kettlebell Snatch",
+      "category": "kettlebell",
+      "equipment": [
+        "kettlebell"
+      ],
+      "body_area": "full_body",
+      "primary_muscles": [
+        "fessiers",
+        "ischio-jambiers"
+      ],
+      "secondary_muscles": [
+        "epaules",
+        "trapÃ¨zes"
+      ],
+      "difficulty": "avance",
+      "laterality": "unilateral",
+      "movement_pattern": "olympic_lift",
+      "is_compound": true,
+      "is_bodyweight": false,
+      "is_unilateral": true,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "kettlebell",
+        "full_body",
+        "olympic_lift",
+        "avance"
+      ]
+    },
+    {
+      "id": "EX-0144",
+      "slug": "kettlebell_high_pull",
+      "name": "Kettlebell High Pull",
+      "category": "kettlebell",
+      "equipment": [
+        "kettlebell"
+      ],
+      "body_area": "full_body",
+      "primary_muscles": [
+        "fessiers",
+        "trapÃ¨zes"
+      ],
+      "secondary_muscles": [
+        "deltoides"
+      ],
+      "difficulty": "intermediaire",
+      "laterality": "unilateral",
+      "movement_pattern": "pull",
+      "is_compound": false,
+      "is_bodyweight": false,
+      "is_unilateral": true,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "kettlebell",
+        "full_body",
+        "pull",
+        "intermediaire"
+      ]
+    },
+    {
+      "id": "EX-0145",
+      "slug": "kettlebell_row",
+      "name": "Kettlebell Row",
+      "category": "kettlebell",
+      "equipment": [
+        "kettlebell"
+      ],
+      "body_area": "dos",
+      "primary_muscles": [
+        "grand_dorsal",
+        "biceps"
+      ],
+      "secondary_muscles": [
+        "rhomboides"
+      ],
+      "difficulty": "debutant",
+      "laterality": "unilateral",
+      "movement_pattern": "horizontal_pull",
+      "is_compound": true,
+      "is_bodyweight": false,
+      "is_unilateral": true,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "kettlebell",
+        "dos",
+        "horizontal_pull",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0146",
+      "slug": "kettlebell_floor_press",
+      "name": "Kettlebell Floor Press",
+      "category": "kettlebell",
+      "equipment": [
+        "kettlebell"
+      ],
+      "body_area": "pectoraux",
+      "primary_muscles": [
+        "pectoraux",
+        "triceps"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "debutant",
+      "laterality": "unilateral",
+      "movement_pattern": "horizontal_push",
+      "is_compound": true,
+      "is_bodyweight": false,
+      "is_unilateral": true,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "kettlebell",
+        "pectoraux",
+        "horizontal_push",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0147",
+      "slug": "kettlebell_windmill",
+      "name": "Kettlebell Windmill",
+      "category": "kettlebell",
+      "equipment": [
+        "kettlebell"
+      ],
+      "body_area": "full_body",
+      "primary_muscles": [
+        "obliques",
+        "epaules"
+      ],
+      "secondary_muscles": [
+        "ischio-jambiers"
+      ],
+      "difficulty": "avance",
+      "laterality": "unilateral",
+      "movement_pattern": "rotation",
+      "is_compound": false,
+      "is_bodyweight": false,
+      "is_unilateral": true,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "kettlebell",
+        "full_body",
+        "rotation",
+        "avance"
+      ]
+    },
+    {
+      "id": "EX-0148",
+      "slug": "kettlebell_front_rack_carry",
+      "name": "Kettlebell Front Rack Carry",
+      "category": "kettlebell",
+      "equipment": [
+        "kettlebell"
+      ],
+      "body_area": "full_body",
+      "primary_muscles": [
+        "abdominaux",
+        "epaules"
+      ],
+      "secondary_muscles": [
+        "avant_bras"
+      ],
+      "difficulty": "intermediaire",
+      "laterality": "unilateral",
+      "movement_pattern": "carry",
+      "is_compound": true,
+      "is_bodyweight": false,
+      "is_unilateral": true,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "kettlebell",
+        "full_body",
+        "carry",
+        "intermediaire"
+      ]
+    },
+    {
+      "id": "EX-0149",
+      "slug": "cat_cow",
+      "name": "Cat Cow",
+      "category": "mobilite",
+      "equipment": [
+        "bodyweight"
+      ],
+      "body_area": "mobilite",
+      "primary_muscles": [
+        "rachis",
+        "abdominaux"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "spinal_mobility",
+      "is_compound": false,
+      "is_bodyweight": true,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "mobilite",
+        "mobilite",
+        "spinal_mobility",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0150",
+      "slug": "childs_pose",
+      "name": "Child's Pose",
+      "category": "mobilite",
+      "equipment": [
+        "bodyweight"
+      ],
+      "body_area": "mobilite",
+      "primary_muscles": [
+        "dos",
+        "hanches"
+      ],
+      "secondary_muscles": [
+        "epaules"
+      ],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "stretch",
+      "is_compound": false,
+      "is_bodyweight": true,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "mobilite",
+        "mobilite",
+        "stretch",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0151",
+      "slug": "cobra_stretch",
+      "name": "Cobra Stretch",
+      "category": "mobilite",
+      "equipment": [
+        "bodyweight"
+      ],
+      "body_area": "mobilite",
+      "primary_muscles": [
+        "abdominaux",
+        "hanches"
+      ],
+      "secondary_muscles": [
+        "rachis"
+      ],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "stretch",
+      "is_compound": false,
+      "is_bodyweight": true,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "mobilite",
+        "mobilite",
+        "stretch",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0152",
+      "slug": "downward_dog",
+      "name": "Downward Dog",
+      "category": "mobilite",
+      "equipment": [
+        "bodyweight"
+      ],
+      "body_area": "mobilite",
+      "primary_muscles": [
+        "ischio-jambiers",
+        "mollets"
+      ],
+      "secondary_muscles": [
+        "epaules"
+      ],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "stretch",
+      "is_compound": false,
+      "is_bodyweight": true,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "mobilite",
+        "mobilite",
+        "stretch",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0153",
+      "slug": "worlds_greatest_stretch",
+      "name": "World's Greatest Stretch",
+      "category": "mobilite",
+      "equipment": [
+        "bodyweight"
+      ],
+      "body_area": "mobilite",
+      "primary_muscles": [
+        "hanches",
+        "ischio-jambiers"
+      ],
+      "secondary_muscles": [
+        "rachis",
+        "epaules"
+      ],
+      "difficulty": "debutant",
+      "laterality": "unilateral",
+      "movement_pattern": "dynamic_stretch",
+      "is_compound": false,
+      "is_bodyweight": true,
+      "is_unilateral": true,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "mobilite",
+        "mobilite",
+        "dynamic_stretch",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0154",
+      "slug": "90_90_hip_rotation",
+      "name": "90/90 Hip Rotation",
+      "category": "mobilite",
+      "equipment": [
+        "bodyweight"
+      ],
+      "body_area": "mobilite",
+      "primary_muscles": [
+        "hanches",
+        "fessiers"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "hip_mobility",
+      "is_compound": false,
+      "is_bodyweight": true,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "mobilite",
+        "mobilite",
+        "hip_mobility",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0155",
+      "slug": "hip_flexor_stretch",
+      "name": "Hip Flexor Stretch",
+      "category": "mobilite",
+      "equipment": [
+        "bodyweight"
+      ],
+      "body_area": "mobilite",
+      "primary_muscles": [
+        "flecheurs_de_hanche",
+        "quadriceps"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "debutant",
+      "laterality": "unilateral",
+      "movement_pattern": "stretch",
+      "is_compound": false,
+      "is_bodyweight": true,
+      "is_unilateral": true,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "mobilite",
+        "mobilite",
+        "stretch",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0156",
+      "slug": "pigeon_stretch",
+      "name": "Pigeon Stretch",
+      "category": "mobilite",
+      "equipment": [
+        "bodyweight"
+      ],
+      "body_area": "mobilite",
+      "primary_muscles": [
+        "fessiers",
+        "hanches"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "debutant",
+      "laterality": "unilateral",
+      "movement_pattern": "stretch",
+      "is_compound": false,
+      "is_bodyweight": true,
+      "is_unilateral": true,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "mobilite",
+        "mobilite",
+        "stretch",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0157",
+      "slug": "couch_stretch",
+      "name": "Couch Stretch",
+      "category": "mobilite",
+      "equipment": [
+        "bodyweight"
+      ],
+      "body_area": "mobilite",
+      "primary_muscles": [
+        "quadriceps",
+        "flecheurs_de_hanche"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "intermediaire",
+      "laterality": "unilateral",
+      "movement_pattern": "stretch",
+      "is_compound": false,
+      "is_bodyweight": true,
+      "is_unilateral": true,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "mobilite",
+        "mobilite",
+        "stretch",
+        "intermediaire"
+      ]
+    },
+    {
+      "id": "EX-0158",
+      "slug": "ankle_dorsiflexion_drill",
+      "name": "Ankle Dorsiflexion Drill",
+      "category": "mobilite",
+      "equipment": [
+        "bodyweight"
+      ],
+      "body_area": "mobilite",
+      "primary_muscles": [
+        "chevilles",
+        "mollets"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "debutant",
+      "laterality": "unilateral",
+      "movement_pattern": "ankle_mobility",
+      "is_compound": false,
+      "is_bodyweight": true,
+      "is_unilateral": true,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "mobilite",
+        "mobilite",
+        "ankle_mobility",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0159",
+      "slug": "shoulder_dislocates",
+      "name": "Shoulder Dislocates",
+      "category": "mobilite",
+      "equipment": [
+        "band"
+      ],
+      "body_area": "mobilite",
+      "primary_muscles": [
+        "epaules",
+        "pectoraux"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "shoulder_mobility",
+      "is_compound": false,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "mobilite",
+        "mobilite",
+        "shoulder_mobility",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0160",
+      "slug": "thoracic_rotation",
+      "name": "Thoracic Rotation",
+      "category": "mobilite",
+      "equipment": [
+        "bodyweight"
+      ],
+      "body_area": "mobilite",
+      "primary_muscles": [
+        "rachis_thoracique",
+        "epaules"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "debutant",
+      "laterality": "unilateral",
+      "movement_pattern": "rotation",
+      "is_compound": false,
+      "is_bodyweight": true,
+      "is_unilateral": true,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "mobilite",
+        "mobilite",
+        "rotation",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0161",
+      "slug": "deep_squat_hold",
+      "name": "Deep Squat Hold",
+      "category": "mobilite",
+      "equipment": [
+        "bodyweight"
+      ],
+      "body_area": "mobilite",
+      "primary_muscles": [
+        "hanches",
+        "chevilles"
+      ],
+      "secondary_muscles": [
+        "adducteurs"
+      ],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "squat_mobility",
+      "is_compound": false,
+      "is_bodyweight": true,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "mobilite",
+        "mobilite",
+        "squat_mobility",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0162",
+      "slug": "hamstring_stretch",
+      "name": "Hamstring Stretch",
+      "category": "mobilite",
+      "equipment": [
+        "bodyweight"
+      ],
+      "body_area": "mobilite",
+      "primary_muscles": [
+        "ischio-jambiers",
+        "mollets"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "debutant",
+      "laterality": "unilateral",
+      "movement_pattern": "stretch",
+      "is_compound": false,
+      "is_bodyweight": true,
+      "is_unilateral": true,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "mobilite",
+        "mobilite",
+        "stretch",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0163",
+      "slug": "calf_stretch",
+      "name": "Calf Stretch",
+      "category": "mobilite",
+      "equipment": [
+        "bodyweight"
+      ],
+      "body_area": "mobilite",
+      "primary_muscles": [
+        "mollets",
+        "cheville"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "debutant",
+      "laterality": "unilateral",
+      "movement_pattern": "stretch",
+      "is_compound": false,
+      "is_bodyweight": true,
+      "is_unilateral": true,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "mobilite",
+        "mobilite",
+        "stretch",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0164",
+      "slug": "broad_jump",
+      "name": "Broad Jump",
+      "category": "plyometrie",
+      "equipment": [
+        "bodyweight"
+      ],
+      "body_area": "plyometrie",
+      "primary_muscles": [
+        "fessiers",
+        "quadriceps"
+      ],
+      "secondary_muscles": [
+        "ischio-jambiers",
+        "mollets"
+      ],
+      "difficulty": "intermediaire",
+      "laterality": "bilateral",
+      "movement_pattern": "jump",
+      "is_compound": true,
+      "is_bodyweight": true,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "plyometrie",
+        "plyometrie",
+        "jump",
+        "intermediaire"
+      ]
+    },
+    {
+      "id": "EX-0165",
+      "slug": "tuck_jump",
+      "name": "Tuck Jump",
+      "category": "plyometrie",
+      "equipment": [
+        "bodyweight"
+      ],
+      "body_area": "plyometrie",
+      "primary_muscles": [
+        "quadriceps",
+        "fessiers"
+      ],
+      "secondary_muscles": [
+        "mollets"
+      ],
+      "difficulty": "intermediaire",
+      "laterality": "bilateral",
+      "movement_pattern": "jump",
+      "is_compound": true,
+      "is_bodyweight": true,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "plyometrie",
+        "plyometrie",
+        "jump",
+        "intermediaire"
+      ]
+    },
+    {
+      "id": "EX-0166",
+      "slug": "lateral_bound",
+      "name": "Lateral Bound",
+      "category": "plyometrie",
+      "equipment": [
+        "bodyweight"
+      ],
+      "body_area": "plyometrie",
+      "primary_muscles": [
+        "fessiers",
+        "quadriceps"
+      ],
+      "secondary_muscles": [
+        "mollets"
+      ],
+      "difficulty": "intermediaire",
+      "laterality": "unilateral",
+      "movement_pattern": "jump",
+      "is_compound": true,
+      "is_bodyweight": true,
+      "is_unilateral": true,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "plyometrie",
+        "plyometrie",
+        "jump",
+        "intermediaire"
+      ]
+    },
+    {
+      "id": "EX-0167",
+      "slug": "skater_jump",
+      "name": "Skater Jump",
+      "category": "plyometrie",
+      "equipment": [
+        "bodyweight"
+      ],
+      "body_area": "plyometrie",
+      "primary_muscles": [
+        "fessiers",
+        "quadriceps"
+      ],
+      "secondary_muscles": [
+        "mollets"
+      ],
+      "difficulty": "intermediaire",
+      "laterality": "unilateral",
+      "movement_pattern": "jump",
+      "is_compound": true,
+      "is_bodyweight": true,
+      "is_unilateral": true,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "plyometrie",
+        "plyometrie",
+        "jump",
+        "intermediaire"
+      ]
+    },
+    {
+      "id": "EX-0168",
+      "slug": "depth_jump",
+      "name": "Depth Jump",
+      "category": "plyometrie",
+      "equipment": [
+        "box"
+      ],
+      "body_area": "plyometrie",
+      "primary_muscles": [
+        "quadriceps",
+        "fessiers"
+      ],
+      "secondary_muscles": [
+        "mollets"
+      ],
+      "difficulty": "avance",
+      "laterality": "bilateral",
+      "movement_pattern": "jump",
+      "is_compound": true,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "plyometrie",
+        "plyometrie",
+        "jump",
+        "avance"
+      ]
+    },
+    {
+      "id": "EX-0169",
+      "slug": "box_jump_over",
+      "name": "Box Jump Over",
+      "category": "plyometrie",
+      "equipment": [
+        "box"
+      ],
+      "body_area": "plyometrie",
+      "primary_muscles": [
+        "quadriceps",
+        "fessiers"
+      ],
+      "secondary_muscles": [
+        "mollets"
+      ],
+      "difficulty": "intermediaire",
+      "laterality": "bilateral",
+      "movement_pattern": "jump",
+      "is_compound": true,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "plyometrie",
+        "plyometrie",
+        "jump",
+        "intermediaire"
+      ]
+    },
+    {
+      "id": "EX-0170",
+      "slug": "split_jump",
+      "name": "Split Jump",
+      "category": "plyometrie",
+      "equipment": [
+        "bodyweight"
+      ],
+      "body_area": "plyometrie",
+      "primary_muscles": [
+        "quadriceps",
+        "fessiers"
+      ],
+      "secondary_muscles": [
+        "mollets"
+      ],
+      "difficulty": "intermediaire",
+      "laterality": "unilateral",
+      "movement_pattern": "jump",
+      "is_compound": true,
+      "is_bodyweight": true,
+      "is_unilateral": true,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "plyometrie",
+        "plyometrie",
+        "jump",
+        "intermediaire"
+      ]
+    },
+    {
+      "id": "EX-0171",
+      "slug": "pogo_jump",
+      "name": "Pogo Jump",
+      "category": "plyometrie",
+      "equipment": [
+        "bodyweight"
+      ],
+      "body_area": "plyometrie",
+      "primary_muscles": [
+        "mollets",
+        "quadriceps"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "intermediaire",
+      "laterality": "bilateral",
+      "movement_pattern": "jump",
+      "is_compound": true,
+      "is_bodyweight": true,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "plyometrie",
+        "plyometrie",
+        "jump",
+        "intermediaire"
+      ]
+    },
+    {
+      "id": "EX-0172",
+      "slug": "medicine_ball_slam",
+      "name": "Medicine Ball Slam",
+      "category": "plyometrie",
+      "equipment": [
+        "medicine_ball"
+      ],
+      "body_area": "plyometrie",
+      "primary_muscles": [
+        "abdominaux",
+        "grand_dorsal"
+      ],
+      "secondary_muscles": [
+        "epaules"
+      ],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "throw",
+      "is_compound": false,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "plyometrie",
+        "plyometrie",
+        "throw",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0173",
+      "slug": "medicine_ball_chest_pass",
+      "name": "Medicine Ball Chest Pass",
+      "category": "plyometrie",
+      "equipment": [
+        "medicine_ball"
+      ],
+      "body_area": "plyometrie",
+      "primary_muscles": [
+        "pectoraux",
+        "triceps"
+      ],
+      "secondary_muscles": [
+        "epaules"
+      ],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "throw",
+      "is_compound": false,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "plyometrie",
+        "plyometrie",
+        "throw",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0174",
+      "slug": "medicine_ball_rotational_throw",
+      "name": "Medicine Ball Rotational Throw",
+      "category": "plyometrie",
+      "equipment": [
+        "medicine_ball"
+      ],
+      "body_area": "plyometrie",
+      "primary_muscles": [
+        "obliques",
+        "abdominaux"
+      ],
+      "secondary_muscles": [
+        "epaules"
+      ],
+      "difficulty": "intermediaire",
+      "laterality": "unilateral",
+      "movement_pattern": "throw",
+      "is_compound": false,
+      "is_bodyweight": false,
+      "is_unilateral": true,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "plyometrie",
+        "plyometrie",
+        "throw",
+        "intermediaire"
+      ]
+    },
+    {
+      "id": "EX-0175",
+      "slug": "band_squat",
+      "name": "Band Squat",
+      "category": "bandes_elastiques",
+      "equipment": [
+        "band"
+      ],
+      "body_area": "jambes",
+      "primary_muscles": [
+        "quadriceps",
+        "fessiers"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "squat",
+      "is_compound": true,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "bandes_elastiques",
+        "jambes",
+        "squat",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0176",
+      "slug": "band_romanian_deadlift",
+      "name": "Band Romanian Deadlift",
+      "category": "bandes_elastiques",
+      "equipment": [
+        "band"
+      ],
+      "body_area": "chaine_posterieure",
+      "primary_muscles": [
+        "ischio-jambiers",
+        "fessiers"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "hinge",
+      "is_compound": true,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "bandes_elastiques",
+        "chaine_posterieure",
+        "hinge",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0177",
+      "slug": "band_chest_press",
+      "name": "Band Chest Press",
+      "category": "bandes_elastiques",
+      "equipment": [
+        "band"
+      ],
+      "body_area": "pectoraux",
+      "primary_muscles": [
+        "pectoraux",
+        "triceps"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "horizontal_push",
+      "is_compound": true,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "bandes_elastiques",
+        "pectoraux",
+        "horizontal_push",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0178",
+      "slug": "band_row",
+      "name": "Band Row",
+      "category": "bandes_elastiques",
+      "equipment": [
+        "band"
+      ],
+      "body_area": "dos",
+      "primary_muscles": [
+        "grand_dorsal",
+        "rhomboides"
+      ],
+      "secondary_muscles": [
+        "biceps"
+      ],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "horizontal_pull",
+      "is_compound": true,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "bandes_elastiques",
+        "dos",
+        "horizontal_pull",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0179",
+      "slug": "band_lat_pulldown",
+      "name": "Band Lat Pulldown",
+      "category": "bandes_elastiques",
+      "equipment": [
+        "band"
+      ],
+      "body_area": "dos",
+      "primary_muscles": [
+        "grand_dorsal",
+        "biceps"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "vertical_pull",
+      "is_compound": true,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "bandes_elastiques",
+        "dos",
+        "vertical_pull",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0180",
+      "slug": "band_face_pull",
+      "name": "Band Face Pull",
+      "category": "bandes_elastiques",
+      "equipment": [
+        "band"
+      ],
+      "body_area": "epaules",
+      "primary_muscles": [
+        "deltoides_posterieurs",
+        "rhomboides"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "pull",
+      "is_compound": false,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "bandes_elastiques",
+        "epaules",
+        "pull",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0181",
+      "slug": "band_lateral_raise",
+      "name": "Band Lateral Raise",
+      "category": "bandes_elastiques",
+      "equipment": [
+        "band"
+      ],
+      "body_area": "epaules",
+      "primary_muscles": [
+        "deltoides_lateraux"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "abduction",
+      "is_compound": false,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "bandes_elastiques",
+        "epaules",
+        "abduction",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0182",
+      "slug": "band_biceps_curl",
+      "name": "Band Biceps Curl",
+      "category": "bandes_elastiques",
+      "equipment": [
+        "band"
+      ],
+      "body_area": "bras",
+      "primary_muscles": [
+        "biceps"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "elbow_flexion",
+      "is_compound": false,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "bandes_elastiques",
+        "bras",
+        "elbow_flexion",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0183",
+      "slug": "band_triceps_extension",
+      "name": "Band Triceps Extension",
+      "category": "bandes_elastiques",
+      "equipment": [
+        "band"
+      ],
+      "body_area": "bras",
+      "primary_muscles": [
+        "triceps"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "elbow_extension",
+      "is_compound": false,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "bandes_elastiques",
+        "bras",
+        "elbow_extension",
+        "debutant"
+      ]
+    },
+    {
+      "id": "EX-0184",
+      "slug": "band_glute_abduction",
+      "name": "Band Glute Abduction",
+      "category": "bandes_elastiques",
+      "equipment": [
+        "band"
+      ],
+      "body_area": "fessiers",
+      "primary_muscles": [
+        "moyen_fessier",
+        "petit_fessier"
+      ],
+      "secondary_muscles": [],
+      "difficulty": "debutant",
+      "laterality": "bilateral",
+      "movement_pattern": "hip_abduction",
+      "is_compound": false,
+      "is_bodyweight": false,
+      "is_unilateral": false,
+      "media": {
+        "image_url": null,
+        "video_url": null
+      },
+      "instructions": [],
+      "common_mistakes": [],
+      "tags": [
+        "bandes_elastiques",
+        "fessiers",
+        "hip_abduction",
+        "debutant"
+      ]
+    }
+  ]
+}

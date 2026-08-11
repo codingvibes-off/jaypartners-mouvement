@@ -1,0 +1,124 @@
+@if (chargement()) {
+  <div class="etat-entrainement">
+    <p>Chargement de la séance...</p>
+  </div>
+} @else if (!seance() || mouvements().length === 0) {
+  <div class="etat-entrainement">
+    <p>Séance introuvable ou sans exercices.</p>
+    <a routerLink="/" class="btn-secondaire">Retour au catalogue</a>
+  </div>
+} @else if (terminee()) {
+  <div class="ecran-fin">
+    <div class="fin-contenu">
+      @if (!validation()) {
+        <span class="fin-badge">Séance terminée</span>
+        <h1>Bravo, {{ seance()!.titre }} terminée 💪</h1>
+        <p>Tu as complété {{ mouvements().length }} exercices.</p>
+
+        @if (erreurValidation()) {
+          <p class="erreur">{{ erreurValidation() }}</p>
+        }
+
+        @if (auth.estConnecte()) {
+          <button class="btn-primaire btn-large" (click)="validerSeance()" [disabled]="enCoursValidation()">
+            {{ enCoursValidation() ? 'Validation...' : 'Valider ma séance du jour' }}
+          </button>
+        } @else {
+          <p class="connexion-requise">
+            <a routerLink="/connexion">Connecte-toi</a> pour valider cette séance et suivre ta progression.
+          </p>
+        }
+      } @else {
+        <span class="fin-badge fin-badge-succes">✓ Séance validée</span>
+        <h1>+{{ validation()!.xpGagne }} XP</h1>
+        <p>Séance enregistrée dans ton historique.</p>
+        <div class="fin-actions">
+          <a routerLink="/calendrier" class="btn-primaire btn-large">Voir mon calendrier</a>
+          <a routerLink="/" class="btn-secondaire">Retour au catalogue</a>
+        </div>
+      }
+    </div>
+  </div>
+} @else {
+  <div class="entrainement">
+    <div class="bandeau-encouragement" role="status">
+      <app-icon nom="check" [taille]="18"></app-icon>
+      <p>{{ citationActuelle() }}</p>
+      <button (click)="fermerEncouragement()" aria-label="Fermer">
+        <app-icon nom="close" [taille]="16"></app-icon>
+      </button>
+    </div>
+
+    <div class="entrainement-header">
+      <a [routerLink]="['/seance', seance()!.id]" class="quitter">
+        <app-icon nom="close" [taille]="14"></app-icon> Quitter
+      </a>
+      <div class="barre-progression">
+        <div class="barre-remplie" [style.width.%]="progression()"></div>
+      </div>
+      <span class="compteur">{{ indexActuel() + 1 }} / {{ mouvements().length }}</span>
+    </div>
+
+    <div class="video-conteneur">
+      <video
+        #videoRef
+        [src]="exerciceActuel()!.mouvement.videoUrl"
+        autoplay
+        muted
+        loop
+        playsinline
+        class="video-exercice"
+      ></video>
+    </div>
+
+    <div class="exercice-infos">
+      <h1>{{ exerciceActuel()!.mouvement.nom }}</h1>
+
+      @if (plageSeries().length > 0) {
+        <div class="series-liste" role="group" aria-label="Séries de l'exercice">
+          @for (numero of plageSeries(); track numero) {
+            <button
+              class="serie-case"
+              [class.cochee]="seriesCochees().has(numero)"
+              (click)="cocherSerie(numero, plageSeries().length)"
+              [attr.aria-pressed]="seriesCochees().has(numero)"
+              [attr.aria-label]="'Série ' + numero"
+            >
+              @if (seriesCochees().has(numero)) {
+                <app-icon nom="check" [taille]="15"></app-icon>
+              } @else {
+                {{ numero }}
+              }
+            </button>
+          }
+        </div>
+        @if (exerciceActuel()!.repetitions) {
+          <p class="exercice-meta">{{ exerciceActuel()!.repetitions }}</p>
+        }
+      } @else {
+        <p class="exercice-meta">
+          @if (exerciceActuel()!.repetitions) {
+            {{ exerciceActuel()!.repetitions }}
+          }
+        </p>
+      }
+
+      @if (tempsRestant() !== null) {
+        <div class="minuteur">{{ tempsRestant() }}s</div>
+      }
+
+      <div class="controles">
+        <button
+          class="btn-rond-controle"
+          (click)="basculerPause(videoRef)"
+          [attr.aria-label]="enPause() ? 'Reprendre' : 'Mettre en pause'"
+        >
+          <app-icon [nom]="enPause() ? 'play' : 'pause'" [taille]="18"></app-icon>
+        </button>
+        <button class="btn-primaire btn-large" (click)="exerciceSuivant()">
+          Exercice terminé <app-icon nom="arrow-right" [taille]="16"></app-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+}

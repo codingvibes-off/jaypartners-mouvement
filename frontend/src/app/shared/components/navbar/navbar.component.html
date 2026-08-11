@@ -1,0 +1,50 @@
+<header class="navbar">
+  <div class="navbar-inner">
+    <button
+      class="burger"
+      [class.ouvert]="menuOuvert()"
+      (click)="basculerMenu()"
+      [attr.aria-expanded]="menuOuvert()"
+      aria-label="Menu"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <a routerLink="/" class="logo">
+      <span class="logo-text">JAY <span class="accent">PARTNER'S</span></span>
+    </a>
+
+    <nav class="menu-principal">
+      <a routerLink="/" class="menu-link">Accueil</a>
+      <a routerLink="/decouvrir" class="menu-link">Découvrir</a>
+      <a href="#" class="menu-link">Ma liste</a>
+      @if (auth.estConnecte()) {
+        <a routerLink="/calendrier" class="menu-link">Calendrier</a>
+      }
+    </nav>
+
+    <div class="actions">
+      @if (auth.estConnecte()) {
+        <div class="user-info">
+          <span class="avatar">👤</span>
+          <span class="prenom">{{ auth.utilisateurCourant()?.prenom }}</span>
+        </div>
+        <button class="btn-secondaire" (click)="deconnexion()">Déconnexion</button>
+      } @else {
+        <a routerLink="/connexion" class="btn-secondaire">Connexion</a>
+        <a routerLink="/inscription" class="btn-primaire">S'inscrire</a>
+      }
+    </div>
+  </div>
+
+  <nav class="menu-mobile">
+    <a routerLink="/" class="menu-mobile-link" (click)="fermerMenu()">Accueil</a>
+    <a routerLink="/decouvrir" class="menu-mobile-link" (click)="fermerMenu()">Découvrir</a>
+    <a href="#" class="menu-mobile-link" (click)="fermerMenu()">Ma liste</a>
+    @if (auth.estConnecte()) {
+      <a routerLink="/calendrier" class="menu-mobile-link" (click)="fermerMenu()">Calendrier</a>
+    }
+  </nav>
+</header>

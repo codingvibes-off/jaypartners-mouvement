@@ -1,0 +1,47 @@
+<section class="entete-decouvrir">
+  <h1>Découvrir les mouvements</h1>
+  <p class="sous-titre">
+    {{ mouvements().length }} mouvements au catalogue — filtre par niveau, muscle ou recherche un nom.
+  </p>
+</section>
+
+<section class="filtres-decouvrir">
+  <input
+    type="search"
+    class="champ-recherche"
+    placeholder="Rechercher un mouvement..."
+    [ngModel]="recherche()"
+    (ngModelChange)="recherche.set($event)"
+  />
+
+  <select class="select-filtre" [ngModel]="niveauFiltre()" (ngModelChange)="niveauFiltre.set($event)">
+    <option value="">Tous les niveaux</option>
+    <option value="DEBUTANT">Débutant</option>
+    <option value="INTERMEDIAIRE">Intermédiaire</option>
+    <option value="AVANCE">Avancé</option>
+  </select>
+
+  <select class="select-filtre" [ngModel]="muscleFiltre()" (ngModelChange)="muscleFiltre.set($event)">
+    <option value="">Tous les muscles</option>
+    @for (muscle of musclesDisponibles(); track muscle) {
+      <option [value]="muscle">{{ muscle }}</option>
+    }
+  </select>
+
+  @if (recherche() || niveauFiltre() || muscleFiltre()) {
+    <button class="btn-secondaire" (click)="reinitialiserFiltres()">Réinitialiser</button>
+  }
+</section>
+
+<main class="liste-decouvrir">
+  @if (chargement()) {
+    <p class="etat">⏳ Chargement du catalogue...</p>
+  } @else if (mouvementsFiltres().length === 0) {
+    <p class="etat">📭 Aucun mouvement ne correspond à ces filtres.</p>
+  } @else {
+    <p class="compteur-resultats">{{ mouvementsFiltres().length }} résultat(s)</p>
+    @for (mouvement of mouvementsFiltres(); track mouvement.id; let i = $index) {
+      <app-movement-card [mouvement]="mouvement" [ordre]="i + 1"></app-movement-card>
+    }
+  }
+</main>

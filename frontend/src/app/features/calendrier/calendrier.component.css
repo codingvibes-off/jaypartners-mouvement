@@ -1,0 +1,215 @@
+/* CALENDRIER COMPONENT STYLES */
+
+.entete-calendrier {
+  padding: 64px 48px 32px;
+  background: var(--bg);
+}
+
+@media (max-width: 720px) {
+  .entete-calendrier {
+    padding: 40px 20px 24px;
+  }
+}
+
+.entete-calendrier h1 {
+  font-size: clamp(32px, 4vw, 48px);
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.sous-titre {
+  color: var(--text-secondary);
+  font-size: 15px;
+}
+
+.etat {
+  color: var(--text-secondary);
+  font-size: 15px;
+  padding: 0 48px 24px;
+}
+
+@media (max-width: 720px) {
+  .etat {
+    padding: 0 20px 24px;
+  }
+}
+
+.calendrier-conteneur {
+  display: grid;
+  grid-template-columns: minmax(320px, 480px) 1fr;
+  gap: 32px;
+  padding: 0 48px 80px;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .calendrier-conteneur {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .calendrier-conteneur {
+    padding: 0 20px 60px;
+  }
+}
+
+.calendrier {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.calendrier-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.calendrier-nav h2 {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-transform: capitalize;
+}
+
+.btn-nav {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.btn-nav:hover {
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+}
+
+.jours-semaine {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  font-size: 11px;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.grille-jours {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+
+.jour {
+  aspect-ratio: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  color: var(--text-primary);
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.jour:disabled {
+  cursor: default;
+  color: var(--text-tertiary);
+}
+
+.jour.hors-mois {
+  color: var(--text-tertiary);
+  opacity: 0.4;
+}
+
+.jour:not(:disabled):hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.jour.aujourdhui .jour-numero {
+  color: var(--accent-primary);
+  font-weight: 800;
+}
+
+.jour.selectionne {
+  background: rgba(var(--accent-rgb), 0.15);
+  border-color: var(--accent-primary);
+}
+
+.point-valide {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-primary);
+  box-shadow: 0 0 6px rgba(var(--accent-rgb), 0.7);
+}
+
+.recap {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+  min-height: 160px;
+}
+
+.recap h3 {
+  font-size: 16px;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+  text-transform: capitalize;
+}
+
+.recap-liste {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.recap-liste li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.recap-titre {
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.recap-xp {
+  color: var(--accent-primary);
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.recap-vide {
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.6;
+}

@@ -1,0 +1,146 @@
+/* AUTH FORM COMPONENT STYLES */
+
+.conteneur-auth {
+  min-height: calc(100vh - 84px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.carte-auth {
+  width: 100%;
+  max-width: 400px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 36px;
+}
+
+.carte-auth h1 {
+  font-size: 30px;
+  margin-bottom: 24px;
+}
+
+.boutons-oauth {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.btn-oauth {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 11px 16px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all var(--transition);
+  margin-top: 0;
+}
+
+.btn-oauth-google {
+  background: #fff;
+  color: #1f1f1f;
+  border: 1px solid var(--border);
+}
+
+.btn-oauth-google:hover {
+  background: #f4f4f4;
+}
+
+.btn-oauth-apple {
+  background: #000;
+  color: #fff;
+  border: 1px solid #000;
+}
+
+.btn-oauth-apple:hover {
+  background: #1a1a1a;
+}
+
+.oauth-message {
+  margin: 10px 0 0;
+  font-size: 12.5px;
+  color: var(--accent-primary);
+  text-align: center;
+}
+
+.separateur {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 22px 0;
+  color: var(--text-tertiary);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.separateur::before,
+.separateur::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+input {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 12px 14px;
+  color: var(--text-primary);
+  font-size: 15px;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--teal);
+}
+
+.erreur {
+  color: var(--danger);
+  font-size: 13px;
+  margin: 0;
+}
+
+button {
+  margin-top: 6px;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.lien-alt {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.lien-alt a {
+  color: var(--teal);
+  font-weight: 600;
+}

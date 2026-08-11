@@ -1,0 +1,94 @@
+<div
+  class="carte-conteneur"
+  [class.agrandie]="survole()"
+  (mouseenter)="onSurvolEntree()"
+  (mouseleave)="onSurvolSortie()"
+>
+  @if (rang) {
+    <span class="rang-numero" aria-hidden="true">{{ rang }}</span>
+  }
+
+  <a class="carte" [routerLink]="['/seance', seance.id]">
+    <div
+      class="vignette"
+      [class.vignette-defaut]="!seance.imageUrl"
+      [style.backgroundImage]="seance.imageUrl ? 'url(' + seance.imageUrl + ')' : null"
+    >
+      @if (!seance.imageUrl) {
+        <span class="vignette-monogramme" aria-hidden="true">{{ seance.titre.charAt(0) }}</span>
+      }
+      @if (survole() && videoApercu() && !videoEnErreur()) {
+        <video
+          class="video-apercu"
+          [src]="videoApercu()"
+          autoplay
+          muted
+          loop
+          playsinline
+          (error)="onErreurVideo()"
+        ></video>
+      }
+      <div class="gradient-overlay"></div>
+
+      @if (estTop10) {
+        <span class="badge-ruban badge-top10">Top 10</span>
+      } @else if (estNouveau) {
+        <span class="badge-ruban badge-nouveau">Nouveau</span>
+      }
+
+      <div class="overlay">
+        <div class="badges-gauche" [class.decale]="estTop10 || estNouveau">
+          <span class="niveau-badge">{{ seance.niveau | titlecase }}</span>
+          @if (seance.categorie) {
+            <span class="categorie-badge">{{ seance.categorie }}</span>
+          }
+        </div>
+        <div class="badges-droite">
+          <span class="duree-badge">
+            <app-icon nom="clock" [taille]="12"></app-icon> {{ seance.dureeMin }} min
+          </span>
+        </div>
+      </div>
+
+      @if (!survole()) {
+        <div class="play-btn">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+            <circle cx="16" cy="16" r="15" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M12 10l10 6-10 6z" fill="currentColor"/>
+          </svg>
+        </div>
+      }
+    </div>
+
+    <div class="contenu">
+      <h3 class="titre">{{ seance.titre }}</h3>
+
+      @if (survole()) {
+        <div class="apercu-etendu">
+          <div class="apercu-actions">
+            <span class="btn-rond btn-rond-primaire" title="Voir la séance">
+              <app-icon nom="play" [taille]="13"></app-icon>
+            </span>
+            <span class="btn-rond" title="Plus d'infos">
+              <app-icon nom="info" [taille]="13"></app-icon>
+            </span>
+          </div>
+          <div class="apercu-meta">
+            <span class="genre" [class]="seance.genre?.toLowerCase()">{{ seance.genre }}</span>
+            <span class="apercu-duree">{{ seance.dureeMin }} min</span>
+            @if (seance.categorie) {
+              <span class="apercu-categorie">{{ seance.categorie }}</span>
+            }
+          </div>
+        </div>
+      } @else {
+        @if (seance.description) {
+          <p class="description">{{ seance.description }}</p>
+        }
+        <div class="meta">
+          <span class="genre" [class]="seance.genre?.toLowerCase()">{{ seance.genre }}</span>
+        </div>
+      }
+    </div>
+  </a>
+</div>
