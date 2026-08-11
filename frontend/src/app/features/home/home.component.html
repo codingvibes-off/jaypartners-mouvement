@@ -1,59 +1,53 @@
 <!-- SECTION HÉROS -->
 <section class="hero">
-  <div class="hero-glow hero-glow-1"></div>
-  <div class="hero-glow hero-glow-2"></div>
-
-  <div class="halteres" aria-hidden="true">
-    @for (h of halteres; track h.classe) {
-      <svg
-        class="haltere {{ h.classe }}"
-        [style.animation-delay.s]="h.delai"
-        viewBox="0 0 100 40"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <rect x="2" y="4" width="10" height="32" rx="3" fill="currentColor" />
-        <rect x="14" y="10" width="8" height="20" rx="2" fill="currentColor" />
-        <rect x="22" y="17" width="56" height="6" rx="3" fill="currentColor" />
-        <rect x="78" y="10" width="8" height="20" rx="2" fill="currentColor" />
-        <rect x="88" y="4" width="10" height="32" rx="3" fill="currentColor" />
-      </svg>
-    }
-  </div>
+  <div class="hero-fond" aria-hidden="true"></div>
+  <div class="hero-voile"></div>
 
   <div class="hero-contenu">
-    <div class="hero-badge">🏋 Jay Partner's Streaming Fitness</div>
-    <h1>JAY <span class="accent-gold">PARTNER'S</span></h1>
-    <p class="hero-subtitle">Apprends ton corps • Débloque chaque mouvement • Progresse à ton rythme</p>
-
-    <div class="hero-tags">
-      <span class="hero-tag hero-tag-1">La discipline construit la liberté</span>
-      <span class="hero-tag hero-tag-2">Pas d'excuses, juste des résultats</span>
+    <div class="hero-cluster">
+      <div class="avatars">
+        <span class="avatar-mini avatar-1">🏋️</span>
+        <span class="avatar-mini avatar-2">🤸</span>
+        <span class="avatar-mini avatar-3">🏃</span>
+        <span class="avatar-mini avatar-4">🧘</span>
+      </div>
+      <div class="cluster-texte">
+        <strong>9 256+</strong>
+        <span>athlètes nous font confiance</span>
+      </div>
     </div>
 
+    <h1>LÀ OÙ TON <span class="accent-gold">CORPS SE TRANSFORME</span></h1>
+    <p class="hero-subtitle">
+      Séances, mouvements et programmes conçus pour progresser à ton rythme. Tout ce qu'il te faut pour élever ton niveau.
+    </p>
+
     <div class="hero-actions">
-      <button class="btn-primaire" (click)="ouvrirSelectionProfil()">
-        <app-icon nom="play" [taille]="16"></app-icon> Commencer maintenant
+      <button class="btn-primaire btn-pilule" (click)="ouvrirSelectionProfil()">
+        Commencer maintenant
+        <span class="pilule-fleche"><app-icon nom="arrow-right" [taille]="16"></app-icon></span>
       </button>
       <button class="btn-info"><app-icon nom="info" [taille]="16"></app-icon> Plus d'infos</button>
     </div>
   </div>
 
-  <div class="hero-visual">
-    <div class="hero-stats">
-      <div class="stat">
-        <div class="stat-value">500+</div>
-        <div class="stat-label">Mouvements</div>
-      </div>
-      <div class="stat">
-        <div class="stat-value">100+</div>
-        <div class="stat-label">Séances</div>
-      </div>
-      <div class="stat">
-        <div class="stat-value">24/7</div>
-        <div class="stat-label">Accès</div>
-      </div>
+  <a routerLink="/programmes" class="hero-carte hero-carte-univers">
+    <div class="hero-carte-vignette">🔥</div>
+    <div class="hero-carte-texte">
+      <h3>Univers de programmes</h3>
+      <p>Force, Pilates, Hyrox, Athlétisme... entre dans un univers taillé pour ton objectif.</p>
+      <span class="hero-carte-lien">Voir les univers <app-icon nom="arrow-right" [taille]="12"></app-icon></span>
     </div>
-  </div>
+  </a>
+
+  <a routerLink="/programmes" class="hero-carte hero-carte-nouveau">
+    <div class="hero-carte-vignette hero-carte-vignette-sombre">⚡</div>
+    <div class="hero-carte-texte">
+      <h3>Nouveau : Hyrox</h3>
+      <p>La course fonctionnelle ultime débarque dans le catalogue.</p>
+      <span class="hero-carte-lien">Découvrir <app-icon nom="arrow-right" [taille]="12"></app-icon></span>
+    </div>
+  </a>
 </section>
 
 <!-- SÉLECTION DE PROFIL -->

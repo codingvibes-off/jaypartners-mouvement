@@ -1,0 +1,53 @@
+<section
+  class="scene"
+  [style.--accent-primary]="universActif().accent"
+  [style.--accent-rgb]="universActif().accentRgb"
+  [style.--scene-bg]="universActif().fond"
+>
+  <div class="voile-transition" #voile></div>
+
+  <header class="entete">
+    <p class="eyebrow">L'univers des programmes</p>
+    <h1>{{ universActif().label }}</h1>
+    <p class="tagline">{{ universActif().tagline }}</p>
+
+    <div class="onglets-univers">
+      @for (u of univers; track u.id) {
+        <button
+          class="onglet-univers"
+          [class.actif]="universActif().id === u.id"
+          [style.--u-accent]="u.accent"
+          (click)="changerUnivers(u)"
+        >
+          {{ u.label }}
+        </button>
+      }
+    </div>
+  </header>
+
+  <main class="matrice-conteneur">
+    @if (chargement()) {
+      <div class="etat-conteneur">
+        <p class="etat">⏳ Chargement de l'univers {{ universActif().label }}...</p>
+      </div>
+    } @else if (aucunProgramme()) {
+      <div class="etat-conteneur">
+        <p class="etat">📭 Aucun programme disponible pour cet univers pour le moment.</p>
+      </div>
+    } @else {
+      <div class="matrice">
+        @for (item of visibles(); track trackByCle($index, item)) {
+          <app-seance-card [seance]="item.seance"></app-seance-card>
+        }
+      </div>
+    }
+
+    <!-- Toujours présente dans le DOM (même pendant le chargement) : l'IntersectionObserver
+         ne s'attache qu'une fois, un élément recréé par un @if perdrait l'observation. -->
+    <div class="sentinelle" [class.invisible]="chargement() || aucunProgramme()" #sentinelle aria-hidden="true">
+      <span class="point"></span>
+      <span class="point"></span>
+      <span class="point"></span>
+    </div>
+  </main>
+</section>

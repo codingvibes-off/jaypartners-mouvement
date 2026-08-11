@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { AfterViewInit, Component, OnDestroy, OnInit, computed, signal } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Genre, RangeeSeances, Seance } from '../../core/models/models';
 import { SeanceService } from '../../core/services/seance.service';
-import { SeanceCardComponent } from '../../shared/components/seance-card/seance-card.component';
 import { IconComponent } from '../../shared/components/icon/icon.component';
+import { SeanceCardComponent } from '../../shared/components/seance-card/seance-card.component';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -14,19 +15,11 @@ const TAILLE_TOP10 = 10;
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, SeanceCardComponent, IconComponent],
+  imports: [CommonModule, RouterLink, SeanceCardComponent, IconComponent],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
-  halteres = [
-    { classe: 'haltere-1', delai: 0 },
-    { classe: 'haltere-2', delai: 0.6 },
-    { classe: 'haltere-3', delai: 1.2 },
-    { classe: 'haltere-4', delai: 0.3 },
-    { classe: 'haltere-5', delai: 0.9 },
-  ];
-
   ongletActif = signal<Genre>('HOMME');
   rangees = signal<RangeeSeances[]>([]);
   chargement = signal(true);
@@ -129,7 +122,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   private animerHero(): void {
     // .btn-primaire / .btn-info / .stat ont une transition CSS "all" (hover) qui entre en
     // conflit avec l'animation JS de GSAP sur opacity/transform : on la coupe le temps du tween.
-    const cibleTransitionCss = gsap.utils.toArray<HTMLElement>('.hero-actions > *, .hero-stats .stat');
+    const cibleTransitionCss = gsap.utils.toArray<HTMLElement>('.hero-actions > *, .hero-carte');
     gsap.set(cibleTransitionCss, { transition: 'none' });
 
     const tl = gsap.timeline({
@@ -137,23 +130,18 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       onComplete: () => gsap.set(cibleTransitionCss, { clearProps: 'transition' }),
     });
 
-    tl.from('.hero-badge', { opacity: 0, y: -24, scale: 0.7, duration: 0.6 })
-      .from('.hero-contenu h1', { opacity: 0, y: 70, scale: 1.06, duration: 0.9 }, '-=0.4')
+    tl.from('.hero-cluster', { opacity: 0, y: -20, scale: 0.85, duration: 0.6 })
+      .from('.hero-contenu h1', { opacity: 0, y: 70, scale: 1.06, duration: 0.9 }, '-=0.35')
       .from('.hero-subtitle', { opacity: 0, y: 30, duration: 0.6 }, '-=0.55')
-      .from(
-        '.hero-tags .hero-tag',
-        { opacity: 0, y: 16, scale: 0.7, stagger: 0.12, duration: 0.5, ease: 'back.out(2.4)' },
-        '-=0.35',
-      )
       .from(
         '.hero-actions > *',
         { opacity: 0, y: 24, scale: 0.8, stagger: 0.12, duration: 0.6, ease: 'back.out(2)' },
         '-=0.3',
       )
       .from(
-        '.hero-stats .stat',
-        { opacity: 0, y: 44, scale: 0.75, stagger: 0.1, duration: 0.65, ease: 'back.out(2.2)' },
-        '-=0.45',
+        '.hero-carte',
+        { opacity: 0, y: 30, scale: 0.92, stagger: 0.15, duration: 0.65, ease: 'back.out(1.8)' },
+        '-=0.3',
       );
 
     gsap.to('.hero-contenu h1 .accent-gold', {

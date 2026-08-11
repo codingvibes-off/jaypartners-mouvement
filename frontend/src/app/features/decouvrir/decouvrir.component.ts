@@ -44,6 +44,11 @@ export class DecouvrirComponent implements OnInit {
   constructor(private mouvementService: MouvementService) {}
 
   ngOnInit(): void {
+    this.chargerMouvements();
+  }
+
+  private chargerMouvements(): void {
+    this.chargement.set(true);
     this.mouvementService.obtenirTous().subscribe({
       next: (mouvements) => {
         this.mouvements.set(mouvements);

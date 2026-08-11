@@ -1,0 +1,173 @@
+/* UNIVERS DE PROGRAMMES — chaque onglet recolore entièrement la scène */
+
+.scene {
+  position: relative;
+  min-height: 100vh;
+  padding: 64px 48px 120px;
+  background: radial-gradient(circle at 12% -10%, rgba(var(--accent-rgb), 0.16) 0%, transparent 45%),
+    var(--scene-bg, var(--bg));
+  transition: background 0.7s ease;
+  overflow: hidden;
+}
+
+.voile-transition {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  pointer-events: none;
+  opacity: 0;
+}
+
+/* ENTÊTE */
+
+.entete {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+  margin: 0 auto 56px;
+  text-align: center;
+}
+
+.eyebrow {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent-primary);
+  margin-bottom: 12px;
+  transition: color 0.5s ease;
+}
+
+.entete h1 {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 7vw, 92px);
+  line-height: 0.95;
+  color: var(--text-primary);
+  letter-spacing: 1px;
+}
+
+.tagline {
+  margin-top: 12px;
+  font-size: 16px;
+  color: var(--text-secondary);
+}
+
+.onglets-univers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 32px;
+}
+
+.onglet-univers {
+  padding: 10px 22px;
+  border-radius: 999px;
+  border: 1.5px solid var(--border);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.onglet-univers:hover {
+  border-color: var(--u-accent);
+  color: var(--text-primary);
+}
+
+.onglet-univers.actif {
+  background: var(--u-accent);
+  border-color: var(--u-accent);
+  color: #0a0a0a;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+/* MATRICE */
+
+.matrice-conteneur {
+  position: relative;
+  z-index: 1;
+}
+
+.matrice {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 150px);
+  justify-content: center;
+  gap: 28px 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+@media (max-width: 1024px) {
+  .matrice {
+    grid-template-columns: repeat(auto-fill, 130px);
+  }
+}
+
+@media (max-width: 720px) {
+  .scene {
+    padding: 48px 20px 100px;
+  }
+  .matrice {
+    grid-template-columns: repeat(auto-fill, 110px);
+    gap: 22px 14px;
+  }
+}
+
+.etat-conteneur {
+  display: flex;
+  justify-content: center;
+  padding: 80px 0;
+}
+
+.etat {
+  color: var(--text-secondary);
+  font-size: 15px;
+}
+
+/* SENTINELLE DE CHARGEMENT INFINI */
+
+.sentinelle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 56px 0 8px;
+}
+
+.sentinelle.invisible {
+  visibility: hidden;
+}
+
+.point {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent-primary);
+  opacity: 0.5;
+  animation: rebond 1.1s ease-in-out infinite;
+}
+
+.point:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.point:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes rebond {
+  0%,
+  80%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.35;
+  }
+  40% {
+    transform: translateY(-8px);
+    opacity: 1;
+  }
+}

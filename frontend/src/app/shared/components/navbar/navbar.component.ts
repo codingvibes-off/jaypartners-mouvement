@@ -27,8 +27,8 @@ export class NavbarComponent implements AfterViewInit, OnDestroy {
       start: 60,
       onUpdate: (self) => {
         gsap.to('.navbar-inner', {
-          paddingTop: self.progress > 0 ? 10 : 16,
-          paddingBottom: self.progress > 0 ? 10 : 16,
+          paddingTop: self.progress > 0 ? 14 : 24,
+          paddingBottom: self.progress > 0 ? 14 : 24,
           duration: 0.25,
           ease: 'power2.out',
           overwrite: true,

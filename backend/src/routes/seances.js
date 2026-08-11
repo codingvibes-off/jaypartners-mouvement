@@ -3,13 +3,14 @@ const prisma = require("../lib/prisma");
 
 const router = express.Router();
 
-// GET /api/seances?genre=HOMME  -> catalogue façon "rangées Netflix" groupées par catégorie
+// GET /api/seances?genre=HOMME&categorie=Hyrox -> catalogue façon "rangées Netflix" groupées par catégorie
 router.get("/", async (req, res) => {
-  const { genre } = req.query; // HOMME | FEMME | MIXTE
+  const { genre, categorie } = req.query; // genre: HOMME | FEMME | MIXTE
 
-  const where = genre
-    ? { OR: [{ genre: genre }, { genre: "MIXTE" }] }
-    : {};
+  const conditions = [];
+  if (genre) conditions.push({ OR: [{ genre }, { genre: "MIXTE" }] });
+  if (categorie) conditions.push({ categorie: { equals: categorie, mode: "insensitive" } });
+  const where = conditions.length ? { AND: conditions } : {};
 
   const seances = await prisma.seance.findMany({
     where,

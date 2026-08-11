@@ -31,6 +31,11 @@ export const routes: Routes = [
       import('./features/decouvrir/decouvrir.component').then((m) => m.DecouvrirComponent),
   },
   {
+    path: 'programmes',
+    loadComponent: () =>
+      import('./features/programmes/programmes.component').then((m) => m.ProgrammesComponent),
+  },
+  {
     path: 'connexion',
     loadComponent: () =>
       import('./features/auth/connexion.component').then((m) => m.ConnexionComponent),

@@ -1,27 +1,17 @@
 <header class="navbar">
   <div class="navbar-inner">
-    <button
-      class="burger"
-      [class.ouvert]="menuOuvert()"
-      (click)="basculerMenu()"
-      [attr.aria-expanded]="menuOuvert()"
-      aria-label="Menu"
-    >
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-
     <a routerLink="/" class="logo">
       <span class="logo-text">JAY <span class="accent">PARTNER'S</span></span>
     </a>
 
-    <nav class="menu-principal">
-      <a routerLink="/" class="menu-link">Accueil</a>
-      <a routerLink="/decouvrir" class="menu-link">Découvrir</a>
-      <a href="#" class="menu-link">Ma liste</a>
+    <nav class="menu-pilule">
+      <a routerLink="/" routerLinkActive="actif" [routerLinkActiveOptions]="{ exact: true }" class="menu-link">
+        Accueil
+      </a>
+      <a routerLink="/decouvrir" routerLinkActive="actif" class="menu-link">Découvrir</a>
+      <a routerLink="/programmes" routerLinkActive="actif" class="menu-link">Programmes</a>
       @if (auth.estConnecte()) {
-        <a routerLink="/calendrier" class="menu-link">Calendrier</a>
+        <a routerLink="/calendrier" routerLinkActive="actif" class="menu-link">Calendrier</a>
       }
     </nav>
 
@@ -33,18 +23,34 @@
         </div>
         <button class="btn-secondaire" (click)="deconnexion()">Déconnexion</button>
       } @else {
-        <a routerLink="/connexion" class="btn-secondaire">Connexion</a>
-        <a routerLink="/inscription" class="btn-primaire">S'inscrire</a>
+        <a routerLink="/connexion" class="lien-connexion">Connexion</a>
+        <a routerLink="/inscription" class="btn-primaire btn-inscription">S'inscrire</a>
       }
+
+      <button
+        class="burger"
+        [class.ouvert]="menuOuvert()"
+        (click)="basculerMenu()"
+        [attr.aria-expanded]="menuOuvert()"
+        aria-label="Menu"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </div>
 
   <nav class="menu-mobile">
-    <a routerLink="/" class="menu-mobile-link" (click)="fermerMenu()">Accueil</a>
-    <a routerLink="/decouvrir" class="menu-mobile-link" (click)="fermerMenu()">Découvrir</a>
-    <a href="#" class="menu-mobile-link" (click)="fermerMenu()">Ma liste</a>
+    <a routerLink="/" routerLinkActive="actif" [routerLinkActiveOptions]="{ exact: true }" class="menu-mobile-link" (click)="fermerMenu()">
+      Accueil
+    </a>
+    <a routerLink="/decouvrir" routerLinkActive="actif" class="menu-mobile-link" (click)="fermerMenu()">Découvrir</a>
+    <a routerLink="/programmes" routerLinkActive="actif" class="menu-mobile-link" (click)="fermerMenu()">Programmes</a>
     @if (auth.estConnecte()) {
-      <a routerLink="/calendrier" class="menu-mobile-link" (click)="fermerMenu()">Calendrier</a>
+      <a routerLink="/calendrier" routerLinkActive="actif" class="menu-mobile-link" (click)="fermerMenu()">
+        Calendrier
+      </a>
     }
   </nav>
 </header>

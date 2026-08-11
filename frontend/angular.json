@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "netflix-mouvement": {
+    "jaypartners-mouvement": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/netflix-mouvement",
+            "outputPath": "dist/jaypartners-mouvement",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": ["zone.js"],
@@ -40,8 +40,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
-            "production": { "buildTarget": "netflix-mouvement:build:production" },
-            "development": { "buildTarget": "netflix-mouvement:build:development" }
+            "production": { "buildTarget": "jaypartners:build:production" },
+            "development": { "buildTarget": "jaypartners:build:development" }
           },
           "defaultConfiguration": "development"
         }

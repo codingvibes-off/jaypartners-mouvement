@@ -34,13 +34,17 @@
 
   <section class="liste-mouvements">
     <h2>Mouvements de la séance</h2>
-    @for (sm of seance()!.mouvements; track sm.id) {
-      <app-movement-card
-        [mouvement]="sm.mouvement"
-        [ordre]="sm.ordre"
-        [series]="sm.series"
-        [repetitions]="sm.repetitions"
-      ></app-movement-card>
+    @if (seance()!.mouvements?.length) {
+      @for (sm of seance()!.mouvements; track sm.id) {
+        <app-movement-card
+          [mouvement]="sm.mouvement"
+          [ordre]="sm.ordre"
+          [series]="sm.series"
+          [repetitions]="sm.repetitions"
+        ></app-movement-card>
+      }
+    } @else {
+      <p class="etat">Aucun mouvement disponible pour cette séance.</p>
     }
   </section>
 }

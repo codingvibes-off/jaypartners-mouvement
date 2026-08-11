@@ -1,0 +1,219 @@
+/* src/styles.css */
+:root {
+  --bg: #0a0a0a;
+  --bg-elevated: #141414;
+  --bg-elevated-2: #1c1c1c;
+  --bg-card: #161616;
+  --accent-primary: #c6ff3d;
+  --accent-secondary: var(--accent-primary);
+  --accent-rgb:
+    198,
+    255,
+    61;
+  --teal: var(--accent-primary);
+  --gold: var(--accent-primary);
+  --orange: #f59e0b;
+  --text-primary: #f5f5f5;
+  --text-secondary: #a3a3a3;
+  --text-tertiary: #707070;
+  --border: #262626;
+  --danger: #ef4444;
+  --font-display: "Bebas Neue", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --transition: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background:
+    radial-gradient(
+      circle at 8% 0%,
+      rgba(var(--accent-rgb), 0.05) 0%,
+      transparent 45%),
+    var(--bg);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -webkit-overflow-scrolling: touch;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: var(--font-display);
+  letter-spacing: 0.5px;
+  margin: 0;
+  font-weight: 800;
+}
+p {
+  margin: 0;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+}
+::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 8px;
+}
+.btn-primaire {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--accent-primary);
+  color: #0a0a0a;
+  border: none;
+  border-radius: 8px;
+  padding: 14px 32px;
+  font-weight: 800;
+  font-size: 15px;
+  transition: all var(--transition);
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(var(--accent-rgb), 0.2);
+}
+.btn-primaire:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(var(--accent-rgb), 0.35);
+}
+.btn-primaire:active {
+  transform: translateY(0);
+}
+.btn-secondaire {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-primary);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  padding: 12px 28px;
+  font-weight: 700;
+  font-size: 15px;
+  transition: all var(--transition);
+  cursor: pointer;
+}
+.btn-secondaire:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+}
+.btn-secondaire:active {
+  transform: scale(0.98);
+}
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: rgba(var(--accent-rgb), 0.15);
+  color: var(--accent-primary);
+  border: 1px solid rgba(var(--accent-rgb), 0.3);
+}
+.badge.success {
+  background: rgba(var(--accent-rgb), 0.15);
+  color: var(--accent-primary);
+  border-color: rgba(var(--accent-rgb), 0.3);
+}
+.badge.warning {
+  background: rgba(245, 158, 11, 0.15);
+  color: var(--orange);
+  border-color: rgba(245, 158, 11, 0.3);
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+@media (max-width: 720px) {
+  .container {
+    padding: 0 20px;
+  }
+}
+.section-padding {
+  padding: 80px 48px;
+}
+@media (max-width: 1024px) {
+  .section-padding {
+    padding: 60px 32px;
+  }
+}
+@media (max-width: 720px) {
+  .section-padding {
+    padding: 40px 20px;
+  }
+}
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+@media (max-width: 1024px) {
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
+.text-center {
+  text-align: center;
+}
+.text-muted {
+  color: var(--text-secondary);
+}
+.shadow-lg {
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+.shadow-md {
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+}
+.rounded-lg {
+  border-radius: 16px;
+}
+.rounded-md {
+  border-radius: 12px;
+}
+.gap-16 {
+  gap: 16px;
+}
+.gap-24 {
+  gap: 24px;
+}
+.gap-32 {
+  gap: 32px;
+}
+.mt-24 {
+  margin-top: 24px;
+}
+.mt-32 {
+  margin-top: 32px;
+}
+.mb-24 {
+  margin-bottom: 24px;
+}
+.mb-32 {
+  margin-bottom: 32px;
+}
+
+/* angular:styles/global:styles */
+/*# sourceMappingURL=styles.css.map */

@@ -29,7 +29,7 @@ L'application s'ouvrira automatiquement à `http://localhost:4200`
 ## 📂 Structure du Projet
 
 ```
-netflix-mouvement/
+jaypartners/
 ├── frontend/
 │   ├── src/
 │   │   ├── app/
