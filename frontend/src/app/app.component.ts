@@ -4,11 +4,12 @@ import { filter } from 'rxjs';
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { ContactFabComponent } from './shared/components/contact-fab/contact-fab.component';
+import { MotivationSplashComponent } from './shared/components/motivation-splash/motivation-splash.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NavbarComponent, FooterComponent, ContactFabComponent],
+  imports: [RouterOutlet, NavbarComponent, FooterComponent, ContactFabComponent, MotivationSplashComponent],
   template: `
     @if (!estEnEntrainement()) {
       <app-navbar></app-navbar>
@@ -18,6 +19,7 @@ import { ContactFabComponent } from './shared/components/contact-fab/contact-fab
       <app-footer></app-footer>
       <app-contact-fab></app-contact-fab>
     }
+    <app-motivation-splash></app-motivation-splash>
   `,
 })
 export class AppComponent {

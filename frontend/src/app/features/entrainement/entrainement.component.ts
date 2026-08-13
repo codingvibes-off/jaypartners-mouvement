@@ -29,7 +29,7 @@ export class EntrainementComponent implements OnInit, OnDestroy {
   erreurValidation = signal<string | null>(null);
   enCoursValidation = signal(false);
 
-  seriesCochees = signal<Set<number>>(new Set());
+  serieActuelle = signal(1);
   encouragementVisible = signal(false);
   citationActuelle = signal('');
 
@@ -39,13 +39,38 @@ export class EntrainementComponent implements OnInit, OnDestroy {
 
   mouvements = computed<SeanceMouvement[]>(() => this.seance()?.mouvements ?? []);
   exerciceActuel = computed<SeanceMouvement | null>(() => this.mouvements()[this.indexActuel()] ?? null);
+  exerciceSuivantNom = computed<string | null>(
+    () => this.mouvements()[this.indexActuel() + 1]?.mouvement.nom ?? null,
+  );
   progression = computed<number>(() => {
     const total = this.mouvements().length;
     return total ? Math.round(((this.indexActuel() + 1) / total) * 100) : 0;
   });
-  plageSeries = computed<number[]>(() => {
-    const total = this.exerciceActuel()?.series ?? 0;
-    return Array.from({ length: total }, (_, i) => i + 1);
+  totalSeries = computed<number>(() => this.exerciceActuel()?.series ?? 0);
+  plageSeries = computed<number[]>(() => Array.from({ length: this.totalSeries() }, (_, i) => i + 1));
+  /** Vrai s'il s'agit de la dernière série (ou d'un exercice sans découpage en séries). */
+  estDerniereSerie = computed<boolean>(() => {
+    const total = this.totalSeries();
+    return total <= 1 || this.serieActuelle() >= total;
+  });
+
+  /** Donnée principale de l'exercice : le temps s'il y en a un, sinon les répétitions. Jamais les deux à la fois. */
+  donneePrincipaleTexte = computed<string | null>(() => {
+    const temps = this.tempsRestant();
+    if (temps !== null) return String(temps);
+    return this.exerciceActuel()?.repetitions?.trim() || null;
+  });
+  donneePrincipaleLabel = computed<string | null>(() => {
+    if (this.tempsRestant() !== null) return this.tempsRestant() === 1 ? 'Seconde' : 'Secondes';
+    return this.exerciceActuel()?.repetitions ? 'Répétitions' : null;
+  });
+  /** Les répétitions saisies vont d'un simple "12" à une phrase entière ("100 pompages (10x10)") :
+   *  on réduit la taille du chiffre selon sa longueur pour ne jamais casser la mise en page. */
+  donneePrincipaleTaille = computed<'xl' | 'lg' | 'md'>(() => {
+    const longueur = (this.donneePrincipaleTexte() ?? '').length;
+    if (longueur <= 4) return 'xl';
+    if (longueur <= 14) return 'lg';
+    return 'md';
   });
 
   constructor(
@@ -86,6 +111,15 @@ export class EntrainementComponent implements OnInit, OnDestroy {
     }
   }
 
+  /** Action du bouton principal : passe à la série suivante, ou à l'exercice suivant sur la dernière série. */
+  validerEtape(): void {
+    if (this.estDerniereSerie()) {
+      this.exerciceSuivant();
+    } else {
+      this.serieSuivante();
+    }
+  }
+
   exerciceSuivant(): void {
     this.arreterMinuteur();
     this.reinitialiserSeries();
@@ -99,24 +133,19 @@ export class EntrainementComponent implements OnInit, OnDestroy {
     }
   }
 
-  /** Coche/décoche une série de l'exercice courant. Sur l'avant-dernière case cochée
-   *  (il ne reste alors plus qu'une série non cochée), affiche le bandeau d'encouragement. */
-  cocherSerie(numero: number, total: number): void {
-    const cochees = new Set(this.seriesCochees());
-    const etaitCochee = cochees.has(numero);
+  /** Passe à la série suivante du même exercice. Sur l'avant-dernière série validée
+   *  (on entre alors dans la dernière), affiche le bandeau d'encouragement. */
+  private serieSuivante(): void {
+    const prochaine = this.serieActuelle() + 1;
+    this.serieActuelle.set(prochaine);
 
-    if (etaitCochee) {
-      cochees.delete(numero);
-    } else {
-      cochees.add(numero);
-    }
-    this.seriesCochees.set(cochees);
-
-    const restantes = total - cochees.size;
-    if (!etaitCochee && restantes === 1 && !this.encouragementDejaAffichePourExercice) {
+    if (prochaine === this.totalSeries() && !this.encouragementDejaAffichePourExercice) {
       this.encouragementDejaAffichePourExercice = true;
       this.afficherEncouragement();
     }
+
+    this.enPause.set(false);
+    this.demarrerMinuteur();
   }
 
   fermerEncouragement(): void {
@@ -144,10 +173,12 @@ export class EntrainementComponent implements OnInit, OnDestroy {
   }
 
   private reinitialiserSeries(): void {
-    this.seriesCochees.set(new Set());
+    this.serieActuelle.set(1);
     this.encouragementDejaAffichePourExercice = false;
     if (this.fermetureAutoId) clearTimeout(this.fermetureAutoId);
+    const etaitVisible = this.encouragementVisible();
     this.encouragementVisible.set(false);
+    if (etaitVisible) this.animerBandeau();
   }
 
   private afficherEncouragement(): void {
@@ -192,7 +223,7 @@ export class EntrainementComponent implements OnInit, OnDestroy {
       if (restant === null) return;
       if (restant <= 1) {
         this.arreterMinuteur();
-        this.exerciceSuivant();
+        this.validerEtape();
         return;
       }
       this.tempsRestant.set(restant - 1);

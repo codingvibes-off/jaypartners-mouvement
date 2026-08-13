@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, Input, OnDestroy, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Seance } from '../../../core/models/models';
+import { MotivationService } from '../../../core/services/motivation.service';
 import { SeanceService } from '../../../core/services/seance.service';
 import { IconComponent } from '../icon/icon.component';
 
@@ -26,7 +27,15 @@ export class SeanceCardComponent implements OnDestroy {
 
   private minuteur?: ReturnType<typeof setTimeout>;
 
-  constructor(private seanceService: SeanceService) {}
+  constructor(
+    private seanceService: SeanceService,
+    private motivation: MotivationService,
+  ) {}
+
+  onClicSeance(event: Event): void {
+    event.preventDefault();
+    this.motivation.declencher(['/seance', this.seance.id]);
+  }
 
   get estNouveau(): boolean {
     if (!this.seance.createdAt) return false;

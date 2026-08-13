@@ -3,6 +3,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { AuthService } from '../../../core/services/auth.service';
+import { MotivationService } from '../../../core/services/motivation.service';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -18,7 +19,22 @@ export class NavbarComponent implements AfterViewInit, OnDestroy {
 
   menuOuvert = signal(false);
 
-  constructor(public auth: AuthService) {}
+  constructor(
+    public auth: AuthService,
+    private motivation: MotivationService,
+  ) {}
+
+  allerVersDecouvrir(event: Event): void {
+    event.preventDefault();
+    this.fermerMenu();
+    this.motivation.declencher(['/decouvrir']);
+  }
+
+  allerVersProgrammes(event: Event): void {
+    event.preventDefault();
+    this.fermerMenu();
+    this.motivation.declencher(['/programmes']);
+  }
 
   ngAfterViewInit(): void {
     gsap.from('.navbar', { opacity: 0, y: -20, duration: 0.5, ease: 'power2.out' });

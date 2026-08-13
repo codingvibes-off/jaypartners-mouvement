@@ -8,7 +8,7 @@
     <span class="rang-numero" aria-hidden="true">{{ rang }}</span>
   }
 
-  <a class="carte" [routerLink]="['/seance', seance.id]">
+  <a class="carte" [routerLink]="['/seance', seance.id]" (click)="onClicSeance($event)">
     <div
       class="vignette"
       [class.vignette-defaut]="!seance.imageUrl"

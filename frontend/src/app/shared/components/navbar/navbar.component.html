@@ -8,8 +8,8 @@
       <a routerLink="/" routerLinkActive="actif" [routerLinkActiveOptions]="{ exact: true }" class="menu-link">
         Accueil
       </a>
-      <a routerLink="/decouvrir" routerLinkActive="actif" class="menu-link">Découvrir</a>
-      <a routerLink="/programmes" routerLinkActive="actif" class="menu-link">Programmes</a>
+      <a routerLink="/decouvrir" routerLinkActive="actif" class="menu-link" (click)="allerVersDecouvrir($event)">Découvrir</a>
+      <a routerLink="/programmes" routerLinkActive="actif" class="menu-link" (click)="allerVersProgrammes($event)">Programmes</a>
       @if (auth.estConnecte()) {
         <a routerLink="/calendrier" routerLinkActive="actif" class="menu-link">Calendrier</a>
       }
@@ -48,8 +48,8 @@
     <a routerLink="/" routerLinkActive="actif" [routerLinkActiveOptions]="{ exact: true }" class="menu-mobile-link" (click)="fermerMenu()">
       Accueil
     </a>
-    <a routerLink="/decouvrir" routerLinkActive="actif" class="menu-mobile-link" (click)="fermerMenu()">Découvrir</a>
-    <a routerLink="/programmes" routerLinkActive="actif" class="menu-mobile-link" (click)="fermerMenu()">Programmes</a>
+    <a routerLink="/decouvrir" routerLinkActive="actif" class="menu-mobile-link" (click)="allerVersDecouvrir($event)">Découvrir</a>
+    <a routerLink="/programmes" routerLinkActive="actif" class="menu-mobile-link" (click)="allerVersProgrammes($event)">Programmes</a>
     @if (auth.estConnecte()) {
       <a routerLink="/calendrier" routerLinkActive="actif" class="menu-mobile-link" (click)="fermerMenu()">
         Calendrier

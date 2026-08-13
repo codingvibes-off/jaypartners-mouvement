@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["src/app/core/services/historique.service.ts"],
-  "sourcesContent": ["import { Injectable } from '@angular/core';\nimport { HttpClient } from '@angular/common/http';\nimport { Observable } from 'rxjs';\nimport { environment } from '../../../environments/environment';\nimport { HistoriqueEntry, ReponseValidation } from '../models/models';\n\n@Injectable({ providedIn: 'root' })\nexport class HistoriqueService {\n  private baseUrl = `${environment.apiUrl}/historique`;\n\n  constructor(private http: HttpClient) {}\n\n  validerSeance(seanceId: string): Observable<ReponseValidation> {\n    return this.http.post<ReponseValidation>(this.baseUrl, { seanceId });\n  }\n\n  obtenirHistorique(): Observable<HistoriqueEntry[]> {\n    return this.http.get<HistoriqueEntry[]>(this.baseUrl);\n  }\n}\n"],
-  "mappings": ";;;;;;;;;;;;AAOM,IAAO,oBAAP,MAAO,mBAAiB;EAGR;EAFZ,UAAU,GAAG,YAAY,MAAM;EAEvC,YAAoB,MAAgB;AAAhB,SAAA,OAAA;EAAmB;EAEvC,cAAc,UAAgB;AAC5B,WAAO,KAAK,KAAK,KAAwB,KAAK,SAAS,EAAE,SAAQ,CAAE;EACrE;EAEA,oBAAiB;AACf,WAAO,KAAK,KAAK,IAAuB,KAAK,OAAO;EACtD;;qCAXW,oBAAiB,mBAAA,UAAA,CAAA;EAAA;4EAAjB,oBAAiB,SAAjB,mBAAiB,WAAA,YADJ,OAAM,CAAA;;",
-  "names": []
-}

@@ -59,6 +59,43 @@
       <span class="compteur">{{ indexActuel() + 1 }} / {{ mouvements().length }}</span>
     </div>
 
+    <div class="exercice-infos">
+      <h1>{{ exerciceActuel()!.mouvement.nom }}</h1>
+
+      @if (totalSeries() > 1) {
+        <p class="serie-position">Série {{ serieActuelle() }} / {{ totalSeries() }}</p>
+      }
+
+      @if (donneePrincipaleTexte(); as chiffre) {
+        <div class="donnee-principale">
+          <span
+            class="donnee-chiffre"
+            [class.donnee-chiffre-xl]="donneePrincipaleTaille() === 'xl'"
+            [class.donnee-chiffre-lg]="donneePrincipaleTaille() === 'lg'"
+            [class.donnee-chiffre-md]="donneePrincipaleTaille() === 'md'"
+          >{{ chiffre }}</span>
+          <span class="donnee-label">{{ donneePrincipaleLabel() }}</span>
+        </div>
+      }
+
+      @if (totalSeries() > 1) {
+        <div class="indicateur-series" role="group" aria-label="Progression des séries">
+          @for (numero of plageSeries(); track numero; let dernier = $last) {
+            <span
+              class="point-serie"
+              [class.point-fait]="numero < serieActuelle()"
+              [class.point-actuel]="numero === serieActuelle()"
+              [attr.aria-label]="'Série ' + numero"
+              [attr.aria-current]="numero === serieActuelle() ? 'step' : null"
+            ></span>
+            @if (!dernier) {
+              <span class="trait-serie" [class.trait-fait]="numero < serieActuelle()"></span>
+            }
+          }
+        </div>
+      }
+    </div>
+
     <div class="video-conteneur">
       <video
         #videoRef
@@ -71,42 +108,7 @@
       ></video>
     </div>
 
-    <div class="exercice-infos">
-      <h1>{{ exerciceActuel()!.mouvement.nom }}</h1>
-
-      @if (plageSeries().length > 0) {
-        <div class="series-liste" role="group" aria-label="Séries de l'exercice">
-          @for (numero of plageSeries(); track numero) {
-            <button
-              class="serie-case"
-              [class.cochee]="seriesCochees().has(numero)"
-              (click)="cocherSerie(numero, plageSeries().length)"
-              [attr.aria-pressed]="seriesCochees().has(numero)"
-              [attr.aria-label]="'Série ' + numero"
-            >
-              @if (seriesCochees().has(numero)) {
-                <app-icon nom="check" [taille]="15"></app-icon>
-              } @else {
-                {{ numero }}
-              }
-            </button>
-          }
-        </div>
-        @if (exerciceActuel()!.repetitions) {
-          <p class="exercice-meta">{{ exerciceActuel()!.repetitions }}</p>
-        }
-      } @else {
-        <p class="exercice-meta">
-          @if (exerciceActuel()!.repetitions) {
-            {{ exerciceActuel()!.repetitions }}
-          }
-        </p>
-      }
-
-      @if (tempsRestant() !== null) {
-        <div class="minuteur">{{ tempsRestant() }}s</div>
-      }
-
+    <div class="zone-controles">
       <div class="controles">
         <button
           class="btn-rond-controle"
@@ -115,10 +117,15 @@
         >
           <app-icon [nom]="enPause() ? 'play' : 'pause'" [taille]="18"></app-icon>
         </button>
-        <button class="btn-primaire btn-large" (click)="exerciceSuivant()">
-          Exercice terminé <app-icon nom="arrow-right" [taille]="16"></app-icon>
+        <button class="btn-primaire btn-large" (click)="validerEtape()">
+          {{ estDerniereSerie() ? 'Exercice terminé' : 'Série terminée' }}
+          <app-icon nom="arrow-right" [taille]="16"></app-icon>
         </button>
       </div>
+
+      @if (exerciceSuivantNom(); as suivant) {
+        <p class="exercice-suivant">Ensuite : {{ suivant }}</p>
+      }
     </div>
   </div>
 }

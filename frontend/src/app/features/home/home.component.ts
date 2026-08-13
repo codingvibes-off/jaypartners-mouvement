@@ -4,6 +4,7 @@ import { RouterLink } from '@angular/router';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Genre, RangeeSeances, Seance } from '../../core/models/models';
+import { MotivationService } from '../../core/services/motivation.service';
 import { SeanceService } from '../../core/services/seance.service';
 import { IconComponent } from '../../shared/components/icon/icon.component';
 import { SeanceCardComponent } from '../../shared/components/seance-card/seance-card.component';
@@ -23,7 +24,6 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   ongletActif = signal<Genre>('HOMME');
   rangees = signal<RangeeSeances[]>([]);
   chargement = signal(true);
-  afficherSelectionProfil = signal(false);
 
   top10 = computed<Seance[]>(() => {
     const vues = new Set<string>();
@@ -41,7 +41,10 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
   top10Ids = computed<Set<string>>(() => new Set(this.top10().map((s) => s.id)));
 
-  constructor(private seanceService: SeanceService) {}
+  constructor(
+    private seanceService: SeanceService,
+    private motivation: MotivationService,
+  ) {}
 
   ngOnInit(): void {
     this.chargerCatalogue();
@@ -64,19 +67,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ouvrirSelectionProfil(): void {
-    this.afficherSelectionProfil.set(true);
-  }
-
-  fermerSelectionProfil(): void {
-    this.afficherSelectionProfil.set(false);
-  }
-
-  choisirProfil(genre: Genre): void {
-    this.changerOnglet(genre);
-    this.afficherSelectionProfil.set(false);
-    setTimeout(() => {
-      document.querySelector('.filtres-section')?.scrollIntoView({ behavior: 'smooth' });
-    }, 50);
+    this.motivation.declencher(['/programmes']);
   }
 
   faireDefiler(conteneur: HTMLElement, direction: 1 | -1): void {
