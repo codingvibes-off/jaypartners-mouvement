@@ -1,8 +1,11 @@
 import { AfterViewInit, Component, HostListener, OnDestroy, signal } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { TranslatePipe } from '@ngx-translate/core';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { AuthService } from '../../../core/services/auth.service';
+import { CoachService } from '../../../core/services/coach.service';
+import { LangService } from '../../../core/services/lang.service';
 import { MotivationService } from '../../../core/services/motivation.service';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -10,7 +13,7 @@ gsap.registerPlugin(ScrollTrigger);
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive],
+  imports: [RouterLink, RouterLinkActive, TranslatePipe],
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css'],
 })
@@ -21,6 +24,8 @@ export class NavbarComponent implements AfterViewInit, OnDestroy {
 
   constructor(
     public auth: AuthService,
+    public lang: LangService,
+    public coach: CoachService,
     private motivation: MotivationService,
   ) {}
 

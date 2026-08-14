@@ -48,8 +48,58 @@ router.post("/connexion", async (req, res) => {
   const user = await prisma.user.findUnique({ where: { email } });
   if (!user) return res.status(401).json({ message: "Identifiants incorrects" });
 
+  if (!user.password) {
+    return res.status(401).json({ message: "Ce compte utilise la connexion Google. Connecte-toi avec Google." });
+  }
+
   const valide = await bcrypt.compare(password, user.password);
   if (!valide) return res.status(401).json({ message: "Identifiants incorrects" });
+
+  const token = signToken(user);
+  res.json({ token, user: sansMotDePasse(user) });
+});
+
+// POST /api/auth/google -> connexion/inscription via un access token OAuth2 Google
+// (obtenu côté client par GoogleAuthService avec google.accounts.oauth2.initTokenClient).
+router.post("/google", async (req, res) => {
+  const { accessToken } = req.body;
+  if (!accessToken) return res.status(400).json({ message: "accessToken requis" });
+
+  // 1) Vérifie que le jeton a bien été émis pour NOTRE client Google (empêche un jeton
+  //    obtenu par une autre application d'être utilisé pour se connecter ici).
+  const infoRes = await fetch(`https://oauth2.googleapis.com/tokeninfo?access_token=${encodeURIComponent(accessToken)}`);
+  if (!infoRes.ok) return res.status(401).json({ message: "Jeton Google invalide" });
+  const info = await infoRes.json();
+  if (info.aud !== process.env.GOOGLE_CLIENT_ID) {
+    return res.status(401).json({ message: "Jeton Google invalide" });
+  }
+
+  // 2) Récupère le profil (email, prénom) directement depuis Google, jamais depuis le client.
+  const profilRes = await fetch("https://www.googleapis.com/oauth2/v3/userinfo", {
+    headers: { Authorization: `Bearer ${accessToken}` },
+  });
+  if (!profilRes.ok) return res.status(401).json({ message: "Jeton Google invalide" });
+  const profil = await profilRes.json();
+
+  if (!profil.email || !(profil.email_verified === true || profil.email_verified === "true")) {
+    return res.status(401).json({ message: "Email Google non vérifié" });
+  }
+
+  let user = await prisma.user.findFirst({
+    where: { OR: [{ googleId: profil.sub }, { email: profil.email }] },
+  });
+
+  if (!user) {
+    user = await prisma.user.create({
+      data: {
+        email: profil.email,
+        prenom: profil.given_name || profil.name || "Utilisateur",
+        googleId: profil.sub,
+      },
+    });
+  } else if (!user.googleId) {
+    user = await prisma.user.update({ where: { id: user.id }, data: { googleId: profil.sub } });
+  }
 
   const token = signToken(user);
   res.json({ token, user: sansMotDePasse(user) });

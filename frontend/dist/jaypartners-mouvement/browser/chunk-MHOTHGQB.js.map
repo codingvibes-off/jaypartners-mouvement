@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/environments/environment.ts"],
+  "sourcesContent": ["export const environment = {\n  production: false,\n  apiUrl: 'http://localhost:3000/api',\n  // Code client Cloudflare Stream (ex: 'customer-abc123'), trouvable dans le dashboard Cloudflare > Stream\n  cfStreamCustomerCode: 'customer-pkysq1xgvna4ekn3',\n  googleClientId: '907615936165-bf4qooc1mfk7k0318nehvgp7lg74llq3.apps.googleusercontent.com',\n};\n"],
+  "mappings": ";AAAO,IAAM,cAAc;EACzB,YAAY;EACZ,QAAQ;;EAER,sBAAsB;EACtB,gBAAgB;;",
+  "names": []
+}

@@ -1,0 +1,302 @@
+{
+  "nav": {
+    "accueil": "Home",
+    "decouvrir": "Discover",
+    "programmes": "Programs",
+    "calendrier": "Calendar",
+    "admin": "Admin",
+    "about": "About",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "connexion": "Log in",
+    "inscription": "Sign up",
+    "deconnexion": "Log out",
+    "duo": "Duo"
+  },
+  "lang": {
+    "fr": "FR",
+    "en": "EN"
+  },
+  "commun": {
+    "chargement": "Loading...",
+    "retourCatalogue": "Back to catalog"
+  },
+  "niveau": {
+    "DEBUTANT": "Beginner",
+    "INTERMEDIAIRE": "Intermediate",
+    "AVANCE": "Advanced"
+  },
+  "genre": {
+    "HOMME": "Men",
+    "FEMME": "Women",
+    "MIXTE": "Mixed"
+  },
+  "home": {
+    "clusterTexte": "women trust us",
+    "titre": "CULTIVATE YOUR <span class=\"accent-gold\">INNER STRENGTH</span>",
+    "sousTitre": "Pilates, gentle strength training and wellbeing: sessions designed for you, at your own pace, to feel stronger and more balanced every day.",
+    "commencer": "Get started now",
+    "carteUnivers": "The Pilates universe",
+    "carteUniversTexte": "Control, breath, gentle strength. Discover our signature sessions.",
+    "voirUnivers": "See Pilates",
+    "carteNouveau": "Wellbeing & mobility",
+    "carteNouveauTexte": "Gentle sessions to reconnect with your body, wherever you're starting from.",
+    "decouvrirLien": "Discover",
+    "explorerCategorie": "Explore by category",
+    "chargementCatalogue": "⏳ Loading catalog...",
+    "aucuneSeance": "📭 No sessions available right now.",
+    "top10": "Top {{n}} sessions this week",
+    "voirTout": "See all →",
+    "ctaTitre": "Ready to reveal your best self?",
+    "ctaTexte": "Join a community of women progressing with Pilates and our wellbeing sessions.",
+    "ctaBouton": "Start for free",
+    "duoLien": "See Duo sessions →"
+  },
+  "coach": {
+    "eyebrow": "Welcome",
+    "titre": "Choose your coach",
+    "sousTitre": "This choice personalizes the sessions and visual identity of the platform. You can change it anytime.",
+    "femmeTitre": "Female Coach",
+    "femmeTexte": "Sessions led by the female coach: Pilates, gentle strength training, wellbeing.",
+    "hommeTitre": "Male Coach",
+    "hommeTexte": "Sessions led by the male coach: strength, energy, intensity.",
+    "choisir": "Choose",
+    "changer": "Change coach"
+  },
+  "duo": {
+    "clusterTexte": "athletes trust us",
+    "titre": "TWO-COACH <span class=\"accent-gold\">SESSIONS</span>",
+    "sousTitre": "The best of both worlds: sessions co-led by the female and male coach, for complementary energy.",
+    "commencer": "Get started now",
+    "carteUnivers": "The Duo spirit",
+    "carteUniversTexte": "Two coaches, one session: complementary energy, shared drive.",
+    "voirUnivers": "Discover",
+    "chargementCatalogue": "⏳ Loading catalog...",
+    "aucuneSeance": "📭 No sessions available right now.",
+    "top10": "Top {{n}} sessions this week",
+    "voirTout": "See all →",
+    "ctaTitre": "Ready to try a Duo session?",
+    "ctaTexte": "Discover the complementary energy of both our coaches in one session.",
+    "ctaBouton": "Start for free"
+  },
+  "decouvrir": {
+    "titre": "Discover the movements",
+    "sousTitre": "{{n}} movements in the catalog — filter by level, muscle, or search by name.",
+    "recherche": "Search a movement...",
+    "tousLesNiveaux": "All levels",
+    "tousLesMuscles": "All muscles",
+    "reinitialiser": "Reset",
+    "chargement": "⏳ Loading catalog...",
+    "aucunResultat": "📭 No movement matches these filters.",
+    "resultats": "{{n}} result(s)"
+  },
+  "programmes": {
+    "eyebrow": "The program universe",
+    "chargement": "⏳ Loading the {{univers}} universe...",
+    "aucunProgramme": "📭 No program available for this universe right now."
+  },
+  "univers": {
+    "force": { "label": "Strength", "tagline": "Build your raw power." },
+    "pilates": { "label": "Pilates", "tagline": "Control, bracing, precision." },
+    "mobilite": { "label": "Mobility", "tagline": "Range of motion, flexibility, recovery." },
+    "athletisme": { "label": "Athletics", "tagline": "Speed, cardio, stride." },
+    "hyrox": { "label": "Hyrox", "tagline": "The ultimate functional race." },
+    "explosivite": { "label": "Explosiveness", "tagline": "Power and vertical spring." }
+  },
+  "seanceDetail": {
+    "chargement": "Loading session...",
+    "introuvable": "Session not found.",
+    "demarrer": "Start the workout",
+    "telecharger": "Download the program",
+    "rendezVous": "Book an appointment",
+    "mouvements": "Session movements",
+    "aucunMouvement": "No movement available for this session."
+  },
+  "engagement": {
+    "titre": "Make the commitment",
+    "texte": "For real results, follow this session for at least 1 month. Pick your fixed day:",
+    "jours": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+    "confirmation": "Commitment made for {{jour}}. See you every week for at least 4 weeks.",
+    "changerJour": "Change day",
+    "annuler": "Cancel commitment",
+    "connecteToi": "Log in",
+    "connexionRequise": "to commit to this session and track your consistency."
+  },
+  "entrainement": {
+    "chargement": "Loading session...",
+    "introuvable": "Session not found or has no exercises.",
+    "seanceTerminee": "Session complete",
+    "bravo": "Well done, {{titre}} complete 💪",
+    "complete": "You completed {{n}} exercises.",
+    "valider": "Log today's session",
+    "validation": "Saving...",
+    "connexionRequise": "to log this session and track your progress.",
+    "connecteToi": "Log in",
+    "seanceValidee": "✓ Session logged",
+    "enregistree": "Session saved to your history.",
+    "voirCalendrier": "View my calendar",
+    "quitter": "Exit",
+    "seriePosition": "Set {{actuelle}} / {{total}}",
+    "pause": "Pause",
+    "reposTexte": "Rest before the next set",
+    "exerciceTermine": "Exercise complete",
+    "serieTerminee": "Set complete",
+    "ensuite": "Next: {{suivant}}"
+  },
+  "calendrier": {
+    "titre": "My calendar",
+    "sousTitre": "Find all the sessions you've logged.",
+    "chargement": "Loading your history...",
+    "vide": "You haven't logged any sessions yet. Start a workout to get going!",
+    "moisPrecedent": "Previous month",
+    "moisSuivant": "Next month",
+    "jours": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+    "seancesDu": "Sessions on {{jour}}",
+    "seanceParDefaut": "Session",
+    "recapVide": "Click a day marked with a dot to see the recap of sessions completed."
+  },
+  "faq": {
+    "badge": "FAQ",
+    "titre": "How to use<br/>the site?",
+    "sousTitre": "All the answers to find your way around: catalog, workouts, account and contact.",
+    "autreQuestion": "Another question?",
+    "contacterJay": "Contact Jay",
+    "q1": {
+      "question": "How does the JayPartner's site work?",
+      "reponse": "The home page shows you a catalog of sessions organized by category, a bit like a streaming catalog. Browse the rows, click a session to see its details, then start the workout when you're ready."
+    },
+    "q2": {
+      "question": "Do I need an account to work out?",
+      "reponse": "You can browse the catalog, the Discover section, and Programs without an account. However, to log your sessions, earn XP, and find your history in the Calendar, you need to sign up (\"Sign up\" button in the menu) and log in."
+    },
+    "q3": {
+      "question": "What is the \"Discover\" page for?",
+      "reponse": "It's the library of every available movement. You can search a movement by name, filter by level (beginner, intermediate, advanced), or by targeted muscle to understand an exercise before practicing it."
+    },
+    "q4": {
+      "question": "What is the \"Programs\" page for?",
+      "reponse": "It groups sessions by universe (Strength, Pilates, Hyrox, Athletics...). Choose the tab for the universe that interests you to see all its sessions."
+    },
+    "q5": {
+      "question": "How does a workout work?",
+      "reponse": "From a session's detail page, click \"Start the workout\". The site switches to full-screen mode, without the menu, so you can focus on the movements. Once the session is complete, it's saved to your history and you earn XP."
+    },
+    "q6": {
+      "question": "Where can I see the sessions I've already done?",
+      "reponse": "In \"Calendar\" (visible once logged in). It shows a monthly calendar: days marked with a dot correspond to logged sessions. Click a day to see the recap and the XP earned."
+    },
+    "q7": {
+      "question": "How do I contact Jay or follow updates on social media?",
+      "reponse": "Head to the Contact page, or use the floating button at the bottom right of the screen: you'll find WhatsApp, Instagram, TikTok, YouTube, LinkedIn, and Calendly to book a coaching session."
+    },
+    "q8": {
+      "question": "I forgot my password, or I'm having a technical issue: what should I do?",
+      "reponse": "The easiest way is to contact me directly via WhatsApp or Instagram from the Contact page: I'll get back to you as quickly as possible to sort it out."
+    }
+  },
+  "about": {
+    "badge": "About JayPartner's",
+    "titre": "A passion,<br/>a mission.",
+    "sousTitre": "I'm Jay, the creator of JayPartner's. Pilates & Fitness coach in Niort.",
+    "imageAlt1": "Jay, Pilates & Fitness coach in Niort",
+    "p1": "Passionate about dance, sport, and wellbeing since I was young, I decided to turn that passion into a mission and became a certified sports coach in 2023.",
+    "p2": "I'm a coach who loves good food: I love effort and movement… but also small pleasures! For me, sport and indulgence can perfectly coexist when you find the right balance. Taking care of yourself also means treating yourself without guilt.",
+    "p3": "I chose this profession to help my JayPeaks reach their goals and, above all, their peak. Together, we'll progress, push our limits, and climb every step to your peak.",
+    "imageAlt2": "JayPartner's coaching",
+    "visionTitre": "A <span class=\"accent-gold\">vision.</span>",
+    "p4": "For me, sport — whether individual or team-based — is always better with a partner. A partner to motivate, support, challenge, and celebrate progress.",
+    "p5": "Whether you're a beginner or a seasoned athlete, I'm your ideal partner to help you recover, develop, and strengthen your physical abilities. So, JayPeak, ready to reach your full potential with me? ⏱️🔥",
+    "imageAlt3": "Pilates session with Jay",
+    "badgePilates": "Pilates Session",
+    "equilibreTitre": "A movement,<br/>a balance.",
+    "p6": "Jay is a Pilates and Fitness coach based in Niort, driven by a genuine passion for movement, wellbeing, and personal transformation.",
+    "p7": "Whether you're a beginner or an experienced athlete, I'll guide you through sessions that are tailored, dynamic, and supportive. My goal: to help you regain strength, mobility, and confidence through Pilates.",
+    "pilulePilates": "🧘 Pilates",
+    "piluleFitness": "💪 Fitness",
+    "piluleMobilite": "🔥 Mobility",
+    "piluleBienEtre": "❤️ Wellbeing",
+    "piluleNiort": "📍 Niort",
+    "ctaTitre": "Ready to start your <span class=\"accent-gold\">JayPeak</span>?",
+    "voirProgrammes": "See the programs",
+    "meContacter": "Contact me"
+  },
+  "contact": {
+    "badge": "Contact",
+    "titre": "Let's stay <span class=\"accent-gold\">connected.</span>",
+    "sousTitre": "A question, want to book a session, or just want to follow along? Find me on the platforms below.",
+    "whatsappHandle": "Community group",
+    "whatsappDescription": "Join the group to ask your questions and follow session updates.",
+    "instagramDescription": "Exercises, tips, and behind-the-scenes every day.",
+    "tiktokDescription": "Movements and tips in short video format.",
+    "youtubeDescription": "Full sessions and in-depth videos.",
+    "linkedinHandle": "Justine Pegas",
+    "linkedinDescription": "Professional background and news.",
+    "calendlyHandle": "Book a coaching session",
+    "calendlyDescription": "Book an appointment directly for a session."
+  },
+  "footer": {
+    "accueil": "Home",
+    "decouvrir": "Discover",
+    "calendrier": "Calendar",
+    "creerCompte": "Create an account",
+    "pourCoachs": "For coaches",
+    "articles": "Articles",
+    "contact": "Contact",
+    "copyright": "— Copyright",
+    "nousContacter": "Contact us",
+    "banniere": "/ Build more than a physique, reveal a potential",
+    "conditions": "Terms of use",
+    "mention": "Jay Partner's © {{annee}}. All rights reserved.",
+    "confidentialite": "Privacy policy"
+  },
+  "auth": {
+    "continuerGoogle": "Continue with Google",
+    "continuerApple": "Continue with Apple",
+    "oauthBientot": "{{fournisseur}} login coming soon!",
+    "oauthErreur": "Google sign-in failed. Please try again.",
+    "ou": "or",
+    "prenom": "First name",
+    "email": "Email",
+    "motDePasse": "Password",
+    "patiente": "Please wait...",
+    "dejaCompte": "Already have an account?",
+    "seConnecter": "Log in",
+    "pasDeCompte": "Don't have an account yet?",
+    "sInscrire": "Sign up"
+  },
+  "movementCard": {
+    "musclesSecondaires": "Secondary muscles",
+    "materiel": "Equipment",
+    "regression": "Regression",
+    "progression": "Progression",
+    "erreursFrequentes": "Common mistakes"
+  },
+  "seanceCard": {
+    "top10": "Top 10",
+    "nouveau": "New",
+    "voirSeance": "View session",
+    "plusInfos": "More info"
+  },
+  "admin": {
+    "titre": "Movement videos",
+    "sousTitre": "Upload a video for each movement. Cloudflare Stream encoding usually takes a few dozen seconds.",
+    "recherche": "Search a movement…",
+    "chargement": "Loading movements…",
+    "aucunResultat": "No movement matches this search.",
+    "choisirVideo": "Choose a video",
+    "statutEnvoi": "Uploading… {{n}}%",
+    "statutEncodage": "Encoding…",
+    "statutErreur": "Error",
+    "statutPrete": "Ready",
+    "statutEnCours": "In progress",
+    "statutVideoParDefaut": "Default video",
+    "erreurDemarrageUpload": "Couldn't start the upload",
+    "erreurEnvoi": "Upload to Cloudflare failed",
+    "erreurEncodage": "Encoding failed",
+    "erreurEncodageLong": "Encoding took too long, try again later"
+  },
+  "pdf": {
+    "mouvements": "Session movements",
+    "series": "sets"
+  }
+}

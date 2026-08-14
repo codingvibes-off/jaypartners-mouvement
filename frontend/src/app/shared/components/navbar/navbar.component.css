@@ -61,16 +61,17 @@
   transition: color 0.3s;
 }
 
-/* PILULE DE NAVIGATION — flottante, centrée, verre dépoli */
+/* PILULE DE NAVIGATION — verre dépoli, participe au flex de .navbar-inner (avec
+   justify-content: space-between) plutôt que d'être centrée en absolu sur toute la
+   largeur : ça évite qu'elle chevauche .actions quand celle-ci s'élargit (ex: ajout
+   du sélecteur de langue) sans jamais pouvoir "voir" le reste du contenu. */
 .menu-pilule {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  position: relative;
   display: flex;
   align-items: center;
   gap: 2px;
   padding: 6px;
+  flex-shrink: 0;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.09);
   border-radius: 999px;
@@ -113,6 +114,55 @@
   align-items: center;
   gap: 14px;
   flex-shrink: 0;
+}
+
+.coach-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  font-size: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  backdrop-filter: blur(16px);
+  transition: all 0.2s ease;
+}
+
+.coach-btn:hover {
+  border-color: var(--accent-primary);
+}
+
+.selecteur-langue {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 4px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 999px;
+  backdrop-filter: blur(16px);
+}
+
+.lang-btn {
+  padding: 6px 11px;
+  border-radius: 999px;
+  color: var(--text-secondary);
+  font-size: 12px;
+  font-weight: 700;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  letter-spacing: 0.3px;
+  transition: all 0.2s ease;
+}
+
+.lang-btn:hover {
+  color: var(--text-primary);
+}
+
+.lang-btn.actif {
+  color: #0a0a0a;
+  background: var(--accent-primary);
 }
 
 .lien-connexion {

@@ -16,6 +16,14 @@ enum Genre {
   MIXTE
 }
 
+// Coach qui anime la séance — indépendant de `genre` (public cible). DUO = séance
+// animée par le coach homme et la coach femme ensemble.
+enum Coach {
+  FEMME
+  HOMME
+  DUO
+}
+
 enum Niveau {
   DEBUTANT
   INTERMEDIAIRE
@@ -27,13 +35,24 @@ enum RoleUtilisateur {
   ADMIN
 }
 
+enum JourSemaine {
+  LUNDI
+  MARDI
+  MERCREDI
+  JEUDI
+  VENDREDI
+  SAMEDI
+  DIMANCHE
+}
+
 // -----------------------------
 // UTILISATEURS
 // -----------------------------
 model User {
   id           String           @id @default(cuid())
   email        String           @unique
-  password     String
+  password     String?
+  googleId     String?          @unique
   prenom       String
   role         RoleUtilisateur  @default(USER)
   xp           Int              @default(0)
@@ -47,6 +66,7 @@ model User {
   favoris      Favori[]
   badges       UserBadge[]
   seancesFaites SeanceHistorique[]
+  engagements  EngagementHebdomadaire[]
 }
 
 // -----------------------------
@@ -55,17 +75,22 @@ model User {
 model Seance {
   id          String   @id @default(cuid())
   titre       String
+  titreEn     String?
   description String?
+  descriptionEn String?
   genre       Genre    @default(MIXTE)
+  coach       Coach    @default(DUO)
   niveau      Niveau   @default(DEBUTANT)
   dureeMin    Int      @default(20)
   imageUrl    String?
   categorie   String?  // ex: "Mobilité", "Pilates", "Renforcement"
+  categorieEn String?
   ordre       Int      @default(0)
   createdAt   DateTime @default(now())
 
   mouvements  SeanceMouvement[]
   historique  SeanceHistorique[]
+  engagements EngagementHebdomadaire[]
 }
 
 // -----------------------------
@@ -74,15 +99,25 @@ model Seance {
 model Mouvement {
   id             String   @id @default(cuid())
   nom            String
+  nomEn          String?
   description    String?
+  descriptionEn  String?
   videoUrl       String   @default("https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4")
+  cfStreamUid    String?
+  cfStreamStatus String?  // null | "uploading" | "ready" | "error"
   muscleprincipal String?
+  muscleprincipalEn String?
   musclesSecondaires String[] @default([])
+  musclesSecondairesEn String[] @default([])
   niveau         Niveau   @default(DEBUTANT)
   materiel       String[] @default([])
+  materielEn     String[] @default([])
   erreursFrequentes String[] @default([])
+  erreursFrequentesEn String[] @default([])
   regression     String?
+  regressionEn   String?
   progression    String?
+  progressionEn  String?
   dureeConseillee Int?    // en secondes
   createdAt      DateTime @default(now())
 
@@ -116,6 +151,22 @@ model SeanceHistorique {
   terminee  Boolean  @default(false)
   xpGagne   Int      @default(0)
   createdAt DateTime @default(now())
+}
+
+// Engagement pris par l'utilisateur à suivre une séance régulièrement, un
+// jour de semaine fixe, pendant au moins `dureeSemaines` semaines.
+model EngagementHebdomadaire {
+  id            String      @id @default(cuid())
+  user          User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId        String
+  seance        Seance      @relation(fields: [seanceId], references: [id], onDelete: Cascade)
+  seanceId      String
+  jour          JourSemaine
+  dureeSemaines Int         @default(4)
+  dateDebut     DateTime    @default(now())
+  createdAt     DateTime    @default(now())
+
+  @@unique([userId, seanceId])
 }
 
 model UserProgress {

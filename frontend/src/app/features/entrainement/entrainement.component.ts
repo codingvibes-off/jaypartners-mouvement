@@ -1,24 +1,32 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnDestroy, OnInit, computed, signal } from '@angular/core';
+import { Component, ElementRef, OnDestroy, OnInit, ViewChild, computed, signal } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { TranslatePipe } from '@ngx-translate/core';
 import { gsap } from 'gsap';
 import { AuthService } from '../../core/services/auth.service';
 import { HistoriqueService } from '../../core/services/historique.service';
+import { LangService } from '../../core/services/lang.service';
 import { SeanceService } from '../../core/services/seance.service';
 import { IconComponent } from '../../shared/components/icon/icon.component';
+import { LocalisePipe } from '../../shared/pipes/localise.pipe';
 import { Seance, SeanceMouvement } from '../../core/models/models';
-import { CITATIONS_DERNIERE_SERIE } from './citations';
+import { CITATIONS_DERNIERE_SERIE, CITATIONS_DERNIERE_SERIE_EN } from './citations';
+import { environment } from '../../../environments/environment';
 
 const DELAI_FERMETURE_AUTO_MS = 6000;
+const DUREE_REPOS_S = 90;
 
 @Component({
   selector: 'app-entrainement',
   standalone: true,
-  imports: [CommonModule, RouterLink, IconComponent],
+  imports: [CommonModule, RouterLink, IconComponent, TranslatePipe, LocalisePipe],
   templateUrl: './entrainement.component.html',
   styleUrls: ['./entrainement.component.css'],
 })
 export class EntrainementComponent implements OnInit, OnDestroy {
+  @ViewChild('videoRef') videoElRef?: ElementRef<HTMLVideoElement>;
+
   seance = signal<Seance | null>(null);
   chargement = signal(true);
   indexActuel = signal(0);
@@ -33,15 +41,31 @@ export class EntrainementComponent implements OnInit, OnDestroy {
   encouragementVisible = signal(false);
   citationActuelle = signal('');
 
+  /** Repos chronométré entre deux séries d'un même exercice (voir demarrerRepos). */
+  enRepos = signal(false);
+  tempsRepos = signal(DUREE_REPOS_S);
+
   private encouragementDejaAffichePourExercice = false;
   private intervalId?: ReturnType<typeof setInterval>;
+  private reposIntervalId?: ReturnType<typeof setInterval>;
   private fermetureAutoId?: ReturnType<typeof setTimeout>;
+  private audioContext?: AudioContext;
 
   mouvements = computed<SeanceMouvement[]>(() => this.seance()?.mouvements ?? []);
   exerciceActuel = computed<SeanceMouvement | null>(() => this.mouvements()[this.indexActuel()] ?? null);
-  exerciceSuivantNom = computed<string | null>(
-    () => this.mouvements()[this.indexActuel() + 1]?.mouvement.nom ?? null,
+  prochainExercice = computed<SeanceMouvement | null>(
+    () => this.mouvements()[this.indexActuel() + 1] ?? null,
   );
+  videoCloudflarePrete = computed<boolean>(() => {
+    const mouvement = this.exerciceActuel()?.mouvement;
+    return !!mouvement?.cfStreamUid && mouvement.cfStreamStatus === 'ready';
+  });
+  urlIframeCloudflare = computed<SafeResourceUrl | null>(() => {
+    const uid = this.exerciceActuel()?.mouvement.cfStreamUid;
+    if (!uid) return null;
+    const url = `https://${environment.cfStreamCustomerCode}.cloudflarestream.com/${uid}/iframe?autoplay=true&muted=true&loop=true&controls=true`;
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+  });
   progression = computed<number>(() => {
     const total = this.mouvements().length;
     return total ? Math.round(((this.indexActuel() + 1) / total) * 100) : 0;
@@ -52,6 +76,13 @@ export class EntrainementComponent implements OnInit, OnDestroy {
   estDerniereSerie = computed<boolean>(() => {
     const total = this.totalSeries();
     return total <= 1 || this.serieActuelle() >= total;
+  });
+
+  libelleTempsRepos = computed<string>(() => {
+    const s = Math.max(0, this.tempsRepos());
+    const minutes = Math.floor(s / 60);
+    const secondes = s % 60;
+    return `${minutes}:${String(secondes).padStart(2, '0')}`;
   });
 
   /** Donnée principale de l'exercice : le temps s'il y en a un, sinon les répétitions. Jamais les deux à la fois. */
@@ -78,6 +109,8 @@ export class EntrainementComponent implements OnInit, OnDestroy {
     private seanceService: SeanceService,
     private historiqueService: HistoriqueService,
     public auth: AuthService,
+    public lang: LangService,
+    private sanitizer: DomSanitizer,
   ) {}
 
   ngOnInit(): void {
@@ -96,10 +129,15 @@ export class EntrainementComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.arreterMinuteur();
+    if (this.reposIntervalId) clearInterval(this.reposIntervalId);
     if (this.fermetureAutoId) clearTimeout(this.fermetureAutoId);
+    this.audioContext?.close();
   }
 
-  basculerPause(video: HTMLVideoElement): void {
+  basculerPause(): void {
+    const video = this.videoElRef?.nativeElement;
+    if (!video) return;
+
     const enPause = !this.enPause();
     this.enPause.set(enPause);
     if (enPause) {
@@ -111,16 +149,18 @@ export class EntrainementComponent implements OnInit, OnDestroy {
     }
   }
 
-  /** Action du bouton principal : passe à la série suivante, ou à l'exercice suivant sur la dernière série. */
+  /** Action du bouton principal : passe en repos chronométré avant la série suivante,
+   *  ou directement à l'exercice suivant sur la dernière série. */
   validerEtape(): void {
     if (this.estDerniereSerie()) {
       this.exerciceSuivant();
     } else {
-      this.serieSuivante();
+      this.demarrerRepos();
     }
   }
 
   exerciceSuivant(): void {
+    this.arreterRepos();
     this.arreterMinuteur();
     this.reinitialiserSeries();
     const suivant = this.indexActuel() + 1;
@@ -146,6 +186,59 @@ export class EntrainementComponent implements OnInit, OnDestroy {
 
     this.enPause.set(false);
     this.demarrerMinuteur();
+  }
+
+  /** Ouvre l'écran de repos plein écran (1 min 30) avant la série suivante ; reprend seul à zéro. */
+  private demarrerRepos(): void {
+    this.arreterMinuteur();
+    this.enRepos.set(true);
+    this.tempsRepos.set(DUREE_REPOS_S);
+    this.reposIntervalId = setInterval(() => {
+      const restant = this.tempsRepos();
+      if (restant <= 1) {
+        this.arreterRepos();
+        this.serieSuivante();
+        return;
+      }
+      const nouveauTemps = restant - 1;
+      this.tempsRepos.set(nouveauTemps);
+      if (nouveauTemps <= 3 && nouveauTemps >= 1) {
+        this.jouerBip();
+      }
+    }, 1000);
+  }
+
+  private arreterRepos(): void {
+    if (this.reposIntervalId) {
+      clearInterval(this.reposIntervalId);
+      this.reposIntervalId = undefined;
+    }
+    this.enRepos.set(false);
+  }
+
+  /** Bip du décompte 3-2-1 avant la reprise. Créé au clic (geste utilisateur) pour éviter
+   *  le blocage autoplay des navigateurs sur l'audio déclenché par un minuteur. */
+  private obtenirAudioContext(): AudioContext {
+    if (!this.audioContext) {
+      this.audioContext = new AudioContext();
+    }
+    if (this.audioContext.state === 'suspended') {
+      this.audioContext.resume();
+    }
+    return this.audioContext;
+  }
+
+  private jouerBip(): void {
+    const ctx = this.obtenirAudioContext();
+    const oscillateur = ctx.createOscillator();
+    const gain = ctx.createGain();
+    oscillateur.type = 'sine';
+    oscillateur.frequency.value = 880;
+    gain.gain.setValueAtTime(0.2, ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.15);
+    oscillateur.connect(gain).connect(ctx.destination);
+    oscillateur.start();
+    oscillateur.stop(ctx.currentTime + 0.15);
   }
 
   fermerEncouragement(): void {
@@ -182,7 +275,7 @@ export class EntrainementComponent implements OnInit, OnDestroy {
   }
 
   private afficherEncouragement(): void {
-    const citations = CITATIONS_DERNIERE_SERIE;
+    const citations = this.lang.langue() === 'en' ? CITATIONS_DERNIERE_SERIE_EN : CITATIONS_DERNIERE_SERIE;
     this.citationActuelle.set(citations[Math.floor(Math.random() * citations.length)]);
     this.encouragementVisible.set(true);
     this.animerBandeau();

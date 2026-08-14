@@ -31,18 +31,18 @@
 .footer-nav-principale {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
 }
 
 .footer-nav-principale a {
-  font-size: clamp(24px, 3vw, 32px);
+  font-size: 13px;
   font-weight: 600;
-  color: var(--text-primary);
+  color: var(--text-secondary);
   transition: color 0.2s;
 }
 
 .footer-nav-principale a:hover {
-  color: var(--accent-primary);
+  color: var(--text-primary);
 }
 
 /* COLONNE DE DROITE */
@@ -68,7 +68,8 @@
 }
 
 .footer-nav-secondaire a {
-  font-size: 14px;
+  font-size: 13px;
+  font-weight: 600;
   color: var(--text-secondary);
   transition: color 0.2s;
 }
@@ -79,7 +80,8 @@
 
 .footer-copyright {
   font-size: 13px;
-  color: var(--text-tertiary);
+  font-weight: 600;
+  color: var(--text-secondary);
   white-space: nowrap;
 }
 
@@ -103,8 +105,8 @@
 
 .footer-contact a {
   color: var(--text-primary);
-  font-size: 15px;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 700;
   transition: color 0.2s;
 }
 
@@ -136,7 +138,9 @@
 /* BANNIÈRE — GROS TEXTE ACCENT */
 .footer-banniere {
   margin-top: 64px;
-  padding: 24px 0 40px;
+  padding: 24px 48px 40px;
+  display: flex;
+  justify-content: center;
 }
 
 .banniere-texte {
@@ -146,18 +150,20 @@
   line-height: 1.05;
   color: var(--accent-primary);
   letter-spacing: -0.01em;
+  text-align: center;
   transform: skewX(-8deg);
-  transform-origin: left;
-  padding-left: 48px;
-  padding-right: 48px;
+  transform-origin: center;
   max-width: 22ch;
 }
 
 @media (max-width: 720px) {
-  .banniere-texte {
-    font-size: clamp(26px, 9vw, 44px);
+  .footer-banniere {
     padding-left: 20px;
     padding-right: 20px;
+  }
+
+  .banniere-texte {
+    font-size: clamp(26px, 9vw, 44px);
     max-width: 14ch;
   }
 }
@@ -184,8 +190,9 @@
 }
 
 .footer-bas a {
-  font-size: 12px;
-  color: var(--text-tertiary);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
   transition: color 0.2s;
 }
 
@@ -194,6 +201,7 @@
 }
 
 .footer-mention {
-  font-size: 12px;
-  color: var(--text-tertiary);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
 }

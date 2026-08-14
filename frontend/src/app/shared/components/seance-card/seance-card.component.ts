@@ -1,10 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnDestroy, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { TranslatePipe } from '@ngx-translate/core';
 import { Seance } from '../../../core/models/models';
+import { LangService } from '../../../core/services/lang.service';
 import { MotivationService } from '../../../core/services/motivation.service';
 import { SeanceService } from '../../../core/services/seance.service';
 import { IconComponent } from '../icon/icon.component';
+import { LocalisePipe } from '../../pipes/localise.pipe';
 
 const DELAI_SURVOL_MS = 500;
 const JOURS_NOUVEAU = 30;
@@ -12,7 +15,7 @@ const JOURS_NOUVEAU = 30;
 @Component({
   selector: 'app-seance-card',
   standalone: true,
-  imports: [CommonModule, RouterLink, IconComponent],
+  imports: [CommonModule, RouterLink, IconComponent, TranslatePipe, LocalisePipe],
   templateUrl: './seance-card.component.html',
   styleUrls: ['./seance-card.component.css'],
 })
@@ -30,6 +33,7 @@ export class SeanceCardComponent implements OnDestroy {
   constructor(
     private seanceService: SeanceService,
     private motivation: MotivationService,
+    public lang: LangService,
   ) {}
 
   onClicSeance(event: Event): void {

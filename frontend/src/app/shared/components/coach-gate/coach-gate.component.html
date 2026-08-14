@@ -1,0 +1,23 @@
+<div class="porte-coach">
+  <span class="porte-etiquette">{{ 'coach.titre' | translate }}</span>
+
+  <button type="button" class="panel panel-homme" (click)="coachService.choisir('HOMME', $event)">
+    <div class="panel-voile"></div>
+    <div class="panel-contenu">
+      <span class="panel-icone">💪</span>
+      <h2>{{ 'coach.hommeTitre' | translate }}</h2>
+      <p>{{ 'coach.hommeTexte' | translate }}</p>
+      <span class="panel-cta">{{ 'coach.choisir' | translate }}</span>
+    </div>
+  </button>
+
+  <button type="button" class="panel panel-femme" (click)="coachService.choisir('FEMME', $event)">
+    <div class="panel-voile"></div>
+    <div class="panel-contenu">
+      <span class="panel-icone">💜</span>
+      <h2>{{ 'coach.femmeTitre' | translate }}</h2>
+      <p>{{ 'coach.femmeTexte' | translate }}</p>
+      <span class="panel-cta">{{ 'coach.choisir' | translate }}</span>
+    </div>
+  </button>
+</div>

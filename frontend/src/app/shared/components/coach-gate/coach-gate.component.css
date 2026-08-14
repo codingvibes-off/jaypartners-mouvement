@@ -1,0 +1,175 @@
+/* PORTE DE SÉLECTION DE COACH — deux panneaux plein écran, bloquante tant qu'aucun choix n'est fait */
+
+.porte-coach {
+  position: fixed;
+  inset: 0;
+  z-index: 5000;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  background: #0a0a0a;
+}
+
+/* Desktop (panneaux côte à côte) : étiquette en haut, entre les deux têtes. */
+.porte-etiquette {
+  position: absolute;
+  top: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  padding: 8px 20px;
+  border-radius: 999px;
+  background: rgba(10, 10, 10, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  color: var(--text-primary);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+@media (max-width: 720px) {
+  .porte-coach {
+    flex-direction: column;
+  }
+
+  /* En colonne (panneaux empilés), l'étiquette reste au centre, entre les deux panneaux. */
+  .porte-etiquette {
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.panel {
+  position: relative;
+  flex: 1 1 50%;
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 60px 32px;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+/* Entrée à l'ouverture : Homme monte du bas, Femme descend du haut avec un rebond. */
+/* Fond plein vert (homme) / plein rose-violet (femme) : la couleur est la couche la plus
+   basse (le "fond"), la photo reste nette au premier plan par-dessus, sans teinte dessus —
+   "contain" évite que la photo ne recouvre tout le panneau, laissant le fond visible autour. */
+.panel-homme {
+  animation: entree-bas 700ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  background:
+    linear-gradient(180deg, rgba(10, 10, 10, 0.1) 0%, rgba(10, 10, 10, 0.65) 100%) center top / contain no-repeat,
+    url('/assets/coach/coach-homme.png') center top / contain no-repeat,
+    radial-gradient(ellipse at center, #4d6b16 0%, #263608 100%);
+}
+
+.panel-femme {
+  animation: entree-haut-rebond 900ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  background:
+    linear-gradient(180deg, rgba(10, 10, 10, 0.1) 0%, rgba(10, 10, 10, 0.65) 100%) center 40px / contain no-repeat,
+    url('/assets/coach/coach-femme.png') center 40px / contain no-repeat,
+    radial-gradient(ellipse at center, #7a2f8f 0%, #3d174a 100%);
+}
+
+@keyframes entree-bas {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes entree-haut-rebond {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 720px) {
+  @keyframes entree-bas {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+  @keyframes entree-haut-rebond {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+}
+
+.panel-voile {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0);
+  transition: background 0.25s ease;
+}
+
+.panel:hover .panel-voile {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.panel-contenu {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 340px;
+}
+
+.panel-icone {
+  display: inline-block;
+  font-size: 44px;
+  margin-bottom: 12px;
+}
+
+.panel-contenu h2 {
+  font-family: var(--font-display);
+  font-size: clamp(26px, 4vw, 36px);
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+.panel-contenu p {
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 18px;
+}
+
+.panel-cta {
+  display: inline-block;
+  padding: 12px 32px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #0a0a0a;
+  transition: transform 0.2s ease;
+}
+
+.panel-homme .panel-cta {
+  background: #c6ff3d;
+}
+
+.panel-femme .panel-cta {
+  background: #e879f9;
+}
+
+.panel:hover .panel-cta {
+  transform: scale(1.05);
+}

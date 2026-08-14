@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/shared/pipes/localise.pipe.ts"],
+  "sourcesContent": ["import { Pipe, PipeTransform } from '@angular/core';\n\n/**\n * Bascule entre le champ français (source) et son équivalent anglais.\n * Le 3e argument (langue courante) doit être passé explicitement pour que ce\n * pipe pur soit réévalué quand la langue change : `{{ x.nom | localise: x.nomEn : lang.langue() }}`.\n * Repli automatique sur le français si la traduction anglaise est absente.\n */\n@Pipe({ name: 'localise', standalone: true })\nexport class LocalisePipe implements PipeTransform {\n  transform(fr: string | null | undefined, en: string | null | undefined, langueCourante: string): string {\n    if (langueCourante === 'en' && en) return en;\n    return fr || '';\n  }\n}\n"],
+  "mappings": ";;;;;AASM,IAAO,eAAP,MAAO,cAAY;EACvB,UAAU,IAA+B,IAA+B,gBAAsB;AAC5F,QAAI,mBAAmB,QAAQ;AAAI,aAAO;AAC1C,WAAO,MAAM;EACf;;qCAJW,eAAY;EAAA;uFAAZ,eAAY,MAAA,MAAA,YAAA,KAAA,CAAA;;",
+  "names": []
+}

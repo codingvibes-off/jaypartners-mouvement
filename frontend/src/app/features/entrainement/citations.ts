@@ -13,3 +13,19 @@ export const CITATIONS_DERNIERE_SERIE: string[] = [
   "C'est maintenant que se construit la différence.",
   'Une dernière série, zéro regret.',
 ];
+
+/** Version anglaise de CITATIONS_DERNIERE_SERIE, même ordre. */
+export const CITATIONS_DERNIERE_SERIE_EN: string[] = [
+  'Last set: this is where you get stronger.',
+  'One more effort, your body will thank you tomorrow.',
+  'Discipline beats motivation. Finish strong.',
+  'No one ever regrets a last set well done.',
+  "Today, your only opponent is yesterday's you.",
+  "Give it everything, there's nothing left to save.",
+  'Every rep counts. Finish in style.',
+  'Pushing past your limits starts now.',
+  "You're closer to your goal than yesterday.",
+  'The last set is the one that changes everything.',
+  "The difference is built right now.",
+  'One last set, zero regrets.',
+];

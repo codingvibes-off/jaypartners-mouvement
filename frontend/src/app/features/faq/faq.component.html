@@ -1,8 +1,8 @@
 <section class="entete-faq">
-  <span class="badge">FAQ</span>
-  <h1>Comment utiliser<br /><span class="accent-gold">le site ?</span></h1>
+  <span class="badge">{{ 'faq.badge' | translate }}</span>
+  <h1 [innerHTML]="'faq.titre' | translate"></h1>
   <p class="sous-titre">
-    Toutes les réponses pour t'y retrouver : catalogue, entraînements, compte et contact.
+    {{ 'faq.sousTitre' | translate }}
   </p>
 </section>
 
@@ -10,19 +10,19 @@
   @for (item of questions; track item.question; let i = $index) {
     <div class="item-faq" [class.ouvert]="ouvertIndex() === i">
       <button class="question-faq" (click)="basculer(i)" [attr.aria-expanded]="ouvertIndex() === i">
-        <span>{{ item.question }}</span>
+        <span>{{ item.question | translate }}</span>
         <span class="chevron-faq">
           <app-icon nom="chevron-down" [taille]="18"></app-icon>
         </span>
       </button>
       @if (ouvertIndex() === i) {
-        <p class="reponse-faq">{{ item.reponse }}</p>
+        <p class="reponse-faq">{{ item.reponse | translate }}</p>
       }
     </div>
   }
 </section>
 
 <section class="cta-faq">
-  <p>Une autre question ?</p>
-  <a routerLink="/contact" class="btn-primaire">Contacter Jay</a>
+  <p>{{ 'faq.autreQuestion' | translate }}</p>
+  <a routerLink="/contact" class="btn-primaire">{{ 'faq.contacterJay' | translate }}</a>
 </section>

@@ -1,25 +1,25 @@
 @if (chargement()) {
-  <p class="etat">Chargement de la séance...</p>
+  <p class="etat">{{ 'seanceDetail.chargement' | translate }}</p>
 } @else if (!seance()) {
-  <p class="etat">Séance introuvable. <a routerLink="/">Retour au catalogue</a></p>
+  <p class="etat">{{ 'seanceDetail.introuvable' | translate }} <a routerLink="/">{{ 'commun.retourCatalogue' | translate }}</a></p>
 } @else {
   <section class="entete-seance">
-    <a routerLink="/" class="retour"><app-icon nom="arrow-left" [taille]="14"></app-icon> Retour au catalogue</a>
-    <h1>{{ seance()!.titre }}</h1>
+    <a routerLink="/" class="retour"><app-icon nom="arrow-left" [taille]="14"></app-icon> {{ 'commun.retourCatalogue' | translate }}</a>
+    <h1>{{ seance()!.titre | localise: seance()!.titreEn : lang.langue() }}</h1>
     <div class="tags">
-      <span class="badge">{{ seance()!.niveau }}</span>
+      <span class="badge">{{ 'niveau.' + seance()!.niveau | translate }}</span>
       <span class="badge">{{ seance()!.dureeMin }} min</span>
-      <span class="badge">{{ seance()!.genre }}</span>
+      <span class="badge">{{ 'genre.' + seance()!.genre | translate }}</span>
     </div>
     @if (seance()!.description) {
-      <p class="description">{{ seance()!.description }}</p>
+      <p class="description">{{ seance()!.description | localise: seance()!.descriptionEn : lang.langue() }}</p>
     }
     <div class="actions-seance">
       <a [routerLink]="['/seance', seance()!.id, 'entrainement']" class="btn-primaire btn-demarrer">
-        <app-icon nom="play" [taille]="16"></app-icon> Démarrer l'entraînement
+        <app-icon nom="play" [taille]="16"></app-icon> {{ 'seanceDetail.demarrer' | translate }}
       </a>
       <button class="btn-secondaire" (click)="telechargerProgramme()">
-        <app-icon nom="download" [taille]="16"></app-icon> Télécharger le programme
+        <app-icon nom="download" [taille]="16"></app-icon> {{ 'seanceDetail.telecharger' | translate }}
       </button>
       <a
         href="https://calendly.com/jaypartners-coach"
@@ -27,13 +27,45 @@
         rel="noopener"
         class="btn-secondaire"
       >
-        <app-icon nom="calendar" [taille]="16"></app-icon> Prendre rendez-vous
+        <app-icon nom="calendar" [taille]="16"></app-icon> {{ 'seanceDetail.rendezVous' | translate }}
       </a>
     </div>
   </section>
 
+  <section class="engagement-hebdo">
+    @if (!auth.estConnecte()) {
+      <p class="connexion-requise">
+        <a routerLink="/connexion">{{ 'engagement.connecteToi' | translate }}</a> {{ 'engagement.connexionRequise' | translate }}
+      </p>
+    } @else if (!engagement() || modificationEngagement()) {
+      <h2>{{ 'engagement.titre' | translate }}</h2>
+      <p class="engagement-texte">{{ 'engagement.texte' | translate }}</p>
+      <div class="jours-pilules">
+        @for (jour of joursSemaine; track jour; let i = $index) {
+          <button
+            class="jour-pilule"
+            [class.actif]="engagement()?.jour === jour"
+            [disabled]="enregistrementEnCours()"
+            (click)="choisirJour(jour)"
+          >
+            {{ ('engagement.jours' | translate)[i] }}
+          </button>
+        }
+      </div>
+    } @else {
+      <h2>{{ 'engagement.titre' | translate }}</h2>
+      <p class="engagement-confirmation">
+        {{ 'engagement.confirmation' | translate: { jour: ('engagement.jours' | translate)[joursSemaine.indexOf(engagement()!.jour)] } }}
+      </p>
+      <div class="engagement-actions">
+        <button class="btn-secondaire" (click)="changerJour()">{{ 'engagement.changerJour' | translate }}</button>
+        <button class="btn-lien" (click)="annulerEngagement()">{{ 'engagement.annuler' | translate }}</button>
+      </div>
+    }
+  </section>
+
   <section class="liste-mouvements">
-    <h2>Mouvements de la séance</h2>
+    <h2>{{ 'seanceDetail.mouvements' | translate }}</h2>
     @if (seance()!.mouvements?.length) {
       @for (sm of seance()!.mouvements; track sm.id) {
         <app-movement-card
@@ -44,7 +76,7 @@
         ></app-movement-card>
       }
     } @else {
-      <p class="etat">Aucun mouvement disponible pour cette séance.</p>
+      <p class="etat">{{ 'seanceDetail.aucunMouvement' | translate }}</p>
     }
   </section>
 }

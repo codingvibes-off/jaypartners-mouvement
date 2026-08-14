@@ -1,25 +1,25 @@
 <footer class="footer">
   <div class="footer-haut">
     <nav class="footer-nav-principale">
-      <a routerLink="/">Accueil</a>
-      <a routerLink="/decouvrir">Découvrir</a>
-      <a routerLink="/calendrier">Calendrier</a>
-      <a routerLink="/inscription">Créer un compte</a>
+      <a routerLink="/">{{ 'footer.accueil' | translate }}</a>
+      <a routerLink="/decouvrir">{{ 'footer.decouvrir' | translate }}</a>
+      <a routerLink="/calendrier">{{ 'footer.calendrier' | translate }}</a>
+      <a routerLink="/inscription">{{ 'footer.creerCompte' | translate }}</a>
     </nav>
 
     <div class="footer-colonne-droite">
       <div class="footer-ligne">
         <nav class="footer-nav-secondaire">
-          <a href="#">Pour les coachs</a>
-          <a href="#">Articles</a>
-          <a href="#">Contact</a>
+          <a href="#">{{ 'footer.pourCoachs' | translate }}</a>
+          <a href="#">{{ 'footer.articles' | translate }}</a>
+          <a href="#">{{ 'footer.contact' | translate }}</a>
         </nav>
-        <span class="footer-copyright">© {{ anneeCourante }} — Copyright</span>
+        <span class="footer-copyright">© {{ anneeCourante }} {{ 'footer.copyright' | translate }}</span>
       </div>
 
       <div class="footer-ligne footer-ligne-contact">
         <div class="footer-contact">
-          <span class="footer-label">Nous contacter</span>
+          <span class="footer-label">{{ 'footer.nousContacter' | translate }}</span>
           <a href="mailto:jaypartners.coach@gmail.com">jaypartners.coach&#64;gmail.com</a>
         </div>
         <div class="footer-sociaux">
@@ -31,12 +31,12 @@
   </div>
 
   <div class="footer-banniere">
-    <span class="banniere-texte">/ Construis plus qu'un physique, révèle un potentiel</span>
+    <span class="banniere-texte">{{ 'footer.banniere' | translate }}</span>
   </div>
 
   <div class="footer-bas">
-    <a href="#">Conditions d'utilisation</a>
-    <span class="footer-mention">Jay Partner's © {{ anneeCourante }}. Tous droits réservés.</span>
-    <a href="#">Politique de confidentialité</a>
+    <a href="#">{{ 'footer.conditions' | translate }}</a>
+    <span class="footer-mention">{{ 'footer.mention' | translate: { annee: anneeCourante } }}</span>
+    <a href="#">{{ 'footer.confidentialite' | translate }}</a>
   </div>
 </footer>

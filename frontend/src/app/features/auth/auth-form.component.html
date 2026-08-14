@@ -1,6 +1,6 @@
 <section class="conteneur-auth">
   <div class="carte-auth">
-    <h1>{{ titre }}</h1>
+    <h1>{{ titreKey | translate }}</h1>
 
     <div class="boutons-oauth">
       <button type="button" class="btn-oauth btn-oauth-google" (click)="connexionOAuth('google')">
@@ -22,7 +22,7 @@
             fill="#EA4335"
           />
         </svg>
-        Continuer avec Google
+        {{ 'auth.continuerGoogle' | translate }}
       </button>
       <button type="button" class="btn-oauth btn-oauth-apple" (click)="connexionOAuth('apple')">
         <svg width="16" height="18" viewBox="0 0 16 18" fill="currentColor" aria-hidden="true">
@@ -33,7 +33,7 @@
             d="M11.06 3.5c.55-.67.92-1.6.82-2.5-.79.03-1.75.53-2.32 1.18-.51.58-.96 1.53-.84 2.44.88.06 1.79-.44 2.34-1.12Z"
           />
         </svg>
-        Continuer avec Apple
+        {{ 'auth.continuerApple' | translate }}
       </button>
     </div>
 
@@ -41,23 +41,23 @@
       <p class="oauth-message">{{ oauthMessage() }}</p>
     }
 
-    <div class="separateur"><span>ou</span></div>
+    <div class="separateur"><span>{{ 'auth.ou' | translate }}</span></div>
 
     <form (ngSubmit)="soumettre()">
       @if (estInscription) {
         <label>
-          Prénom
+          {{ 'auth.prenom' | translate }}
           <input type="text" name="prenom" [(ngModel)]="prenom" required />
         </label>
       }
 
       <label>
-        Email
+        {{ 'auth.email' | translate }}
         <input type="email" name="email" [(ngModel)]="email" required />
       </label>
 
       <label>
-        Mot de passe
+        {{ 'auth.motDePasse' | translate }}
         <input type="password" name="password" [(ngModel)]="password" required minlength="6" />
       </label>
 
@@ -66,15 +66,15 @@
       }
 
       <button type="submit" class="btn-primaire" [disabled]="enCours()">
-        {{ enCours() ? 'Patiente...' : titre }}
+        {{ enCours() ? ('auth.patiente' | translate) : (titreKey | translate) }}
       </button>
     </form>
 
     <p class="lien-alt">
       @if (estInscription) {
-        Déjà un compte ? <a routerLink="/connexion">Se connecter</a>
+        {{ 'auth.dejaCompte' | translate }} <a routerLink="/connexion">{{ 'auth.seConnecter' | translate }}</a>
       } @else {
-        Pas encore de compte ? <a routerLink="/inscription">S'inscrire</a>
+        {{ 'auth.pasDeCompte' | translate }} <a routerLink="/inscription">{{ 'auth.sInscrire' | translate }}</a>
       }
     </p>
   </div>

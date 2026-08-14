@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit, computed, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { TranslatePipe } from '@ngx-translate/core';
 import { Mouvement, Niveau } from '../../core/models/models';
 import { MouvementService } from '../../core/services/mouvement.service';
 import { MovementCardComponent } from '../../shared/components/movement-card/movement-card.component';
@@ -8,7 +9,7 @@ import { MovementCardComponent } from '../../shared/components/movement-card/mov
 @Component({
   selector: 'app-decouvrir',
   standalone: true,
-  imports: [CommonModule, FormsModule, MovementCardComponent],
+  imports: [CommonModule, FormsModule, MovementCardComponent, TranslatePipe],
   templateUrl: './decouvrir.component.html',
   styleUrls: ['./decouvrir.component.css'],
 })

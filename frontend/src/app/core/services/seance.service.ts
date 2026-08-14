@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
-import { Genre, RangeeSeances, Seance } from '../models/models';
+import { Coach, Genre, RangeeSeances, Seance } from '../models/models';
 
 @Injectable({ providedIn: 'root' })
 export class SeanceService {
@@ -11,8 +11,10 @@ export class SeanceService {
 
   constructor(private http: HttpClient) {}
 
-  obtenirCatalogue(genre?: Genre): Observable<RangeeSeances[]> {
-    const params: { genre?: Genre } = genre ? { genre } : {};
+  obtenirCatalogue(genre?: Genre, strict?: boolean, coach?: Coach): Observable<RangeeSeances[]> {
+    const params: { genre?: Genre; strict?: string; coach?: Coach } = genre ? { genre } : {};
+    if (genre && strict) params.strict = 'true';
+    if (coach) params.coach = coach;
     return this.http.get<RangeeSeances[]>(this.baseUrl, { params });
   }
 

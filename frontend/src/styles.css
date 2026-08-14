@@ -25,6 +25,25 @@
   --transition: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* THÈME PAR COACH — appliqué globalement selon le choix utilisateur (voir CoachService,
+   app.component.ts). Ne redéfinit QUE l'accent (jamais fond/texte) : /programmes fixe déjà
+   son propre --accent-primary en inline par univers, donc reste protégé quel que soit le
+   thème actif plus haut dans l'arbre (une valeur inline locale a toujours priorité). */
+.theme-femme {
+  --accent-primary: #e879f9;
+  --accent-rgb: 232, 121, 249;
+}
+
+.theme-homme {
+  --accent-primary: #c6ff3d;
+  --accent-rgb: 198, 255, 61;
+}
+
+.theme-duo {
+  --accent-primary: #7dd3fc;
+  --accent-rgb: 125, 211, 252;
+}
+
 * {
   box-sizing: border-box;
 }

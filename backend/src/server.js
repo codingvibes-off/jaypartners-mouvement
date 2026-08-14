@@ -7,6 +7,7 @@ const authRoutes = require("./routes/auth");
 const seancesRoutes = require("./routes/seances");
 const mouvementsRoutes = require("./routes/mouvements");
 const historiqueRoutes = require("./routes/historique");
+const engagementsRoutes = require("./routes/engagements");
 
 const app = express();
 
@@ -20,6 +21,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/seances", seancesRoutes);
 app.use("/api/mouvements", mouvementsRoutes);
 app.use("/api/historique", historiqueRoutes);
+app.use("/api/engagements", engagementsRoutes);
 
 // Gestion des erreurs globales
 app.use((err, req, res, next) => {

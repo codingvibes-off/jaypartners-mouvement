@@ -8,6 +8,7 @@ import {
   ViewChild,
   signal,
 } from '@angular/core';
+import { TranslatePipe } from '@ngx-translate/core';
 import { gsap } from 'gsap';
 import { Seance } from '../../core/models/models';
 import { SeanceService } from '../../core/services/seance.service';
@@ -28,15 +29,6 @@ const MARGE_CHARGEMENT_PX = 500;
 
 export const UNIVERS: UniversConfig[] = [
   {
-    id: 'force',
-    label: 'Force',
-    categorie: 'Renforcement',
-    accent: '#ff4d4d',
-    accentRgb: '255, 77, 77',
-    fond: '#150505',
-    tagline: 'Construis ta puissance brute.',
-  },
-  {
     id: 'pilates',
     label: 'Pilates',
     categorie: 'Pilates',
@@ -44,6 +36,24 @@ export const UNIVERS: UniversConfig[] = [
     accentRgb: '232, 121, 249',
     fond: '#130a17',
     tagline: 'Contrôle, gainage, précision.',
+  },
+  {
+    id: 'mobilite',
+    label: 'Mobilité',
+    categorie: 'Mobilité',
+    accent: '#2dd4bf',
+    accentRgb: '45, 212, 191',
+    fond: '#051413',
+    tagline: 'Amplitude, souplesse, récupération.',
+  },
+  {
+    id: 'force',
+    label: 'Force',
+    categorie: 'Renforcement',
+    accent: '#ff4d4d',
+    accentRgb: '255, 77, 77',
+    fond: '#150505',
+    tagline: 'Construis ta puissance brute.',
   },
   {
     id: 'athletisme',
@@ -82,7 +92,7 @@ interface CarteVisible {
 @Component({
   selector: 'app-programmes',
   standalone: true,
-  imports: [CommonModule, SeanceCardComponent],
+  imports: [CommonModule, SeanceCardComponent, TranslatePipe],
   templateUrl: './programmes.component.html',
   styleUrls: ['./programmes.component.css'],
 })

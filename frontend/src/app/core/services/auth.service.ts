@@ -27,6 +27,12 @@ export class AuthService {
       .pipe(tap((res) => this.stockerSession(res)));
   }
 
+  connexionGoogle(accessToken: string): Observable<ReponseAuth> {
+    return this.http
+      .post<ReponseAuth>(`${this.baseUrl}/google`, { accessToken })
+      .pipe(tap((res) => this.stockerSession(res)));
+  }
+
   deconnexion(): void {
     localStorage.removeItem(CLE_TOKEN);
     localStorage.removeItem(CLE_USER);

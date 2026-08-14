@@ -15,7 +15,7 @@
       [style.backgroundImage]="seance.imageUrl ? 'url(' + seance.imageUrl + ')' : null"
     >
       @if (!seance.imageUrl) {
-        <span class="vignette-monogramme" aria-hidden="true">{{ seance.titre.charAt(0) }}</span>
+        <span class="vignette-monogramme" aria-hidden="true">{{ (seance.titre | localise: seance.titreEn : lang.langue()).charAt(0) }}</span>
       }
       @if (survole() && videoApercu() && !videoEnErreur()) {
         <video
@@ -31,16 +31,16 @@
       <div class="gradient-overlay"></div>
 
       @if (estTop10) {
-        <span class="badge-ruban badge-top10">Top 10</span>
+        <span class="badge-ruban badge-top10">{{ 'seanceCard.top10' | translate }}</span>
       } @else if (estNouveau) {
-        <span class="badge-ruban badge-nouveau">Nouveau</span>
+        <span class="badge-ruban badge-nouveau">{{ 'seanceCard.nouveau' | translate }}</span>
       }
 
       <div class="overlay">
         <div class="badges-gauche" [class.decale]="estTop10 || estNouveau">
-          <span class="niveau-badge">{{ seance.niveau | titlecase }}</span>
+          <span class="niveau-badge">{{ 'niveau.' + seance.niveau | translate }}</span>
           @if (seance.categorie) {
-            <span class="categorie-badge">{{ seance.categorie }}</span>
+            <span class="categorie-badge">{{ seance.categorie | localise: seance.categorieEn : lang.langue() }}</span>
           }
         </div>
         <div class="badges-droite">
@@ -61,32 +61,32 @@
     </div>
 
     <div class="contenu">
-      <h3 class="titre">{{ seance.titre }}</h3>
+      <h3 class="titre">{{ seance.titre | localise: seance.titreEn : lang.langue() }}</h3>
 
       @if (survole()) {
         <div class="apercu-etendu">
           <div class="apercu-actions">
-            <span class="btn-rond btn-rond-primaire" title="Voir la séance">
+            <span class="btn-rond btn-rond-primaire" [title]="'seanceCard.voirSeance' | translate">
               <app-icon nom="play" [taille]="13"></app-icon>
             </span>
-            <span class="btn-rond" title="Plus d'infos">
+            <span class="btn-rond" [title]="'seanceCard.plusInfos' | translate">
               <app-icon nom="info" [taille]="13"></app-icon>
             </span>
           </div>
           <div class="apercu-meta">
-            <span class="genre" [class]="seance.genre?.toLowerCase()">{{ seance.genre }}</span>
+            <span class="genre" [class]="seance.genre?.toLowerCase()">{{ 'genre.' + seance.genre | translate }}</span>
             <span class="apercu-duree">{{ seance.dureeMin }} min</span>
             @if (seance.categorie) {
-              <span class="apercu-categorie">{{ seance.categorie }}</span>
+              <span class="apercu-categorie">{{ seance.categorie | localise: seance.categorieEn : lang.langue() }}</span>
             }
           </div>
         </div>
       } @else {
         @if (seance.description) {
-          <p class="description">{{ seance.description }}</p>
+          <p class="description">{{ seance.description | localise: seance.descriptionEn : lang.langue() }}</p>
         }
         <div class="meta">
-          <span class="genre" [class]="seance.genre?.toLowerCase()">{{ seance.genre }}</span>
+          <span class="genre" [class]="seance.genre?.toLowerCase()">{{ 'genre.' + seance.genre | translate }}</span>
         </div>
       }
     </div>

@@ -1,0 +1,53 @@
+<section class="page-admin-videos">
+  <a routerLink="/" class="retour"><app-icon nom="arrow-left" [taille]="14"></app-icon> {{ 'commun.retourCatalogue' | translate }}</a>
+  <h1>{{ 'admin.titre' | translate }}</h1>
+  <p class="sous-titre">
+    {{ 'admin.sousTitre' | translate }}
+  </p>
+
+  <input
+    type="text"
+    class="recherche"
+    [placeholder]="'admin.recherche' | translate"
+    [ngModel]="filtre()"
+    (ngModelChange)="filtre.set($event)"
+  />
+
+  @if (chargement()) {
+    <p class="etat">{{ 'admin.chargement' | translate }}</p>
+  } @else if (!mouvementsFiltres.length) {
+    <p class="etat">{{ 'admin.aucunResultat' | translate }}</p>
+  } @else {
+    <div class="liste-mouvements">
+      @for (mouvement of mouvementsFiltres; track mouvement.id) {
+        <div class="ligne-mouvement">
+          <div class="infos">
+            <h3>{{ mouvement.nom | localise: mouvement.nomEn : lang.langue() }}</h3>
+            <p class="muscle">{{ mouvement.muscleprincipal | localise: mouvement.muscleprincipalEn : lang.langue() }}</p>
+          </div>
+
+          <span class="badge" [class]="statutBadge(mouvement).classe">
+            {{ statutBadge(mouvement).texte }}
+          </span>
+
+          @if (etatPour(mouvement.id)?.phase === 'envoi') {
+            <div class="barre-progression">
+              <div class="remplissage" [style.width.%]="etatPour(mouvement.id)?.progression"></div>
+            </div>
+          }
+
+          <label class="btn-secondaire btn-upload">
+            <app-icon nom="upload" [taille]="14"></app-icon>
+            {{ 'admin.choisirVideo' | translate }}
+            <input
+              type="file"
+              accept="video/*"
+              class="input-fichier"
+              (change)="surChangementFichier($event, mouvement)"
+            />
+          </label>
+        </div>
+      }
+    </div>
+  }
+</section>

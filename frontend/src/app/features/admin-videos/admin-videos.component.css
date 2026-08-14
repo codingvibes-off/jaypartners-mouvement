@@ -1,0 +1,153 @@
+/* ADMIN VIDEOS COMPONENT STYLES */
+
+.page-admin-videos {
+  padding: 40px 48px 60px;
+  max-width: 820px;
+}
+
+@media (max-width: 720px) {
+  .page-admin-videos {
+    padding: 24px 20px 40px;
+  }
+}
+
+.retour {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-secondary);
+  font-size: 13px;
+  margin-bottom: 18px;
+}
+
+.retour:hover {
+  color: var(--teal);
+}
+
+h1 {
+  font-size: 32px;
+  color: var(--text-primary);
+}
+
+.sous-titre {
+  margin-top: 10px;
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.6;
+  max-width: 560px;
+}
+
+.recherche {
+  width: 100%;
+  max-width: 360px;
+  margin-top: 24px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text-primary);
+  font-size: 14px;
+}
+
+.etat {
+  padding: 60px 0;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+.liste-mouvements {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ligne-mouvement {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 14px 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.infos {
+  flex: 1 1 200px;
+  min-width: 160px;
+}
+
+.infos h3 {
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.muscle {
+  margin-top: 2px;
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.badge {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.badge-neutre {
+  background: var(--border);
+  color: var(--text-secondary);
+}
+
+.badge-attente {
+  background: rgba(212, 175, 55, 0.15);
+  color: var(--gold);
+}
+
+.badge-pret {
+  background: rgba(20, 184, 166, 0.15);
+  color: var(--teal);
+}
+
+.badge-erreur {
+  background: rgba(239, 68, 68, 0.15);
+  color: var(--danger);
+}
+
+.barre-progression {
+  width: 100%;
+  max-width: 140px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--border);
+  overflow: hidden;
+}
+
+.remplissage {
+  height: 100%;
+  background: var(--teal);
+  transition: width 0.2s ease;
+}
+
+.btn-upload {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.input-fichier {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}

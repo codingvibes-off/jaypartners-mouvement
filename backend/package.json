@@ -10,11 +10,14 @@
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev",
     "prisma:studio": "prisma studio",
-    "prisma:seed": "node prisma/seed.js && node prisma/import-exercises.js && node prisma/build-seances.js && node prisma/build-pilates.js && node prisma/build-univers.js",
+    "prisma:seed": "node prisma/seed.js && node prisma/import-exercises.js && node prisma/build-seances.js && node prisma/build-pilates.js && node prisma/build-univers.js && node prisma/build-bas-du-corps-femme.js && node prisma/translate-en.js && node prisma/assign-coach.js",
     "prisma:import-exercises": "node prisma/import-exercises.js",
     "prisma:build-seances": "node prisma/build-seances.js",
     "prisma:build-pilates": "node prisma/build-pilates.js",
-    "prisma:build-univers": "node prisma/build-univers.js"
+    "prisma:build-univers": "node prisma/build-univers.js",
+    "prisma:build-bas-du-corps-femme": "node prisma/build-bas-du-corps-femme.js",
+    "prisma:translate-en": "node prisma/translate-en.js",
+    "prisma:assign-coach": "node prisma/assign-coach.js"
   },
   "dependencies": {
     "@prisma/client": "^5.20.0",

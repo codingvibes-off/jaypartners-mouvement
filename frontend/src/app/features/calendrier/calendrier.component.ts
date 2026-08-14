@@ -1,7 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit, computed, signal } from '@angular/core';
+import { TranslatePipe } from '@ngx-translate/core';
 import { HistoriqueService } from '../../core/services/historique.service';
 import { IconComponent } from '../../shared/components/icon/icon.component';
+import { LangService } from '../../core/services/lang.service';
 import { HistoriqueEntry } from '../../core/models/models';
 
 interface JourCalendrier {
@@ -14,7 +16,7 @@ interface JourCalendrier {
 @Component({
   selector: 'app-calendrier',
   standalone: true,
-  imports: [CommonModule, IconComponent],
+  imports: [CommonModule, IconComponent, TranslatePipe],
   templateUrl: './calendrier.component.html',
   styleUrls: ['./calendrier.component.css'],
 })
@@ -70,14 +72,19 @@ export class CalendrierComponent implements OnInit {
   libelleJourSelectionne = computed<string>(() => {
     const jour = this.jourSelectionne();
     if (!jour) return '';
-    return jour.date.toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long' });
+    const locale = this.lang.langue() === 'en' ? 'en-US' : 'fr-FR';
+    return jour.date.toLocaleDateString(locale, { weekday: 'long', day: 'numeric', month: 'long' });
   });
 
-  libelleMois = computed<string>(() =>
-    this.moisAffiche().toLocaleDateString('fr-FR', { month: 'long', year: 'numeric' })
-  );
+  libelleMois = computed<string>(() => {
+    const locale = this.lang.langue() === 'en' ? 'en-US' : 'fr-FR';
+    return this.moisAffiche().toLocaleDateString(locale, { month: 'long', year: 'numeric' });
+  });
 
-  constructor(private historiqueService: HistoriqueService) {}
+  constructor(
+    private historiqueService: HistoriqueService,
+    public lang: LangService,
+  ) {}
 
   ngOnInit(): void {
     this.historiqueService.obtenirHistorique().subscribe({

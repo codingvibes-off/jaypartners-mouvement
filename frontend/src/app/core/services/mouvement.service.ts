@@ -13,4 +13,17 @@ export class MouvementService {
   obtenirTous(): Observable<Mouvement[]> {
     return this.http.get<Mouvement[]>(this.baseUrl);
   }
+
+  creerUploadVideo(mouvementId: string): Observable<{ uploadURL: string; uid: string }> {
+    return this.http.post<{ uploadURL: string; uid: string }>(
+      `${this.baseUrl}/${mouvementId}/video-upload-url`,
+      {}
+    );
+  }
+
+  obtenirStatutVideo(mouvementId: string): Observable<{ cfStreamStatus: string }> {
+    return this.http.get<{ cfStreamStatus: string }>(
+      `${this.baseUrl}/${mouvementId}/video-status`
+    );
+  }
 }

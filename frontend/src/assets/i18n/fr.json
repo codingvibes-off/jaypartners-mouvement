@@ -1,0 +1,302 @@
+{
+  "nav": {
+    "accueil": "Accueil",
+    "decouvrir": "Découvrir",
+    "programmes": "Programmes",
+    "calendrier": "Calendrier",
+    "admin": "Admin",
+    "about": "About",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "connexion": "Connexion",
+    "inscription": "S'inscrire",
+    "deconnexion": "Déconnexion",
+    "duo": "Duo"
+  },
+  "lang": {
+    "fr": "FR",
+    "en": "EN"
+  },
+  "commun": {
+    "chargement": "Chargement...",
+    "retourCatalogue": "Retour au catalogue"
+  },
+  "niveau": {
+    "DEBUTANT": "Débutant",
+    "INTERMEDIAIRE": "Intermédiaire",
+    "AVANCE": "Avancé"
+  },
+  "genre": {
+    "HOMME": "Homme",
+    "FEMME": "Femme",
+    "MIXTE": "Mixte"
+  },
+  "home": {
+    "clusterTexte": "femmes nous font confiance",
+    "titre": "CULTIVE TA <span class=\"accent-gold\">FORCE INTÉRIEURE</span>",
+    "sousTitre": "Pilates, renforcement en douceur et bien-être : des séances pensées pour toi, à ton rythme, pour te sentir plus forte et plus alignée chaque jour.",
+    "commencer": "Commencer maintenant",
+    "carteUnivers": "L'univers Pilates",
+    "carteUniversTexte": "Contrôle, respiration, renforcement en douceur. Découvre nos séances signature.",
+    "voirUnivers": "Voir le Pilates",
+    "carteNouveau": "Bien-être & mobilité",
+    "carteNouveauTexte": "Des séances douces pour te reconnecter à ton corps, où que tu en sois.",
+    "decouvrirLien": "Découvrir",
+    "explorerCategorie": "Explorer par catégorie",
+    "chargementCatalogue": "⏳ Chargement du catalogue...",
+    "aucuneSeance": "📭 Aucune séance disponible pour le moment.",
+    "top10": "Top {{n}} des séances cette semaine",
+    "voirTout": "Voir tout →",
+    "ctaTitre": "Prête à révéler ta meilleure version ?",
+    "ctaTexte": "Rejoins une communauté de femmes qui progressent avec le Pilates et nos séances bien-être.",
+    "ctaBouton": "Commencer gratuitement",
+    "duoLien": "Voir les séances Duo →"
+  },
+  "coach": {
+    "eyebrow": "Bienvenue",
+    "titre": "Choisis ton coach",
+    "sousTitre": "Ce choix personnalise les séances et l'univers visuel de la plateforme. Tu pourras en changer à tout moment.",
+    "femmeTitre": "Coach Femme",
+    "femmeTexte": "Séances animées par la coach femme : Pilates, renforcement en douceur, bien-être.",
+    "hommeTitre": "Coach Homme",
+    "hommeTexte": "Séances animées par le coach homme : force, énergie, intensité.",
+    "choisir": "Choisir",
+    "changer": "Changer de coach"
+  },
+  "duo": {
+    "clusterTexte": "athlètes nous font confiance",
+    "titre": "DES SÉANCES <span class=\"accent-gold\">À DEUX COACHS</span>",
+    "sousTitre": "Le meilleur des deux univers : des séances co-animées par la coach femme et le coach homme, pour une énergie complémentaire.",
+    "commencer": "Commencer maintenant",
+    "carteUnivers": "L'esprit Duo",
+    "carteUniversTexte": "Deux coachs, une seule séance : complémentarité et énergie partagée.",
+    "voirUnivers": "Découvrir",
+    "chargementCatalogue": "⏳ Chargement du catalogue...",
+    "aucuneSeance": "📭 Aucune séance disponible pour le moment.",
+    "top10": "Top {{n}} des séances cette semaine",
+    "voirTout": "Voir tout →",
+    "ctaTitre": "Prêt à essayer une séance Duo ?",
+    "ctaTexte": "Découvre l'énergie complémentaire de nos deux coachs dans une même séance.",
+    "ctaBouton": "Commencer gratuitement"
+  },
+  "decouvrir": {
+    "titre": "Découvrir les mouvements",
+    "sousTitre": "{{n}} mouvements au catalogue — filtre par niveau, muscle ou recherche un nom.",
+    "recherche": "Rechercher un mouvement...",
+    "tousLesNiveaux": "Tous les niveaux",
+    "tousLesMuscles": "Tous les muscles",
+    "reinitialiser": "Réinitialiser",
+    "chargement": "⏳ Chargement du catalogue...",
+    "aucunResultat": "📭 Aucun mouvement ne correspond à ces filtres.",
+    "resultats": "{{n}} résultat(s)"
+  },
+  "programmes": {
+    "eyebrow": "L'univers des programmes",
+    "chargement": "⏳ Chargement de l'univers {{univers}}...",
+    "aucunProgramme": "📭 Aucun programme disponible pour cet univers pour le moment."
+  },
+  "univers": {
+    "force": { "label": "Force", "tagline": "Construis ta puissance brute." },
+    "pilates": { "label": "Pilates", "tagline": "Contrôle, gainage, précision." },
+    "mobilite": { "label": "Mobilité", "tagline": "Amplitude, souplesse, récupération." },
+    "athletisme": { "label": "Athlétisme", "tagline": "Vitesse, cardio, foulée." },
+    "hyrox": { "label": "Hyrox", "tagline": "La course fonctionnelle ultime." },
+    "explosivite": { "label": "Explosivité", "tagline": "Puissance et détente verticale." }
+  },
+  "seanceDetail": {
+    "chargement": "Chargement de la séance...",
+    "introuvable": "Séance introuvable.",
+    "demarrer": "Démarrer l'entraînement",
+    "telecharger": "Télécharger le programme",
+    "rendezVous": "Prendre rendez-vous",
+    "mouvements": "Mouvements de la séance",
+    "aucunMouvement": "Aucun mouvement disponible pour cette séance."
+  },
+  "engagement": {
+    "titre": "Prends l'engagement",
+    "texte": "Pour de vrais résultats, suis cette séance pendant au moins 1 mois. Choisis ton jour fixe :",
+    "jours": ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"],
+    "confirmation": "Engagement pris pour le {{jour}}. Rendez-vous chaque semaine pendant au moins 4 semaines.",
+    "changerJour": "Changer de jour",
+    "annuler": "Annuler l'engagement",
+    "connecteToi": "Connecte-toi",
+    "connexionRequise": "pour t'engager sur cette séance et suivre ta régularité."
+  },
+  "entrainement": {
+    "chargement": "Chargement de la séance...",
+    "introuvable": "Séance introuvable ou sans exercices.",
+    "seanceTerminee": "Séance terminée",
+    "bravo": "Bravo, {{titre}} terminée 💪",
+    "complete": "Tu as complété {{n}} exercices.",
+    "valider": "Valider ma séance du jour",
+    "validation": "Validation...",
+    "connexionRequise": "pour valider cette séance et suivre ta progression.",
+    "connecteToi": "Connecte-toi",
+    "seanceValidee": "✓ Séance validée",
+    "enregistree": "Séance enregistrée dans ton historique.",
+    "voirCalendrier": "Voir mon calendrier",
+    "quitter": "Quitter",
+    "seriePosition": "Série {{actuelle}} / {{total}}",
+    "pause": "Pause",
+    "reposTexte": "Récupération avant la prochaine série",
+    "exerciceTermine": "Exercice terminé",
+    "serieTerminee": "Série terminée",
+    "ensuite": "Ensuite : {{suivant}}"
+  },
+  "calendrier": {
+    "titre": "Mon calendrier",
+    "sousTitre": "Retrouve toutes les séances que tu as validées.",
+    "chargement": "Chargement de ton historique...",
+    "vide": "Tu n'as pas encore validé de séance. Lance un entraînement pour commencer !",
+    "moisPrecedent": "Mois précédent",
+    "moisSuivant": "Mois suivant",
+    "jours": ["Lun", "Mar", "Mer", "Jeu", "Ven", "Sam", "Dim"],
+    "seancesDu": "Séances du {{jour}}",
+    "seanceParDefaut": "Séance",
+    "recapVide": "Clique sur un jour marqué d'un point pour voir le récap des séances faites."
+  },
+  "faq": {
+    "badge": "FAQ",
+    "titre": "Comment utiliser<br/>le site ?",
+    "sousTitre": "Toutes les réponses pour t'y retrouver : catalogue, entraînements, compte et contact.",
+    "autreQuestion": "Une autre question ?",
+    "contacterJay": "Contacter Jay",
+    "q1": {
+      "question": "Comment fonctionne le site JayPartner's ?",
+      "reponse": "La page d'accueil te présente un catalogue de séances organisé par catégorie, un peu comme un catalogue de streaming. Tu parcoures les rangées, tu cliques sur une séance pour voir son détail, puis tu lances l'entraînement quand tu es prêt(e)."
+    },
+    "q2": {
+      "question": "Dois-je créer un compte pour m'entraîner ?",
+      "reponse": "Tu peux consulter le catalogue, la rubrique Découvrir et les Programmes sans compte. En revanche, pour valider tes séances, gagner de l'XP et retrouver ton historique dans le Calendrier, il faut t'inscrire (bouton « S'inscrire » dans le menu) puis te connecter."
+    },
+    "q3": {
+      "question": "À quoi sert la page « Découvrir » ?",
+      "reponse": "C'est la bibliothèque de tous les mouvements disponibles. Tu peux rechercher un mouvement par nom, filtrer par niveau (débutant, intermédiaire, avancé) ou par muscle ciblé pour comprendre un exercice avant de le pratiquer."
+    },
+    "q4": {
+      "question": "À quoi sert la page « Programmes » ?",
+      "reponse": "Elle regroupe les séances par univers (Force, Pilates, Hyrox, Athlétisme...). Choisis l'onglet de l'univers qui t'intéresse pour voir toutes les séances associées."
+    },
+    "q5": {
+      "question": "Comment se déroule un entraînement ?",
+      "reponse": "Depuis le détail d'une séance, clique sur « Commencer l'entraînement ». Le site passe alors en mode plein écran, sans menu, pour te concentrer sur les mouvements. Une fois la séance terminée, elle est enregistrée dans ton historique et tu gagnes de l'XP."
+    },
+    "q6": {
+      "question": "Où voir les séances que j'ai déjà faites ?",
+      "reponse": "Dans « Calendrier » (visible une fois connecté(e)). Il affiche un calendrier mensuel : les jours marqués d'un point correspondent à des séances validées. Clique sur un jour pour voir le récapitulatif et l'XP gagné."
+    },
+    "q7": {
+      "question": "Comment contacter Jay ou suivre l'actu sur les réseaux ?",
+      "reponse": "Rends-toi sur la page Contact, ou utilise le bouton flottant en bas à droite de l'écran : tu y trouveras WhatsApp, Instagram, TikTok, YouTube, LinkedIn et Calendly pour réserver un coaching."
+    },
+    "q8": {
+      "question": "J'ai oublié mon mot de passe, ou un souci technique : que faire ?",
+      "reponse": "Le plus simple est de me contacter directement via WhatsApp ou Instagram depuis la page Contact : je te réponds au plus vite pour débloquer la situation."
+    }
+  },
+  "about": {
+    "badge": "À propos de JayPartner's",
+    "titre": "Une passion,<br/>une mission.",
+    "sousTitre": "Moi c'est Jay, la créatrice de JayPartner's. Coach Pilates & Fitness à Niort.",
+    "imageAlt1": "Jay, coach Pilates & Fitness à Niort",
+    "p1": "Passionnée par l'univers de la danse, du sport et du bien-être depuis mon plus jeune âge, j'ai décidé de transformer cette passion en mission et j'ai été consacrée coach sportive en 2023.",
+    "p2": "Je suis une coach gourmande : j'aime l'effort, le mouvement… mais aussi les petits plaisirs ! Pour moi, le sport et la gourmandise peuvent parfaitement coexister quand on trouve le bon équilibre. Prendre soin de soi, c'est aussi savoir se faire plaisir sans culpabiliser.",
+    "p3": "J'ai choisi ce métier pour accompagner mes JayPeak à atteindre leurs objectifs et surtout leur apogée. Ensemble, nous allons progresser, nous dépasser et gravir chaque étape jusqu'à votre peak.",
+    "imageAlt2": "Coaching JayPartner's",
+    "visionTitre": "Une <span class=\"accent-gold\">vision.</span>",
+    "p4": "Pour moi, le sport, qu'il soit individuel ou collectif, se vit toujours mieux avec un partenaire. Un partenaire pour motiver, soutenir, challenger et célébrer les progrès.",
+    "p5": "Que tu sois néophyte ou athlète, je suis ta partenaire idéale pour t'aider à retrouver, développer et renforcer tes qualités physiques. Alors JayPeak, prêt à atteindre ton plein potentiel avec moi ? ⏱️🔥",
+    "imageAlt3": "Séance de Pilates avec Jay",
+    "badgePilates": "Séance Pilates",
+    "equilibreTitre": "Un geste,<br/>un équilibre.",
+    "p6": "Jay est une coach de Pilates et Fitness basée à Niort, animée par une passion authentique pour le mouvement, le bien-être et la transformation personnelle.",
+    "p7": "Que tu sois débutant ou sportif confirmé, je t'accompagne avec des séances adaptées, dynamiques et bienveillantes. Mon objectif : t'aider à retrouver force, mobilité et confiance grâce au Pilates.",
+    "pilulePilates": "🧘 Pilates",
+    "piluleFitness": "💪 Fitness",
+    "piluleMobilite": "🔥 Mobilité",
+    "piluleBienEtre": "❤️ Bien-être",
+    "piluleNiort": "📍 Niort",
+    "ctaTitre": "Prêt(e) à commencer ton <span class=\"accent-gold\">JayPeak</span> ?",
+    "voirProgrammes": "Voir les programmes",
+    "meContacter": "Me contacter"
+  },
+  "contact": {
+    "badge": "Contact",
+    "titre": "Restons <span class=\"accent-gold\">connectés.</span>",
+    "sousTitre": "Une question, envie de réserver une séance ou juste envie de suivre l'aventure ? Retrouve-moi sur les réseaux ci-dessous.",
+    "whatsappHandle": "Groupe communauté",
+    "whatsappDescription": "Rejoins le groupe pour poser tes questions et suivre l'actu des séances.",
+    "instagramDescription": "Exercices, conseils et coulisses au quotidien.",
+    "tiktokDescription": "Des mouvements et astuces en vidéo courte.",
+    "youtubeDescription": "Séances complètes et vidéos de fond.",
+    "linkedinHandle": "Justine Pegas",
+    "linkedinDescription": "Parcours professionnel et actualités.",
+    "calendlyHandle": "Réserver un coaching",
+    "calendlyDescription": "Prends rendez-vous directement pour une séance."
+  },
+  "footer": {
+    "accueil": "Accueil",
+    "decouvrir": "Découvrir",
+    "calendrier": "Calendrier",
+    "creerCompte": "Créer un compte",
+    "pourCoachs": "Pour les coachs",
+    "articles": "Articles",
+    "contact": "Contact",
+    "copyright": "— Copyright",
+    "nousContacter": "Nous contacter",
+    "banniere": "/ Construis plus qu'un physique, révèle un potentiel",
+    "conditions": "Conditions d'utilisation",
+    "mention": "Jay Partner's © {{annee}}. Tous droits réservés.",
+    "confidentialite": "Politique de confidentialité"
+  },
+  "auth": {
+    "continuerGoogle": "Continuer avec Google",
+    "continuerApple": "Continuer avec Apple",
+    "oauthBientot": "Connexion via {{fournisseur}} bientôt disponible !",
+    "oauthErreur": "La connexion avec Google a échoué. Réessaie.",
+    "ou": "ou",
+    "prenom": "Prénom",
+    "email": "Email",
+    "motDePasse": "Mot de passe",
+    "patiente": "Patiente...",
+    "dejaCompte": "Déjà un compte ?",
+    "seConnecter": "Se connecter",
+    "pasDeCompte": "Pas encore de compte ?",
+    "sInscrire": "S'inscrire"
+  },
+  "movementCard": {
+    "musclesSecondaires": "Muscles secondaires",
+    "materiel": "Matériel",
+    "regression": "Régression",
+    "progression": "Progression",
+    "erreursFrequentes": "Erreurs fréquentes"
+  },
+  "seanceCard": {
+    "top10": "Top 10",
+    "nouveau": "Nouveau",
+    "voirSeance": "Voir la séance",
+    "plusInfos": "Plus d'infos"
+  },
+  "admin": {
+    "titre": "Vidéos des mouvements",
+    "sousTitre": "Uploade une vidéo pour chaque mouvement. L'encodage Cloudflare Stream prend généralement quelques dizaines de secondes.",
+    "recherche": "Rechercher un mouvement…",
+    "chargement": "Chargement des mouvements…",
+    "aucunResultat": "Aucun mouvement ne correspond à cette recherche.",
+    "choisirVideo": "Choisir une vidéo",
+    "statutEnvoi": "Envoi… {{n}}%",
+    "statutEncodage": "Encodage…",
+    "statutErreur": "Erreur",
+    "statutPrete": "Prête",
+    "statutEnCours": "En cours",
+    "statutVideoParDefaut": "Vidéo par défaut",
+    "erreurDemarrageUpload": "Impossible de démarrer l'upload",
+    "erreurEnvoi": "Échec de l'envoi vers Cloudflare",
+    "erreurEncodage": "Échec de l'encodage",
+    "erreurEncodageLong": "Encodage trop long, réessaie plus tard"
+  },
+  "pdf": {
+    "mouvements": "Mouvements de la séance",
+    "series": "séries"
+  }
+}

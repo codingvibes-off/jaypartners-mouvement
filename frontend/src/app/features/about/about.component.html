@@ -1,78 +1,70 @@
 <section class="entete-about">
-  <span class="badge">À propos de JayPartner's</span>
-  <h1>Une passion,<br /><span class="accent-gold">une mission.</span></h1>
+  <span class="badge">{{ 'about.badge' | translate }}</span>
+  <h1 [innerHTML]="'about.titre' | translate"></h1>
   <p class="sous-titre">
-    Moi c'est Jay, la créatrice de JayPartner's. Coach Pilates & Fitness à Niort.
+    {{ 'about.sousTitre' | translate }}
   </p>
 </section>
 
 <section class="bloc-about">
   <div class="bloc-image">
-    <img src="assets/about/about-jaypartners.png" alt="Jay, coach Pilates & Fitness à Niort" loading="lazy" />
+    <img src="assets/about/about-jaypartners.png" [attr.alt]="'about.imageAlt1' | translate" loading="lazy" />
   </div>
   <div class="bloc-texte">
     <p>
-      Passionnée par l'univers de la danse, du sport et du bien-être depuis mon plus jeune âge,
-      j'ai décidé de transformer cette passion en mission et j'ai été consacrée coach sportive en 2023.
+      {{ 'about.p1' | translate }}
     </p>
     <p>
-      Je suis une coach gourmande : j'aime l'effort, le mouvement… mais aussi les petits plaisirs !
-      Pour moi, le sport et la gourmandise peuvent parfaitement coexister quand on trouve le bon équilibre.
-      Prendre soin de soi, c'est aussi savoir se faire plaisir sans culpabiliser.
+      {{ 'about.p2' | translate }}
     </p>
     <p>
-      J'ai choisi ce métier pour accompagner mes JayPeak à atteindre leurs objectifs et surtout leur apogée.
-      Ensemble, nous allons progresser, nous dépasser et gravir chaque étape jusqu'à votre peak.
+      {{ 'about.p3' | translate }}
     </p>
   </div>
 </section>
 
 <section class="bloc-about inverse">
   <div class="bloc-image">
-    <img src="assets/about/about-jaypartners-part-two.png" alt="Coaching JayPartner's" loading="lazy" />
+    <img src="assets/about/about-jaypartners-part-two.png" [attr.alt]="'about.imageAlt2' | translate" loading="lazy" />
   </div>
   <div class="bloc-texte">
-    <h2>Une <span class="accent-gold">vision.</span></h2>
+    <h2 [innerHTML]="'about.visionTitre' | translate"></h2>
     <p>
-      Pour moi, le sport, qu'il soit individuel ou collectif, se vit toujours mieux avec un partenaire.
-      Un partenaire pour motiver, soutenir, challenger et célébrer les progrès.
+      {{ 'about.p4' | translate }}
     </p>
     <p>
-      Que tu sois néophyte ou athlète, je suis ta partenaire idéale pour t'aider à retrouver, développer
-      et renforcer tes qualités physiques. Alors JayPeak, prêt à atteindre ton plein potentiel avec moi ? ⏱️🔥
+      {{ 'about.p5' | translate }}
     </p>
   </div>
 </section>
 
 <section class="bloc-about">
   <div class="bloc-image">
-    <img src="assets/about/pilates-jay.png" alt="Séance de Pilates avec Jay" loading="lazy" />
+    <img src="assets/about/pilates-jay.png" [attr.alt]="'about.imageAlt3' | translate" loading="lazy" />
   </div>
   <div class="bloc-texte">
-    <span class="badge">Séance Pilates</span>
-    <h2>Un geste,<br /><span class="accent-gold">un équilibre.</span></h2>
+    <span class="badge">{{ 'about.badgePilates' | translate }}</span>
+    <h2 [innerHTML]="'about.equilibreTitre' | translate"></h2>
     <p>
-      Jay est une coach de Pilates et Fitness basée à Niort, animée par une passion authentique pour
-      le mouvement, le bien-être et la transformation personnelle.
+      {{ 'about.p6' | translate }}
     </p>
     <p>
-      Que tu sois débutant ou sportif confirmé, je t'accompagne avec des séances adaptées, dynamiques
-      et bienveillantes. Mon objectif : t'aider à retrouver force, mobilité et confiance grâce au Pilates.
+      {{ 'about.p7' | translate }}
     </p>
     <div class="pilules">
-      <span class="pilule">🧘 Pilates</span>
-      <span class="pilule">💪 Fitness</span>
-      <span class="pilule">🔥 Mobilité</span>
-      <span class="pilule">❤️ Bien-être</span>
-      <span class="pilule">📍 Niort</span>
+      <span class="pilule">{{ 'about.pilulePilates' | translate }}</span>
+      <span class="pilule">{{ 'about.piluleFitness' | translate }}</span>
+      <span class="pilule">{{ 'about.piluleMobilite' | translate }}</span>
+      <span class="pilule">{{ 'about.piluleBienEtre' | translate }}</span>
+      <span class="pilule">{{ 'about.piluleNiort' | translate }}</span>
     </div>
   </div>
 </section>
 
 <section class="cta-about">
-  <h2>Prêt(e) à commencer ton <span class="accent-gold">JayPeak</span> ?</h2>
+  <h2 [innerHTML]="'about.ctaTitre' | translate"></h2>
   <div class="cta-actions">
-    <a routerLink="/programmes" class="btn-primaire">Voir les programmes</a>
-    <a routerLink="/contact" class="btn-secondaire">Me contacter</a>
+    <a routerLink="/programmes" class="btn-primaire">{{ 'about.voirProgrammes' | translate }}</a>
+    <a routerLink="/contact" class="btn-secondaire">{{ 'about.meContacter' | translate }}</a>
   </div>
 </section>

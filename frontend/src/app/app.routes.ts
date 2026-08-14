@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { adminGuard } from './core/guards/admin.guard';
 
 export const routes: Routes = [
   {
@@ -31,6 +32,11 @@ export const routes: Routes = [
       import('./features/decouvrir/decouvrir.component').then((m) => m.DecouvrirComponent),
   },
   {
+    path: 'duo',
+    loadComponent: () =>
+      import('./features/duo/duo.component').then((m) => m.DuoComponent),
+  },
+  {
     path: 'programmes',
     loadComponent: () =>
       import('./features/programmes/programmes.component').then((m) => m.ProgrammesComponent),
@@ -49,6 +55,14 @@ export const routes: Routes = [
     path: 'faq',
     loadComponent: () =>
       import('./features/faq/faq.component').then((m) => m.FaqComponent),
+  },
+  {
+    path: 'admin/videos',
+    canActivate: [adminGuard],
+    loadComponent: () =>
+      import('./features/admin-videos/admin-videos.component').then(
+        (m) => m.AdminVideosComponent
+      ),
   },
   {
     path: 'connexion',

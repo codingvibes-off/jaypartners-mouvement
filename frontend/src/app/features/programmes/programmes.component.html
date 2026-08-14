@@ -7,9 +7,9 @@
   <div class="voile-transition" #voile></div>
 
   <header class="entete">
-    <p class="eyebrow">L'univers des programmes</p>
-    <h1>{{ universActif().label }}</h1>
-    <p class="tagline">{{ universActif().tagline }}</p>
+    <p class="eyebrow">{{ 'programmes.eyebrow' | translate }}</p>
+    <h1>{{ 'univers.' + universActif().id + '.label' | translate }}</h1>
+    <p class="tagline">{{ 'univers.' + universActif().id + '.tagline' | translate }}</p>
 
     <div class="onglets-univers">
       @for (u of univers; track u.id) {
@@ -19,7 +19,7 @@
           [style.--u-accent]="u.accent"
           (click)="changerUnivers(u)"
         >
-          {{ u.label }}
+          {{ 'univers.' + u.id + '.label' | translate }}
         </button>
       }
     </div>
@@ -28,11 +28,11 @@
   <main class="matrice-conteneur">
     @if (chargement()) {
       <div class="etat-conteneur">
-        <p class="etat">⏳ Chargement de l'univers {{ universActif().label }}...</p>
+        <p class="etat">{{ 'programmes.chargement' | translate: { univers: ('univers.' + universActif().id + '.label' | translate) } }}</p>
       </div>
     } @else if (aucunProgramme()) {
       <div class="etat-conteneur">
-        <p class="etat">📭 Aucun programme disponible pour cet univers pour le moment.</p>
+        <p class="etat">{{ 'programmes.aucunProgramme' | translate }}</p>
       </div>
     } @else {
       <div class="matrice">

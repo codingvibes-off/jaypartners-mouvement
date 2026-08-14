@@ -6,6 +6,7 @@ export type NomIcone =
   | 'pause'
   | 'info'
   | 'download'
+  | 'upload'
   | 'calendar'
   | 'close'
   | 'arrow-right'

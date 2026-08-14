@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/core/services/mouvement.service.ts"],
+  "sourcesContent": ["import { Injectable } from '@angular/core';\nimport { HttpClient } from '@angular/common/http';\nimport { Observable } from 'rxjs';\nimport { environment } from '../../../environments/environment';\nimport { Mouvement } from '../models/models';\n\n@Injectable({ providedIn: 'root' })\nexport class MouvementService {\n  private baseUrl = `${environment.apiUrl}/mouvements`;\n\n  constructor(private http: HttpClient) {}\n\n  obtenirTous(): Observable<Mouvement[]> {\n    return this.http.get<Mouvement[]>(this.baseUrl);\n  }\n\n  creerUploadVideo(mouvementId: string): Observable<{ uploadURL: string; uid: string }> {\n    return this.http.post<{ uploadURL: string; uid: string }>(\n      `${this.baseUrl}/${mouvementId}/video-upload-url`,\n      {}\n    );\n  }\n\n  obtenirStatutVideo(mouvementId: string): Observable<{ cfStreamStatus: string }> {\n    return this.http.get<{ cfStreamStatus: string }>(\n      `${this.baseUrl}/${mouvementId}/video-status`\n    );\n  }\n}\n"],
+  "mappings": ";;;;;;;;;;;;AAOM,IAAO,mBAAP,MAAO,kBAAgB;EAGP;EAFZ,UAAU,GAAG,YAAY,MAAM;EAEvC,YAAoB,MAAgB;AAAhB,SAAA,OAAA;EAAmB;EAEvC,cAAW;AACT,WAAO,KAAK,KAAK,IAAiB,KAAK,OAAO;EAChD;EAEA,iBAAiB,aAAmB;AAClC,WAAO,KAAK,KAAK,KACf,GAAG,KAAK,OAAO,IAAI,WAAW,qBAC9B,CAAA,CAAE;EAEN;EAEA,mBAAmB,aAAmB;AACpC,WAAO,KAAK,KAAK,IACf,GAAG,KAAK,OAAO,IAAI,WAAW,eAAe;EAEjD;;qCApBW,mBAAgB,mBAAA,UAAA,CAAA;EAAA;4EAAhB,mBAAgB,SAAhB,kBAAgB,WAAA,YADH,OAAM,CAAA;;",
+  "names": []
+}

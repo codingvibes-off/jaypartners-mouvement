@@ -168,6 +168,18 @@ npm run prisma:build-pilates
 
 ---
 
+### Fichier : `prisma/translate-en.js`
+
+Remplit les champs `*En` (traduction anglaise) des mouvements et séances, pour le sélecteur de langue FR/EN du site. **`npm run prisma:seed` l'exécute déjà automatiquement en dernière étape** — mais si tu relances un script de build individuellement (`prisma:build-pilates`, etc.) ou que tu modifies du contenu directement en base, pense à relancer :
+
+```bash
+npm run prisma:translate-en
+```
+
+> Le script associe les traductions par `nom`/`titre` (pas par `id`), donc il reste valide même après un reset complet de la base.
+
+---
+
 ## 6. Ordre recommandé lors d’un reset complet
 
 Quand tu veux repartir de zéro avec des données de test :

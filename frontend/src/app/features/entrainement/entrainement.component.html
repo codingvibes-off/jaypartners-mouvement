@@ -1,19 +1,19 @@
 @if (chargement()) {
   <div class="etat-entrainement">
-    <p>Chargement de la séance...</p>
+    <p>{{ 'entrainement.chargement' | translate }}</p>
   </div>
 } @else if (!seance() || mouvements().length === 0) {
   <div class="etat-entrainement">
-    <p>Séance introuvable ou sans exercices.</p>
-    <a routerLink="/" class="btn-secondaire">Retour au catalogue</a>
+    <p>{{ 'entrainement.introuvable' | translate }}</p>
+    <a routerLink="/" class="btn-secondaire">{{ 'commun.retourCatalogue' | translate }}</a>
   </div>
 } @else if (terminee()) {
   <div class="ecran-fin">
     <div class="fin-contenu">
       @if (!validation()) {
-        <span class="fin-badge">Séance terminée</span>
-        <h1>Bravo, {{ seance()!.titre }} terminée 💪</h1>
-        <p>Tu as complété {{ mouvements().length }} exercices.</p>
+        <span class="fin-badge">{{ 'entrainement.seanceTerminee' | translate }}</span>
+        <h1>{{ 'entrainement.bravo' | translate: { titre: (seance()!.titre | localise: seance()!.titreEn : lang.langue()) } }}</h1>
+        <p>{{ 'entrainement.complete' | translate: { n: mouvements().length } }}</p>
 
         @if (erreurValidation()) {
           <p class="erreur">{{ erreurValidation() }}</p>
@@ -21,23 +21,32 @@
 
         @if (auth.estConnecte()) {
           <button class="btn-primaire btn-large" (click)="validerSeance()" [disabled]="enCoursValidation()">
-            {{ enCoursValidation() ? 'Validation...' : 'Valider ma séance du jour' }}
+            {{ enCoursValidation() ? ('entrainement.validation' | translate) : ('entrainement.valider' | translate) }}
           </button>
         } @else {
           <p class="connexion-requise">
-            <a routerLink="/connexion">Connecte-toi</a> pour valider cette séance et suivre ta progression.
+            <a routerLink="/connexion">{{ 'entrainement.connecteToi' | translate }}</a> {{ 'entrainement.connexionRequise' | translate }}
           </p>
         }
       } @else {
-        <span class="fin-badge fin-badge-succes">✓ Séance validée</span>
+        <span class="fin-badge fin-badge-succes">{{ 'entrainement.seanceValidee' | translate }}</span>
         <h1>+{{ validation()!.xpGagne }} XP</h1>
-        <p>Séance enregistrée dans ton historique.</p>
+        <p>{{ 'entrainement.enregistree' | translate }}</p>
         <div class="fin-actions">
-          <a routerLink="/calendrier" class="btn-primaire btn-large">Voir mon calendrier</a>
-          <a routerLink="/" class="btn-secondaire">Retour au catalogue</a>
+          <a routerLink="/calendrier" class="btn-primaire btn-large">{{ 'entrainement.voirCalendrier' | translate }}</a>
+          <a routerLink="/" class="btn-secondaire">{{ 'commun.retourCatalogue' | translate }}</a>
         </div>
       }
     </div>
+  </div>
+} @else if (enRepos()) {
+  <div class="ecran-repos">
+    <span class="repos-badge">{{ 'entrainement.pause' | translate }}</span>
+    <span class="repos-chrono" [class.repos-chrono-alerte]="tempsRepos() <= 3">{{ libelleTempsRepos() }}</span>
+    <p class="repos-texte">{{ 'entrainement.reposTexte' | translate }}</p>
+    @if (totalSeries() > 1) {
+      <p class="repos-suivant">{{ 'entrainement.seriePosition' | translate: { actuelle: serieActuelle() + 1, total: totalSeries() } }}</p>
+    }
   </div>
 } @else {
   <div class="entrainement">
@@ -51,7 +60,7 @@
 
     <div class="entrainement-header">
       <a [routerLink]="['/seance', seance()!.id]" class="quitter">
-        <app-icon nom="close" [taille]="14"></app-icon> Quitter
+        <app-icon nom="close" [taille]="14"></app-icon> {{ 'entrainement.quitter' | translate }}
       </a>
       <div class="barre-progression">
         <div class="barre-remplie" [style.width.%]="progression()"></div>
@@ -60,10 +69,10 @@
     </div>
 
     <div class="exercice-infos">
-      <h1>{{ exerciceActuel()!.mouvement.nom }}</h1>
+      <h1>{{ exerciceActuel()!.mouvement.nom | localise: exerciceActuel()!.mouvement.nomEn : lang.langue() }}</h1>
 
       @if (totalSeries() > 1) {
-        <p class="serie-position">Série {{ serieActuelle() }} / {{ totalSeries() }}</p>
+        <p class="serie-position">{{ 'entrainement.seriePosition' | translate: { actuelle: serieActuelle(), total: totalSeries() } }}</p>
       }
 
       @if (donneePrincipaleTexte(); as chiffre) {
@@ -97,34 +106,45 @@
     </div>
 
     <div class="video-conteneur">
-      <video
-        #videoRef
-        [src]="exerciceActuel()!.mouvement.videoUrl"
-        autoplay
-        muted
-        loop
-        playsinline
-        class="video-exercice"
-      ></video>
+      @if (videoCloudflarePrete()) {
+        <iframe
+          [src]="urlIframeCloudflare()"
+          class="video-exercice"
+          allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+          allowfullscreen
+        ></iframe>
+      } @else {
+        <video
+          #videoRef
+          [src]="exerciceActuel()!.mouvement.videoUrl"
+          autoplay
+          muted
+          loop
+          playsinline
+          class="video-exercice"
+        ></video>
+      }
     </div>
 
     <div class="zone-controles">
       <div class="controles">
-        <button
-          class="btn-rond-controle"
-          (click)="basculerPause(videoRef)"
-          [attr.aria-label]="enPause() ? 'Reprendre' : 'Mettre en pause'"
-        >
-          <app-icon [nom]="enPause() ? 'play' : 'pause'" [taille]="18"></app-icon>
-        </button>
+        @if (!videoCloudflarePrete()) {
+          <button
+            class="btn-rond-controle"
+            (click)="basculerPause()"
+            [attr.aria-label]="enPause() ? 'Reprendre' : 'Mettre en pause'"
+          >
+            <app-icon [nom]="enPause() ? 'play' : 'pause'" [taille]="18"></app-icon>
+          </button>
+        }
         <button class="btn-primaire btn-large" (click)="validerEtape()">
-          {{ estDerniereSerie() ? 'Exercice terminé' : 'Série terminée' }}
+          {{ estDerniereSerie() ? ('entrainement.exerciceTermine' | translate) : ('entrainement.serieTerminee' | translate) }}
           <app-icon nom="arrow-right" [taille]="16"></app-icon>
         </button>
       </div>
 
-      @if (exerciceSuivantNom(); as suivant) {
-        <p class="exercice-suivant">Ensuite : {{ suivant }}</p>
+      @if (prochainExercice(); as suivant) {
+        <p class="exercice-suivant">{{ 'entrainement.ensuite' | translate: { suivant: (suivant.mouvement.nom | localise: suivant.mouvement.nomEn : lang.langue()) } }}</p>
       }
     </div>
   </div>

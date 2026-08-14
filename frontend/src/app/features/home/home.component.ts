@@ -1,34 +1,53 @@
 import { CommonModule } from '@angular/common';
 import { AfterViewInit, Component, OnDestroy, OnInit, computed, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { TranslatePipe } from '@ngx-translate/core';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Genre, RangeeSeances, Seance } from '../../core/models/models';
+import { RangeeSeances, Seance } from '../../core/models/models';
+import { CoachService } from '../../core/services/coach.service';
+import { LangService } from '../../core/services/lang.service';
 import { MotivationService } from '../../core/services/motivation.service';
 import { SeanceService } from '../../core/services/seance.service';
 import { IconComponent } from '../../shared/components/icon/icon.component';
 import { SeanceCardComponent } from '../../shared/components/seance-card/seance-card.component';
+import { LocalisePipe } from '../../shared/pipes/localise.pipe';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const TAILLE_TOP10 = 10;
+const CATEGORIE_PILATES_ID = 'categorie-pilates';
 
+/**
+ * Accueil : catalogue filtré par coach choisi (voir CoachService), Pilates mis en
+ * avant en priorité pour le coach Femme. Les séances Duo vivent sur /duo, quel que
+ * soit le coach choisi ici.
+ */
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, RouterLink, SeanceCardComponent, IconComponent],
+  imports: [CommonModule, RouterLink, SeanceCardComponent, IconComponent, TranslatePipe, LocalisePipe],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
-  ongletActif = signal<Genre>('HOMME');
+  readonly ancrePilates = CATEGORIE_PILATES_ID;
+
   rangees = signal<RangeeSeances[]>([]);
   chargement = signal(true);
+
+  /** Fait toujours passer la rangée Pilates en tête du catalogue, le reste garde l'ordre reçu. */
+  rangeesTriees = computed<RangeeSeances[]>(() => {
+    const toutes = this.rangees();
+    const pilates = toutes.filter((r) => r.categorie === 'Pilates');
+    const reste = toutes.filter((r) => r.categorie !== 'Pilates');
+    return [...pilates, ...reste];
+  });
 
   top10 = computed<Seance[]>(() => {
     const vues = new Set<string>();
     const seances: Seance[] = [];
-    for (const rangee of this.rangees()) {
+    for (const rangee of this.rangeesTriees()) {
       for (const seance of rangee.seances) {
         if (vues.has(seance.id)) continue;
         vues.add(seance.id);
@@ -44,6 +63,8 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   constructor(
     private seanceService: SeanceService,
     private motivation: MotivationService,
+    public lang: LangService,
+    private coachService: CoachService,
   ) {}
 
   ngOnInit(): void {
@@ -58,12 +79,6 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   ngOnDestroy(): void {
     ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     window.removeEventListener('resize', this.majToutesLesFleches);
-  }
-
-  changerOnglet(genre: Genre): void {
-    if (this.ongletActif() === genre) return;
-    this.ongletActif.set(genre);
-    this.chargerCatalogue();
   }
 
   ouvrirSelectionProfil(): void {
@@ -96,7 +111,8 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
   private chargerCatalogue(): void {
     this.chargement.set(true);
-    this.seanceService.obtenirCatalogue(this.ongletActif()).subscribe({
+    const coach = this.coachService.coach() ?? undefined;
+    this.seanceService.obtenirCatalogue(undefined, undefined, coach).subscribe({
       next: (rangees) => {
         this.rangees.set(rangees);
         this.chargement.set(false);

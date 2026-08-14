@@ -2,9 +2,9 @@
   <button class="entete" (click)="basculerDetails()">
     <span class="numero">{{ ordre }}</span>
     <div class="infos">
-      <h4>{{ mouvement.nom }}</h4>
+      <h4>{{ mouvement.nom | localise: mouvement.nomEn : lang.langue() }}</h4>
       <p class="meta">
-        {{ mouvement.muscleprincipal }}
+        {{ mouvement.muscleprincipal | localise: mouvement.muscleprincipalEn : lang.langue() }}
         @if (series) { · {{ series }} séries }
         @if (repetitions) { · {{ repetitions }} }
       </p>
@@ -16,44 +16,56 @@
 
   @if (detailsOuverts) {
     <div class="details">
-      <video [src]="mouvement.videoUrl" controls preload="none" class="lecteur-video"></video>
+      @if (videoCloudflarePrete) {
+        <div class="conteneur-video">
+          <iframe
+            [src]="urlIframeCloudflare"
+            class="lecteur-video-cf"
+            loading="lazy"
+            allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+            allowfullscreen
+          ></iframe>
+        </div>
+      } @else {
+        <video [src]="mouvement.videoUrl" controls preload="none" class="lecteur-video"></video>
+      }
 
       @if (mouvement.description) {
-        <p class="description">{{ mouvement.description }}</p>
+        <p class="description">{{ mouvement.description | localise: mouvement.descriptionEn : lang.langue() }}</p>
       }
 
       <div class="grille-infos">
         @if (mouvement.musclesSecondaires?.length) {
           <div>
-            <span class="label">Muscles secondaires</span>
-            <p>{{ mouvement.musclesSecondaires.join(', ') }}</p>
+            <span class="label">{{ 'movementCard.musclesSecondaires' | translate }}</span>
+            <p>{{ (mouvement.musclesSecondaires | localiseListe: mouvement.musclesSecondairesEn : lang.langue()).join(', ') }}</p>
           </div>
         }
         @if (mouvement.materiel?.length) {
           <div>
-            <span class="label">Matériel</span>
-            <p>{{ mouvement.materiel.join(', ') }}</p>
+            <span class="label">{{ 'movementCard.materiel' | translate }}</span>
+            <p>{{ (mouvement.materiel | localiseListe: mouvement.materielEn : lang.langue()).join(', ') }}</p>
           </div>
         }
         @if (mouvement.regression) {
           <div>
-            <span class="label">Régression</span>
-            <p>{{ mouvement.regression }}</p>
+            <span class="label">{{ 'movementCard.regression' | translate }}</span>
+            <p>{{ mouvement.regression | localise: mouvement.regressionEn : lang.langue() }}</p>
           </div>
         }
         @if (mouvement.progression) {
           <div>
-            <span class="label">Progression</span>
-            <p>{{ mouvement.progression }}</p>
+            <span class="label">{{ 'movementCard.progression' | translate }}</span>
+            <p>{{ mouvement.progression | localise: mouvement.progressionEn : lang.langue() }}</p>
           </div>
         }
       </div>
 
       @if (mouvement.erreursFrequentes?.length) {
         <div class="erreurs">
-          <span class="label">Erreurs fréquentes</span>
+          <span class="label">{{ 'movementCard.erreursFrequentes' | translate }}</span>
           <ul>
-            @for (erreur of mouvement.erreursFrequentes; track erreur) {
+            @for (erreur of mouvement.erreursFrequentes | localiseListe: mouvement.erreursFrequentesEn : lang.langue(); track erreur) {
               <li>{{ erreur }}</li>
             }
           </ul>

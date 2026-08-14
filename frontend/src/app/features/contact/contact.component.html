@@ -1,9 +1,8 @@
 <section class="entete-contact">
-  <span class="badge">Contact</span>
-  <h1>Restons <span class="accent-gold">connectés.</span></h1>
+  <span class="badge">{{ 'contact.badge' | translate }}</span>
+  <h1 [innerHTML]="'contact.titre' | translate"></h1>
   <p class="sous-titre">
-    Une question, envie de réserver une séance ou juste envie de suivre l'aventure ?
-    Retrouve-moi sur les réseaux ci-dessous.
+    {{ 'contact.sousTitre' | translate }}
   </p>
 </section>
 
@@ -13,8 +12,8 @@
       <span class="icone-reseau">{{ reseau.icone }}</span>
       <div class="infos-reseau">
         <span class="nom-reseau">{{ reseau.nom }}</span>
-        <span class="handle-reseau">{{ reseau.handle }}</span>
-        <p class="description-reseau">{{ reseau.description }}</p>
+        <span class="handle-reseau">{{ reseau.handle || (reseau.handleKey! | translate) }}</span>
+        <p class="description-reseau">{{ reseau.descriptionKey | translate }}</p>
       </div>
       <span class="fleche-reseau">→</span>
     </a>
