@@ -6,45 +6,36 @@
   <div class="hero-contenu">
     <div class="hero-cluster">
       <div class="avatars">
-        <span class="avatar-mini avatar-1">🧘</span>
+        <span class="avatar-mini avatar-1">🏋️</span>
         <span class="avatar-mini avatar-2">🤸</span>
-        <span class="avatar-mini avatar-3">🌿</span>
-        <span class="avatar-mini avatar-4">💪</span>
+        <span class="avatar-mini avatar-3">🏃</span>
+        <span class="avatar-mini avatar-4">🧘</span>
       </div>
       <div class="cluster-texte">
         <strong>9 256+</strong>
-        <span>{{ 'home.clusterTexte' | translate }}</span>
+        <span>{{ 'duo.clusterTexte' | translate }}</span>
       </div>
     </div>
 
-    <h1 [innerHTML]="'home.titre' | translate"></h1>
+    <h1 [innerHTML]="'duo.titre' | translate"></h1>
     <p class="hero-subtitle">
-      {{ 'home.sousTitre' | translate }}
+      {{ 'duo.sousTitre' | translate }}
     </p>
 
     <div class="hero-actions">
       <button class="btn-primaire btn-pilule" (click)="ouvrirSelectionProfil()">
-        {{ 'home.commencer' | translate }}
+        {{ 'duo.commencer' | translate }}
         <span class="pilule-fleche"><app-icon nom="arrow-right" [taille]="16"></app-icon></span>
       </button>
     </div>
   </div>
 
-  <a routerLink="/" [fragment]="ancrePilates" class="hero-carte hero-carte-univers">
-    <div class="hero-carte-vignette">🧘</div>
+  <a routerLink="/programmes" class="hero-carte hero-carte-univers">
+    <div class="hero-carte-vignette">🤝</div>
     <div class="hero-carte-texte">
-      <h3>{{ 'home.carteUnivers' | translate }}</h3>
-      <p>{{ 'home.carteUniversTexte' | translate }}</p>
-      <span class="hero-carte-lien">{{ 'home.voirUnivers' | translate }} <app-icon nom="arrow-right" [taille]="12"></app-icon></span>
-    </div>
-  </a>
-
-  <a routerLink="/" [fragment]="ancrePilates" class="hero-carte hero-carte-nouveau">
-    <div class="hero-carte-vignette hero-carte-vignette-sombre">🌸</div>
-    <div class="hero-carte-texte">
-      <h3>{{ 'home.carteNouveau' | translate }}</h3>
-      <p>{{ 'home.carteNouveauTexte' | translate }}</p>
-      <span class="hero-carte-lien">{{ 'home.decouvrirLien' | translate }} <app-icon nom="arrow-right" [taille]="12"></app-icon></span>
+      <h3>{{ 'duo.carteUnivers' | translate }}</h3>
+      <p>{{ 'duo.carteUniversTexte' | translate }}</p>
+      <span class="hero-carte-lien">{{ 'duo.voirUnivers' | translate }} <app-icon nom="arrow-right" [taille]="12"></app-icon></span>
     </div>
   </a>
 </section>
@@ -53,17 +44,17 @@
 <main class="catalogue">
   @if (chargement()) {
     <div class="etat-conteneur">
-      <p class="etat">{{ 'home.chargementCatalogue' | translate }}</p>
+      <p class="etat">{{ 'duo.chargementCatalogue' | translate }}</p>
     </div>
-  } @else if (rangeesTriees().length === 0) {
+  } @else if (rangees().length === 0) {
     <div class="etat-conteneur">
-      <p class="etat">{{ 'home.aucuneSeance' | translate }}</p>
+      <p class="etat">{{ 'duo.aucuneSeance' | translate }}</p>
     </div>
   } @else {
     @if (top10().length > 0) {
       <section class="rangee rangee-top10">
         <div class="rangee-header">
-          <h2>{{ 'home.top10' | translate: { n: top10().length } }}</h2>
+          <h2>{{ 'duo.top10' | translate: { n: top10().length } }}</h2>
         </div>
         <div class="defilement-conteneur">
           <button class="fleche fleche-gauche fleche-masquee" (click)="faireDefiler(defilementTop10, -1)" aria-label="Précédent">‹</button>
@@ -77,11 +68,11 @@
       </section>
     }
 
-    @for (rangee of rangeesTriees(); track rangee.categorie) {
-      <section class="rangee" [id]="rangee.categorie === 'Pilates' ? ancrePilates : null" [attr.data-categorie]="rangee.categorie">
+    @for (rangee of rangees(); track rangee.categorie) {
+      <section class="rangee" [attr.data-categorie]="rangee.categorie">
         <div class="rangee-header">
           <h2>{{ rangee.categorie | localise: rangee.categorieEn : lang.langue() }}</h2>
-          <a href="#" class="voir-tout">{{ 'home.voirTout' | translate }}</a>
+          <a href="#" class="voir-tout">{{ 'duo.voirTout' | translate }}</a>
         </div>
         <div class="defilement-conteneur">
           <button class="fleche fleche-gauche fleche-masquee" (click)="faireDefiler(defilementRef, -1)" aria-label="Précédent">‹</button>
@@ -94,18 +85,14 @@
         </div>
       </section>
     }
-
-    <p class="lien-autres">
-      <a routerLink="/duo">{{ 'home.duoLien' | translate }}</a>
-    </p>
   }
 </main>
 
 <!-- SECTION APPELS À L'ACTION -->
 <section class="cta-section">
   <div class="cta-contenu">
-    <h2>{{ 'home.ctaTitre' | translate }}</h2>
-    <p>{{ 'home.ctaTexte' | translate }}</p>
-    <a routerLink="/programmes" class="btn-primaire btn-large">{{ 'home.ctaBouton' | translate }}</a>
+    <h2>{{ 'duo.ctaTitre' | translate }}</h2>
+    <p>{{ 'duo.ctaTexte' | translate }}</p>
+    <a routerLink="/programmes" class="btn-primaire btn-large">{{ 'duo.ctaBouton' | translate }}</a>
   </div>
 </section>
