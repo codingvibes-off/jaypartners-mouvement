@@ -5,7 +5,7 @@ import { fonctionnaliteGuard } from './core/guards/fonctionnalite.guard';
 export const routes: Routes = [
   {
     path: '',
-    title: "Coach pour femmes training à distance ou en physique - Plateforme de mouvements",
+    title: "Coach sportive femme, Pilates en ligne ou en présentiel",
     loadComponent: () =>
       import('./features/home/home.component').then((m) => m.HomeComponent),
   },

@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /calendrier
+Disallow: /connexion
+Disallow: /inscription
+
+Sitemap: https://jaypartners-mouvement.vercel.app/sitemap.xml
