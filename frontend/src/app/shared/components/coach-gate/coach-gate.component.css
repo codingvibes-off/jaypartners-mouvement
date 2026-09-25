@@ -173,3 +173,59 @@
 .panel:hover .panel-cta {
   transform: scale(1.05);
 }
+
+/* UNE SEULE COACH (offre Homme masquée, voir environment.fonctionnalites) : un panneau plein
+   écran. La photo est posée dans sa propre zone, entre l'étiquette et le texte, pour ne jamais
+   passer sous le texte, quelle que soit la taille d'écran. */
+.porte-coach-seule .porte-etiquette {
+  top: calc(24px + env(safe-area-inset-top));
+  transform: translateX(-50%);
+}
+
+.porte-coach-seule .panel {
+  flex-basis: 100%;
+  padding: 24px 20px calc(40px + env(safe-area-inset-bottom));
+}
+
+.porte-coach-seule .panel-femme {
+  animation: apparition 600ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  background: radial-gradient(ellipse at center, #7a2f8f 0%, #3d174a 100%);
+}
+
+.porte-coach-seule .panel-femme::before {
+  content: '';
+  position: absolute;
+  top: calc(76px + env(safe-area-inset-top));
+  bottom: calc(290px + env(safe-area-inset-bottom));
+  left: 16px;
+  right: 16px;
+  background: url('/assets/coach/coach-femme.png') center bottom / contain no-repeat;
+}
+
+@keyframes apparition {
+  from {
+    opacity: 0;
+    transform: scale(1.04);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Écrans très bas (téléphone à l'horizontale) : pas la place pour la photo, le texte prime. */
+@media (max-height: 520px) {
+  .porte-coach-seule .panel-femme::before {
+    display: none;
+  }
+
+  .porte-coach-seule .panel {
+    align-items: center;
+    padding-top: 64px;
+  }
+
+  .porte-coach-seule .panel-icone {
+    font-size: 32px;
+    margin-bottom: 6px;
+  }
+}

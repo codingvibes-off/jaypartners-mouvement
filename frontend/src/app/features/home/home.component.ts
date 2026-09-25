@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { AfterViewInit, Component, OnDestroy, OnInit, computed, signal } from '@angular/core';
+import { AfterViewInit, Component, HostListener, OnDestroy, OnInit, computed, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { estActive } from '../../core/guards/fonctionnalite.guard';
 import { RangeeSeances, Seance } from '../../core/models/models';
 import { CoachService } from '../../core/services/coach.service';
 import { LangService } from '../../core/services/lang.service';
@@ -15,7 +16,7 @@ import { LocalisePipe } from '../../shared/pipes/localise.pipe';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const TAILLE_TOP10 = 10;
+const TAILLE_TOP10 = 5;
 const CATEGORIE_PILATES_ID = 'categorie-pilates';
 
 /**
@@ -32,8 +33,12 @@ const CATEGORIE_PILATES_ID = 'categorie-pilates';
 })
 export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   readonly ancrePilates = CATEGORIE_PILATES_ID;
+  readonly estActive = estActive;
+  readonly tailleTop = TAILLE_TOP10;
 
   rangees = signal<RangeeSeances[]>([]);
+  /** Pop-up « Bientôt disponible » des cartes du hero (Pilates / Découvrir). */
+  bientotVisible = signal(false);
   chargement = signal(true);
 
   /** Fait toujours passer la rangée Pilates en tête du catalogue, le reste garde l'ordre reçu. */
@@ -79,6 +84,16 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   ngOnDestroy(): void {
     ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     window.removeEventListener('resize', this.majToutesLesFleches);
+  }
+
+  ouvrirBientot(event: Event): void {
+    event.preventDefault();
+    this.bientotVisible.set(true);
+  }
+
+  @HostListener('document:keydown.escape')
+  fermerBientot(): void {
+    this.bientotVisible.set(false);
   }
 
   ouvrirSelectionProfil(): void {
@@ -181,6 +196,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       });
     });
 
+    if (!document.querySelector('.cta-section')) return;
     gsap.from('.cta-section', {
       opacity: 0,
       y: 60,

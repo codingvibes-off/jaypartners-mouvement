@@ -8,9 +8,15 @@
       <a routerLink="/" routerLinkActive="actif" [routerLinkActiveOptions]="{ exact: true }" class="menu-link">
         {{ 'nav.accueil' | translate }}
       </a>
-      <a routerLink="/decouvrir" routerLinkActive="actif" class="menu-link" (click)="allerVersDecouvrir($event)">{{ 'nav.decouvrir' | translate }}</a>
-      <a routerLink="/programmes" routerLinkActive="actif" class="menu-link" (click)="allerVersProgrammes($event)">{{ 'nav.programmes' | translate }}</a>
-      <a routerLink="/duo" routerLinkActive="actif" class="menu-link">{{ 'nav.duo' | translate }}</a>
+      @if (estActive('decouvrir')) {
+        <a routerLink="/decouvrir" routerLinkActive="actif" class="menu-link" (click)="allerVersDecouvrir($event)">{{ 'nav.decouvrir' | translate }}</a>
+      }
+      @if (estActive('programmes')) {
+        <a routerLink="/programmes" routerLinkActive="actif" class="menu-link" (click)="allerVersProgrammes($event)">{{ 'nav.programmes' | translate }}</a>
+      }
+      @if (estActive('duo')) {
+        <a routerLink="/duo" routerLinkActive="actif" class="menu-link">{{ 'nav.duo' | translate }}</a>
+      }
       @if (auth.estConnecte()) {
         <a routerLink="/calendrier" routerLinkActive="actif" class="menu-link">{{ 'nav.calendrier' | translate }}</a>
       }
@@ -23,15 +29,17 @@
     </nav>
 
     <div class="actions">
-      <button
-        type="button"
-        class="coach-btn"
-        [attr.aria-label]="'coach.changer' | translate"
-        [title]="'coach.changer' | translate"
-        (click)="coach.reinitialiser()"
-      >
-        {{ coach.coach() === 'FEMME' ? '💜' : '💪' }}
-      </button>
+      @if (estActive('changerCoach')) {
+        <button
+          type="button"
+          class="coach-btn"
+          [attr.aria-label]="'coach.changer' | translate"
+          [title]="'coach.changer' | translate"
+          (click)="coach.reinitialiser()"
+        >
+          {{ coach.coach() === 'FEMME' ? '💜' : '💪' }}
+        </button>
+      }
 
       <div class="selecteur-langue" role="group" aria-label="Langue">
         <button
@@ -58,7 +66,7 @@
           <span class="prenom">{{ auth.utilisateurCourant()?.prenom }}</span>
         </div>
         <button class="btn-secondaire" (click)="deconnexion()">{{ 'nav.deconnexion' | translate }}</button>
-      } @else {
+      } @else if (estActive('boutonsConnexion')) {
         <a routerLink="/connexion" class="lien-connexion">{{ 'nav.connexion' | translate }}</a>
         <a routerLink="/inscription" class="btn-primaire btn-inscription">{{ 'nav.inscription' | translate }}</a>
       }
@@ -81,9 +89,15 @@
     <a routerLink="/" routerLinkActive="actif" [routerLinkActiveOptions]="{ exact: true }" class="menu-mobile-link" (click)="fermerMenu()">
       {{ 'nav.accueil' | translate }}
     </a>
-    <a routerLink="/decouvrir" routerLinkActive="actif" class="menu-mobile-link" (click)="allerVersDecouvrir($event)">{{ 'nav.decouvrir' | translate }}</a>
-    <a routerLink="/programmes" routerLinkActive="actif" class="menu-mobile-link" (click)="allerVersProgrammes($event)">{{ 'nav.programmes' | translate }}</a>
-    <a routerLink="/duo" routerLinkActive="actif" class="menu-mobile-link" (click)="fermerMenu()">{{ 'nav.duo' | translate }}</a>
+    @if (estActive('decouvrir')) {
+      <a routerLink="/decouvrir" routerLinkActive="actif" class="menu-mobile-link" (click)="allerVersDecouvrir($event)">{{ 'nav.decouvrir' | translate }}</a>
+    }
+    @if (estActive('programmes')) {
+      <a routerLink="/programmes" routerLinkActive="actif" class="menu-mobile-link" (click)="allerVersProgrammes($event)">{{ 'nav.programmes' | translate }}</a>
+    }
+    @if (estActive('duo')) {
+      <a routerLink="/duo" routerLinkActive="actif" class="menu-mobile-link" (click)="fermerMenu()">{{ 'nav.duo' | translate }}</a>
+    }
     @if (auth.estConnecte()) {
       <a routerLink="/calendrier" routerLinkActive="actif" class="menu-mobile-link" (click)="fermerMenu()">
         {{ 'nav.calendrier' | translate }}

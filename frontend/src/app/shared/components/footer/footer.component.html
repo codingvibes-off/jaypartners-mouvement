@@ -2,16 +2,22 @@
   <div class="footer-haut">
     <nav class="footer-nav-principale">
       <a routerLink="/">{{ 'footer.accueil' | translate }}</a>
-      <a routerLink="/decouvrir">{{ 'footer.decouvrir' | translate }}</a>
-      <a routerLink="/calendrier">{{ 'footer.calendrier' | translate }}</a>
-      <a routerLink="/inscription">{{ 'footer.creerCompte' | translate }}</a>
+      @if (estActive('decouvrir')) {
+        <a routerLink="/decouvrir">{{ 'footer.decouvrir' | translate }}</a>
+      }
+      @if (estActive('liensFooter')) {
+        <a routerLink="/calendrier">{{ 'footer.calendrier' | translate }}</a>
+        <a routerLink="/inscription">{{ 'footer.creerCompte' | translate }}</a>
+      }
     </nav>
 
     <div class="footer-colonne-droite">
       <div class="footer-ligne">
         <nav class="footer-nav-secondaire">
-          <a href="#">{{ 'footer.pourCoachs' | translate }}</a>
-          <a href="#">{{ 'footer.articles' | translate }}</a>
+          @if (estActive('liensFooter')) {
+            <a href="#">{{ 'footer.pourCoachs' | translate }}</a>
+            <a href="#">{{ 'footer.articles' | translate }}</a>
+          }
           <a href="#">{{ 'footer.contact' | translate }}</a>
         </nav>
         <span class="footer-copyright">© {{ anneeCourante }} {{ 'footer.copyright' | translate }}</span>

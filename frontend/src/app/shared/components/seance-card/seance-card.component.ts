@@ -23,6 +23,8 @@ export class SeanceCardComponent implements OnDestroy {
   @Input({ required: true }) seance!: Seance;
   @Input() rang?: number;
   @Input() estTop10 = false;
+  /** Taille du classement affichée sur le ruban ("Top 5", "Top 10"). */
+  @Input() tailleTop = 10;
 
   survole = signal(false);
   videoApercu = signal<string | null>(null);

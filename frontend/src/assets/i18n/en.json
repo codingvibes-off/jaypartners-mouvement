@@ -32,7 +32,6 @@
     "MIXTE": "Mixed"
   },
   "home": {
-    "clusterTexte": "women trust us",
     "titre": "CULTIVATE YOUR <span class=\"accent-gold\">INNER STRENGTH</span>",
     "sousTitre": "Pilates, gentle strength training and wellbeing: sessions designed for you, at your own pace, to feel stronger and more balanced every day.",
     "commencer": "Get started now",
@@ -50,7 +49,10 @@
     "ctaTitre": "Ready to reveal your best self?",
     "ctaTexte": "Join a community of women progressing with Pilates and our wellbeing sessions.",
     "ctaBouton": "Start for free",
-    "duoLien": "See Duo sessions →"
+    "duoLien": "See Duo sessions →",
+    "bientotTitre": "Coming soon",
+    "bientotTexte": "This section is on its way. In the meantime, enjoy the sessions already online!",
+    "bientotFermer": "Got it"
   },
   "coach": {
     "eyebrow": "Welcome",
@@ -279,7 +281,7 @@
     "erreursFrequentes": "Common mistakes"
   },
   "seanceCard": {
-    "top10": "Top 10",
+    "top10": "Top {{n}}",
     "nouveau": "New",
     "voirSeance": "View session",
     "plusInfos": "More info"

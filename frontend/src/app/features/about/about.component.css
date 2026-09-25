@@ -106,6 +106,17 @@
   color: var(--text-primary);
 }
 
+/* Bloc sans photo : texte centré sur une colonne de lecture confortable. */
+.bloc-about.bloc-centre {
+  grid-template-columns: 1fr;
+  max-width: 760px;
+  text-align: center;
+}
+
+.bloc-centre .pilules {
+  justify-content: center;
+}
+
 @media (max-width: 900px) {
   .bloc-about,
   .bloc-about.inverse {

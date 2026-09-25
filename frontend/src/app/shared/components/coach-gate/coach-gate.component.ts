@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { TranslatePipe } from '@ngx-translate/core';
+import { estActive } from '../../../core/guards/fonctionnalite.guard';
 import { CoachService } from '../../../core/services/coach.service';
 
 @Component({
@@ -10,5 +11,7 @@ import { CoachService } from '../../../core/services/coach.service';
   styleUrls: ['./coach-gate.component.css'],
 })
 export class CoachGateComponent {
+  readonly coachHomme = estActive('coachHomme');
+
   constructor(public coachService: CoachService) {}
 }

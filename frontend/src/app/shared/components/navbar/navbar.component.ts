@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, HostListener, OnDestroy, signal } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
+import { estActive } from '../../../core/guards/fonctionnalite.guard';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { AuthService } from '../../../core/services/auth.service';
@@ -18,6 +19,9 @@ gsap.registerPlugin(ScrollTrigger);
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements AfterViewInit, OnDestroy {
+  /** Sections masquées selon environment.fonctionnalites. */
+  readonly estActive = estActive;
+
   private scrollTrigger?: ScrollTrigger;
 
   menuOuvert = signal(false);

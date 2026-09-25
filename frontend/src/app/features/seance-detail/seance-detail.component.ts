@@ -1,5 +1,6 @@
 import { Component, OnInit, computed, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import jsPDF from 'jspdf';
@@ -12,6 +13,7 @@ import { LocalisePipe } from '../../shared/pipes/localise.pipe';
 import { AuthService } from '../../core/services/auth.service';
 import { EngagementService } from '../../core/services/engagement.service';
 import { AchatService } from '../../core/services/achat.service';
+import { titrePage } from '../../core/services/titre.strategy';
 
 @Component({
   selector: 'app-seance-detail',
@@ -47,6 +49,7 @@ export class SeanceDetailComponent implements OnInit {
     public auth: AuthService,
     private engagementService: EngagementService,
     private achatService: AchatService,
+    private title: Title,
   ) {}
 
   /** Repli sur le français si la traduction anglaise est absente (même logique que LocalisePipe). */
@@ -91,6 +94,7 @@ export class SeanceDetailComponent implements OnInit {
       next: (seance) => {
         this.seance.set(seance);
         this.chargement.set(false);
+        this.title.setTitle(titrePage(`Séance ${seance.titre}`));
       },
       error: () => this.chargement.set(false),
     });

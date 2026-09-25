@@ -12,9 +12,10 @@ export class SeanceService {
   constructor(private http: HttpClient) {}
 
   obtenirCatalogue(genre?: Genre, strict?: boolean, coach?: Coach): Observable<RangeeSeances[]> {
-    const params: { genre?: Genre; strict?: string; coach?: Coach } = genre ? { genre } : {};
+    const params: { genre?: Genre; strict?: string; coach?: Coach; avecVideo?: string } = genre ? { genre } : {};
     if (genre && strict) params.strict = 'true';
     if (coach) params.coach = coach;
+    if (environment.seulementAvecVideo) params.avecVideo = 'true';
     return this.http.get<RangeeSeances[]>(this.baseUrl, { params });
   }
 
@@ -25,7 +26,8 @@ export class SeanceService {
   }
 
   obtenirDetail(id: string, jeton?: string): Observable<Seance> {
-    const params: { jeton?: string } = jeton ? { jeton } : {};
+    const params: { jeton?: string; avecVideo?: string } = jeton ? { jeton } : {};
+    if (environment.seulementAvecVideo) params.avecVideo = 'true';
     return this.http
       .get<Seance>(`${this.baseUrl}/${id}`, { params })
       .pipe(map((seance) => ({ ...seance, mouvements: seance.mouvements ?? [] })));

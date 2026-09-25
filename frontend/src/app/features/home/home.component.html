@@ -11,10 +11,6 @@
         <span class="avatar-mini avatar-3">🌿</span>
         <span class="avatar-mini avatar-4">💪</span>
       </div>
-      <div class="cluster-texte">
-        <strong>9 256+</strong>
-        <span>{{ 'home.clusterTexte' | translate }}</span>
-      </div>
     </div>
 
     <h1 [innerHTML]="'home.titre' | translate"></h1>
@@ -22,15 +18,17 @@
       {{ 'home.sousTitre' | translate }}
     </p>
 
-    <div class="hero-actions">
-      <button class="btn-primaire btn-pilule" (click)="ouvrirSelectionProfil()">
-        {{ 'home.commencer' | translate }}
-        <span class="pilule-fleche"><app-icon nom="arrow-right" [taille]="16"></app-icon></span>
-      </button>
-    </div>
+    @if (estActive('boutonCommencer')) {
+      <div class="hero-actions">
+        <button class="btn-primaire btn-pilule" (click)="ouvrirSelectionProfil()">
+          {{ 'home.commencer' | translate }}
+          <span class="pilule-fleche"><app-icon nom="arrow-right" [taille]="16"></app-icon></span>
+        </button>
+      </div>
+    }
   </div>
 
-  <a routerLink="/" [fragment]="ancrePilates" class="hero-carte hero-carte-univers">
+  <a href="#" class="hero-carte hero-carte-univers" (click)="ouvrirBientot($event)">
     <div class="hero-carte-vignette">🧘</div>
     <div class="hero-carte-texte">
       <h3>{{ 'home.carteUnivers' | translate }}</h3>
@@ -39,7 +37,7 @@
     </div>
   </a>
 
-  <a routerLink="/" [fragment]="ancrePilates" class="hero-carte hero-carte-nouveau">
+  <a href="#" class="hero-carte hero-carte-nouveau" (click)="ouvrirBientot($event)">
     <div class="hero-carte-vignette hero-carte-vignette-sombre">🌸</div>
     <div class="hero-carte-texte">
       <h3>{{ 'home.carteNouveau' | translate }}</h3>
@@ -87,7 +85,7 @@
           <button class="fleche fleche-gauche fleche-masquee" (click)="faireDefiler(defilementRef, -1)" aria-label="Précédent">‹</button>
           <div class="defilement" #defilementRef (scroll)="majFleches(defilementRef)">
             @for (seance of rangee.seances; track seance.id) {
-              <app-seance-card [seance]="seance" [estTop10]="top10Ids().has(seance.id)"></app-seance-card>
+              <app-seance-card [seance]="seance" [estTop10]="top10Ids().has(seance.id)" [tailleTop]="tailleTop"></app-seance-card>
             }
           </div>
           <button class="fleche fleche-droite" (click)="faireDefiler(defilementRef, 1)" aria-label="Suivant">›</button>
@@ -95,17 +93,32 @@
       </section>
     }
 
-    <p class="lien-autres">
-      <a routerLink="/duo">{{ 'home.duoLien' | translate }}</a>
-    </p>
+    @if (estActive('duo')) {
+      <p class="lien-autres">
+        <a routerLink="/duo">{{ 'home.duoLien' | translate }}</a>
+      </p>
+    }
   }
 </main>
 
-<!-- SECTION APPELS À L'ACTION -->
-<section class="cta-section">
-  <div class="cta-contenu">
-    <h2>{{ 'home.ctaTitre' | translate }}</h2>
-    <p>{{ 'home.ctaTexte' | translate }}</p>
-    <a routerLink="/programmes" class="btn-primaire btn-large">{{ 'home.ctaBouton' | translate }}</a>
+<!-- SECTION APPELS À L'ACTION — mène à /programmes, masquée avec cette page -->
+@if (estActive('programmes')) {
+  <section class="cta-section">
+    <div class="cta-contenu">
+      <h2>{{ 'home.ctaTitre' | translate }}</h2>
+      <p>{{ 'home.ctaTexte' | translate }}</p>
+      <a routerLink="/programmes" class="btn-primaire btn-large">{{ 'home.ctaBouton' | translate }}</a>
+    </div>
+  </section>
+}
+
+@if (bientotVisible()) {
+  <div class="bientot-fond" (click)="fermerBientot()">
+    <div class="bientot-modale" role="dialog" aria-modal="true" aria-labelledby="bientot-titre" (click)="$event.stopPropagation()">
+      <span class="bientot-icone" aria-hidden="true">⏳</span>
+      <h2 id="bientot-titre">{{ 'home.bientotTitre' | translate }}</h2>
+      <p>{{ 'home.bientotTexte' | translate }}</p>
+      <button type="button" class="btn-primaire" (click)="fermerBientot()">{{ 'home.bientotFermer' | translate }}</button>
+    </div>
   </div>
-</section>
+}

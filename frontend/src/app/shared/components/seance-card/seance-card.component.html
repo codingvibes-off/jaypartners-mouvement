@@ -31,7 +31,7 @@
       <div class="gradient-overlay"></div>
 
       @if (estTop10) {
-        <span class="badge-ruban badge-top10">{{ 'seanceCard.top10' | translate }}</span>
+        <span class="badge-ruban badge-top10">{{ 'seanceCard.top10' | translate: { n: tailleTop } }}</span>
       } @else if (estNouveau) {
         <span class="badge-ruban badge-nouveau">{{ 'seanceCard.nouveau' | translate }}</span>
       }

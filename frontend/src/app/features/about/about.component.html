@@ -38,10 +38,7 @@
   </div>
 </section>
 
-<section class="bloc-about">
-  <div class="bloc-image">
-    <img src="assets/about/pilates-jay.png" [attr.alt]="'about.imageAlt3' | translate" loading="lazy" />
-  </div>
+<section class="bloc-about bloc-centre">
   <div class="bloc-texte">
     <span class="badge">{{ 'about.badgePilates' | translate }}</span>
     <h2 [innerHTML]="'about.equilibreTitre' | translate"></h2>
@@ -64,7 +61,9 @@
 <section class="cta-about">
   <h2 [innerHTML]="'about.ctaTitre' | translate"></h2>
   <div class="cta-actions">
-    <a routerLink="/programmes" class="btn-primaire">{{ 'about.voirProgrammes' | translate }}</a>
+    @if (estActive('programmes')) {
+      <a routerLink="/programmes" class="btn-primaire">{{ 'about.voirProgrammes' | translate }}</a>
+    }
     <a routerLink="/contact" class="btn-secondaire">{{ 'about.meContacter' | translate }}</a>
   </div>
 </section>

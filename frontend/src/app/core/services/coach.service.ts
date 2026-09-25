@@ -1,4 +1,5 @@
 import { Injectable, computed, signal } from '@angular/core';
+import { estActive } from '../guards/fonctionnalite.guard';
 
 export type ChoixCoach = 'FEMME' | 'HOMME';
 
@@ -56,6 +57,8 @@ export class CoachService {
 
   private recupererCoachStocke(): ChoixCoach | null {
     const stocke = localStorage.getItem(CLE_COACH);
-    return stocke === 'FEMME' || stocke === 'HOMME' ? stocke : null;
+    // Offre Homme masquée : un ancien choix HOMME resté dans le navigateur ne doit pas y donner accès.
+    if (stocke === 'HOMME') return estActive('coachHomme') ? stocke : null;
+    return stocke === 'FEMME' ? stocke : null;
   }
 }

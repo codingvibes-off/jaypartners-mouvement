@@ -32,7 +32,6 @@
     "MIXTE": "Mixte"
   },
   "home": {
-    "clusterTexte": "femmes nous font confiance",
     "titre": "CULTIVE TA <span class=\"accent-gold\">FORCE INTÉRIEURE</span>",
     "sousTitre": "Pilates, renforcement en douceur et bien-être : des séances pensées pour toi, à ton rythme, pour te sentir plus forte et plus alignée chaque jour.",
     "commencer": "Commencer maintenant",
@@ -50,7 +49,10 @@
     "ctaTitre": "Prête à révéler ta meilleure version ?",
     "ctaTexte": "Rejoins une communauté de femmes qui progressent avec le Pilates et nos séances bien-être.",
     "ctaBouton": "Commencer gratuitement",
-    "duoLien": "Voir les séances Duo →"
+    "duoLien": "Voir les séances Duo →",
+    "bientotTitre": "Bientôt disponible",
+    "bientotTexte": "Cette rubrique arrive très vite. En attendant, profite des séances déjà en ligne !",
+    "bientotFermer": "J'ai compris"
   },
   "coach": {
     "eyebrow": "Bienvenue",
@@ -279,7 +281,7 @@
     "erreursFrequentes": "Erreurs fréquentes"
   },
   "seanceCard": {
-    "top10": "Top 10",
+    "top10": "Top {{n}}",
     "nouveau": "Nouveau",
     "voirSeance": "Voir la séance",
     "plusInfos": "Plus d'infos"
