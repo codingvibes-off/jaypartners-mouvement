@@ -10,73 +10,108 @@
       <span class="badge">{{ 'niveau.' + seance()!.niveau | translate }}</span>
       <span class="badge">{{ seance()!.dureeMin }} min</span>
       <span class="badge">{{ 'genre.' + seance()!.genre | translate }}</span>
+      @if (estPayante()) {
+        <span class="badge badge-prix">
+          <app-icon nom="lock" [taille]="11"></app-icon>
+          {{ contenuDebloque() ? ('achat.debloque' | translate) : (seance()!.prixCentimes! / 100).toFixed(2) + ' €' }}
+        </span>
+      }
     </div>
     @if (seance()!.description) {
       <p class="description">{{ seance()!.description | localise: seance()!.descriptionEn : lang.langue() }}</p>
     }
-    <div class="actions-seance">
-      <a [routerLink]="['/seance', seance()!.id, 'entrainement']" class="btn-primaire btn-demarrer">
-        <app-icon nom="play" [taille]="16"></app-icon> {{ 'seanceDetail.demarrer' | translate }}
-      </a>
-      <button class="btn-secondaire" (click)="telechargerProgramme()">
-        <app-icon nom="download" [taille]="16"></app-icon> {{ 'seanceDetail.telecharger' | translate }}
-      </button>
-      <a
-        href="https://calendly.com/jaypartners-coach"
-        target="_blank"
-        rel="noopener"
-        class="btn-secondaire"
-      >
-        <app-icon nom="calendar" [taille]="16"></app-icon> {{ 'seanceDetail.rendezVous' | translate }}
-      </a>
-    </div>
-  </section>
 
-  <section class="engagement-hebdo">
-    @if (!auth.estConnecte()) {
-      <p class="connexion-requise">
-        <a routerLink="/connexion">{{ 'engagement.connecteToi' | translate }}</a> {{ 'engagement.connexionRequise' | translate }}
-      </p>
-    } @else if (!engagement() || modificationEngagement()) {
-      <h2>{{ 'engagement.titre' | translate }}</h2>
-      <p class="engagement-texte">{{ 'engagement.texte' | translate }}</p>
-      <div class="jours-pilules">
-        @for (jour of joursSemaine; track jour; let i = $index) {
-          <button
-            class="jour-pilule"
-            [class.actif]="engagement()?.jour === jour"
-            [disabled]="enregistrementEnCours()"
-            (click)="choisirJour(jour)"
-          >
-            {{ ('engagement.jours' | translate)[i] }}
-          </button>
-        }
+    @if (estPayante() && !contenuDebloque()) {
+      <div class="actions-seance">
+        <button class="btn-primaire btn-demarrer" [disabled]="achatEnCours()" (click)="acheterProgramme()">
+          <app-icon nom="lock" [taille]="16"></app-icon>
+          {{ achatEnCours() ? ('achat.enCours' | translate) : ('achat.acheter' | translate: { prix: (seance()!.prixCentimes! / 100).toFixed(2) }) }}
+        </button>
+        <a
+          href="https://calendly.com/jaypartners-coach"
+          target="_blank"
+          rel="noopener"
+          class="btn-secondaire"
+        >
+          <app-icon nom="calendar" [taille]="16"></app-icon> {{ 'seanceDetail.rendezVous' | translate }}
+        </a>
       </div>
-    } @else {
-      <h2>{{ 'engagement.titre' | translate }}</h2>
-      <p class="engagement-confirmation">
-        {{ 'engagement.confirmation' | translate: { jour: ('engagement.jours' | translate)[joursSemaine.indexOf(engagement()!.jour)] } }}
-      </p>
-      <div class="engagement-actions">
-        <button class="btn-secondaire" (click)="changerJour()">{{ 'engagement.changerJour' | translate }}</button>
-        <button class="btn-lien" (click)="annulerEngagement()">{{ 'engagement.annuler' | translate }}</button>
-      </div>
-    }
-  </section>
-
-  <section class="liste-mouvements">
-    <h2>{{ 'seanceDetail.mouvements' | translate }}</h2>
-    @if (seance()!.mouvements?.length) {
-      @for (sm of seance()!.mouvements; track sm.id) {
-        <app-movement-card
-          [mouvement]="sm.mouvement"
-          [ordre]="sm.ordre"
-          [series]="sm.series"
-          [repetitions]="sm.repetitions"
-        ></app-movement-card>
+      @if (erreurAchat()) {
+        <p class="erreur-achat">{{ erreurAchat() }}</p>
       }
     } @else {
-      <p class="etat">{{ 'seanceDetail.aucunMouvement' | translate }}</p>
+      <div class="actions-seance">
+        <a [routerLink]="['/seance', seance()!.id, 'entrainement']" class="btn-primaire btn-demarrer">
+          <app-icon nom="play" [taille]="16"></app-icon> {{ 'seanceDetail.demarrer' | translate }}
+        </a>
+        <button class="btn-secondaire" (click)="telechargerProgramme()">
+          <app-icon nom="download" [taille]="16"></app-icon> {{ 'seanceDetail.telecharger' | translate }}
+        </button>
+        <a
+          href="https://calendly.com/jaypartners-coach"
+          target="_blank"
+          rel="noopener"
+          class="btn-secondaire"
+        >
+          <app-icon nom="calendar" [taille]="16"></app-icon> {{ 'seanceDetail.rendezVous' | translate }}
+        </a>
+      </div>
     }
   </section>
+
+  @if (contenuDebloque()) {
+    <section class="engagement-hebdo">
+      @if (!auth.estConnecte()) {
+        <p class="connexion-requise">
+          <a routerLink="/connexion">{{ 'engagement.connecteToi' | translate }}</a> {{ 'engagement.connexionRequise' | translate }}
+        </p>
+      } @else if (!engagement() || modificationEngagement()) {
+        <h2>{{ 'engagement.titre' | translate }}</h2>
+        <p class="engagement-texte">{{ 'engagement.texte' | translate }}</p>
+        <div class="jours-pilules">
+          @for (jour of joursSemaine; track jour; let i = $index) {
+            <button
+              class="jour-pilule"
+              [class.actif]="engagement()?.jour === jour"
+              [disabled]="enregistrementEnCours()"
+              (click)="choisirJour(jour)"
+            >
+              {{ ('engagement.jours' | translate)[i] }}
+            </button>
+          }
+        </div>
+      } @else {
+        <h2>{{ 'engagement.titre' | translate }}</h2>
+        <p class="engagement-confirmation">
+          {{ 'engagement.confirmation' | translate: { jour: ('engagement.jours' | translate)[joursSemaine.indexOf(engagement()!.jour)] } }}
+        </p>
+        <div class="engagement-actions">
+          <button class="btn-secondaire" (click)="changerJour()">{{ 'engagement.changerJour' | translate }}</button>
+          <button class="btn-lien" (click)="annulerEngagement()">{{ 'engagement.annuler' | translate }}</button>
+        </div>
+      }
+    </section>
+
+    <section class="liste-mouvements">
+      <h2>{{ 'seanceDetail.mouvements' | translate }}</h2>
+      @if (seance()!.mouvements?.length) {
+        @for (sm of seance()!.mouvements; track sm.id) {
+          <app-movement-card
+            [mouvement]="sm.mouvement"
+            [ordre]="sm.ordre"
+            [series]="sm.series"
+            [repetitions]="sm.repetitions"
+          ></app-movement-card>
+        }
+      } @else {
+        <p class="etat">{{ 'seanceDetail.aucunMouvement' | translate }}</p>
+      }
+    </section>
+  } @else {
+    <section class="paywall">
+      <app-icon nom="lock" [taille]="28"></app-icon>
+      <h2>{{ 'achat.titre' | translate }}</h2>
+      <p>{{ 'achat.texte' | translate }}</p>
+    </section>
+  }
 }

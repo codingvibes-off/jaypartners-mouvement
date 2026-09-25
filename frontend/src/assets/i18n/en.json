@@ -122,6 +122,13 @@
     "connecteToi": "Log in",
     "connexionRequise": "to commit to this session and track your consistency."
   },
+  "achat": {
+    "debloque": "Unlocked",
+    "acheter": "Unlock the program — €{{prix}}",
+    "enCours": "Redirecting to payment...",
+    "titre": "Paid program",
+    "texte": "Unlock this program to access the movements, guided workout, and downloadable PDF."
+  },
   "entrainement": {
     "chargement": "Loading session...",
     "introuvable": "Session not found or has no exercises.",

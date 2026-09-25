@@ -22,4 +22,19 @@ function requireAdmin(req, res, next) {
   next();
 }
 
-module.exports = { requireAuth, requireAdmin };
+// Peuple req.user si un jeton valide est fourni, mais ne bloque jamais la requête —
+// utile pour les routes publiques dont le contenu varie selon que l'utilisateur est
+// connecté (ex: programmes payants, cf. GET /api/seances/:id).
+function auteurOptionnel(req, res, next) {
+  const header = req.headers.authorization;
+  if (header && header.startsWith("Bearer ")) {
+    try {
+      req.user = jwt.verify(header.split(" ")[1], process.env.JWT_SECRET || "dev_secret_change_me");
+    } catch (err) {
+      // Jeton invalide/expiré : on continue simplement sans utilisateur authentifié.
+    }
+  }
+  next();
+}
+
+module.exports = { requireAuth, requireAdmin, auteurOptionnel };

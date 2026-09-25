@@ -122,6 +122,13 @@
     "connecteToi": "Connecte-toi",
     "connexionRequise": "pour t'engager sur cette séance et suivre ta régularité."
   },
+  "achat": {
+    "debloque": "Débloqué",
+    "acheter": "Débloquer le programme — {{prix}} €",
+    "enCours": "Redirection vers le paiement...",
+    "titre": "Programme payant",
+    "texte": "Débloque ce programme pour accéder aux mouvements, à l'entraînement guidé et au PDF téléchargeable."
+  },
   "entrainement": {
     "chargement": "Chargement de la séance...",
     "introuvable": "Séance introuvable ou sans exercices.",

@@ -15,7 +15,8 @@ export type NomIcone =
   | 'chevron-right'
   | 'chevron-down'
   | 'clock'
-  | 'check';
+  | 'check'
+  | 'lock';
 
 @Component({
   selector: 'app-icon',

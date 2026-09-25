@@ -67,6 +67,7 @@ model User {
   badges       UserBadge[]
   seancesFaites SeanceHistorique[]
   engagements  EngagementHebdomadaire[]
+  achats       Achat[]
 }
 
 // -----------------------------
@@ -86,11 +87,14 @@ model Seance {
   categorie   String?  // ex: "Mobilité", "Pilates", "Renforcement"
   categorieEn String?
   ordre       Int      @default(0)
+  // Prix en centimes pour débloquer le programme PDF de cette séance. null/0 = gratuite.
+  prixCentimes Int?
   createdAt   DateTime @default(now())
 
   mouvements  SeanceMouvement[]
   historique  SeanceHistorique[]
   engagements EngagementHebdomadaire[]
+  achats      Achat[]
 }
 
 // -----------------------------
@@ -167,6 +171,30 @@ model EngagementHebdomadaire {
   createdAt     DateTime    @default(now())
 
   @@unique([userId, seanceId])
+}
+
+enum StatutAchat {
+  EN_ATTENTE
+  PAYE
+  ECHOUE
+}
+
+// Achat à l'unité (Stripe Checkout) débloquant le programme PDF d'une séance payante.
+// Pas de compte requis : userId est optionnel (achat "invité", identifié seulement par
+// l'email collecté par Stripe) — l'accès est alors débloqué via un jeton signé (voir
+// GET /api/achats/verifier-session), pas via l'appartenance à un compte.
+model Achat {
+  id              String      @id @default(cuid())
+  user            User?       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId          String?
+  email           String?
+  seance          Seance      @relation(fields: [seanceId], references: [id], onDelete: Cascade)
+  seanceId        String
+  montantCentimes Int
+  devise          String      @default("eur")
+  statut          StatutAchat @default(EN_ATTENTE)
+  stripeSessionId String?     @unique
+  createdAt       DateTime    @default(now())
 }
 
 model UserProgress {

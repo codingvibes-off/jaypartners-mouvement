@@ -50,6 +50,7 @@ export interface Seance {
   categorie?: string;
   categorieEn?: string;
   createdAt?: string;
+  prixCentimes?: number | null;
   mouvements?: SeanceMouvement[];
 }
 

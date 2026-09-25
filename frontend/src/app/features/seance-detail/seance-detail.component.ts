@@ -1,4 +1,4 @@
-import { Component, OnInit, signal } from '@angular/core';
+import { Component, OnInit, computed, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
@@ -11,6 +11,7 @@ import { LangService } from '../../core/services/lang.service';
 import { LocalisePipe } from '../../shared/pipes/localise.pipe';
 import { AuthService } from '../../core/services/auth.service';
 import { EngagementService } from '../../core/services/engagement.service';
+import { AchatService } from '../../core/services/achat.service';
 
 @Component({
   selector: 'app-seance-detail',
@@ -28,6 +29,16 @@ export class SeanceDetailComponent implements OnInit {
   enregistrementEnCours = signal(false);
   readonly joursSemaine: JourSemaine[] = ['LUNDI', 'MARDI', 'MERCREDI', 'JEUDI', 'VENDREDI', 'SAMEDI', 'DIMANCHE'];
 
+  /** Programme payant (achat à l'unité, sans compte requis) : gratuit tant que prixCentimes
+   *  est absent/nul. */
+  estPayante = computed(() => !!this.seance()?.prixCentimes);
+  achatEnCours = signal(false);
+  erreurAchat = signal<string | null>(null);
+  /** Contenu visible (mouvements, démarrage, PDF) : le backend renvoie déjà les mouvements
+   *  réels uniquement si la séance est gratuite, achetée (compte) ou débloquée par jeton
+   *  invité — s'ils sont présents pour une séance payante, c'est qu'elle est débloquée. */
+  contenuDebloque = computed(() => !this.estPayante() || (this.seance()?.mouvements?.length ?? 0) > 0);
+
   constructor(
     private route: ActivatedRoute,
     private seanceService: SeanceService,
@@ -35,6 +46,7 @@ export class SeanceDetailComponent implements OnInit {
     private translate: TranslateService,
     public auth: AuthService,
     private engagementService: EngagementService,
+    private achatService: AchatService,
   ) {}
 
   /** Repli sur le français si la traduction anglaise est absente (même logique que LocalisePipe). */
@@ -46,13 +58,20 @@ export class SeanceDetailComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id');
     if (!id) return;
 
-    this.seanceService.obtenirDetail(id).subscribe({
-      next: (seance) => {
-        this.seance.set(seance);
-        this.chargement.set(false);
-      },
-      error: () => this.chargement.set(false),
-    });
+    const sessionId = this.route.snapshot.queryParamMap.get('session_id');
+    if (sessionId) {
+      this.achatService.verifierSession(sessionId).subscribe({
+        next: (res) => {
+          if (res.deverrouille && res.jeton) {
+            localStorage.setItem(this.cleJeton(id), res.jeton);
+          }
+          this.chargerSeance(id);
+        },
+        error: () => this.chargerSeance(id),
+      });
+    } else {
+      this.chargerSeance(id);
+    }
 
     if (this.auth.estConnecte()) {
       this.engagementService.obtenirEngagement(id).subscribe({
@@ -60,6 +79,40 @@ export class SeanceDetailComponent implements OnInit {
         error: () => this.engagement.set(null),
       });
     }
+  }
+
+  private cleJeton(seanceId: string): string {
+    return `nm_programme_jeton_${seanceId}`;
+  }
+
+  private chargerSeance(id: string): void {
+    const jeton = localStorage.getItem(this.cleJeton(id)) || undefined;
+    this.seanceService.obtenirDetail(id, jeton).subscribe({
+      next: (seance) => {
+        this.seance.set(seance);
+        this.chargement.set(false);
+      },
+      error: () => this.chargement.set(false),
+    });
+  }
+
+  /** Achat à l'unité, sans compte requis — l'accès est débloqué par jeton (voir
+   *  verifierSession) plutôt que par une session utilisateur. */
+  acheterProgramme(): void {
+    const seance = this.seance();
+    if (!seance || this.achatEnCours()) return;
+
+    this.erreurAchat.set(null);
+    this.achatEnCours.set(true);
+    this.achatService.demarrerAchat(seance.id).subscribe({
+      next: (res) => {
+        window.location.href = res.url;
+      },
+      error: (err) => {
+        this.erreurAchat.set(err?.error?.message || 'Paiement indisponible pour le moment.');
+        this.achatEnCours.set(false);
+      },
+    });
   }
 
   choisirJour(jour: JourSemaine): void {

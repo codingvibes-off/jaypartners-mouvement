@@ -1,5 +1,7 @@
 const express = require("express");
 const prisma = require("../lib/prisma");
+const { auteurOptionnel } = require("../middleware/auth");
+const { verifierJetonProgramme } = require("../lib/jetonProgramme");
 
 const router = express.Router();
 
@@ -37,8 +39,12 @@ router.get("/", async (req, res) => {
   );
 });
 
-// GET /api/seances/:id -> détail d'une séance avec ses mouvements ordonnés
-router.get("/:id", async (req, res) => {
+// GET /api/seances/:id?jeton=... -> détail d'une séance avec ses mouvements ordonnés
+// auteurOptionnel : ne bloque jamais la requête (la fiche séance reste publique), mais
+// peuple req.user si un jeton (session) valide est fourni, pour vérifier l'achat ci-dessous.
+// `jeton` (query) : reçu d'achat invité délivré par /api/achats/verifier-session, permet de
+// débloquer sans compte — voir lib/jetonProgramme.
+router.get("/:id", auteurOptionnel, async (req, res) => {
   const seance = await prisma.seance.findUnique({
     where: { id: req.params.id },
     include: {
@@ -50,6 +56,24 @@ router.get("/:id", async (req, res) => {
   });
 
   if (!seance) return res.status(404).json({ message: "Séance introuvable" });
+
+  if (seance.prixCentimes) {
+    const jetonValide = verifierJetonProgramme(req.query.jeton, seance.id);
+
+    const achat = !jetonValide && req.user
+      ? await prisma.achat.findFirst({
+          where: { userId: req.user.id, seanceId: seance.id, statut: "PAYE" },
+        })
+      : null;
+
+    if (!jetonValide && !achat) {
+      // Programme payant non débloqué : la fiche (titre, description, badges) reste
+      // visible pour donner envie d'acheter, mais le contenu réel (mouvements) est retiré
+      // côté serveur — un utilisateur ne peut pas le récupérer en lisant juste la requête réseau.
+      return res.json({ ...seance, mouvements: [] });
+    }
+  }
+
   res.json(seance);
 });
 

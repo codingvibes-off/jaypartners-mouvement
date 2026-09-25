@@ -24,9 +24,10 @@ export class SeanceService {
       .pipe(map((rangees) => rangees.flatMap((r) => r.seances)));
   }
 
-  obtenirDetail(id: string): Observable<Seance> {
+  obtenirDetail(id: string, jeton?: string): Observable<Seance> {
+    const params: { jeton?: string } = jeton ? { jeton } : {};
     return this.http
-      .get<Seance>(`${this.baseUrl}/${id}`)
+      .get<Seance>(`${this.baseUrl}/${id}`, { params })
       .pipe(map((seance) => ({ ...seance, mouvements: seance.mouvements ?? [] })));
   }
 }

@@ -29,15 +29,6 @@ const MARGE_CHARGEMENT_PX = 500;
 
 export const UNIVERS: UniversConfig[] = [
   {
-    id: 'pilates',
-    label: 'Pilates',
-    categorie: 'Pilates',
-    accent: '#e879f9',
-    accentRgb: '232, 121, 249',
-    fond: '#130a17',
-    tagline: 'Contrôle, gainage, précision.',
-  },
-  {
     id: 'mobilite',
     label: 'Mobilité',
     categorie: 'Mobilité',

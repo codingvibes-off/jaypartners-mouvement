@@ -192,3 +192,37 @@ h1 {
   font-size: 18px;
   margin-bottom: 16px;
 }
+
+.badge-prix {
+  gap: 5px;
+}
+
+.erreur-achat {
+  margin-top: 12px;
+  color: #ff6b6b;
+  font-size: 13px;
+}
+
+.paywall {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+  padding: 64px 48px 100px;
+  max-width: 480px;
+  margin: 0 auto;
+  color: var(--accent-primary);
+}
+
+.paywall h2 {
+  font-family: var(--font-body);
+  font-size: 20px;
+  color: var(--text-primary);
+}
+
+.paywall p {
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.6;
+}
