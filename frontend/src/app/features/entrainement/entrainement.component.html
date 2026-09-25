@@ -23,7 +23,7 @@
           <button class="btn-primaire btn-large" (click)="validerSeance()" [disabled]="enCoursValidation()">
             {{ enCoursValidation() ? ('entrainement.validation' | translate) : ('entrainement.valider' | translate) }}
           </button>
-        } @else {
+        } @else if (estActive('boutonsConnexion')) {
           <p class="connexion-requise">
             <a routerLink="/connexion">{{ 'entrainement.connecteToi' | translate }}</a> {{ 'entrainement.connexionRequise' | translate }}
           </p>

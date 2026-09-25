@@ -12,6 +12,7 @@ import { IconComponent } from '../../shared/components/icon/icon.component';
 import { LocalisePipe } from '../../shared/pipes/localise.pipe';
 import { Seance, SeanceMouvement } from '../../core/models/models';
 import { CITATIONS_DERNIERE_SERIE, CITATIONS_DERNIERE_SERIE_EN } from './citations';
+import { estActive } from '../../core/guards/fonctionnalite.guard';
 import { environment } from '../../../environments/environment';
 
 const DELAI_FERMETURE_AUTO_MS = 6000;
@@ -25,6 +26,9 @@ const DUREE_REPOS_S = 90;
   styleUrls: ['./entrainement.component.css'],
 })
 export class EntrainementComponent implements OnInit, OnDestroy {
+  /** Entrées vers la connexion masquées selon environment.fonctionnalites. */
+  readonly estActive = estActive;
+
   @ViewChild('videoRef') videoElRef?: ElementRef<HTMLVideoElement>;
 
   seance = signal<Seance | null>(null);

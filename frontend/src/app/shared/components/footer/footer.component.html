@@ -7,7 +7,9 @@
       }
       @if (estActive('liensFooter')) {
         <a routerLink="/calendrier">{{ 'footer.calendrier' | translate }}</a>
-        <a routerLink="/inscription">{{ 'footer.creerCompte' | translate }}</a>
+        @if (estActive('boutonsConnexion')) {
+          <a routerLink="/inscription">{{ 'footer.creerCompte' | translate }}</a>
+        }
       }
     </nav>
 

@@ -59,7 +59,7 @@
     }
   </section>
 
-  @if (contenuDebloque()) {
+  @if (contenuDebloque() && (auth.estConnecte() || estActive('boutonsConnexion'))) {
     <section class="engagement-hebdo">
       @if (!auth.estConnecte()) {
         <p class="connexion-requise">

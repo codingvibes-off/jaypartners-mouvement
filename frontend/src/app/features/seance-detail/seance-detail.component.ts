@@ -11,6 +11,7 @@ import { EngagementHebdomadaire, JourSemaine, Seance } from '../../core/models/m
 import { LangService } from '../../core/services/lang.service';
 import { LocalisePipe } from '../../shared/pipes/localise.pipe';
 import { AuthService } from '../../core/services/auth.service';
+import { estActive } from '../../core/guards/fonctionnalite.guard';
 import { EngagementService } from '../../core/services/engagement.service';
 import { AchatService } from '../../core/services/achat.service';
 import { titrePage } from '../../core/services/titre.strategy';
@@ -23,6 +24,9 @@ import { titrePage } from '../../core/services/titre.strategy';
   styleUrls: ['./seance-detail.component.css'],
 })
 export class SeanceDetailComponent implements OnInit {
+  /** Entrées vers la connexion masquées selon environment.fonctionnalites. */
+  readonly estActive = estActive;
+
   seance = signal<Seance | null>(null);
   chargement = signal(true);
 
