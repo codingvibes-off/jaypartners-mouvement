@@ -59,38 +59,40 @@
     }
   </section>
 
-  @if (contenuDebloque() && (auth.estConnecte() || estActive('boutonsConnexion'))) {
-    <section class="engagement-hebdo">
-      @if (!auth.estConnecte()) {
-        <p class="connexion-requise">
-          <a routerLink="/connexion">{{ 'engagement.connecteToi' | translate }}</a> {{ 'engagement.connexionRequise' | translate }}
-        </p>
-      } @else if (!engagement() || modificationEngagement()) {
-        <h2>{{ 'engagement.titre' | translate }}</h2>
-        <p class="engagement-texte">{{ 'engagement.texte' | translate }}</p>
-        <div class="jours-pilules">
-          @for (jour of joursSemaine; track jour; let i = $index) {
-            <button
-              class="jour-pilule"
-              [class.actif]="engagement()?.jour === jour"
-              [disabled]="enregistrementEnCours()"
-              (click)="choisirJour(jour)"
-            >
-              {{ ('engagement.jours' | translate)[i] }}
-            </button>
-          }
-        </div>
-      } @else {
-        <h2>{{ 'engagement.titre' | translate }}</h2>
-        <p class="engagement-confirmation">
-          {{ 'engagement.confirmation' | translate: { jour: ('engagement.jours' | translate)[joursSemaine.indexOf(engagement()!.jour)] } }}
-        </p>
-        <div class="engagement-actions">
-          <button class="btn-secondaire" (click)="changerJour()">{{ 'engagement.changerJour' | translate }}</button>
-          <button class="btn-lien" (click)="annulerEngagement()">{{ 'engagement.annuler' | translate }}</button>
-        </div>
-      }
-    </section>
+  @if (contenuDebloque()) {
+    @if (auth.estConnecte() || estActive('boutonsConnexion')) {
+      <section class="engagement-hebdo">
+        @if (!auth.estConnecte()) {
+          <p class="connexion-requise">
+            <a routerLink="/connexion">{{ 'engagement.connecteToi' | translate }}</a> {{ 'engagement.connexionRequise' | translate }}
+          </p>
+        } @else if (!engagement() || modificationEngagement()) {
+          <h2>{{ 'engagement.titre' | translate }}</h2>
+          <p class="engagement-texte">{{ 'engagement.texte' | translate }}</p>
+          <div class="jours-pilules">
+            @for (jour of joursSemaine; track jour; let i = $index) {
+              <button
+                class="jour-pilule"
+                [class.actif]="engagement()?.jour === jour"
+                [disabled]="enregistrementEnCours()"
+                (click)="choisirJour(jour)"
+              >
+                {{ ('engagement.jours' | translate)[i] }}
+              </button>
+            }
+          </div>
+        } @else {
+          <h2>{{ 'engagement.titre' | translate }}</h2>
+          <p class="engagement-confirmation">
+            {{ 'engagement.confirmation' | translate: { jour: ('engagement.jours' | translate)[joursSemaine.indexOf(engagement()!.jour)] } }}
+          </p>
+          <div class="engagement-actions">
+            <button class="btn-secondaire" (click)="changerJour()">{{ 'engagement.changerJour' | translate }}</button>
+            <button class="btn-lien" (click)="annulerEngagement()">{{ 'engagement.annuler' | translate }}</button>
+          </div>
+        }
+      </section>
+    }
 
     <section class="liste-mouvements">
       <h2>{{ 'seanceDetail.mouvements' | translate }}</h2>
