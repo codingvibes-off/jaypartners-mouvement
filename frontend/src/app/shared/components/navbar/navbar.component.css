@@ -7,6 +7,17 @@
   background: transparent;
 }
 
+/* Mobile/tablette : la pilule (qui porte le contraste sur desktop) est masquée, le
+   bandeau reprend donc un fond sombre pour que le contenu ne défile pas sous le logo. */
+@media (max-width: 1024px) {
+  .navbar {
+    background: rgba(10, 10, 10, 0.92);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(16px) saturate(140%);
+    -webkit-backdrop-filter: blur(16px) saturate(140%);
+  }
+}
+
 .navbar-inner {
   position: relative;
   display: flex;
