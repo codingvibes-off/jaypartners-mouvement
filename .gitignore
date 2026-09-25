@@ -1,1 +1,11 @@
+# Secrets
 backend/.env
+
+# Dépendances et fichiers générés
+node_modules/
+frontend/dist/
+frontend/.angular/
+
+# Système / éditeur
+.DS_Store
+.vscode/
