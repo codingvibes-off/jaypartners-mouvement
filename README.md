@@ -11,8 +11,8 @@ cp .env.example .env        # renseigne DATABASE_URL (Postgres) et JWT_SECRET
 npx prisma migrate dev --name init
 npm run prisma:seed         # charge des séances + mouvements de démo
 npm run dev                 # API sur http://localhost:3000
+npx ng serve --configuration prod-local
 ```
-
 ## Démarrage frontend
 
 ```bash
@@ -20,6 +20,7 @@ cd frontend
 npm install
 npm start                   # app sur http://localhost:4200
 ```
+
 
 ## Ce qui est déjà en place
 

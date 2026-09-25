@@ -307,8 +307,8 @@ async function main() {
   const fondamentaux = MOUVEMENTS_PILATES.slice(0, 10);
   const intense = MOUVEMENTS_PILATES.slice(10, 20);
 
-  await creerSeance("Pilates Fondamentaux", "DEBUTANT", 40, fondamentaux, idParNom);
-  await creerSeance("Pilates Intense", "INTERMEDIAIRE", 45, intense, idParNom);
+  await creerSeance("Pilates Fondamentaux", "DEBUTANT", 15, fondamentaux, idParNom);
+  await creerSeance("Pilates Intense", "INTERMEDIAIRE", 15, intense, idParNom);
 }
 
 main()

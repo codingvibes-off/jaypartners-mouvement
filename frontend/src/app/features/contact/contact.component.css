@@ -77,8 +77,16 @@
 }
 
 .icone-reseau {
-  font-size: 34px;
+  width: 56px;
+  height: 56px;
   flex-shrink: 0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-primary);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
 }
 
 .infos-reseau {

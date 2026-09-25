@@ -221,7 +221,7 @@ async function creerSeancesAthletisme(catalogue) {
         description: `Programme athlétisme regroupant ${groupe.length} mouvements de course et de préparation physique générale.`,
         genre,
         niveau: niveauMajoritaire(groupe),
-        dureeMin: Math.max(20, groupe.length * 4),
+        dureeMin: 15,
         categorie: "Athlétisme",
         ordre: i + 1,
         mouvements: {
@@ -247,10 +247,10 @@ async function main() {
   console.log(`  ${MOUVEMENTS_HYROX.length} mouvements Hyrox disponibles.`);
 
   console.log("Création des séances Hyrox...");
-  await creerSeanceHyrox("Hyrox Race Prep", "INTERMEDIAIRE", 55, idParNom);
-  await creerSeanceHyrox("Hyrox Elite", "AVANCE", 65, idParNom);
-  await creerSeanceHyrox("Hyrox Sprint", "DEBUTANT", 40, idParNom);
-  await creerSeanceHyrox("Hyrox Endurance", "INTERMEDIAIRE", 70, idParNom);
+  await creerSeanceHyrox("Hyrox Race Prep", "INTERMEDIAIRE", 15, idParNom);
+  await creerSeanceHyrox("Hyrox Elite", "AVANCE", 15, idParNom);
+  await creerSeanceHyrox("Hyrox Sprint", "DEBUTANT", 15, idParNom);
+  await creerSeanceHyrox("Hyrox Endurance", "INTERMEDIAIRE", 15, idParNom);
 
   console.log("Création des séances Athlétisme...");
   const catalogue = chargerCatalogue();

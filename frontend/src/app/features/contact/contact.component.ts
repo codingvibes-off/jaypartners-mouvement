@@ -9,7 +9,6 @@ interface ReseauContact {
   handleKey?: string;
   descriptionKey: string;
   href: string;
-  icone: string;
 }
 
 @Component({
@@ -26,42 +25,36 @@ export class ContactComponent {
       handleKey: 'contact.whatsappHandle',
       descriptionKey: 'contact.whatsappDescription',
       href: 'https://chat.whatsapp.com/JjnHgQQxVQMF5olJZFvjlc?s=cl&p=i&ilr=4&amv=2',
-      icone: '💬',
     },
     {
       nom: 'Instagram',
       handle: '@jaypartner.s',
       descriptionKey: 'contact.instagramDescription',
       href: 'https://www.instagram.com/jaypartner.s/',
-      icone: '📸',
     },
     {
       nom: 'TikTok',
       handle: '@jaypartner.s',
       descriptionKey: 'contact.tiktokDescription',
       href: 'https://www.tiktok.com/@jaypartner.s',
-      icone: '🎵',
     },
     {
       nom: 'YouTube',
       handle: '@JAYPARTNERS',
       descriptionKey: 'contact.youtubeDescription',
       href: 'https://www.youtube.com/@JAYPARTNERS',
-      icone: '▶️',
     },
     {
       nom: 'LinkedIn',
       handle: 'Justine Pegas',
       descriptionKey: 'contact.linkedinDescription',
       href: 'https://www.linkedin.com/in/justine-pegas-3028461b7/',
-      icone: '💼',
     },
     {
       nom: 'Calendly',
       handleKey: 'contact.calendlyHandle',
       descriptionKey: 'contact.calendlyDescription',
       href: 'https://calendly.com/jaypartners-coach',
-      icone: '📅',
     },
   ];
 }

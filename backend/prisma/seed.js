@@ -101,7 +101,7 @@ async function main() {
       description: "Séance de renforcement complet pour construire des bases solides.",
       genre: "HOMME",
       niveau: "DEBUTANT",
-      dureeMin: 25,
+      dureeMin: 15,
       categorie: "Renforcement",
       ordre: 1,
       mouvements: {
@@ -119,7 +119,7 @@ async function main() {
       description: "Séance ciblée fessiers et gainage pour renforcer le bas du corps.",
       genre: "FEMME",
       niveau: "INTERMEDIAIRE",
-      dureeMin: 30,
+      dureeMin: 15,
       categorie: "Renforcement",
       ordre: 1,
       mouvements: {

@@ -93,7 +93,7 @@ async function creerSeancesParCategorie(exercices, idParNom) {
           description: `Programme ${nomBase.toLowerCase()} regroupant ${groupe.length} mouvements variés.`,
           genre,
           niveau: niveauMajoritaire(groupe),
-          dureeMin: Math.max(20, groupe.length * 4),
+          dureeMin: 15,
           categorie: categorieLisible,
           ordre: i + 1,
           mouvements: {

@@ -120,7 +120,7 @@ const SEANCES = [
     titre: "Bas du Corps Élastique 1",
     titreEn: "Lower Body Resistance Band 1",
     niveau: "DEBUTANT",
-    dureeMin: 25,
+    dureeMin: 15,
     mouvements: [
       { nom: "Squat Élastique", series: 4, repetitions: "20" },
       { nom: "Squat Jump Élastique", series: 3, repetitions: "10" },
@@ -133,7 +133,7 @@ const SEANCES = [
     titre: "Bas du Corps Élastique 2",
     titreEn: "Lower Body Resistance Band 2",
     niveau: "DEBUTANT",
-    dureeMin: 28,
+    dureeMin: 15,
     mouvements: [
       { nom: "Squat Élastique", series: 4, repetitions: "10" },
       { nom: "Fentes Arrière Haltères", series: 4, repetitions: "15/jambe" },
@@ -146,7 +146,7 @@ const SEANCES = [
     titre: "Bas du Corps Élastique 3",
     titreEn: "Lower Body Resistance Band 3",
     niveau: "INTERMEDIAIRE",
-    dureeMin: 32,
+    dureeMin: 15,
     mouvements: [
       { nom: "Squat Déplacé Élastique", series: 3, repetitions: "20" },
       { nom: "RDL Haltères", series: 3, repetitions: "20" },
