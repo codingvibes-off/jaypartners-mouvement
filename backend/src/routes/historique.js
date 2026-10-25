@@ -1,12 +1,13 @@
 const express = require("express");
 const prisma = require("../lib/prisma");
 const { requireAuth } = require("../middleware/auth");
+const { texte } = require("../lib/validation");
 
 const router = express.Router();
 
 // POST /api/historique -> valide une séance pour aujourd'hui
 router.post("/", requireAuth, async (req, res) => {
-  const { seanceId } = req.body;
+  const seanceId = texte(req.body.seanceId);
   if (!seanceId) return res.status(400).json({ message: "seanceId requis" });
 
   const seance = await prisma.seance.findUnique({ where: { id: seanceId } });

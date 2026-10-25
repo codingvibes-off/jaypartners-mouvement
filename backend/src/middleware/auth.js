@@ -1,4 +1,6 @@
 const jwt = require("jsonwebtoken");
+const prisma = require("../lib/prisma");
+const { JWT_SECRET, OPTIONS_VERIFICATION } = require("../lib/jwtSecret");
 
 function requireAuth(req, res, next) {
   const header = req.headers.authorization;
@@ -7,7 +9,7 @@ function requireAuth(req, res, next) {
   }
   const token = header.split(" ")[1];
   try {
-    const payload = jwt.verify(token, process.env.JWT_SECRET || "dev_secret_change_me");
+    const payload = jwt.verify(token, JWT_SECRET, OPTIONS_VERIFICATION);
     req.user = payload;
     next();
   } catch (err) {
@@ -15,8 +17,13 @@ function requireAuth(req, res, next) {
   }
 }
 
-function requireAdmin(req, res, next) {
-  if (req.user?.role !== "ADMIN") {
+// Le rôle est relu en base plutôt que lu dans le jeton : un admin rétrogradé perd l'accès
+// immédiatement, sans attendre l'expiration de sa session.
+async function requireAdmin(req, res, next) {
+  const user = req.user?.id
+    ? await prisma.user.findUnique({ where: { id: req.user.id }, select: { role: true } })
+    : null;
+  if (user?.role !== "ADMIN") {
     return res.status(403).json({ message: "Accès réservé aux administrateurs" });
   }
   next();
@@ -29,7 +36,7 @@ function auteurOptionnel(req, res, next) {
   const header = req.headers.authorization;
   if (header && header.startsWith("Bearer ")) {
     try {
-      req.user = jwt.verify(header.split(" ")[1], process.env.JWT_SECRET || "dev_secret_change_me");
+      req.user = jwt.verify(header.split(" ")[1], JWT_SECRET, OPTIONS_VERIFICATION);
     } catch (err) {
       // Jeton invalide/expiré : on continue simplement sans utilisateur authentifié.
     }

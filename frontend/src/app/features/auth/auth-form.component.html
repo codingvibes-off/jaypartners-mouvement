@@ -58,7 +58,7 @@
 
       <label>
         {{ 'auth.motDePasse' | translate }}
-        <input type="password" name="password" [(ngModel)]="password" required minlength="6" />
+        <input type="password" name="password" [(ngModel)]="password" required [minlength]="estInscription ? 8 : null" maxlength="72" />
       </label>
 
       @if (erreur()) {

@@ -3,13 +3,15 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { z } = require("zod");
 const prisma = require("../lib/prisma");
+const { JWT_SECRET } = require("../lib/jwtSecret");
 
 const router = express.Router();
 
 const inscriptionSchema = z.object({
-  email: z.string().email(),
-  password: z.string().min(6),
-  prenom: z.string().min(1),
+  email: z.string().email().max(254),
+  // bcrypt ignore tout ce qui dépasse 72 octets
+  password: z.string().min(8).max(72),
+  prenom: z.string().trim().min(1).max(100),
 });
 
 router.post("/inscription", async (req, res) => {
@@ -34,8 +36,8 @@ router.post("/inscription", async (req, res) => {
 });
 
 const connexionSchema = z.object({
-  email: z.string().email(),
-  password: z.string().min(1),
+  email: z.string().email().max(254),
+  password: z.string().min(1).max(200),
 });
 
 router.post("/connexion", async (req, res) => {
@@ -63,14 +65,14 @@ router.post("/connexion", async (req, res) => {
 // (obtenu côté client par GoogleAuthService avec google.accounts.oauth2.initTokenClient).
 router.post("/google", async (req, res) => {
   const { accessToken } = req.body;
-  if (!accessToken) return res.status(400).json({ message: "accessToken requis" });
+  if (typeof accessToken !== "string" || !accessToken || accessToken.length > 4096) return res.status(400).json({ message: "accessToken requis" });
 
   // 1) Vérifie que le jeton a bien été émis pour NOTRE client Google (empêche un jeton
   //    obtenu par une autre application d'être utilisé pour se connecter ici).
   const infoRes = await fetch(`https://oauth2.googleapis.com/tokeninfo?access_token=${encodeURIComponent(accessToken)}`);
   if (!infoRes.ok) return res.status(401).json({ message: "Jeton Google invalide" });
   const info = await infoRes.json();
-  if (info.aud !== process.env.GOOGLE_CLIENT_ID) {
+  if (!process.env.GOOGLE_CLIENT_ID || info.aud !== process.env.GOOGLE_CLIENT_ID) {
     return res.status(401).json({ message: "Jeton Google invalide" });
   }
 
@@ -108,7 +110,7 @@ router.post("/google", async (req, res) => {
 function signToken(user) {
   return jwt.sign(
     { id: user.id, email: user.email, role: user.role },
-    process.env.JWT_SECRET || "dev_secret_change_me",
+    JWT_SECRET,
     { expiresIn: "7d" }
   );
 }

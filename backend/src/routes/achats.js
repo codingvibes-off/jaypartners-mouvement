@@ -1,8 +1,9 @@
 const express = require("express");
 const prisma = require("../lib/prisma");
 const { auteurOptionnel, requireAuth } = require("../middleware/auth");
-const { obtenirStripe } = require("../lib/stripe");
+const { obtenirStripe, sessionPayeeEnTotalite } = require("../lib/stripe");
 const { signerJetonProgramme } = require("../lib/jetonProgramme");
+const { texte } = require("../lib/validation");
 
 const router = express.Router();
 
@@ -11,7 +12,7 @@ const router = express.Router();
 // req.user si l'acheteur est connecté (achat rattaché à son compte, visible sur tous ses
 // appareils), sinon l'achat reste "invité" (débloqué via jeton, voir /verifier-session).
 router.post("/checkout", auteurOptionnel, async (req, res) => {
-  const { seanceId } = req.body;
+  const seanceId = texte(req.body.seanceId);
   if (!seanceId) return res.status(400).json({ message: "seanceId requis" });
 
   const seance = await prisma.seance.findUnique({ where: { id: seanceId } });
@@ -51,7 +52,8 @@ router.post("/checkout", auteurOptionnel, async (req, res) => {
       metadata: { userId: req.user?.id || "", seanceId },
     });
   } catch (err) {
-    return res.status(502).json({ message: "Paiement indisponible pour le moment (Stripe non configuré)", detail: err.message });
+    console.error("Création de session Stripe impossible :", err.message);
+    return res.status(502).json({ message: "Paiement indisponible pour le moment" });
   }
 
   await prisma.achat.create({
@@ -71,7 +73,8 @@ router.post("/checkout", auteurOptionnel, async (req, res) => {
 // retour sur le site (succès invité ou connecté) et délivre un jeton d'accès si payée.
 // Publique (pas de compte requis) : la session Stripe elle-même fait office de preuve.
 router.get("/verifier-session/:sessionId", async (req, res) => {
-  const { sessionId } = req.params;
+  const sessionId = texte(req.params.sessionId, 255);
+  if (!sessionId) return res.status(404).json({ deverrouille: false });
 
   let achat = await prisma.achat.findUnique({ where: { stripeSessionId: sessionId } });
   if (!achat) return res.status(404).json({ deverrouille: false });
@@ -82,7 +85,7 @@ router.get("/verifier-session/:sessionId", async (req, res) => {
     try {
       const stripe = obtenirStripe();
       const session = await stripe.checkout.sessions.retrieve(sessionId);
-      if (session.payment_status === "paid") {
+      if (sessionPayeeEnTotalite(session, achat)) {
         achat = await prisma.achat.update({
           where: { id: achat.id },
           data: { statut: "PAYE", email: session.customer_details?.email || achat.email },

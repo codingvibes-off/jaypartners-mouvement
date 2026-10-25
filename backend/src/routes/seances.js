@@ -2,6 +2,7 @@ const express = require("express");
 const prisma = require("../lib/prisma");
 const { auteurOptionnel } = require("../middleware/auth");
 const { verifierJetonProgramme } = require("../lib/jetonProgramme");
+const { texte } = require("../lib/validation");
 
 const router = express.Router();
 
@@ -14,7 +15,10 @@ const AVEC_VIDEO = { cfStreamStatus: "ready" };
 // coach=FEMME|HOMME|DUO -> filtre par coach (indépendant de genre), utilisé par l'accueil et /duo
 // avecVideo=true -> uniquement les séances contenant au moins un mouvement avec une vraie vidéo
 router.get("/", async (req, res) => {
-  const { genre, categorie, strict, coach, avecVideo } = req.query; // genre: HOMME | FEMME | MIXTE ; coach: FEMME | HOMME | DUO
+  const { strict, avecVideo } = req.query;
+  const genre = texte(req.query.genre); // HOMME | FEMME | MIXTE
+  const categorie = texte(req.query.categorie);
+  const coach = texte(req.query.coach); // FEMME | HOMME | DUO
 
   const conditions = [];
   if (genre) conditions.push(strict === "true" ? { genre } : { OR: [{ genre }, { genre: "MIXTE" }] });
@@ -66,7 +70,7 @@ router.get("/:id", auteurOptionnel, async (req, res) => {
   if (!seance) return res.status(404).json({ message: "Séance introuvable" });
 
   if (seance.prixCentimes) {
-    const jetonValide = verifierJetonProgramme(req.query.jeton, seance.id);
+    const jetonValide = verifierJetonProgramme(texte(req.query.jeton, 2000), seance.id);
 
     const achat = !jetonValide && req.user
       ? await prisma.achat.findFirst({

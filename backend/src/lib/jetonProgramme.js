@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken");
 
-const SECRET = process.env.JWT_SECRET || "dev_secret_change_me";
+const { JWT_SECRET: SECRET, OPTIONS_VERIFICATION } = require("./jwtSecret");
 
 // Jeton d'accès à un programme payant, indépendant d'un compte utilisateur — permet à un
 // acheteur invité (sans connexion) de débloquer sa séance simplement en conservant ce jeton
@@ -10,9 +10,9 @@ function signerJetonProgramme(seanceId) {
 }
 
 function verifierJetonProgramme(jeton, seanceId) {
-  if (!jeton) return false;
+  if (typeof jeton !== "string" || !jeton) return false;
   try {
-    const payload = jwt.verify(jeton, SECRET);
+    const payload = jwt.verify(jeton, SECRET, OPTIONS_VERIFICATION);
     return payload.but === "programme" && payload.seanceId === seanceId;
   } catch (err) {
     return false;

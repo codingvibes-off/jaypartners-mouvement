@@ -1,6 +1,7 @@
 const express = require("express");
 const prisma = require("../lib/prisma");
 const { requireAuth } = require("../middleware/auth");
+const { texte } = require("../lib/validation");
 
 const router = express.Router();
 
@@ -8,7 +9,8 @@ const JOURS_VALIDES = ["LUNDI", "MARDI", "MERCREDI", "JEUDI", "VENDREDI", "SAMED
 
 // POST /api/engagements -> prend (ou met à jour) l'engagement hebdomadaire de l'utilisateur pour une séance
 router.post("/", requireAuth, async (req, res) => {
-  const { seanceId, jour } = req.body;
+  const seanceId = texte(req.body.seanceId);
+  const { jour } = req.body;
   if (!seanceId) return res.status(400).json({ message: "seanceId requis" });
   if (!JOURS_VALIDES.includes(jour)) return res.status(400).json({ message: "jour invalide" });
 

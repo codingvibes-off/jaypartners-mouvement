@@ -1,5 +1,5 @@
 const prisma = require("../lib/prisma");
-const { obtenirStripe } = require("../lib/stripe");
+const { obtenirStripe, sessionPayeeEnTotalite } = require("../lib/stripe");
 
 // Nécessite le corps BRUT de la requête (non parsé en JSON) pour vérifier la signature
 // Stripe — monté séparément dans server.js, avant express.json().
@@ -12,18 +12,19 @@ async function webhookAchats(req, res) {
     const stripe = obtenirStripe();
     event = stripe.webhooks.constructEvent(req.body, signature, secret);
   } catch (err) {
-    return res.status(400).send(`Webhook invalide: ${err.message}`);
+    return res.status(400).send("Webhook invalide");
   }
 
   if (event.type === "checkout.session.completed") {
     const session = event.data.object;
-    if (session.id) {
-      await prisma.achat
-        .update({
-          where: { stripeSessionId: session.id },
-          data: { statut: "PAYE", email: session.customer_details?.email || undefined },
-        })
-        .catch(() => null);
+    const achat = session.id
+      ? await prisma.achat.findUnique({ where: { stripeSessionId: session.id } })
+      : null;
+    if (achat && sessionPayeeEnTotalite(session, achat)) {
+      await prisma.achat.update({
+        where: { id: achat.id },
+        data: { statut: "PAYE", email: session.customer_details?.email || undefined },
+      });
     }
   }
 

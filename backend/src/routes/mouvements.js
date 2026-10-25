@@ -2,12 +2,15 @@ const express = require("express");
 const prisma = require("../lib/prisma");
 const { requireAuth, requireAdmin } = require("../middleware/auth");
 const cloudflareStream = require("../lib/cloudflareStream");
+const { texte } = require("../lib/validation");
 
 const router = express.Router();
 
 // GET /api/mouvements?niveau=DEBUTANT&muscle=Fessiers&q=squat
 router.get("/", async (req, res) => {
-  const { niveau, muscle, q } = req.query;
+  const niveau = texte(req.query.niveau);
+  const muscle = texte(req.query.muscle);
+  const q = texte(req.query.q);
 
   const where = {
     AND: [
